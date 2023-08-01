@@ -1,0 +1,17 @@
+name: book_rec_env
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10.8
+  - notebook
+  - numpy
+  - pandas
+  - scipy
+  - scikit-learn
+  - seaborn
+  - scikit-surprise
+  - pyqt
+  - requests
+  - langdetect
+  - iso-639
