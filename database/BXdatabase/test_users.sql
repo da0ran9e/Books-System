@@ -1,9 +1,9 @@
 create table test_users (
-	id INT,
+	id INT not null identity(1,1) primary key,
 	first_name VARCHAR(50),
 	last_name VARCHAR(50),
-	username VARCHAR(50),
-	password VARCHAR(50),
+	username VARCHAR(50) not null unique,
+	password VARCHAR(50) not null,
 	email VARCHAR(50),
 	phone VARCHAR(50),
 	gender INT,
@@ -13,6 +13,7 @@ create table test_users (
 	location VARCHAR(50),
 	nation VARCHAR(50)
 );
+SET IDENTITY_INSERT test_users ON
 insert into test_users (id, first_name, last_name, username, password, email, phone, gender, birthDate, image, age, location, nation) values (1, 'Valentino', 'Spong', 'vspong0', 'r5R"PLSo', 'vspong0@discovery.com', null, 0, null, 'http://dummyimage.com/180x181.png/cc0000/ffffff', null, null, 'Melanesian');
 insert into test_users (id, first_name, last_name, username, password, email, phone, gender, birthDate, image, age, location, nation) values (2, 'Noak', 'Skotcher', 'nskotcher1', 'k36xAXvEG?3', 'nskotcher1@nifty.com', '591-919-7051', 1, '1934/06/09', 'http://dummyimage.com/213x138.png/cc0000/ffffff', 89, '50840 Ridgeway Point', 'Bangladeshi');
 insert into test_users (id, first_name, last_name, username, password, email, phone, gender, birthDate, image, age, location, nation) values (3, null, 'Pietsma', 'ppietsma2', 'a1.i}HJ~', 'cpietsma2@slashdot.org', null, 2, null, 'http://dummyimage.com/100x200.png/cc0000/ffffff', null, '8048 8th Point', 'Sri Lankan');
@@ -1013,3 +1014,4 @@ insert into test_users (id, first_name, last_name, username, password, email, ph
 insert into test_users (id, first_name, last_name, username, password, email, phone, gender, birthDate, image, age, location, nation) values (998, 'Trixi', 'Meaker', 'tmeakerrp', 'f0V(/G', 'tmeakerrp@marketwatch.com', null, 1, null, 'http://dummyimage.com/208x239.png/ff4444/ffffff', null, '54 Del Sol Plaza', 'Aleut');
 insert into test_users (id, first_name, last_name, username, password, email, phone, gender, birthDate, image, age, location, nation) values (999, 'Ricki', 'Stanning', 'rstanningrq', 'u13}qGXevI', 'rstanningrq@foxnews.com', null, 2, '1922/05/12', null, 101, '05459 Northview Terrace', null);
 insert into test_users (id, first_name, last_name, username, password, email, phone, gender, birthDate, image, age, location, nation) values (1000, 'Adolf', 'Dowty', 'adowtyrr', 'i1Q%>dR>~G', null, null, 1, null, 'http://dummyimage.com/245x197.png/5fa2dd/ffffff', null, '08 Norway Maple Trail', 'Navajo');
+SET IDENTITY_INSERT test_users OFF
