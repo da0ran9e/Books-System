@@ -148,14 +148,26 @@ namespace WinForms
             forgotPass.ForeColor = Color.White;
         }
 
-        private void textBox4_TextChanged(object sender, EventArgs e)
+        private void usernameTextbox_TextChanged(object sender, KeyEventArgs e)
         {
-
+            if (e.KeyCode == Keys.Enter)
+                passwordTextbox.Focus();
         }
 
         private void loginNotification_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void passwordTextbox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                label4_Click(sender, e);
         }
     }
 }

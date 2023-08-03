@@ -197,6 +197,7 @@
             passwordTextbox.PlaceholderText = "Password";
             passwordTextbox.Size = new Size(205, 23);
             passwordTextbox.TabIndex = 1;
+            passwordTextbox.KeyDown += passwordTextbox_KeyDown;
             // 
             // usernameTextbox
             // 
@@ -207,7 +208,7 @@
             usernameTextbox.PlaceholderText = "Username, email, phone";
             usernameTextbox.Size = new Size(205, 23);
             usernameTextbox.TabIndex = 0;
-            usernameTextbox.TextChanged += textBox4_TextChanged;
+            usernameTextbox.KeyDown += usernameTextbox_TextChanged;
             // 
             // panel1
             // 
@@ -216,6 +217,7 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(241, 71);
             panel1.TabIndex = 0;
+            panel1.Paint += panel1_Paint;
             // 
             // loginLabel
             // 
