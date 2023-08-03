@@ -4,7 +4,6 @@ C:\Users\vuduc\OneDrive\Documents\GitHub\Books-System\src\WinForms\bin\Debug\net
 C:\Users\vuduc\OneDrive\Documents\GitHub\Books-System\src\WinForms\bin\Debug\net6.0-windows\WinForms.dll
 C:\Users\vuduc\OneDrive\Documents\GitHub\Books-System\src\WinForms\bin\Debug\net6.0-windows\WinForms.pdb
 C:\Users\vuduc\OneDrive\Documents\GitHub\Books-System\src\WinForms\obj\Debug\net6.0-windows\WinForms.csproj.AssemblyReference.cache
-C:\Users\vuduc\OneDrive\Documents\GitHub\Books-System\src\WinForms\obj\Debug\net6.0-windows\WinForms.Form1.resources
 C:\Users\vuduc\OneDrive\Documents\GitHub\Books-System\src\WinForms\obj\Debug\net6.0-windows\WinForms.Properties.Resources.resources
 C:\Users\vuduc\OneDrive\Documents\GitHub\Books-System\src\WinForms\obj\Debug\net6.0-windows\WinForms.csproj.GenerateResource.cache
 C:\Users\vuduc\OneDrive\Documents\GitHub\Books-System\src\WinForms\obj\Debug\net6.0-windows\WinForms.GeneratedMSBuildEditorConfig.editorconfig
@@ -16,3 +15,12 @@ C:\Users\vuduc\OneDrive\Documents\GitHub\Books-System\src\WinForms\obj\Debug\net
 C:\Users\vuduc\OneDrive\Documents\GitHub\Books-System\src\WinForms\obj\Debug\net6.0-windows\WinForms.pdb
 C:\Users\vuduc\OneDrive\Documents\GitHub\Books-System\src\WinForms\obj\Debug\net6.0-windows\WinForms.genruntimeconfig.cache
 C:\Users\vuduc\OneDrive\Documents\GitHub\Books-System\src\WinForms\obj\Debug\net6.0-windows\ref\WinForms.dll
+C:\Users\vuduc\OneDrive\Documents\GitHub\Books-System\src\WinForms\bin\Debug\net6.0-windows\System.Data.SqlClient.dll
+C:\Users\vuduc\OneDrive\Documents\GitHub\Books-System\src\WinForms\bin\Debug\net6.0-windows\runtimes\win-arm64\native\sni.dll
+C:\Users\vuduc\OneDrive\Documents\GitHub\Books-System\src\WinForms\bin\Debug\net6.0-windows\runtimes\win-x64\native\sni.dll
+C:\Users\vuduc\OneDrive\Documents\GitHub\Books-System\src\WinForms\bin\Debug\net6.0-windows\runtimes\win-x86\native\sni.dll
+C:\Users\vuduc\OneDrive\Documents\GitHub\Books-System\src\WinForms\bin\Debug\net6.0-windows\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\vuduc\OneDrive\Documents\GitHub\Books-System\src\WinForms\bin\Debug\net6.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\vuduc\OneDrive\Documents\GitHub\Books-System\src\WinForms\obj\Debug\net6.0-windows\WinForms.csproj.CopyComplete
+C:\Users\vuduc\OneDrive\Documents\GitHub\Books-System\src\WinForms\obj\Debug\net6.0-windows\WinForms.LoginForm.resources
+C:\Users\vuduc\OneDrive\Documents\GitHub\Books-System\src\WinForms\obj\Debug\net6.0-windows\WinForms.MainForm.resources
