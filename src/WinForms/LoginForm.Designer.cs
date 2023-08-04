@@ -44,6 +44,7 @@
             panel1 = new Panel();
             loginLabel = new Label();
             welcome = new Label();
+            label1 = new Label();
             tableLayoutPanel1.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
             panel3.SuspendLayout();
@@ -65,6 +66,7 @@
             tableLayoutPanel1.Controls.Add(minimize, 4, 0);
             tableLayoutPanel1.Controls.Add(flowLayoutPanel1, 2, 2);
             tableLayoutPanel1.Controls.Add(welcome, 2, 1);
+            tableLayoutPanel1.Controls.Add(label1, 0, 0);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -209,7 +211,7 @@
             usernameTextbox.Enabled = false;
             usernameTextbox.Location = new Point(19, 3);
             usernameTextbox.Name = "usernameTextbox";
-            usernameTextbox.PlaceholderText = "Username, email, phone";
+            usernameTextbox.PlaceholderText = "Username";
             usernameTextbox.Size = new Size(205, 27);
             usernameTextbox.TabIndex = 0;
             usernameTextbox.TextChanged += usernameTextbox_TextChanged;
@@ -249,6 +251,18 @@
             welcome.TabIndex = 4;
             welcome.Text = "Welcome!";
             welcome.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // label1
+            // 
+            label1.Cursor = Cursors.Hand;
+            label1.Image = (Image)resources.GetObject("label1.Image");
+            label1.Location = new Point(3, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(23, 20);
+            label1.TabIndex = 6;
+            label1.MouseDown += label1_MouseDown;
+            label1.MouseMove += LoginForm_MouseMove;
+            label1.MouseUp += LoginForm_MouseUp;
             // 
             // LoginForm
             // 
@@ -294,5 +308,6 @@
         private Panel loginNotification;
         private Label forgotPass;
         private Label register;
+        private Label label1;
     }
 }

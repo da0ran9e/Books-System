@@ -121,6 +121,16 @@
     <value>True</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="label1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1
+        MAAA6mAAADqYAAAXcJy6UTwAAAAHdElNRQfnCAQBGx9de/FUAAAAtklEQVQ4T6WTyw3CMBBE3UsqyCW5
+        BomKkjY5QBsgQQnmTZjlczDO50kjbdY70a4/6R8550by5zowtuiK7qhzehkYevRAgeLey3UontBJTqN4
+        9PIyMAyz9cXgdBmK1Pbkz+IPiNXd7zgktGGa84yOlgoDxZG/INW2YdZR3dBa5Gn2/8BdxAhqrzaCxvyM
+        EJDQJr6Piri0iSOq3wmKDnKa+jF+g0Etb79IFO+7ygLD9scUYKw855SeS8+1pb+1ZQUAAAAASUVORK5C
+        YII=
+</value>
+  </data>
   <data name="$this.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAggAAAKwCAIAAAByBxAsAAAABGdBTUEAALGPC/xhBQAA/8dJREFUeF5M
