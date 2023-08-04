@@ -39,12 +39,13 @@
             loginBtn = new Label();
             loginNotification = new Panel();
             panel2 = new Panel();
+            seePassword = new CheckBox();
             passwordTextbox = new TextBox();
             usernameTextbox = new TextBox();
             panel1 = new Panel();
             loginLabel = new Label();
             welcome = new Label();
-            label1 = new Label();
+            drag = new Label();
             tableLayoutPanel1.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
             panel3.SuspendLayout();
@@ -66,7 +67,7 @@
             tableLayoutPanel1.Controls.Add(minimize, 4, 0);
             tableLayoutPanel1.Controls.Add(flowLayoutPanel1, 2, 2);
             tableLayoutPanel1.Controls.Add(welcome, 2, 1);
-            tableLayoutPanel1.Controls.Add(label1, 0, 0);
+            tableLayoutPanel1.Controls.Add(drag, 0, 0);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -153,7 +154,7 @@
             register.Size = new Size(77, 20);
             register.TabIndex = 1;
             register.Text = "Registers?";
-            register.Click += label6_Click;
+            register.Click += register_Click;
             register.MouseLeave += label6_MouseLeave;
             register.MouseHover += label6_Hover;
             // 
@@ -184,6 +185,7 @@
             // 
             // panel2
             // 
+            panel2.Controls.Add(seePassword);
             panel2.Controls.Add(passwordTextbox);
             panel2.Controls.Add(usernameTextbox);
             panel2.Cursor = Cursors.Hand;
@@ -193,15 +195,25 @@
             panel2.TabIndex = 1;
             panel2.Click += panel2_Onclick;
             // 
+            // seePassword
+            // 
+            seePassword.AutoSize = true;
+            seePassword.Location = new Point(212, 42);
+            seePassword.Name = "seePassword";
+            seePassword.Size = new Size(18, 17);
+            seePassword.TabIndex = 2;
+            seePassword.UseVisualStyleBackColor = true;
+            seePassword.CheckedChanged += seePassword_CheckedChanged;
+            // 
             // passwordTextbox
             // 
             passwordTextbox.Enabled = false;
             passwordTextbox.Location = new Point(19, 36);
             passwordTextbox.Name = "passwordTextbox";
-            passwordTextbox.PasswordChar = '*';
             passwordTextbox.PlaceholderText = "Password";
-            passwordTextbox.Size = new Size(205, 27);
+            passwordTextbox.Size = new Size(187, 27);
             passwordTextbox.TabIndex = 1;
+            passwordTextbox.UseSystemPasswordChar = true;
             passwordTextbox.KeyDown += passwordTextbox_KeyDown;
             // 
             // usernameTextbox
@@ -252,17 +264,17 @@
             welcome.Text = "Welcome!";
             welcome.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // label1
+            // drag
             // 
-            label1.Cursor = Cursors.Hand;
-            label1.Image = (Image)resources.GetObject("label1.Image");
-            label1.Location = new Point(3, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(23, 20);
-            label1.TabIndex = 6;
-            label1.MouseDown += label1_MouseDown;
-            label1.MouseMove += LoginForm_MouseMove;
-            label1.MouseUp += LoginForm_MouseUp;
+            drag.Cursor = Cursors.Hand;
+            drag.Image = (Image)resources.GetObject("drag.Image");
+            drag.Location = new Point(3, 0);
+            drag.Name = "drag";
+            drag.Size = new Size(23, 20);
+            drag.TabIndex = 6;
+            drag.MouseDown += label1_MouseDown;
+            drag.MouseMove += LoginForm_MouseMove;
+            drag.MouseUp += LoginForm_MouseUp;
             // 
             // LoginForm
             // 
@@ -308,6 +320,7 @@
         private Panel loginNotification;
         private Label forgotPass;
         private Label register;
-        private Label label1;
+        private Label drag;
+        private CheckBox seePassword;
     }
 }

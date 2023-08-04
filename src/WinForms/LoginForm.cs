@@ -128,6 +128,13 @@ namespace WinForms
             register.ForeColor = Color.Lime;
         }
 
+        private void register_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            RegistForm regist = new RegistForm();
+            regist.ShowDialog();
+        }
+
         private void label6_MouseLeave(object sender, EventArgs e)
         {
             register.ForeColor = Color.White;
@@ -205,6 +212,18 @@ namespace WinForms
         {
             Cursor = Cursors.Default;
             dragging = false;
+        }
+
+        private void seePassword_CheckedChanged(object sender, EventArgs e)
+        {
+            if (seePassword.Checked)
+            {
+                passwordTextbox.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                passwordTextbox.UseSystemPasswordChar = true;
+            }
         }
     }
 }

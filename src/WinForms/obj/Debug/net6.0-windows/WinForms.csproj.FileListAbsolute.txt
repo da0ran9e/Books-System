@@ -24,3 +24,4 @@ C:\Users\vuduc\OneDrive\Documents\GitHub\Books-System\src\WinForms\bin\Debug\net
 C:\Users\vuduc\OneDrive\Documents\GitHub\Books-System\src\WinForms\obj\Debug\net6.0-windows\WinForms.csproj.CopyComplete
 C:\Users\vuduc\OneDrive\Documents\GitHub\Books-System\src\WinForms\obj\Debug\net6.0-windows\WinForms.LoginForm.resources
 C:\Users\vuduc\OneDrive\Documents\GitHub\Books-System\src\WinForms\obj\Debug\net6.0-windows\WinForms.MainForm.resources
+C:\Users\vuduc\OneDrive\Documents\GitHub\Books-System\src\WinForms\obj\Debug\net6.0-windows\WinForms.RegistForm.resources
