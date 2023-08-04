@@ -135,7 +135,7 @@
             forgotPass.ForeColor = SystemColors.ControlLightLight;
             forgotPass.Location = new Point(124, 42);
             forgotPass.Name = "forgotPass";
-            forgotPass.Size = new Size(100, 15);
+            forgotPass.Size = new Size(130, 20);
             forgotPass.TabIndex = 2;
             forgotPass.Text = "Forgot password?";
             forgotPass.Click += label7_Click;
@@ -148,7 +148,7 @@
             register.ForeColor = SystemColors.ControlLightLight;
             register.Location = new Point(-3, 42);
             register.Name = "register";
-            register.Size = new Size(59, 15);
+            register.Size = new Size(77, 20);
             register.TabIndex = 1;
             register.Text = "Registers?";
             register.Click += label6_Click;
@@ -184,18 +184,21 @@
             // 
             panel2.Controls.Add(passwordTextbox);
             panel2.Controls.Add(usernameTextbox);
+            panel2.Cursor = Cursors.Hand;
             panel2.Location = new Point(3, 226);
             panel2.Name = "panel2";
             panel2.Size = new Size(241, 71);
             panel2.TabIndex = 1;
+            panel2.Click += panel2_Onclick;
             // 
             // passwordTextbox
             // 
+            passwordTextbox.Enabled = false;
             passwordTextbox.Location = new Point(19, 36);
             passwordTextbox.Name = "passwordTextbox";
             passwordTextbox.PasswordChar = '*';
             passwordTextbox.PlaceholderText = "Password";
-            passwordTextbox.Size = new Size(205, 23);
+            passwordTextbox.Size = new Size(205, 27);
             passwordTextbox.TabIndex = 1;
             passwordTextbox.KeyDown += passwordTextbox_KeyDown;
             // 
@@ -203,11 +206,13 @@
             // 
             usernameTextbox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             usernameTextbox.BorderStyle = BorderStyle.FixedSingle;
+            usernameTextbox.Enabled = false;
             usernameTextbox.Location = new Point(19, 3);
             usernameTextbox.Name = "usernameTextbox";
             usernameTextbox.PlaceholderText = "Username, email, phone";
-            usernameTextbox.Size = new Size(205, 23);
+            usernameTextbox.Size = new Size(205, 27);
             usernameTextbox.TabIndex = 0;
+            usernameTextbox.TextChanged += usernameTextbox_TextChanged;
             usernameTextbox.KeyDown += usernameTextbox_TextChanged;
             // 
             // panel1
@@ -227,7 +232,7 @@
             loginLabel.ForeColor = Color.LightCyan;
             loginLabel.Location = new Point(79, 21);
             loginLabel.Name = "loginLabel";
-            loginLabel.Size = new Size(75, 25);
+            loginLabel.Size = new Size(94, 32);
             loginLabel.TabIndex = 0;
             loginLabel.Text = "Login";
             loginLabel.Click += label3_Click;
@@ -247,7 +252,7 @@
             // 
             // LoginForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(9F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlDark;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");

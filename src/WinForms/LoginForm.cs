@@ -169,5 +169,16 @@ namespace WinForms
             if (e.KeyCode == Keys.Enter)
                 label4_Click(sender, e);
         }
+
+        private void usernameTextbox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel2_Onclick(object sender, EventArgs e)
+        {
+            usernameTextbox.Enabled = true;
+            passwordTextbox.Enabled = true;
+        }
     }
 }
