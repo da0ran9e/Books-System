@@ -2,16 +2,22 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace WinForms
 {
     public partial class RegistForm : Form
     {
+        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\vuduc\OneDrive\Documents\BX.mdf;Integrated Security=True;Connect Timeout=30");
+        SqlCommand cmd = new SqlCommand();
+        SqlDataReader dr;
         public RegistForm()
         {
             InitializeComponent();
@@ -82,7 +88,7 @@ namespace WinForms
                 }
                 locationV = location.Text;
                 nationV = nation.Text;
-                birthDateV = birthDate.Value.ToString("yyyy-mm-dd");
+                birthDateV = birthDate.Value.ToString("yyyy-MM-dd");
                 locationV = location.Text;
                 nationV = nation.Text;
                 imageUrlV = imgUrl.Text;
@@ -92,31 +98,41 @@ namespace WinForms
             }
             else if (stepLoc.X == 372)
             {
-                if (password.Text == confirm.Text) passwordV = password.Text;
-                else if (password.Text != confirm.Text)
+                foreach (Label a in confirmNotification.Controls)
                 {
-                    Label notification = new Label();
-                    notification.Text = "Passwords do not match!";
-                    notification.ForeColor = Color.Red;
-                    confirmNotification.Controls.Add(notification);
-                    return;
+                    confirmNotification.Controls.Remove(a);
                 }
-                else if (password.Text == null || password.Text == "")
+                Label notification = new Label();
+                if (password.Text == null || password.Text.Length <= 0)
                 {
-                    Label notification = new Label();
                     notification.Text = "Password cannot be empty!";
                     notification.ForeColor = Color.Red;
-                    confirmNotification.Controls.Add(notification);
-                    return;
+                }
+                else if (password.Text.Length <= 6)
+                {
+                    notification.Text = "Your password must have at least 6 characters!";
+                    notification.ForeColor = Color.Red;
                 }
                 else if (password.Text.Contains(" "))
                 {
-                    Label notification = new Label();
-                    notification.Text = "Password cannot contains space!";
+                    notification.Text = "Your password cannot contains space!";
                     notification.ForeColor = Color.Red;
-                    confirmNotification.Controls.Add(notification);
-                    return;
                 }
+                else if (password.Text != confirm.Text)
+                {
+                    notification.Text = "Passwords do not match!";
+                    notification.ForeColor = Color.Red;
+                }
+                else if (password.Text == confirm.Text)
+                {
+                    passwordV = password.Text;
+                    notification.Text = "Password saved!";
+                    notification.ForeColor = Color.Green;
+                }
+                notification.Size = new Size(600, 32);
+                confirmNotification.Controls.Add(notification);
+                if (notification.ForeColor == Color.Red)
+                    return;
             }
             mainBody.Controls.Add(usernamePanel);
             mainBody.Controls.Remove(firstNamePanel);
@@ -146,6 +162,7 @@ namespace WinForms
 
 
             stepLoc.X = 123;
+            step.Text = "Next";
             step.Location = new Point(stepLoc.X, stepLoc.Y);
             label2.Visible = true;
         }
@@ -155,7 +172,72 @@ namespace WinForms
             Point stepLoc = step.Location;
             if (stepLoc.X == 123)
             {
-                usernameV = usernameLabel.Text;
+                usernameV = username.Text;
+                // check username exsistance 
+                foreach (Label a in usernameNotification.Controls)
+                {
+                    usernameNotification.Controls.Remove(a);
+                }
+                Label notification = new Label();
+                if (username.Text == null || username.Text.Length <= 0)
+                {
+                    notification.Text = "Please enter a username to sign in!";
+                    notification.ForeColor = Color.Red;
+                }
+                else if (usernameV.Length <= 6)
+                {
+                    notification.Text = "Username must have at least 6 characters!";
+                    notification.ForeColor = Color.Red;
+                }
+                else if (usernameV.Contains(" "))
+                {
+                    notification.Text = "Your username cannot contains space!";
+                    notification.ForeColor = Color.Red;
+                }
+                else
+                {
+                    try
+                    {
+                        cmd = new SqlCommand("select * from users where username=@username", con);
+                        cmd.Parameters.AddWithValue("@username", usernameV);
+                        con.Open();
+                        dr = cmd.ExecuteReader();
+                        dr.Read();
+                        if (dr.HasRows)
+                        {
+                            notification.Text = "Username had been taken!";
+                            notification.ForeColor = Color.Red;
+                        }
+                        else
+                        {
+                            notification.Text = "Username save!";
+                            notification.ForeColor = Color.Green;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                    finally
+                    {
+                        // close the reader
+                        if (dr != null)
+                        {
+                            dr.Close();
+                        }
+
+                        //Close the connection
+                        if (con != null)
+                        {
+                            con.Close();
+                        }
+                    }
+
+                }
+                notification.Size = new Size(600, 32);
+                usernameNotification.Controls.Add(notification);
+                if (notification.ForeColor == Color.Red)
+                    return;
             }
             else if (stepLoc.X == 256)
             {
@@ -168,7 +250,7 @@ namespace WinForms
                 }
                 locationV = location.Text;
                 nationV = nation.Text;
-                birthDateV = birthDate.Value.ToString("yyyy-mm-dd");
+                birthDateV = birthDate.Value.ToString("yyyy-MM-dd");
                 locationV = location.Text;
                 nationV = nation.Text;
                 imageUrlV = imgUrl.Text;
@@ -210,8 +292,117 @@ namespace WinForms
 
         private void label2_Click(object sender, EventArgs e)
         {
-            label2.Visible = false;
             Point stepLoc = step.Location;
+            if (stepLoc.X == 123)
+            {
+                usernameV = username.Text;
+                // check username exsistance 
+                foreach (Label a in usernameNotification.Controls)
+                {
+                    usernameNotification.Controls.Remove(a);
+                }
+                Label notification = new Label();
+                if (username.Text == null || username.Text.Length <= 0)
+                {
+                    notification.Text = "Please enter a username to sign in!";
+                    notification.ForeColor = Color.Red;
+                }
+                else if (usernameV.Length <= 6)
+                {
+                    notification.Text = "Username must have at least 6 characters!";
+                    notification.ForeColor = Color.Red;
+                }
+                else if (usernameV.Contains(" "))
+                {
+                    notification.Text = "Your username cannot contains space!";
+                    notification.ForeColor = Color.Red;
+                }
+                else
+                {
+                    try
+                    {
+                        cmd = new SqlCommand("select * from users where username=@username", con);
+                        cmd.Parameters.AddWithValue("@username", usernameV);
+                        con.Open();
+                        dr = cmd.ExecuteReader();
+                        dr.Read();
+                        if (dr.HasRows)
+                        {
+                            notification.Text = "Username had been taken!";
+                            notification.ForeColor = Color.Red;
+                        }
+                        else
+                        {
+                            notification.Text = "Username save!";
+                            notification.ForeColor = Color.Green;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                    finally
+                    {
+                        // close the reader
+                        if (dr != null)
+                        {
+                            dr.Close();
+                        }
+
+                        //Close the connection
+                        if (con != null)
+                        {
+                            con.Close();
+                        }
+                    }
+
+                }
+                notification.Size = new Size(600, 32);
+                usernameNotification.Controls.Add(notification);
+                if (notification.ForeColor == Color.Red)
+                    return;
+            }
+            else if (stepLoc.X == 372)
+            {
+                foreach (Label a in confirmNotification.Controls)
+                {
+                    confirmNotification.Controls.Remove(a);
+                }
+                Label notification = new Label();
+                if (password.Text == null || password.Text.Length <= 0)
+                {
+                    notification.Text = "Password cannot be empty!";
+                    notification.ForeColor = Color.Red;
+                }
+                else if (password.Text.Length <= 6)
+                {
+                    notification.Text = "Your password must have at least 6 characters!";
+                    notification.ForeColor = Color.Red;
+                }
+                else if (password.Text.Contains(" "))
+                {
+                    notification.Text = "Your password cannot contains space!";
+                    notification.ForeColor = Color.Red;
+                }
+                else if (password.Text != confirm.Text)
+                {
+                    notification.Text = "Passwords do not match!";
+                    notification.ForeColor = Color.Red;
+                }
+                else if (password.Text == confirm.Text)
+                {
+                    passwordV = password.Text;
+                    notification.Text = "Password saved!";
+                    notification.ForeColor = Color.Green;
+                }
+                notification.Size = new Size(600, 32);
+                confirmNotification.Controls.Add(notification);
+                if (notification.ForeColor == Color.Red)
+                    return;
+            }
+
+            label2.Visible = false;
+            step.Text = "Next";
             stepLoc.X = 256;
             step.Location = new Point(stepLoc.X, stepLoc.Y);
 
@@ -246,8 +437,74 @@ namespace WinForms
             Point stepLoc = step.Location;
             if (stepLoc.X == 123)
             {
-                usernameV = usernameLabel.Text;
+                usernameV = username.Text;
+                // check username exsistance 
+                foreach (Label a in usernameNotification.Controls)
+                {
+                    usernameNotification.Controls.Remove(a);
+                }
+                Label notification = new Label();
+                if (username.Text == null || username.Text.Length <= 0)
+                {
+                    notification.Text = "Please enter a username to sign in!";
+                    notification.ForeColor = Color.Red;
+                }
+                else if (usernameV.Length <= 6)
+                {
+                    notification.Text = "Username must have at least 6 characters!";
+                    notification.ForeColor = Color.Red;
+                }
+                else if (usernameV.Contains(" "))
+                {
+                    notification.Text = "Your username cannot contains space!";
+                    notification.ForeColor = Color.Red;
+                }
+                else
+                {
+                    try
+                    {
+                        cmd = new SqlCommand("select * from users where username=@username", con);
+                        cmd.Parameters.AddWithValue("@username", usernameV);
+                        con.Open();
+                        dr = cmd.ExecuteReader();
+                        dr.Read();
+                        if (dr.HasRows)
+                        {
+                            notification.Text = "Username had been taken!";
+                            notification.ForeColor = Color.Red;
+                        }
+                        else
+                        {
+                            notification.Text = "Username save!";
+                            notification.ForeColor = Color.Green;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                    finally
+                    {
+                        // close the reader
+                        if (dr != null)
+                        {
+                            dr.Close();
+                        }
 
+                        //Close the connection
+                        if (con != null)
+                        {
+                            con.Close();
+                        }
+                    }
+
+                }
+                notification.Size = new Size(600, 32);
+                usernameNotification.Controls.Add(notification);
+                if (notification.ForeColor == Color.Red)
+                    return;
+
+                // up date mainBody
                 mainBody.Controls.Remove(usernamePanel);
                 mainBody.Controls.Add(lastnamePanel);
                 mainBody.Controls.Add(firstNamePanel);
@@ -288,7 +545,7 @@ namespace WinForms
                 }
                 locationV = location.Text;
                 nationV = nation.Text;
-                birthDateV = birthDate.Value.ToString("yyyy-mm-dd");
+                birthDateV = birthDate.Value.ToString("yyyy-MM-dd");
                 locationV = location.Text;
                 nationV = nation.Text;
                 imageUrlV = imgUrl.Text;
@@ -329,33 +586,67 @@ namespace WinForms
             }
             else
             {
-                if (password.Text == confirm.Text) passwordV = password.Text;
-                else if (password.Text != confirm.Text)
+                foreach (Label a in confirmNotification.Controls)
                 {
-                    Label notification = new Label();
-                    notification.Text = "Passwords do not match!";
-                    notification.ForeColor = Color.Red;
-                    notification.Size = new Size(600, 32);
-                    confirmNotification.Controls.Add(notification);
-                    return;
+                    confirmNotification.Controls.Remove(a);
                 }
-                else if (password.Text == null || password.Text == "")
+                Label notification = new Label();
+                if (password.Text == null || password.Text.Length <= 0)
                 {
-                    Label notification = new Label();
                     notification.Text = "Password cannot be empty!";
                     notification.ForeColor = Color.Red;
-                    notification.Size = new Size(600, 32);
-                    confirmNotification.Controls.Add(notification);
-                    return;
+                }
+                else if (password.Text.Length <= 6)
+                {
+                    notification.Text = "Your password must have at least 6 characters!";
+                    notification.ForeColor = Color.Red;
                 }
                 else if (password.Text.Contains(" "))
                 {
-                    Label notification = new Label();
-                    notification.Text = "Password cannot contains space!";
+                    notification.Text = "Your password cannot contains space!";
                     notification.ForeColor = Color.Red;
-                    notification.Size = new Size(600, 32);
-                    confirmNotification.Controls.Add(notification);
+                }
+                else if (password.Text != confirm.Text)
+                {
+                    notification.Text = "Passwords do not match!";
+                    notification.ForeColor = Color.Red;
+                }
+                else if (password.Text == confirm.Text)
+                {
+                    passwordV = password.Text;
+                    notification.Text = "Password saved!";
+                    notification.ForeColor = Color.Green;
+                }
+                notification.Size = new Size(600, 32);
+                confirmNotification.Controls.Add(notification);
+                if (notification.ForeColor == Color.Red)
                     return;
+
+
+                try
+                {
+                    cmd = new SqlCommand("insert into users ([firstName], [lastName], [username], [password], [email], [phone], [gender], [birthDate], [profileImage], [age], [location], [nation]) values (N'"+fnameV+"', N'"+lnameV+"', N'"+usernameV+"', N'"+passwordV+"', N'"+emailV+"', N'"+phoneV+"', "+genderV+", N'"+birthDateV+"', N'"+imageUrlV+"', "+ (2023 - birthDate.Value.Year) + ", N'"+locationV+"', N'"+nationV+"')", con);
+
+                    con.Open();
+                    int rowsAffected = cmd.ExecuteNonQuery();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    // close the reader
+                    if (dr != null)
+                    {
+                        dr.Close();
+                    }
+
+                    //Close the connection
+                    if (con != null)
+                    {
+                        con.Close();
+                    }
                 }
             }
         }

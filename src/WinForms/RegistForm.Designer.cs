@@ -594,9 +594,12 @@
             // 
             birthDate.Format = DateTimePickerFormat.Short;
             birthDate.Location = new Point(95, 3);
+            birthDate.MaxDate = new DateTime(2012, 12, 31, 0, 0, 0, 0);
+            birthDate.MinDate = new DateTime(1799, 12, 31, 0, 0, 0, 0);
             birthDate.Name = "birthDate";
             birthDate.Size = new Size(130, 27);
             birthDate.TabIndex = 3;
+            birthDate.Value = new DateTime(2012, 12, 18, 0, 0, 0, 0);
             // 
             // birthdateNotification
             // 
