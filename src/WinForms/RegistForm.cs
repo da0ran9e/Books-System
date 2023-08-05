@@ -625,7 +625,7 @@ namespace WinForms
 
                 try
                 {
-                    cmd = new SqlCommand("insert into users ([firstName], [lastName], [username], [password], [email], [phone], [gender], [birthDate], [profileImage], [age], [location], [nation]) values (N'"+fnameV+"', N'"+lnameV+"', N'"+usernameV+"', N'"+passwordV+"', N'"+emailV+"', N'"+phoneV+"', "+genderV+", N'"+birthDateV+"', N'"+imageUrlV+"', "+ (2023 - birthDate.Value.Year) + ", N'"+locationV+"', N'"+nationV+"')", con);
+                    cmd = new SqlCommand("insert into users ([firstName], [lastName], [username], [password], [email], [phone], [gender], [birthDate], [profileImage], [age], [location], [nation]) values (N'" + fnameV + "', N'" + lnameV + "', N'" + usernameV + "', N'" + passwordV + "', N'" + emailV + "', N'" + phoneV + "', " + genderV + ", N'" + birthDateV + "', N'" + imageUrlV + "', " + (2023 - birthDate.Value.Year) + ", N'" + locationV + "', N'" + nationV + "')", con);
 
                     con.Open();
                     int rowsAffected = cmd.ExecuteNonQuery();
@@ -651,9 +651,113 @@ namespace WinForms
             }
         }
 
-        private void firstName_TextChanged(object sender, EventArgs e)
+        private void firstName_TextChanged(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                lastName.Focus();
+        }
+
+        private void previous_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            LoginForm loginForm = new LoginForm();
+            loginForm.ShowDialog();
+        }
+
+        private bool dragging = false;
+        private Point dragCursorPoint;
+        private Point dragFormPoint;
+        private void topBar_MouseDown(object sender, MouseEventArgs e)
+        {
+            Cursor = Cursors.SizeAll;
+            dragging = true;
+            dragCursorPoint = Cursor.Position;
+            dragFormPoint = this.Location;
+        }
+        private void regisForm_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (dragging)
+            {
+                Point dif = Point.Subtract(Cursor.Position, new Size(dragCursorPoint));
+                this.Location = Point.Add(dragFormPoint, new Size(dif));
+            }
+        }
+
+        private void registForm_MouseUp(object sender, MouseEventArgs e)
+        {
+            Cursor = Cursors.Default;
+            dragging = false;
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void username_TextChanged(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                step_Click(sender, e);
+        }
+
+        private void lastName_TextChanged(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                email.Focus();
+        }
+
+        private void email_TextChanged(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                phone.Focus();
+        }
+
+        private void nation_SelectedIndexChanged(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                birthDate.Focus();
+        }
+
+        private void phone_TextChanged(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                nation.Focus();
+        }
+
+        private void birthDate_ValueChanged(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                location.Focus();
+        }
+
+        private void location_TextChanged(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                gender.Focus();
+        }
+
+        private void gender_SelectedIndexChanged(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                imgUrl.Focus();
+        }
+
+        private void imgUrl_TextChanged(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                step_Click(sender, e);
+        }
+
+        private void password_TextChanged(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                confirm.Focus();
+        }
+
+        private void confirm_TextChanged(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+                step_Click(sender, e);
         }
     }
 }

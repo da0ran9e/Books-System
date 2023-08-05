@@ -92,6 +92,8 @@
             step = new Label();
             first = new Label();
             finish = new Label();
+            previous = new Label();
+            topBar = new Panel();
             tableLayoutPanel1.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
@@ -116,11 +118,13 @@
             // 
             tableLayoutPanel1.BackColor = Color.Transparent;
             tableLayoutPanel1.ColumnCount = 3;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 33F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 82F));
             tableLayoutPanel1.Controls.Add(flowLayoutPanel1, 2, 0);
             tableLayoutPanel1.Controls.Add(tableLayoutPanel2, 1, 1);
+            tableLayoutPanel1.Controls.Add(previous, 0, 0);
+            tableLayoutPanel1.Controls.Add(topBar, 1, 0);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -191,13 +195,13 @@
             tableLayoutPanel2.Controls.Add(tableLayoutPanel3, 1, 1);
             tableLayoutPanel2.Controls.Add(panel1, 1, 2);
             tableLayoutPanel2.Dock = DockStyle.Fill;
-            tableLayoutPanel2.Location = new Point(23, 30);
+            tableLayoutPanel2.Location = new Point(36, 30);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RowCount = 3;
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 33F));
-            tableLayoutPanel2.Size = new Size(914, 361);
+            tableLayoutPanel2.Size = new Size(901, 361);
             tableLayoutPanel2.TabIndex = 5;
             // 
             // welcome
@@ -208,7 +212,7 @@
             welcome.ForeColor = Color.Lavender;
             welcome.Location = new Point(63, 0);
             welcome.Name = "welcome";
-            welcome.Size = new Size(788, 50);
+            welcome.Size = new Size(775, 50);
             welcome.TabIndex = 0;
             welcome.Text = "Welcome!";
             welcome.TextAlign = ContentAlignment.MiddleCenter;
@@ -225,7 +229,7 @@
             tableLayoutPanel3.RowCount = 2;
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel3.Size = new Size(788, 272);
+            tableLayoutPanel3.Size = new Size(775, 272);
             tableLayoutPanel3.TabIndex = 1;
             // 
             // signIn
@@ -236,7 +240,7 @@
             signIn.ForeColor = Color.MediumTurquoise;
             signIn.Location = new Point(3, 0);
             signIn.Name = "signIn";
-            signIn.Size = new Size(782, 50);
+            signIn.Size = new Size(769, 50);
             signIn.TabIndex = 0;
             signIn.Text = "Sign in";
             signIn.TextAlign = ContentAlignment.MiddleCenter;
@@ -263,7 +267,7 @@
             mainBody.FlowDirection = FlowDirection.RightToLeft;
             mainBody.Location = new Point(3, 53);
             mainBody.Name = "mainBody";
-            mainBody.Size = new Size(782, 216);
+            mainBody.Size = new Size(769, 216);
             mainBody.TabIndex = 1;
             mainBody.Click += flowLayoutPanel2_Onclick;
             mainBody.Paint += flowLayoutPanel2_Paint;
@@ -274,7 +278,7 @@
             usernamePanel.Controls.Add(usernameLabel);
             usernamePanel.Controls.Add(username);
             usernamePanel.Controls.Add(usernameNotification);
-            usernamePanel.Location = new Point(90, 3);
+            usernamePanel.Location = new Point(77, 3);
             usernamePanel.Name = "usernamePanel";
             usernamePanel.Size = new Size(668, 87);
             usernamePanel.TabIndex = 0;
@@ -301,6 +305,7 @@
             username.Size = new Size(457, 45);
             username.TabIndex = 1;
             username.TextAlign = HorizontalAlignment.Center;
+            username.KeyDown += username_TextChanged;
             // 
             // usernameNotification
             // 
@@ -316,7 +321,7 @@
             lastnamePanel.Controls.Add(lastNameLabel);
             lastnamePanel.Controls.Add(lastName);
             lastnamePanel.Controls.Add(lastnameNotification);
-            lastnamePanel.Location = new Point(438, 96);
+            lastnamePanel.Location = new Point(425, 96);
             lastnamePanel.Name = "lastnamePanel";
             lastnamePanel.Size = new Size(320, 87);
             lastnamePanel.TabIndex = 1;
@@ -343,6 +348,7 @@
             lastName.Size = new Size(181, 34);
             lastName.TabIndex = 1;
             lastName.TextAlign = HorizontalAlignment.Center;
+            lastName.KeyDown += lastName_TextChanged;
             // 
             // lastnameNotification
             // 
@@ -358,7 +364,7 @@
             firstNamePanel.Controls.Add(firstNameLabel);
             firstNamePanel.Controls.Add(firstName);
             firstNamePanel.Controls.Add(firstnameNotification);
-            firstNamePanel.Location = new Point(112, 96);
+            firstNamePanel.Location = new Point(99, 96);
             firstNamePanel.Name = "firstNamePanel";
             firstNamePanel.Size = new Size(320, 87);
             firstNamePanel.TabIndex = 2;
@@ -385,7 +391,7 @@
             firstName.Size = new Size(181, 34);
             firstName.TabIndex = 1;
             firstName.TextAlign = HorizontalAlignment.Center;
-            firstName.TextChanged += firstName_TextChanged;
+            firstName.KeyDown += firstName_TextChanged;
             // 
             // firstnameNotification
             // 
@@ -401,7 +407,7 @@
             emailPanel.Controls.Add(emailLabel);
             emailPanel.Controls.Add(email);
             emailPanel.Controls.Add(emailNotification);
-            emailPanel.Location = new Point(90, 189);
+            emailPanel.Location = new Point(77, 189);
             emailPanel.Name = "emailPanel";
             emailPanel.Size = new Size(668, 87);
             emailPanel.TabIndex = 3;
@@ -429,6 +435,7 @@
             email.Size = new Size(457, 34);
             email.TabIndex = 1;
             email.TextAlign = HorizontalAlignment.Center;
+            email.KeyDown += email_TextChanged;
             // 
             // emailNotification
             // 
@@ -444,7 +451,7 @@
             phonePanel.Controls.Add(label1);
             phonePanel.Controls.Add(phone);
             phonePanel.Controls.Add(phoneNotification);
-            phonePanel.Location = new Point(90, 282);
+            phonePanel.Location = new Point(77, 282);
             phonePanel.Name = "phonePanel";
             phonePanel.Size = new Size(668, 87);
             phonePanel.TabIndex = 4;
@@ -473,6 +480,7 @@
             phone.Size = new Size(457, 34);
             phone.TabIndex = 1;
             phone.TextAlign = HorizontalAlignment.Center;
+            phone.KeyDown += phone_TextChanged;
             // 
             // phoneNotification
             // 
@@ -487,7 +495,7 @@
             locationPanel.Controls.Add(locationLabel);
             locationPanel.Controls.Add(location);
             locationPanel.Controls.Add(locationNotification);
-            locationPanel.Location = new Point(90, 375);
+            locationPanel.Location = new Point(77, 375);
             locationPanel.Name = "locationPanel";
             locationPanel.Size = new Size(668, 87);
             locationPanel.TabIndex = 5;
@@ -515,6 +523,7 @@
             location.Size = new Size(457, 34);
             location.TabIndex = 1;
             location.TextAlign = HorizontalAlignment.Center;
+            location.KeyDown += location_TextChanged;
             // 
             // locationNotification
             // 
@@ -529,7 +538,7 @@
             nationPanel.Controls.Add(nationLabel);
             nationPanel.Controls.Add(nation);
             nationPanel.Controls.Add(nationNotification);
-            nationPanel.Location = new Point(499, 468);
+            nationPanel.Location = new Point(486, 468);
             nationPanel.Name = "nationPanel";
             nationPanel.Size = new Size(259, 87);
             nationPanel.TabIndex = 6;
@@ -556,6 +565,7 @@
             nation.Name = "nation";
             nation.Size = new Size(151, 28);
             nation.TabIndex = 3;
+            nation.KeyDown += nation_SelectedIndexChanged;
             // 
             // nationNotification
             // 
@@ -571,7 +581,7 @@
             birthDatePanel.Controls.Add(birthdateLabel);
             birthDatePanel.Controls.Add(birthDate);
             birthDatePanel.Controls.Add(birthdateNotification);
-            birthDatePanel.Location = new Point(246, 468);
+            birthDatePanel.Location = new Point(233, 468);
             birthDatePanel.Name = "birthDatePanel";
             birthDatePanel.Size = new Size(247, 87);
             birthDatePanel.TabIndex = 7;
@@ -600,6 +610,7 @@
             birthDate.Size = new Size(130, 27);
             birthDate.TabIndex = 3;
             birthDate.Value = new DateTime(2012, 12, 18, 0, 0, 0, 0);
+            birthDate.KeyDown += birthDate_ValueChanged;
             // 
             // birthdateNotification
             // 
@@ -615,7 +626,7 @@
             imageUrlPanel.Controls.Add(imgUrlLabel);
             imageUrlPanel.Controls.Add(imgUrl);
             imageUrlPanel.Controls.Add(flowLayoutPanel4);
-            imageUrlPanel.Location = new Point(90, 561);
+            imageUrlPanel.Location = new Point(77, 561);
             imageUrlPanel.Name = "imageUrlPanel";
             imageUrlPanel.Size = new Size(668, 87);
             imageUrlPanel.TabIndex = 8;
@@ -643,6 +654,7 @@
             imgUrl.Size = new Size(457, 34);
             imgUrl.TabIndex = 1;
             imgUrl.TextAlign = HorizontalAlignment.Center;
+            imgUrl.KeyDown += imgUrl_TextChanged;
             // 
             // flowLayoutPanel4
             // 
@@ -657,7 +669,7 @@
             genderPanel.Controls.Add(genderLabel);
             genderPanel.Controls.Add(gender);
             genderPanel.Controls.Add(genderNotification);
-            genderPanel.Location = new Point(499, 654);
+            genderPanel.Location = new Point(486, 654);
             genderPanel.Name = "genderPanel";
             genderPanel.Size = new Size(259, 87);
             genderPanel.TabIndex = 9;
@@ -684,6 +696,7 @@
             gender.Name = "gender";
             gender.Size = new Size(151, 28);
             gender.TabIndex = 3;
+            gender.KeyDown += gender_SelectedIndexChanged;
             // 
             // genderNotification
             // 
@@ -699,7 +712,7 @@
             passwordPanel.Controls.Add(passwordLabel);
             passwordPanel.Controls.Add(password);
             passwordPanel.Controls.Add(passwordNotification);
-            passwordPanel.Location = new Point(90, 747);
+            passwordPanel.Location = new Point(77, 747);
             passwordPanel.Name = "passwordPanel";
             passwordPanel.Size = new Size(668, 87);
             passwordPanel.TabIndex = 10;
@@ -728,6 +741,7 @@
             password.TabIndex = 1;
             password.TextAlign = HorizontalAlignment.Center;
             password.UseSystemPasswordChar = true;
+            password.KeyDown += password_TextChanged;
             // 
             // passwordNotification
             // 
@@ -742,7 +756,7 @@
             confirmPanel.Controls.Add(confirmLabel);
             confirmPanel.Controls.Add(confirm);
             confirmPanel.Controls.Add(confirmNotification);
-            confirmPanel.Location = new Point(90, 840);
+            confirmPanel.Location = new Point(77, 840);
             confirmPanel.Name = "confirmPanel";
             confirmPanel.Size = new Size(668, 87);
             confirmPanel.TabIndex = 11;
@@ -771,6 +785,7 @@
             confirm.TabIndex = 1;
             confirm.TextAlign = HorizontalAlignment.Center;
             confirm.UseSystemPasswordChar = true;
+            confirm.KeyDown += confirm_TextChanged;
             // 
             // confirmNotification
             // 
@@ -788,7 +803,7 @@
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(63, 331);
             panel1.Name = "panel1";
-            panel1.Size = new Size(788, 27);
+            panel1.Size = new Size(775, 27);
             panel1.TabIndex = 2;
             // 
             // label2
@@ -832,6 +847,27 @@
             finish.Size = new Size(62, 25);
             finish.TabIndex = 1;
             finish.Click += finish_Click;
+            // 
+            // previous
+            // 
+            previous.Image = (Image)resources.GetObject("previous.Image");
+            previous.Location = new Point(3, 0);
+            previous.Name = "previous";
+            previous.Size = new Size(27, 25);
+            previous.TabIndex = 6;
+            previous.Click += previous_Click;
+            // 
+            // topBar
+            // 
+            topBar.Dock = DockStyle.Fill;
+            topBar.Location = new Point(36, 3);
+            topBar.Name = "topBar";
+            topBar.Size = new Size(901, 21);
+            topBar.TabIndex = 7;
+            topBar.Paint += panel2_Paint;
+            topBar.MouseDown += topBar_MouseDown;
+            topBar.MouseMove += regisForm_MouseMove;
+            topBar.MouseUp += registForm_MouseUp;
             // 
             // RegistForm
             // 
@@ -944,5 +980,7 @@
         private Label confirmLabel;
         private TextBox confirm;
         private FlowLayoutPanel confirmNotification;
+        private Label previous;
+        private Panel topBar;
     }
 }
