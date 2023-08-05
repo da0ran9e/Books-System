@@ -622,13 +622,13 @@ namespace WinForms
                 if (notification.ForeColor == Color.Red)
                     return;
 
-
+                int rowsAffected = 0;
                 try
                 {
                     cmd = new SqlCommand("insert into users ([firstName], [lastName], [username], [password], [email], [phone], [gender], [birthDate], [profileImage], [age], [location], [nation]) values (N'" + fnameV + "', N'" + lnameV + "', N'" + usernameV + "', N'" + passwordV + "', N'" + emailV + "', N'" + phoneV + "', " + genderV + ", N'" + birthDateV + "', N'" + imageUrlV + "', " + (2023 - birthDate.Value.Year) + ", N'" + locationV + "', N'" + nationV + "')", con);
-
                     con.Open();
-                    int rowsAffected = cmd.ExecuteNonQuery();
+                    rowsAffected = cmd.ExecuteNonQuery();
+
                 }
                 catch (Exception ex)
                 {
@@ -646,6 +646,17 @@ namespace WinForms
                     if (con != null)
                     {
                         con.Close();
+                    }
+                    if (rowsAffected > 0)
+                    {
+                        foreach (Label a in panel1.Controls)
+                        {
+                            panel1.Controls.Remove(a);
+                        }
+                        foreach (Panel b in mainBody.Controls)
+                        {
+                            mainBody.Controls.Remove(b);
+                        }
                     }
                 }
             }
