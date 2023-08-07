@@ -45,13 +45,22 @@ namespace WinForms
 
         private void maximize_Click(object sender, EventArgs e)
         {
+<<<<<<< HEAD
 
             if (this.WindowState == FormWindowState.Normal)
+=======
+            
+            if(this.WindowState == FormWindowState.Normal)
+>>>>>>> parent of c809ffd (revert)
             {
                 maximize.Image = Image.FromFile("../../../../../assets/icons/minimize.png");
                 this.WindowState = FormWindowState.Maximized;
             }
+<<<<<<< HEAD
 
+=======
+                
+>>>>>>> parent of c809ffd (revert)
             else
             {
                 maximize.Image = Image.FromFile("../../../../../assets/icons/maximize.png");
