@@ -107,27 +107,33 @@ namespace WinForms
                 {
                     notification.Text = "Password cannot be empty!";
                     notification.ForeColor = Color.Red;
+                    passwordPanel.BackColor = Color.LavenderBlush;
                 }
                 else if (password.Text.Length <= 6)
                 {
                     notification.Text = "Your password must have at least 6 characters!";
                     notification.ForeColor = Color.Red;
+                    passwordPanel.BackColor = Color.LavenderBlush;
                 }
                 else if (password.Text.Contains(" "))
                 {
                     notification.Text = "Your password cannot contains space!";
                     notification.ForeColor = Color.Red;
+                    passwordPanel.BackColor = Color.LavenderBlush;
                 }
                 else if (password.Text != confirm.Text)
                 {
                     notification.Text = "Passwords do not match!";
                     notification.ForeColor = Color.Red;
+                    confirmPanel.BackColor = Color.LavenderBlush;
                 }
                 else if (password.Text == confirm.Text)
                 {
                     passwordV = password.Text;
                     notification.Text = "Password saved!";
                     notification.ForeColor = Color.Green;
+                    passwordPanel.BackColor = Color.MintCream;
+                    confirmPanel.BackColor = Color.MintCream;
                 }
                 notification.Size = new Size(600, 32);
                 confirmNotification.Controls.Add(notification);
@@ -373,27 +379,33 @@ namespace WinForms
                 {
                     notification.Text = "Password cannot be empty!";
                     notification.ForeColor = Color.Red;
+                    passwordPanel.BackColor = Color.LavenderBlush;
                 }
                 else if (password.Text.Length <= 6)
                 {
                     notification.Text = "Your password must have at least 6 characters!";
                     notification.ForeColor = Color.Red;
+                    passwordPanel.BackColor = Color.LavenderBlush;
                 }
                 else if (password.Text.Contains(" "))
                 {
                     notification.Text = "Your password cannot contains space!";
                     notification.ForeColor = Color.Red;
+                    passwordPanel.BackColor = Color.LavenderBlush;
                 }
                 else if (password.Text != confirm.Text)
                 {
                     notification.Text = "Passwords do not match!";
                     notification.ForeColor = Color.Red;
+                    confirmPanel.BackColor = Color.LavenderBlush;
                 }
                 else if (password.Text == confirm.Text)
                 {
                     passwordV = password.Text;
                     notification.Text = "Password saved!";
                     notification.ForeColor = Color.Green;
+                    passwordPanel.BackColor = Color.MintCream;
+                    confirmPanel.BackColor = Color.MintCream;
                 }
                 notification.Size = new Size(600, 32);
                 confirmNotification.Controls.Add(notification);
@@ -618,7 +630,7 @@ namespace WinForms
                 {
                     notification.Text = "Passwords do not match!";
                     notification.ForeColor = Color.Red;
-                    passwordPanel.BackColor = Color.LavenderBlush;
+                    confirmPanel.BackColor = Color.LavenderBlush;
                 }
                 else if (password.Text == confirm.Text)
                 {
@@ -626,6 +638,7 @@ namespace WinForms
                     notification.Text = "Password saved!";
                     notification.ForeColor = Color.Green;
                     passwordPanel.BackColor = Color.MintCream;
+                    confirmPanel.BackColor = Color.MintCream;
                 }
                 notification.Size = new Size(600, 32);
                 confirmNotification.Controls.Add(notification);

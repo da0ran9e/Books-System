@@ -224,6 +224,7 @@
             // 
             // tableLayoutPanel3
             // 
+            tableLayoutPanel3.AutoSize = true;
             tableLayoutPanel3.ColumnCount = 1;
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel3.Controls.Add(signIn, 0, 0);
@@ -933,6 +934,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1022, 491);
             Controls.Add(tableLayoutPanel1);
             FormBorderStyle = FormBorderStyle.None;
