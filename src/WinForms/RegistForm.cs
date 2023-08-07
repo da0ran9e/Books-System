@@ -661,6 +661,7 @@ namespace WinForms
                     //Register done, return to login.
                     if (rowsAffected > 0)
                     {
+                        confirm.Enabled = false;
                         foreach (Label a in panel1.Controls)
                         {
                             panel1.Controls.Remove(a);
@@ -669,6 +670,9 @@ namespace WinForms
                         {
                             mainBody.Controls.Remove(b);
                         }
+                        mainBody.Controls.Add(donePanel);
+                        donePanel.Visible = true;
+                        step.Visible = false;
                     }
                 }
             }
@@ -784,6 +788,18 @@ namespace WinForms
         }
 
         private void firstNameLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void login_Click(object sender, EventArgs e)
+        {
+            this.Visible = false;
+            LoginForm loginForm = new LoginForm();
+            loginForm.ShowDialog();
+        }
+
+        private void confirm_TextChanged(object sender, EventArgs e)
         {
 
         }

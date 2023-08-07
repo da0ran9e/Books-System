@@ -87,6 +87,10 @@
             confirmLabel = new Label();
             confirm = new TextBox();
             confirmNotification = new FlowLayoutPanel();
+            donePanel = new Panel();
+            login = new Label();
+            done = new Label();
+            doneIco = new Label();
             panel1 = new Panel();
             label2 = new Label();
             step = new Label();
@@ -111,6 +115,7 @@
             genderPanel.SuspendLayout();
             passwordPanel.SuspendLayout();
             confirmPanel.SuspendLayout();
+            donePanel.SuspendLayout();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -263,6 +268,7 @@
             mainBody.Controls.Add(genderPanel);
             mainBody.Controls.Add(passwordPanel);
             mainBody.Controls.Add(confirmPanel);
+            mainBody.Controls.Add(donePanel);
             mainBody.Cursor = Cursors.Hand;
             mainBody.FlowDirection = FlowDirection.RightToLeft;
             mainBody.Location = new Point(3, 53);
@@ -795,6 +801,7 @@
             confirm.TabIndex = 1;
             confirm.TextAlign = HorizontalAlignment.Center;
             confirm.UseSystemPasswordChar = true;
+            confirm.TextChanged += confirm_TextChanged;
             confirm.KeyDown += confirm_TextChanged;
             // 
             // confirmNotification
@@ -803,6 +810,48 @@
             confirmNotification.Name = "confirmNotification";
             confirmNotification.Size = new Size(607, 32);
             confirmNotification.TabIndex = 2;
+            // 
+            // donePanel
+            // 
+            donePanel.Controls.Add(login);
+            donePanel.Controls.Add(done);
+            donePanel.Controls.Add(doneIco);
+            donePanel.Location = new Point(76, 933);
+            donePanel.Name = "donePanel";
+            donePanel.Size = new Size(669, 179);
+            donePanel.TabIndex = 12;
+            donePanel.Visible = false;
+            // 
+            // login
+            // 
+            login.BackColor = Color.Transparent;
+            login.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            login.ForeColor = SystemColors.ButtonHighlight;
+            login.Image = (Image)resources.GetObject("login.Image");
+            login.Location = new Point(446, 144);
+            login.Name = "login";
+            login.Size = new Size(226, 35);
+            login.TabIndex = 2;
+            login.Text = "Go login!";
+            login.Click += login_Click;
+            // 
+            // done
+            // 
+            done.Font = new Font("Exo ExtraBold", 25.8000011F, FontStyle.Bold, GraphicsUnit.Point);
+            done.ForeColor = Color.LimeGreen;
+            done.Location = new Point(172, 19);
+            done.Name = "done";
+            done.Size = new Size(280, 125);
+            done.TabIndex = 1;
+            done.Text = "Registed succesfully!";
+            // 
+            // doneIco
+            // 
+            doneIco.Image = (Image)resources.GetObject("doneIco.Image");
+            doneIco.Location = new Point(19, 19);
+            doneIco.Name = "doneIco";
+            doneIco.Size = new Size(162, 139);
+            doneIco.TabIndex = 0;
             // 
             // panel1
             // 
@@ -921,6 +970,7 @@
             passwordPanel.PerformLayout();
             confirmPanel.ResumeLayout(false);
             confirmPanel.PerformLayout();
+            donePanel.ResumeLayout(false);
             panel1.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -992,5 +1042,10 @@
         private FlowLayoutPanel confirmNotification;
         private Label previous;
         private Panel topBar;
+        private FlowLayoutPanel flowLayoutPanel2;
+        private Label doneIco;
+        private Panel donePanel;
+        private Label done;
+        private Label login;
     }
 }
