@@ -372,6 +372,7 @@
             firstNamePanel.Controls.Add(firstNameLabel);
             firstNamePanel.Controls.Add(firstName);
             firstNamePanel.Controls.Add(firstnameNotification);
+            mainBody.SetFlowBreak(firstNamePanel, true);
             firstNamePanel.Location = new Point(73, 96);
             firstNamePanel.Name = "firstNamePanel";
             firstNamePanel.Size = new Size(332, 87);
@@ -416,6 +417,7 @@
             emailPanel.Controls.Add(emailLabel);
             emailPanel.Controls.Add(email);
             emailPanel.Controls.Add(emailNotification);
+            mainBody.SetFlowBreak(emailPanel, true);
             emailPanel.Location = new Point(73, 189);
             emailPanel.Name = "emailPanel";
             emailPanel.Size = new Size(672, 87);
@@ -460,6 +462,7 @@
             phonePanel.Controls.Add(label1);
             phonePanel.Controls.Add(phone);
             phonePanel.Controls.Add(phoneNotification);
+            mainBody.SetFlowBreak(phonePanel, true);
             phonePanel.ForeColor = SystemColors.ControlText;
             phonePanel.Location = new Point(73, 282);
             phonePanel.Name = "phonePanel";
@@ -506,6 +509,7 @@
             locationPanel.Controls.Add(locationLabel);
             locationPanel.Controls.Add(location);
             locationPanel.Controls.Add(locationNotification);
+            mainBody.SetFlowBreak(locationPanel, true);
             locationPanel.Location = new Point(73, 375);
             locationPanel.Name = "locationPanel";
             locationPanel.Size = new Size(672, 87);
@@ -640,6 +644,7 @@
             imageUrlPanel.Controls.Add(imgUrlLabel);
             imageUrlPanel.Controls.Add(imgUrl);
             imageUrlPanel.Controls.Add(flowLayoutPanel4);
+            mainBody.SetFlowBreak(imageUrlPanel, true);
             imageUrlPanel.Location = new Point(73, 561);
             imageUrlPanel.Name = "imageUrlPanel";
             imageUrlPanel.Size = new Size(672, 87);
@@ -684,6 +689,7 @@
             genderPanel.Controls.Add(genderLabel);
             genderPanel.Controls.Add(gender);
             genderPanel.Controls.Add(genderNotification);
+            mainBody.SetFlowBreak(genderPanel, true);
             genderPanel.Location = new Point(541, 654);
             genderPanel.Name = "genderPanel";
             genderPanel.Size = new Size(204, 87);
@@ -728,6 +734,7 @@
             passwordPanel.Controls.Add(passwordLabel);
             passwordPanel.Controls.Add(password);
             passwordPanel.Controls.Add(passwordNotification);
+            mainBody.SetFlowBreak(passwordPanel, true);
             passwordPanel.Location = new Point(77, 747);
             passwordPanel.Name = "passwordPanel";
             passwordPanel.Size = new Size(668, 87);
