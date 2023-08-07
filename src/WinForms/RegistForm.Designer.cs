@@ -275,6 +275,7 @@
             // usernamePanel
             // 
             usernamePanel.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            usernamePanel.BackColor = Color.LightCyan;
             usernamePanel.Controls.Add(usernameLabel);
             usernamePanel.Controls.Add(username);
             usernamePanel.Controls.Add(usernameNotification);
@@ -288,7 +289,7 @@
             usernameLabel.AutoSize = true;
             usernameLabel.Dock = DockStyle.Left;
             usernameLabel.Font = new Font("Arial Narrow", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
-            usernameLabel.ForeColor = SystemColors.ControlLightLight;
+            usernameLabel.ForeColor = SystemColors.ActiveCaptionText;
             usernameLabel.Location = new Point(3, 0);
             usernameLabel.Name = "usernameLabel";
             usernameLabel.Size = new Size(85, 51);
@@ -317,13 +318,13 @@
             // lastnamePanel
             // 
             lastnamePanel.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            lastnamePanel.BackColor = Color.Transparent;
+            lastnamePanel.BackColor = Color.LightCyan;
             lastnamePanel.Controls.Add(lastNameLabel);
             lastnamePanel.Controls.Add(lastName);
             lastnamePanel.Controls.Add(lastnameNotification);
-            lastnamePanel.Location = new Point(425, 96);
+            lastnamePanel.Location = new Point(411, 96);
             lastnamePanel.Name = "lastnamePanel";
-            lastnamePanel.Size = new Size(320, 87);
+            lastnamePanel.Size = new Size(334, 87);
             lastnamePanel.TabIndex = 1;
             lastnamePanel.Visible = false;
             // 
@@ -331,7 +332,7 @@
             // 
             lastNameLabel.AutoSize = true;
             lastNameLabel.Font = new Font("Arial Narrow", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
-            lastNameLabel.ForeColor = SystemColors.ControlLightLight;
+            lastNameLabel.ForeColor = SystemColors.ActiveCaptionText;
             lastNameLabel.Location = new Point(3, 0);
             lastNameLabel.Name = "lastNameLabel";
             lastNameLabel.Size = new Size(83, 22);
@@ -360,13 +361,13 @@
             // firstNamePanel
             // 
             firstNamePanel.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            firstNamePanel.BackColor = Color.Transparent;
+            firstNamePanel.BackColor = Color.LightCyan;
             firstNamePanel.Controls.Add(firstNameLabel);
             firstNamePanel.Controls.Add(firstName);
             firstNamePanel.Controls.Add(firstnameNotification);
-            firstNamePanel.Location = new Point(99, 96);
+            firstNamePanel.Location = new Point(73, 96);
             firstNamePanel.Name = "firstNamePanel";
-            firstNamePanel.Size = new Size(320, 87);
+            firstNamePanel.Size = new Size(332, 87);
             firstNamePanel.TabIndex = 2;
             firstNamePanel.Visible = false;
             // 
@@ -374,13 +375,14 @@
             // 
             firstNameLabel.AutoSize = true;
             firstNameLabel.Font = new Font("Arial Narrow", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
-            firstNameLabel.ForeColor = SystemColors.ControlLightLight;
+            firstNameLabel.ForeColor = SystemColors.ActiveCaptionText;
             firstNameLabel.Location = new Point(3, 0);
             firstNameLabel.Name = "firstNameLabel";
             firstNameLabel.Size = new Size(85, 22);
             firstNameLabel.TabIndex = 0;
             firstNameLabel.Text = "First Name";
             firstNameLabel.TextAlign = ContentAlignment.MiddleCenter;
+            firstNameLabel.Click += firstNameLabel_Click;
             // 
             // firstName
             // 
@@ -403,13 +405,13 @@
             // emailPanel
             // 
             emailPanel.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            emailPanel.BackColor = Color.Transparent;
+            emailPanel.BackColor = Color.LightCyan;
             emailPanel.Controls.Add(emailLabel);
             emailPanel.Controls.Add(email);
             emailPanel.Controls.Add(emailNotification);
-            emailPanel.Location = new Point(77, 189);
+            emailPanel.Location = new Point(73, 189);
             emailPanel.Name = "emailPanel";
-            emailPanel.Size = new Size(668, 87);
+            emailPanel.Size = new Size(672, 87);
             emailPanel.TabIndex = 3;
             emailPanel.Visible = false;
             // 
@@ -418,7 +420,7 @@
             emailLabel.AutoSize = true;
             emailLabel.Dock = DockStyle.Left;
             emailLabel.Font = new Font("Arial Narrow", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
-            emailLabel.ForeColor = SystemColors.ControlLightLight;
+            emailLabel.ForeColor = SystemColors.ActiveCaptionText;
             emailLabel.Location = new Point(3, 0);
             emailLabel.Name = "emailLabel";
             emailLabel.Size = new Size(53, 40);
@@ -432,7 +434,7 @@
             email.Location = new Point(62, 3);
             email.Name = "email";
             email.PlaceholderText = "Your email";
-            email.Size = new Size(457, 34);
+            email.Size = new Size(527, 34);
             email.TabIndex = 1;
             email.TextAlign = HorizontalAlignment.Center;
             email.KeyDown += email_TextChanged;
@@ -447,13 +449,14 @@
             // phonePanel
             // 
             phonePanel.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            phonePanel.BackColor = Color.Transparent;
+            phonePanel.BackColor = Color.LightCyan;
             phonePanel.Controls.Add(label1);
             phonePanel.Controls.Add(phone);
             phonePanel.Controls.Add(phoneNotification);
-            phonePanel.Location = new Point(77, 282);
+            phonePanel.ForeColor = SystemColors.ControlText;
+            phonePanel.Location = new Point(73, 282);
             phonePanel.Name = "phonePanel";
-            phonePanel.Size = new Size(668, 87);
+            phonePanel.Size = new Size(672, 87);
             phonePanel.TabIndex = 4;
             phonePanel.Visible = false;
             // 
@@ -462,7 +465,7 @@
             label1.AutoSize = true;
             label1.Dock = DockStyle.Left;
             label1.Font = new Font("Arial Narrow", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.ForeColor = SystemColors.ControlLightLight;
+            label1.ForeColor = SystemColors.ActiveCaptionText;
             label1.Location = new Point(3, 0);
             label1.Name = "label1";
             label1.Size = new Size(119, 40);
@@ -492,12 +495,13 @@
             // locationPanel
             // 
             locationPanel.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            locationPanel.BackColor = Color.LightCyan;
             locationPanel.Controls.Add(locationLabel);
             locationPanel.Controls.Add(location);
             locationPanel.Controls.Add(locationNotification);
-            locationPanel.Location = new Point(77, 375);
+            locationPanel.Location = new Point(73, 375);
             locationPanel.Name = "locationPanel";
-            locationPanel.Size = new Size(668, 87);
+            locationPanel.Size = new Size(672, 87);
             locationPanel.TabIndex = 5;
             locationPanel.Visible = false;
             // 
@@ -506,7 +510,7 @@
             locationLabel.AutoSize = true;
             locationLabel.Dock = DockStyle.Left;
             locationLabel.Font = new Font("Arial Narrow", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
-            locationLabel.ForeColor = SystemColors.ControlLightLight;
+            locationLabel.ForeColor = SystemColors.ActiveCaptionText;
             locationLabel.Location = new Point(3, 0);
             locationLabel.Name = "locationLabel";
             locationLabel.Size = new Size(76, 40);
@@ -520,7 +524,7 @@
             location.Location = new Point(85, 3);
             location.Name = "location";
             location.PlaceholderText = "Your street addrest";
-            location.Size = new Size(457, 34);
+            location.Size = new Size(496, 34);
             location.TabIndex = 1;
             location.TextAlign = HorizontalAlignment.Center;
             location.KeyDown += location_TextChanged;
@@ -535,12 +539,13 @@
             // nationPanel
             // 
             nationPanel.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            nationPanel.BackColor = Color.LightCyan;
             nationPanel.Controls.Add(nationLabel);
             nationPanel.Controls.Add(nation);
             nationPanel.Controls.Add(nationNotification);
-            nationPanel.Location = new Point(486, 468);
+            nationPanel.Location = new Point(519, 468);
             nationPanel.Name = "nationPanel";
-            nationPanel.Size = new Size(259, 87);
+            nationPanel.Size = new Size(226, 87);
             nationPanel.TabIndex = 6;
             nationPanel.Visible = false;
             // 
@@ -549,7 +554,7 @@
             nationLabel.AutoSize = true;
             nationLabel.Dock = DockStyle.Left;
             nationLabel.Font = new Font("Arial Narrow", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
-            nationLabel.ForeColor = SystemColors.ControlLightLight;
+            nationLabel.ForeColor = SystemColors.ActiveCaptionText;
             nationLabel.Location = new Point(3, 0);
             nationLabel.Name = "nationLabel";
             nationLabel.Size = new Size(61, 34);
@@ -578,12 +583,13 @@
             // birthDatePanel
             // 
             birthDatePanel.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            birthDatePanel.BackColor = Color.LightCyan;
             birthDatePanel.Controls.Add(birthdateLabel);
             birthDatePanel.Controls.Add(birthDate);
             birthDatePanel.Controls.Add(birthdateNotification);
-            birthDatePanel.Location = new Point(233, 468);
+            birthDatePanel.Location = new Point(282, 468);
             birthDatePanel.Name = "birthDatePanel";
-            birthDatePanel.Size = new Size(247, 87);
+            birthDatePanel.Size = new Size(231, 87);
             birthDatePanel.TabIndex = 7;
             birthDatePanel.Visible = false;
             // 
@@ -592,7 +598,7 @@
             birthdateLabel.AutoSize = true;
             birthdateLabel.Dock = DockStyle.Left;
             birthdateLabel.Font = new Font("Arial Narrow", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
-            birthdateLabel.ForeColor = SystemColors.ControlLightLight;
+            birthdateLabel.ForeColor = SystemColors.ActiveCaptionText;
             birthdateLabel.Location = new Point(3, 0);
             birthdateLabel.Name = "birthdateLabel";
             birthdateLabel.Size = new Size(86, 33);
@@ -623,6 +629,7 @@
             // imageUrlPanel
             // 
             imageUrlPanel.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            imageUrlPanel.BackColor = Color.LightCyan;
             imageUrlPanel.Controls.Add(imgUrlLabel);
             imageUrlPanel.Controls.Add(imgUrl);
             imageUrlPanel.Controls.Add(flowLayoutPanel4);
@@ -637,7 +644,7 @@
             imgUrlLabel.AutoSize = true;
             imgUrlLabel.Dock = DockStyle.Left;
             imgUrlLabel.Font = new Font("Arial Narrow", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
-            imgUrlLabel.ForeColor = SystemColors.ControlLightLight;
+            imgUrlLabel.ForeColor = SystemColors.ActiveCaptionText;
             imgUrlLabel.Location = new Point(3, 0);
             imgUrlLabel.Name = "imgUrlLabel";
             imgUrlLabel.Size = new Size(142, 40);
@@ -651,7 +658,7 @@
             imgUrl.Location = new Point(151, 3);
             imgUrl.Name = "imgUrl";
             imgUrl.PlaceholderText = "Paste your profile image URL here";
-            imgUrl.Size = new Size(457, 34);
+            imgUrl.Size = new Size(426, 34);
             imgUrl.TabIndex = 1;
             imgUrl.TextAlign = HorizontalAlignment.Center;
             imgUrl.KeyDown += imgUrl_TextChanged;
@@ -666,12 +673,13 @@
             // genderPanel
             // 
             genderPanel.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            genderPanel.BackColor = Color.LightCyan;
             genderPanel.Controls.Add(genderLabel);
             genderPanel.Controls.Add(gender);
             genderPanel.Controls.Add(genderNotification);
-            genderPanel.Location = new Point(486, 654);
+            genderPanel.Location = new Point(602, 654);
             genderPanel.Name = "genderPanel";
-            genderPanel.Size = new Size(259, 87);
+            genderPanel.Size = new Size(143, 87);
             genderPanel.TabIndex = 9;
             genderPanel.Visible = false;
             // 
@@ -680,7 +688,7 @@
             genderLabel.AutoSize = true;
             genderLabel.Dock = DockStyle.Left;
             genderLabel.Font = new Font("Arial Narrow", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
-            genderLabel.ForeColor = SystemColors.ControlLightLight;
+            genderLabel.ForeColor = SystemColors.ActiveCaptionText;
             genderLabel.Location = new Point(3, 0);
             genderLabel.Name = "genderLabel";
             genderLabel.Size = new Size(66, 34);
@@ -694,7 +702,7 @@
             gender.Items.AddRange(new object[] { "Male", "Female", "Other" });
             gender.Location = new Point(75, 3);
             gender.Name = "gender";
-            gender.Size = new Size(151, 28);
+            gender.Size = new Size(64, 28);
             gender.TabIndex = 3;
             gender.KeyDown += gender_SelectedIndexChanged;
             // 
@@ -709,6 +717,7 @@
             // passwordPanel
             // 
             passwordPanel.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            passwordPanel.BackColor = Color.LightCyan;
             passwordPanel.Controls.Add(passwordLabel);
             passwordPanel.Controls.Add(password);
             passwordPanel.Controls.Add(passwordNotification);
@@ -723,7 +732,7 @@
             passwordLabel.AutoSize = true;
             passwordLabel.Dock = DockStyle.Left;
             passwordLabel.Font = new Font("Arial Narrow", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
-            passwordLabel.ForeColor = SystemColors.ControlLightLight;
+            passwordLabel.ForeColor = SystemColors.ActiveCaptionText;
             passwordLabel.Location = new Point(3, 0);
             passwordLabel.Name = "passwordLabel";
             passwordLabel.Size = new Size(122, 45);
@@ -753,6 +762,7 @@
             // confirmPanel
             // 
             confirmPanel.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            confirmPanel.BackColor = Color.LightCyan;
             confirmPanel.Controls.Add(confirmLabel);
             confirmPanel.Controls.Add(confirm);
             confirmPanel.Controls.Add(confirmNotification);
@@ -767,7 +777,7 @@
             confirmLabel.AutoSize = true;
             confirmLabel.Dock = DockStyle.Left;
             confirmLabel.Font = new Font("Arial Narrow", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
-            confirmLabel.ForeColor = SystemColors.ControlLightLight;
+            confirmLabel.ForeColor = SystemColors.ActiveCaptionText;
             confirmLabel.Location = new Point(3, 0);
             confirmLabel.Name = "confirmLabel";
             confirmLabel.Size = new Size(184, 45);

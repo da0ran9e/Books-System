@@ -448,16 +448,19 @@ namespace WinForms
                 {
                     notification.Text = "Please enter a username to sign in!";
                     notification.ForeColor = Color.Red;
+                    usernamePanel.BackColor = Color.LavenderBlush;
                 }
                 else if (usernameV.Length <= 6)
                 {
                     notification.Text = "Username must have at least 6 characters!";
                     notification.ForeColor = Color.Red;
+                    usernamePanel.BackColor = Color.LavenderBlush;
                 }
                 else if (usernameV.Contains(" "))
                 {
                     notification.Text = "Your username cannot contains space!";
                     notification.ForeColor = Color.Red;
+                    usernamePanel.BackColor = Color.LavenderBlush;
                 }
                 else
                 {
@@ -472,11 +475,13 @@ namespace WinForms
                         {
                             notification.Text = "Username had been taken!";
                             notification.ForeColor = Color.Red;
+                            usernamePanel.BackColor = Color.LavenderBlush;
                         }
                         else
                         {
                             notification.Text = "Username save!";
                             notification.ForeColor = Color.Green;
+                            usernamePanel.BackColor = Color.MintCream;
                         }
                     }
                     catch (Exception ex)
@@ -595,27 +600,32 @@ namespace WinForms
                 {
                     notification.Text = "Password cannot be empty!";
                     notification.ForeColor = Color.Red;
+                    passwordPanel.BackColor = Color.LavenderBlush;
                 }
                 else if (password.Text.Length <= 6)
                 {
                     notification.Text = "Your password must have at least 6 characters!";
                     notification.ForeColor = Color.Red;
+                    passwordPanel.BackColor = Color.LavenderBlush;
                 }
                 else if (password.Text.Contains(" "))
                 {
                     notification.Text = "Your password cannot contains space!";
                     notification.ForeColor = Color.Red;
+                    passwordPanel.BackColor = Color.LavenderBlush;
                 }
                 else if (password.Text != confirm.Text)
                 {
                     notification.Text = "Passwords do not match!";
                     notification.ForeColor = Color.Red;
+                    passwordPanel.BackColor = Color.LavenderBlush;
                 }
                 else if (password.Text == confirm.Text)
                 {
                     passwordV = password.Text;
                     notification.Text = "Password saved!";
                     notification.ForeColor = Color.Green;
+                    passwordPanel.BackColor = Color.MintCream;
                 }
                 notification.Size = new Size(600, 32);
                 confirmNotification.Controls.Add(notification);
@@ -769,6 +779,11 @@ namespace WinForms
         {
             if (e.KeyCode == Keys.Enter)
                 step_Click(sender, e);
+        }
+
+        private void firstNameLabel_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
