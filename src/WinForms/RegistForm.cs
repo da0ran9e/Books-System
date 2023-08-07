@@ -657,6 +657,8 @@ namespace WinForms
                     {
                         con.Close();
                     }
+
+                    //Register done, return to login.
                     if (rowsAffected > 0)
                     {
                         foreach (Label a in panel1.Controls)

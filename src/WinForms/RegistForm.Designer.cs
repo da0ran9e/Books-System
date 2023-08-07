@@ -279,9 +279,9 @@
             usernamePanel.Controls.Add(usernameLabel);
             usernamePanel.Controls.Add(username);
             usernamePanel.Controls.Add(usernameNotification);
-            usernamePanel.Location = new Point(77, 3);
+            usernamePanel.Location = new Point(73, 3);
             usernamePanel.Name = "usernamePanel";
-            usernamePanel.Size = new Size(668, 87);
+            usernamePanel.Size = new Size(672, 87);
             usernamePanel.TabIndex = 0;
             // 
             // usernameLabel
@@ -633,9 +633,9 @@
             imageUrlPanel.Controls.Add(imgUrlLabel);
             imageUrlPanel.Controls.Add(imgUrl);
             imageUrlPanel.Controls.Add(flowLayoutPanel4);
-            imageUrlPanel.Location = new Point(77, 561);
+            imageUrlPanel.Location = new Point(73, 561);
             imageUrlPanel.Name = "imageUrlPanel";
-            imageUrlPanel.Size = new Size(668, 87);
+            imageUrlPanel.Size = new Size(672, 87);
             imageUrlPanel.TabIndex = 8;
             imageUrlPanel.Visible = false;
             // 
@@ -677,9 +677,9 @@
             genderPanel.Controls.Add(genderLabel);
             genderPanel.Controls.Add(gender);
             genderPanel.Controls.Add(genderNotification);
-            genderPanel.Location = new Point(602, 654);
+            genderPanel.Location = new Point(541, 654);
             genderPanel.Name = "genderPanel";
-            genderPanel.Size = new Size(143, 87);
+            genderPanel.Size = new Size(204, 87);
             genderPanel.TabIndex = 9;
             genderPanel.Visible = false;
             // 
@@ -702,7 +702,7 @@
             gender.Items.AddRange(new object[] { "Male", "Female", "Other" });
             gender.Location = new Point(75, 3);
             gender.Name = "gender";
-            gender.Size = new Size(64, 28);
+            gender.Size = new Size(118, 28);
             gender.TabIndex = 3;
             gender.KeyDown += gender_SelectedIndexChanged;
             // 
@@ -746,7 +746,7 @@
             password.Location = new Point(131, 3);
             password.Name = "password";
             password.PlaceholderText = "Create a password";
-            password.Size = new Size(457, 39);
+            password.Size = new Size(519, 39);
             password.TabIndex = 1;
             password.TextAlign = HorizontalAlignment.Center;
             password.UseSystemPasswordChar = true;
