@@ -45,7 +45,19 @@ namespace WinForms
 
         private void maximize_Click(object sender, EventArgs e)
         {
-            this.WindowState = FormWindowState.Maximized;
+
+            if (this.WindowState == FormWindowState.Normal)
+            {
+                maximize.Image = Image.FromFile("../../../../../assets/icons/minimize.png");
+                this.WindowState = FormWindowState.Maximized;
+            }
+
+            else
+            {
+                maximize.Image = Image.FromFile("../../../../../assets/icons/maximize.png");
+                this.WindowState = FormWindowState.Normal;
+            }
+
         }
 
         private void flowLayoutPanel2_Onclick(object sender, EventArgs e)

@@ -128,6 +128,7 @@
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 82F));
             tableLayoutPanel1.Controls.Add(flowLayoutPanel1, 2, 0);
             tableLayoutPanel1.Controls.Add(tableLayoutPanel2, 1, 1);
+            tableLayoutPanel1.Controls.Add(panel1, 1, 2);
             tableLayoutPanel1.Controls.Add(previous, 0, 0);
             tableLayoutPanel1.Controls.Add(topBar, 1, 0);
             tableLayoutPanel1.Dock = DockStyle.Fill;
@@ -198,7 +199,6 @@
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 60F));
             tableLayoutPanel2.Controls.Add(welcome, 1, 0);
             tableLayoutPanel2.Controls.Add(tableLayoutPanel3, 1, 1);
-            tableLayoutPanel2.Controls.Add(panel1, 1, 2);
             tableLayoutPanel2.Dock = DockStyle.Fill;
             tableLayoutPanel2.Location = new Point(36, 30);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -372,6 +372,7 @@
             firstNamePanel.Controls.Add(firstNameLabel);
             firstNamePanel.Controls.Add(firstName);
             firstNamePanel.Controls.Add(firstnameNotification);
+            mainBody.SetFlowBreak(firstNamePanel, true);
             firstNamePanel.Location = new Point(73, 96);
             firstNamePanel.Name = "firstNamePanel";
             firstNamePanel.Size = new Size(332, 87);
@@ -416,6 +417,7 @@
             emailPanel.Controls.Add(emailLabel);
             emailPanel.Controls.Add(email);
             emailPanel.Controls.Add(emailNotification);
+            mainBody.SetFlowBreak(emailPanel, true);
             emailPanel.Location = new Point(73, 189);
             emailPanel.Name = "emailPanel";
             emailPanel.Size = new Size(672, 87);
@@ -460,6 +462,7 @@
             phonePanel.Controls.Add(label1);
             phonePanel.Controls.Add(phone);
             phonePanel.Controls.Add(phoneNotification);
+            mainBody.SetFlowBreak(phonePanel, true);
             phonePanel.ForeColor = SystemColors.ControlText;
             phonePanel.Location = new Point(73, 282);
             phonePanel.Name = "phonePanel";
@@ -506,6 +509,7 @@
             locationPanel.Controls.Add(locationLabel);
             locationPanel.Controls.Add(location);
             locationPanel.Controls.Add(locationNotification);
+            mainBody.SetFlowBreak(locationPanel, true);
             locationPanel.Location = new Point(73, 375);
             locationPanel.Name = "locationPanel";
             locationPanel.Size = new Size(672, 87);
@@ -640,6 +644,7 @@
             imageUrlPanel.Controls.Add(imgUrlLabel);
             imageUrlPanel.Controls.Add(imgUrl);
             imageUrlPanel.Controls.Add(flowLayoutPanel4);
+            mainBody.SetFlowBreak(imageUrlPanel, true);
             imageUrlPanel.Location = new Point(73, 561);
             imageUrlPanel.Name = "imageUrlPanel";
             imageUrlPanel.Size = new Size(672, 87);
@@ -684,6 +689,7 @@
             genderPanel.Controls.Add(genderLabel);
             genderPanel.Controls.Add(gender);
             genderPanel.Controls.Add(genderNotification);
+            mainBody.SetFlowBreak(genderPanel, true);
             genderPanel.Location = new Point(541, 654);
             genderPanel.Name = "genderPanel";
             genderPanel.Size = new Size(204, 87);
@@ -728,6 +734,7 @@
             passwordPanel.Controls.Add(passwordLabel);
             passwordPanel.Controls.Add(password);
             passwordPanel.Controls.Add(passwordNotification);
+            mainBody.SetFlowBreak(passwordPanel, true);
             passwordPanel.Location = new Point(77, 747);
             passwordPanel.Name = "passwordPanel";
             passwordPanel.Size = new Size(668, 87);
@@ -860,8 +867,7 @@
             panel1.Controls.Add(step);
             panel1.Controls.Add(first);
             panel1.Controls.Add(finish);
-            panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(63, 331);
+            panel1.Location = new Point(36, 397);
             panel1.Name = "panel1";
             panel1.Size = new Size(775, 27);
             panel1.TabIndex = 2;
@@ -880,7 +886,7 @@
             // 
             step.Cursor = Cursors.Hand;
             step.Image = (Image)resources.GetObject("step.Image");
-            step.Location = new Point(123, 2);
+            step.Location = new Point(3, 27);
             step.Name = "step";
             step.Size = new Size(281, 25);
             step.TabIndex = 0;
