@@ -128,7 +128,6 @@
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 82F));
             tableLayoutPanel1.Controls.Add(flowLayoutPanel1, 2, 0);
             tableLayoutPanel1.Controls.Add(tableLayoutPanel2, 1, 1);
-            tableLayoutPanel1.Controls.Add(panel1, 1, 2);
             tableLayoutPanel1.Controls.Add(previous, 0, 0);
             tableLayoutPanel1.Controls.Add(topBar, 1, 0);
             tableLayoutPanel1.Dock = DockStyle.Fill;
@@ -199,6 +198,7 @@
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 60F));
             tableLayoutPanel2.Controls.Add(welcome, 1, 0);
             tableLayoutPanel2.Controls.Add(tableLayoutPanel3, 1, 1);
+            tableLayoutPanel2.Controls.Add(panel1, 1, 2);
             tableLayoutPanel2.Dock = DockStyle.Fill;
             tableLayoutPanel2.Location = new Point(36, 30);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -863,17 +863,14 @@
             // 
             // panel1
             // 
+            panel1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             panel1.Controls.Add(label2);
             panel1.Controls.Add(step);
             panel1.Controls.Add(first);
             panel1.Controls.Add(finish);
-<<<<<<< HEAD
-            panel1.Location = new Point(36, 397);
-=======
-            panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(63, 331);
->>>>>>> parent of 9e5faea (draft)
             panel1.Name = "panel1";
+            panel1.RightToLeft = RightToLeft.Yes;
             panel1.Size = new Size(775, 27);
             panel1.TabIndex = 2;
             // 

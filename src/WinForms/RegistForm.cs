@@ -45,15 +45,17 @@ namespace WinForms
 
         private void maximize_Click(object sender, EventArgs e)
         {
-            if(this.WindowState == FormWindowState.Normal)
+            if (this.WindowState == FormWindowState.Normal)
             {
                 maximize.Image = Image.FromFile("../../../../../assets/icons/minimize.png");
                 this.WindowState = FormWindowState.Maximized;
+                panel1.Location = new Point(763, 331);
             }
             else
             {
                 maximize.Image = Image.FromFile("../../../../../assets/icons/maximize.png");
                 this.WindowState = FormWindowState.Normal;
+                panel1.Location = new Point(63, 331);
             }
 
         }
