@@ -867,10 +867,9 @@
             panel1.Controls.Add(step);
             panel1.Controls.Add(first);
             panel1.Controls.Add(finish);
-            panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(63, 331);
             panel1.Name = "panel1";
-            panel1.Size = new Size(775, 27);
+            panel1.Size = new Size(614, 27);
             panel1.TabIndex = 2;
             // 
             // label2
@@ -887,7 +886,7 @@
             // 
             step.Cursor = Cursors.Hand;
             step.Image = (Image)resources.GetObject("step.Image");
-            step.Location = new Point(123, 2);
+            step.Location = new Point(3, 27);
             step.Name = "step";
             step.Size = new Size(281, 25);
             step.TabIndex = 0;
