@@ -1,38 +1,7 @@
-﻿using static WinForms.EffectBlur;
-using System.Runtime.InteropServices;
-
-namespace WinForms
+﻿namespace WinForms
 {
     partial class RegistForm
     {
-        [DllImport("user32.dll")]
-        internal static extern int SetWindowCompositionAttribute(IntPtr hwnd, ref WindowCompositionAttributeData data);
-
-        private uint _blurOpacity;
-        public double BlurOpacity
-        {
-            get { return _blurOpacity; }
-            set { _blurOpacity = (uint)value; EnableBlur(); }
-        }
-
-        private uint _blurBackgroundColor = 0x990000;
-
-        internal void EnableBlur()
-        {
-            var accent = new AccentPolicy();
-            accent.AccentState = AccentState.ACCENT_ENABLE_ACRYLICBLURBEHIND;
-            accent.GradientColor = (_blurOpacity << 24) | (_blurBackgroundColor & 0xFFFFFF);
-            var accentStructSize = Marshal.SizeOf(accent);
-            var accentPtr = Marshal.AllocHGlobal(accentStructSize);
-            Marshal.StructureToPtr(accent, accentPtr, false);
-            var data = new WindowCompositionAttributeData();
-            data.Attribute = WindowCompositionAttribute.WCA_ACCENT_POLICY;
-            data.SizeOfData = accentStructSize;
-            data.Data = accentPtr;
-            SetWindowCompositionAttribute(this.Handle, ref data);
-            Marshal.FreeHGlobal(accentPtr);
-        }
-
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -980,7 +949,6 @@ namespace WinForms
             Name = "RegistForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "RegistForm";
-            //Load += RegistForm_Load;
             tableLayoutPanel1.ResumeLayout(false);
             flowLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel2.ResumeLayout(false);

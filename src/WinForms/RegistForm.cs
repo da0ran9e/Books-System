@@ -686,7 +686,9 @@ namespace WinForms
                     //Register done, return to login.
                     if (rowsAffected > 0)
                     {
-                        confirm.Enabled = false;
+                        passwordPanel.Visible = false;
+                        confirmPanel.Visible = false;
+                        finish.Visible = false;
                         foreach (Label a in panel1.Controls)
                         {
                             panel1.Controls.Remove(a);
@@ -827,22 +829,6 @@ namespace WinForms
         private void confirm_TextChanged(object sender, EventArgs e)
         {
 
-        }
-
-        private void RegistForm_Load(object sender, EventArgs e)
-        {
-            mainBody.BackColor = System.Drawing.ColorTranslator.FromHtml("#010000");
-            EnableBlur();
-        }
-        protected override void OnHandleCreated(EventArgs e)
-        {
-            AppUtils.EnableAcrylic(mainBody, Color.Transparent);
-            base.OnHandleCreated(e);
-        }
-
-        protected override void OnPaintBackground(PaintEventArgs e)
-        {
-            e.Graphics.Clear(Color.Transparent);
         }
     }
 }
