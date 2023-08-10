@@ -152,31 +152,32 @@ namespace WinForms
                 if (notification.ForeColor == Color.Red)
                     return;
             }
-            mainBody.Controls.Add(usernamePanel);
-            mainBody.Controls.Remove(firstNamePanel);
-            mainBody.Controls.Remove(lastnamePanel);
-            mainBody.Controls.Remove(emailPanel);
-            mainBody.Controls.Remove(emailPanel);
-            mainBody.Controls.Remove(phonePanel);
-            mainBody.Controls.Remove(nationPanel);
-            mainBody.Controls.Remove(birthDatePanel);
-            mainBody.Controls.Remove(genderPanel);
-            mainBody.Controls.Remove(locationPanel);
-            mainBody.Controls.Remove(imageUrlPanel);
-            mainBody.Controls.Remove(passwordPanel);
-            mainBody.Controls.Remove(confirmPanel);
+
             usernamePanel.Visible = true;
-            firstNamePanel.Visible = true;
-            lastnamePanel.Visible = true;
-            emailPanel.Visible = true;
-            phonePanel.Visible = true;
-            nationPanel.Visible = true;
-            birthDatePanel.Visible = true;
-            genderPanel.Visible = true;
-            locationPanel.Visible = true;
-            imageUrlPanel.Visible = true;
-            passwordPanel.Visible = true;
-            confirmPanel.Visible = true;
+            firstNamePanel.Visible = false;
+            lastnamePanel.Visible = false;
+            emailPanel.Visible = false;
+            phonePanel.Visible = false;
+            nationPanel.Visible = false;
+            birthDatePanel.Visible = false;
+            genderPanel.Visible = false;
+            locationPanel.Visible = false;
+            imageUrlPanel.Visible = false;
+            passwordPanel.Visible = false;
+            confirmPanel.Visible = false;
+            //mainBody.Controls.Add(usernamePanel);
+            //mainBody.Controls.Remove(firstNamePanel);
+            //mainBody.Controls.Remove(lastnamePanel);
+            //mainBody.Controls.Remove(emailPanel);
+            //mainBody.Controls.Remove(emailPanel);
+            //mainBody.Controls.Remove(phonePanel);
+            //mainBody.Controls.Remove(nationPanel);
+            //mainBody.Controls.Remove(birthDatePanel);
+            //mainBody.Controls.Remove(genderPanel);
+            //mainBody.Controls.Remove(locationPanel);
+            //mainBody.Controls.Remove(imageUrlPanel);
+            //mainBody.Controls.Remove(passwordPanel);
+            //mainBody.Controls.Remove(confirmPanel);
 
 
             stepLoc.X = 123;
@@ -277,30 +278,30 @@ namespace WinForms
                 else if (gender.Text == "Other") genderV = 3;
             }
 
-            mainBody.Controls.Remove(usernamePanel);
-            mainBody.Controls.Remove(firstNamePanel);
-            mainBody.Controls.Remove(lastnamePanel);
-            mainBody.Controls.Remove(emailPanel);
-            mainBody.Controls.Remove(phonePanel);
-            mainBody.Controls.Remove(nationPanel);
-            mainBody.Controls.Remove(birthDatePanel);
-            mainBody.Controls.Remove(genderPanel);
-            mainBody.Controls.Remove(locationPanel);
-            mainBody.Controls.Remove(imageUrlPanel);
-            mainBody.Controls.Add(passwordPanel);
-            mainBody.Controls.Add(confirmPanel);
-            usernamePanel.Visible = true;
-            firstNamePanel.Visible = true;
-            lastnamePanel.Visible = true;
-            emailPanel.Visible = true;
-            phonePanel.Visible = true;
-            nationPanel.Visible = true;
-            birthDatePanel.Visible = true;
-            genderPanel.Visible = true;
-            locationPanel.Visible = true;
-            imageUrlPanel.Visible = true;
+            usernamePanel.Visible = false;
+            firstNamePanel.Visible = false;
+            lastnamePanel.Visible = false;
+            emailPanel.Visible = false;
+            phonePanel.Visible = false;
+            nationPanel.Visible = false;
+            birthDatePanel.Visible = false;
+            genderPanel.Visible = false;
+            locationPanel.Visible = false;
+            imageUrlPanel.Visible = false;
             passwordPanel.Visible = true;
             confirmPanel.Visible = true;
+            //mainBody.Controls.Remove(usernamePanel);
+            //mainBody.Controls.Remove(firstNamePanel);
+            //mainBody.Controls.Remove(lastnamePanel);
+            //mainBody.Controls.Remove(emailPanel);
+            //mainBody.Controls.Remove(phonePanel);
+            //mainBody.Controls.Remove(nationPanel);
+            //mainBody.Controls.Remove(birthDatePanel);
+            //mainBody.Controls.Remove(genderPanel);
+            //mainBody.Controls.Remove(locationPanel);
+            //mainBody.Controls.Remove(imageUrlPanel);
+            //mainBody.Controls.Add(passwordPanel);
+            //mainBody.Controls.Add(confirmPanel);
 
             stepLoc.X = 372;
             step.Text = "Finish";
@@ -430,19 +431,7 @@ namespace WinForms
             stepLoc.X = 256;
             step.Location = new Point(stepLoc.X, stepLoc.Y);
 
-            mainBody.Controls.Remove(usernamePanel);
-            mainBody.Controls.Add(lastnamePanel);
-            mainBody.Controls.Add(firstNamePanel);
-            mainBody.Controls.Add(emailPanel);
-            mainBody.Controls.Add(phonePanel);
-            mainBody.Controls.Add(nationPanel);
-            mainBody.Controls.Add(birthDatePanel);
-            mainBody.Controls.Add(genderPanel);
-            mainBody.Controls.Add(locationPanel);
-            mainBody.Controls.Add(imageUrlPanel);
-            mainBody.Controls.Remove(passwordPanel);
-            mainBody.Controls.Remove(confirmPanel);
-            usernamePanel.Visible = true;
+            usernamePanel.Visible = false;
             firstNamePanel.Visible = true;
             lastnamePanel.Visible = true;
             emailPanel.Visible = true;
@@ -452,8 +441,21 @@ namespace WinForms
             genderPanel.Visible = true;
             locationPanel.Visible = true;
             imageUrlPanel.Visible = true;
-            passwordPanel.Visible = true;
-            confirmPanel.Visible = true;
+            passwordPanel.Visible = false;
+            confirmPanel.Visible = false;
+            //mainBody.Controls.Remove(usernamePanel);
+            //mainBody.Controls.Add(lastnamePanel);
+            //mainBody.Controls.Add(firstNamePanel);
+            //mainBody.Controls.Add(emailPanel);
+            //mainBody.Controls.Add(phonePanel);
+            //mainBody.Controls.Add(nationPanel);
+            //mainBody.Controls.Add(birthDatePanel);
+            //mainBody.Controls.Add(genderPanel);
+            //mainBody.Controls.Add(locationPanel);
+            //mainBody.Controls.Add(imageUrlPanel);
+            //mainBody.Controls.Remove(passwordPanel);
+            //mainBody.Controls.Remove(confirmPanel);
+
         }
 
         private void step_Click(object sender, EventArgs e)
@@ -534,19 +536,7 @@ namespace WinForms
                     return;
 
                 // up date mainBody
-                mainBody.Controls.Remove(usernamePanel);
-                mainBody.Controls.Add(lastnamePanel);
-                mainBody.Controls.Add(firstNamePanel);
-                mainBody.Controls.Add(emailPanel);
-                mainBody.Controls.Add(phonePanel);
-                mainBody.Controls.Add(nationPanel);
-                mainBody.Controls.Add(birthDatePanel);
-                mainBody.Controls.Add(genderPanel);
-                mainBody.Controls.Add(locationPanel);
-                mainBody.Controls.Add(imageUrlPanel);
-                mainBody.Controls.Remove(passwordPanel);
-                mainBody.Controls.Remove(confirmPanel);
-                usernamePanel.Visible = true;
+                usernamePanel.Visible = false;
                 firstNamePanel.Visible = true;
                 lastnamePanel.Visible = true;
                 emailPanel.Visible = true;
@@ -556,8 +546,21 @@ namespace WinForms
                 genderPanel.Visible = true;
                 locationPanel.Visible = true;
                 imageUrlPanel.Visible = true;
-                passwordPanel.Visible = true;
-                confirmPanel.Visible = true;
+                passwordPanel.Visible = false;
+                confirmPanel.Visible = false;
+                //mainBody.Controls.Remove(usernamePanel);
+                //mainBody.Controls.Add(lastnamePanel);
+                //mainBody.Controls.Add(firstNamePanel);
+                //mainBody.Controls.Add(emailPanel);
+                //mainBody.Controls.Add(phonePanel);
+                //mainBody.Controls.Add(nationPanel);
+                //mainBody.Controls.Add(birthDatePanel);
+                //mainBody.Controls.Add(genderPanel);
+                //mainBody.Controls.Add(locationPanel);
+                //mainBody.Controls.Add(imageUrlPanel);
+                //mainBody.Controls.Remove(passwordPanel);
+                //mainBody.Controls.Remove(confirmPanel);
+
 
                 label2.Visible = false;
                 stepLoc.X = 256;
@@ -582,19 +585,6 @@ namespace WinForms
                 else if (gender.Text == "Female") genderV = 2;
                 else if (gender.Text == "Other") genderV = 3;
 
-
-                mainBody.Controls.Remove(usernamePanel);
-                mainBody.Controls.Remove(firstNamePanel);
-                mainBody.Controls.Remove(lastnamePanel);
-                mainBody.Controls.Remove(emailPanel);
-                mainBody.Controls.Remove(phonePanel);
-                mainBody.Controls.Remove(nationPanel);
-                mainBody.Controls.Remove(birthDatePanel);
-                mainBody.Controls.Remove(genderPanel);
-                mainBody.Controls.Remove(locationPanel);
-                mainBody.Controls.Remove(imageUrlPanel);
-                mainBody.Controls.Add(passwordPanel);
-                mainBody.Controls.Add(confirmPanel);
                 usernamePanel.Visible = false;
                 firstNamePanel.Visible = false;
                 lastnamePanel.Visible = false;
@@ -607,6 +597,19 @@ namespace WinForms
                 imageUrlPanel.Visible = false;
                 passwordPanel.Visible = true;
                 confirmPanel.Visible = true;
+                //mainBody.Controls.Remove(usernamePanel);
+                //mainBody.Controls.Remove(firstNamePanel);
+                //mainBody.Controls.Remove(lastnamePanel);
+                //mainBody.Controls.Remove(emailPanel);
+                //mainBody.Controls.Remove(phonePanel);
+                //mainBody.Controls.Remove(nationPanel);
+                //mainBody.Controls.Remove(birthDatePanel);
+                //mainBody.Controls.Remove(genderPanel);
+                //mainBody.Controls.Remove(locationPanel);
+                //mainBody.Controls.Remove(imageUrlPanel);
+                //mainBody.Controls.Add(passwordPanel);
+                //mainBody.Controls.Add(confirmPanel);
+
 
                 stepLoc.X = 372;
                 step.Text = "Finish";
@@ -840,6 +843,7 @@ namespace WinForms
         {
             if(this.WindowState == FormWindowState.Maximized)
             {
+
             }
             
         }
