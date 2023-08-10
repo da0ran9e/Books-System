@@ -38,6 +38,7 @@
             welcome = new Label();
             tableLayoutPanel3 = new TableLayoutPanel();
             signIn = new Label();
+            mainContainer = new Panel();
             mainBody = new FlowLayoutPanel();
             usernamePanel = new FlowLayoutPanel();
             usernameLabel = new Label();
@@ -59,10 +60,6 @@
             label1 = new Label();
             phone = new TextBox();
             phoneNotification = new FlowLayoutPanel();
-            locationPanel = new FlowLayoutPanel();
-            locationLabel = new Label();
-            location = new TextBox();
-            locationNotification = new FlowLayoutPanel();
             nationPanel = new FlowLayoutPanel();
             nationLabel = new Label();
             nation = new ComboBox();
@@ -71,14 +68,18 @@
             birthdateLabel = new Label();
             birthDate = new DateTimePicker();
             birthdateNotification = new FlowLayoutPanel();
-            imageUrlPanel = new FlowLayoutPanel();
-            imgUrlLabel = new Label();
-            imgUrl = new TextBox();
-            flowLayoutPanel4 = new FlowLayoutPanel();
             genderPanel = new FlowLayoutPanel();
             genderLabel = new Label();
             gender = new ComboBox();
             genderNotification = new FlowLayoutPanel();
+            locationPanel = new FlowLayoutPanel();
+            locationLabel = new Label();
+            location = new TextBox();
+            locationNotification = new FlowLayoutPanel();
+            imageUrlPanel = new FlowLayoutPanel();
+            imgUrlLabel = new Label();
+            imgUrl = new TextBox();
+            flowLayoutPanel4 = new FlowLayoutPanel();
             passwordPanel = new FlowLayoutPanel();
             passwordLabel = new Label();
             password = new TextBox();
@@ -91,6 +92,7 @@
             login = new Label();
             done = new Label();
             doneIco = new Label();
+            adFeed2 = new Panel();
             panel1 = new Panel();
             label2 = new Label();
             step = new Label();
@@ -98,21 +100,23 @@
             finish = new Label();
             previous = new Label();
             topBar = new Panel();
+            adFeed1 = new Panel();
             tableLayoutPanel1.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             tableLayoutPanel3.SuspendLayout();
+            mainContainer.SuspendLayout();
             mainBody.SuspendLayout();
             usernamePanel.SuspendLayout();
             lastnamePanel.SuspendLayout();
             firstNamePanel.SuspendLayout();
             emailPanel.SuspendLayout();
             phonePanel.SuspendLayout();
-            locationPanel.SuspendLayout();
             nationPanel.SuspendLayout();
             birthDatePanel.SuspendLayout();
-            imageUrlPanel.SuspendLayout();
             genderPanel.SuspendLayout();
+            locationPanel.SuspendLayout();
+            imageUrlPanel.SuspendLayout();
             passwordPanel.SuspendLayout();
             confirmPanel.SuspendLayout();
             donePanel.SuspendLayout();
@@ -130,6 +134,7 @@
             tableLayoutPanel1.Controls.Add(tableLayoutPanel2, 1, 1);
             tableLayoutPanel1.Controls.Add(previous, 0, 0);
             tableLayoutPanel1.Controls.Add(topBar, 1, 0);
+            tableLayoutPanel1.Controls.Add(adFeed1, 1, 2);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -228,7 +233,7 @@
             tableLayoutPanel3.ColumnCount = 1;
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel3.Controls.Add(signIn, 0, 0);
-            tableLayoutPanel3.Controls.Add(mainBody, 0, 1);
+            tableLayoutPanel3.Controls.Add(mainContainer, 0, 1);
             tableLayoutPanel3.Dock = DockStyle.Fill;
             tableLayoutPanel3.Location = new Point(63, 53);
             tableLayoutPanel3.Name = "tableLayoutPanel3";
@@ -251,30 +256,42 @@
             signIn.Text = "Sign in";
             signIn.TextAlign = ContentAlignment.MiddleCenter;
             // 
+            // mainContainer
+            // 
+            mainContainer.Controls.Add(mainBody);
+            mainContainer.Controls.Add(adFeed2);
+            mainContainer.Dock = DockStyle.Fill;
+            mainContainer.Location = new Point(3, 53);
+            mainContainer.Name = "mainContainer";
+            mainContainer.Size = new Size(769, 216);
+            mainContainer.TabIndex = 1;
+            // 
             // mainBody
             // 
             mainBody.AllowDrop = true;
-            mainBody.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             mainBody.AutoScroll = true;
             mainBody.AutoSize = true;
+            mainBody.BackColor = Color.White;
             mainBody.Controls.Add(usernamePanel);
             mainBody.Controls.Add(lastnamePanel);
             mainBody.Controls.Add(firstNamePanel);
             mainBody.Controls.Add(emailPanel);
             mainBody.Controls.Add(phonePanel);
-            mainBody.Controls.Add(locationPanel);
             mainBody.Controls.Add(nationPanel);
             mainBody.Controls.Add(birthDatePanel);
-            mainBody.Controls.Add(imageUrlPanel);
             mainBody.Controls.Add(genderPanel);
+            mainBody.Controls.Add(locationPanel);
+            mainBody.Controls.Add(imageUrlPanel);
             mainBody.Controls.Add(passwordPanel);
             mainBody.Controls.Add(confirmPanel);
             mainBody.Controls.Add(donePanel);
             mainBody.Cursor = Cursors.Hand;
+            mainBody.Dock = DockStyle.Right;
             mainBody.FlowDirection = FlowDirection.RightToLeft;
-            mainBody.Location = new Point(3, 53);
+            mainBody.Location = new Point(91, 0);
+            mainBody.MaximumSize = new Size(770, 2160);
             mainBody.Name = "mainBody";
-            mainBody.Size = new Size(769, 216);
+            mainBody.Size = new Size(678, 216);
             mainBody.TabIndex = 1;
             mainBody.Click += flowLayoutPanel2_Onclick;
             mainBody.Paint += flowLayoutPanel2_Paint;
@@ -286,7 +303,7 @@
             usernamePanel.Controls.Add(usernameLabel);
             usernamePanel.Controls.Add(username);
             usernamePanel.Controls.Add(usernameNotification);
-            usernamePanel.Location = new Point(73, 3);
+            usernamePanel.Location = new Point(3, 3);
             usernamePanel.Name = "usernamePanel";
             usernamePanel.Size = new Size(672, 87);
             usernamePanel.TabIndex = 0;
@@ -329,7 +346,7 @@
             lastnamePanel.Controls.Add(lastNameLabel);
             lastnamePanel.Controls.Add(lastName);
             lastnamePanel.Controls.Add(lastnameNotification);
-            lastnamePanel.Location = new Point(411, 96);
+            lastnamePanel.Location = new Point(341, 96);
             lastnamePanel.Name = "lastnamePanel";
             lastnamePanel.Size = new Size(334, 87);
             lastnamePanel.TabIndex = 1;
@@ -373,7 +390,7 @@
             firstNamePanel.Controls.Add(firstName);
             firstNamePanel.Controls.Add(firstnameNotification);
             mainBody.SetFlowBreak(firstNamePanel, true);
-            firstNamePanel.Location = new Point(73, 96);
+            firstNamePanel.Location = new Point(3, 96);
             firstNamePanel.Name = "firstNamePanel";
             firstNamePanel.Size = new Size(332, 87);
             firstNamePanel.TabIndex = 2;
@@ -418,7 +435,7 @@
             emailPanel.Controls.Add(email);
             emailPanel.Controls.Add(emailNotification);
             mainBody.SetFlowBreak(emailPanel, true);
-            emailPanel.Location = new Point(73, 189);
+            emailPanel.Location = new Point(3, 189);
             emailPanel.Name = "emailPanel";
             emailPanel.Size = new Size(672, 87);
             emailPanel.TabIndex = 3;
@@ -464,7 +481,7 @@
             phonePanel.Controls.Add(phoneNotification);
             mainBody.SetFlowBreak(phonePanel, true);
             phonePanel.ForeColor = SystemColors.ControlText;
-            phonePanel.Location = new Point(73, 282);
+            phonePanel.Location = new Point(3, 282);
             phonePanel.Name = "phonePanel";
             phonePanel.Size = new Size(672, 87);
             phonePanel.TabIndex = 4;
@@ -502,51 +519,6 @@
             phoneNotification.Size = new Size(607, 32);
             phoneNotification.TabIndex = 2;
             // 
-            // locationPanel
-            // 
-            locationPanel.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            locationPanel.BackColor = Color.LightCyan;
-            locationPanel.Controls.Add(locationLabel);
-            locationPanel.Controls.Add(location);
-            locationPanel.Controls.Add(locationNotification);
-            mainBody.SetFlowBreak(locationPanel, true);
-            locationPanel.Location = new Point(73, 375);
-            locationPanel.Name = "locationPanel";
-            locationPanel.Size = new Size(672, 87);
-            locationPanel.TabIndex = 5;
-            locationPanel.Visible = false;
-            // 
-            // locationLabel
-            // 
-            locationLabel.AutoSize = true;
-            locationLabel.Dock = DockStyle.Left;
-            locationLabel.Font = new Font("Arial Narrow", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
-            locationLabel.ForeColor = SystemColors.ActiveCaptionText;
-            locationLabel.Location = new Point(3, 0);
-            locationLabel.Name = "locationLabel";
-            locationLabel.Size = new Size(76, 40);
-            locationLabel.TabIndex = 0;
-            locationLabel.Text = "Location:";
-            locationLabel.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // location
-            // 
-            location.Font = new Font("Arial", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-            location.Location = new Point(85, 3);
-            location.Name = "location";
-            location.PlaceholderText = "Your street addrest";
-            location.Size = new Size(496, 34);
-            location.TabIndex = 1;
-            location.TextAlign = HorizontalAlignment.Center;
-            location.KeyDown += location_TextChanged;
-            // 
-            // locationNotification
-            // 
-            locationNotification.Location = new Point(3, 43);
-            locationNotification.Name = "locationNotification";
-            locationNotification.Size = new Size(607, 32);
-            locationNotification.TabIndex = 2;
-            // 
             // nationPanel
             // 
             nationPanel.Anchor = AnchorStyles.Top | AnchorStyles.Right;
@@ -554,7 +526,7 @@
             nationPanel.Controls.Add(nationLabel);
             nationPanel.Controls.Add(nation);
             nationPanel.Controls.Add(nationNotification);
-            nationPanel.Location = new Point(519, 468);
+            nationPanel.Location = new Point(449, 375);
             nationPanel.Name = "nationPanel";
             nationPanel.Size = new Size(226, 87);
             nationPanel.TabIndex = 6;
@@ -598,7 +570,7 @@
             birthDatePanel.Controls.Add(birthdateLabel);
             birthDatePanel.Controls.Add(birthDate);
             birthDatePanel.Controls.Add(birthdateNotification);
-            birthDatePanel.Location = new Point(282, 468);
+            birthDatePanel.Location = new Point(212, 375);
             birthDatePanel.Name = "birthDatePanel";
             birthDatePanel.Size = new Size(231, 87);
             birthDatePanel.TabIndex = 7;
@@ -637,51 +609,6 @@
             birthdateNotification.Size = new Size(607, 38);
             birthdateNotification.TabIndex = 2;
             // 
-            // imageUrlPanel
-            // 
-            imageUrlPanel.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            imageUrlPanel.BackColor = Color.LightCyan;
-            imageUrlPanel.Controls.Add(imgUrlLabel);
-            imageUrlPanel.Controls.Add(imgUrl);
-            imageUrlPanel.Controls.Add(flowLayoutPanel4);
-            mainBody.SetFlowBreak(imageUrlPanel, true);
-            imageUrlPanel.Location = new Point(73, 561);
-            imageUrlPanel.Name = "imageUrlPanel";
-            imageUrlPanel.Size = new Size(672, 87);
-            imageUrlPanel.TabIndex = 8;
-            imageUrlPanel.Visible = false;
-            // 
-            // imgUrlLabel
-            // 
-            imgUrlLabel.AutoSize = true;
-            imgUrlLabel.Dock = DockStyle.Left;
-            imgUrlLabel.Font = new Font("Arial Narrow", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
-            imgUrlLabel.ForeColor = SystemColors.ActiveCaptionText;
-            imgUrlLabel.Location = new Point(3, 0);
-            imgUrlLabel.Name = "imgUrlLabel";
-            imgUrlLabel.Size = new Size(142, 40);
-            imgUrlLabel.TabIndex = 0;
-            imgUrlLabel.Text = "Profile Image URL:";
-            imgUrlLabel.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // imgUrl
-            // 
-            imgUrl.Font = new Font("Arial", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-            imgUrl.Location = new Point(151, 3);
-            imgUrl.Name = "imgUrl";
-            imgUrl.PlaceholderText = "Paste your profile image URL here";
-            imgUrl.Size = new Size(426, 34);
-            imgUrl.TabIndex = 1;
-            imgUrl.TextAlign = HorizontalAlignment.Center;
-            imgUrl.KeyDown += imgUrl_TextChanged;
-            // 
-            // flowLayoutPanel4
-            // 
-            flowLayoutPanel4.Location = new Point(3, 43);
-            flowLayoutPanel4.Name = "flowLayoutPanel4";
-            flowLayoutPanel4.Size = new Size(607, 32);
-            flowLayoutPanel4.TabIndex = 2;
-            // 
             // genderPanel
             // 
             genderPanel.Anchor = AnchorStyles.Top | AnchorStyles.Right;
@@ -690,7 +617,7 @@
             genderPanel.Controls.Add(gender);
             genderPanel.Controls.Add(genderNotification);
             mainBody.SetFlowBreak(genderPanel, true);
-            genderPanel.Location = new Point(541, 654);
+            genderPanel.Location = new Point(471, 468);
             genderPanel.Name = "genderPanel";
             genderPanel.Size = new Size(204, 87);
             genderPanel.TabIndex = 9;
@@ -727,6 +654,96 @@
             genderNotification.Size = new Size(607, 32);
             genderNotification.TabIndex = 2;
             // 
+            // locationPanel
+            // 
+            locationPanel.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            locationPanel.BackColor = Color.LightCyan;
+            locationPanel.Controls.Add(locationLabel);
+            locationPanel.Controls.Add(location);
+            locationPanel.Controls.Add(locationNotification);
+            mainBody.SetFlowBreak(locationPanel, true);
+            locationPanel.Location = new Point(3, 561);
+            locationPanel.Name = "locationPanel";
+            locationPanel.Size = new Size(672, 87);
+            locationPanel.TabIndex = 5;
+            locationPanel.Visible = false;
+            // 
+            // locationLabel
+            // 
+            locationLabel.AutoSize = true;
+            locationLabel.Dock = DockStyle.Left;
+            locationLabel.Font = new Font("Arial Narrow", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+            locationLabel.ForeColor = SystemColors.ActiveCaptionText;
+            locationLabel.Location = new Point(3, 0);
+            locationLabel.Name = "locationLabel";
+            locationLabel.Size = new Size(76, 40);
+            locationLabel.TabIndex = 0;
+            locationLabel.Text = "Location:";
+            locationLabel.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // location
+            // 
+            location.Font = new Font("Arial", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            location.Location = new Point(85, 3);
+            location.Name = "location";
+            location.PlaceholderText = "Your street addrest";
+            location.Size = new Size(496, 34);
+            location.TabIndex = 1;
+            location.TextAlign = HorizontalAlignment.Center;
+            location.KeyDown += location_TextChanged;
+            // 
+            // locationNotification
+            // 
+            locationNotification.Location = new Point(3, 43);
+            locationNotification.Name = "locationNotification";
+            locationNotification.Size = new Size(607, 32);
+            locationNotification.TabIndex = 2;
+            // 
+            // imageUrlPanel
+            // 
+            imageUrlPanel.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            imageUrlPanel.BackColor = Color.LightCyan;
+            imageUrlPanel.Controls.Add(imgUrlLabel);
+            imageUrlPanel.Controls.Add(imgUrl);
+            imageUrlPanel.Controls.Add(flowLayoutPanel4);
+            mainBody.SetFlowBreak(imageUrlPanel, true);
+            imageUrlPanel.Location = new Point(3, 654);
+            imageUrlPanel.Name = "imageUrlPanel";
+            imageUrlPanel.Size = new Size(672, 87);
+            imageUrlPanel.TabIndex = 8;
+            imageUrlPanel.Visible = false;
+            // 
+            // imgUrlLabel
+            // 
+            imgUrlLabel.AutoSize = true;
+            imgUrlLabel.Dock = DockStyle.Left;
+            imgUrlLabel.Font = new Font("Arial Narrow", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+            imgUrlLabel.ForeColor = SystemColors.ActiveCaptionText;
+            imgUrlLabel.Location = new Point(3, 0);
+            imgUrlLabel.Name = "imgUrlLabel";
+            imgUrlLabel.Size = new Size(142, 40);
+            imgUrlLabel.TabIndex = 0;
+            imgUrlLabel.Text = "Profile Image URL:";
+            imgUrlLabel.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // imgUrl
+            // 
+            imgUrl.Font = new Font("Arial", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            imgUrl.Location = new Point(151, 3);
+            imgUrl.Name = "imgUrl";
+            imgUrl.PlaceholderText = "Paste your profile image URL here";
+            imgUrl.Size = new Size(426, 34);
+            imgUrl.TabIndex = 1;
+            imgUrl.TextAlign = HorizontalAlignment.Center;
+            imgUrl.KeyDown += imgUrl_TextChanged;
+            // 
+            // flowLayoutPanel4
+            // 
+            flowLayoutPanel4.Location = new Point(3, 43);
+            flowLayoutPanel4.Name = "flowLayoutPanel4";
+            flowLayoutPanel4.Size = new Size(607, 32);
+            flowLayoutPanel4.TabIndex = 2;
+            // 
             // passwordPanel
             // 
             passwordPanel.Anchor = AnchorStyles.Top | AnchorStyles.Right;
@@ -735,7 +752,7 @@
             passwordPanel.Controls.Add(password);
             passwordPanel.Controls.Add(passwordNotification);
             mainBody.SetFlowBreak(passwordPanel, true);
-            passwordPanel.Location = new Point(77, 747);
+            passwordPanel.Location = new Point(7, 747);
             passwordPanel.Name = "passwordPanel";
             passwordPanel.Size = new Size(668, 87);
             passwordPanel.TabIndex = 10;
@@ -780,7 +797,7 @@
             confirmPanel.Controls.Add(confirmLabel);
             confirmPanel.Controls.Add(confirm);
             confirmPanel.Controls.Add(confirmNotification);
-            confirmPanel.Location = new Point(77, 840);
+            confirmPanel.Location = new Point(7, 840);
             confirmPanel.Name = "confirmPanel";
             confirmPanel.Size = new Size(668, 87);
             confirmPanel.TabIndex = 11;
@@ -824,7 +841,7 @@
             donePanel.Controls.Add(login);
             donePanel.Controls.Add(done);
             donePanel.Controls.Add(doneIco);
-            donePanel.Location = new Point(76, 933);
+            donePanel.Location = new Point(6, 933);
             donePanel.Name = "donePanel";
             donePanel.Size = new Size(669, 179);
             donePanel.TabIndex = 12;
@@ -860,6 +877,15 @@
             doneIco.Name = "doneIco";
             doneIco.Size = new Size(162, 139);
             doneIco.TabIndex = 0;
+            // 
+            // adFeed2
+            // 
+            adFeed2.BackColor = Color.Chocolate;
+            adFeed2.Dock = DockStyle.Left;
+            adFeed2.Location = new Point(0, 0);
+            adFeed2.Name = "adFeed2";
+            adFeed2.Size = new Size(76, 216);
+            adFeed2.TabIndex = 9;
             // 
             // panel1
             // 
@@ -937,6 +963,16 @@
             topBar.MouseMove += regisForm_MouseMove;
             topBar.MouseUp += registForm_MouseUp;
             // 
+            // adFeed1
+            // 
+            adFeed1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
+            adFeed1.BackColor = Color.Chocolate;
+            adFeed1.Location = new Point(395, 397);
+            adFeed1.Name = "adFeed1";
+            adFeed1.Size = new Size(183, 91);
+            adFeed1.TabIndex = 8;
+            adFeed1.Paint += adFeed1_Paint;
+            // 
             // RegistForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -957,6 +993,8 @@
             tableLayoutPanel2.PerformLayout();
             tableLayoutPanel3.ResumeLayout(false);
             tableLayoutPanel3.PerformLayout();
+            mainContainer.ResumeLayout(false);
+            mainContainer.PerformLayout();
             mainBody.ResumeLayout(false);
             usernamePanel.ResumeLayout(false);
             usernamePanel.PerformLayout();
@@ -968,16 +1006,16 @@
             emailPanel.PerformLayout();
             phonePanel.ResumeLayout(false);
             phonePanel.PerformLayout();
-            locationPanel.ResumeLayout(false);
-            locationPanel.PerformLayout();
             nationPanel.ResumeLayout(false);
             nationPanel.PerformLayout();
             birthDatePanel.ResumeLayout(false);
             birthDatePanel.PerformLayout();
-            imageUrlPanel.ResumeLayout(false);
-            imageUrlPanel.PerformLayout();
             genderPanel.ResumeLayout(false);
             genderPanel.PerformLayout();
+            locationPanel.ResumeLayout(false);
+            locationPanel.PerformLayout();
+            imageUrlPanel.ResumeLayout(false);
+            imageUrlPanel.PerformLayout();
             passwordPanel.ResumeLayout(false);
             passwordPanel.PerformLayout();
             confirmPanel.ResumeLayout(false);
@@ -1059,5 +1097,8 @@
         private Panel donePanel;
         private Label done;
         private Label login;
+        private Panel mainContainer;
+        private Panel adFeed1;
+        private Panel adFeed2;
     }
 }
