@@ -830,5 +830,18 @@ namespace WinForms
         {
 
         }
+
+        private void RegistForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void RegistForm_SizeChanged(object sender, EventArgs e)
+        {
+            if(this.WindowState == FormWindowState.Maximized)
+            {
+            }
+            
+        }
     }
 }

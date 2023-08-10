@@ -949,6 +949,8 @@
             Name = "RegistForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "RegistForm";
+            Load += RegistForm_Load;
+            SizeChanged += RegistForm_SizeChanged;
             tableLayoutPanel1.ResumeLayout(false);
             flowLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel2.ResumeLayout(false);
