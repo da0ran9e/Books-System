@@ -50,9 +50,6 @@ namespace WinForms
                 maximize.Image = Image.FromFile("../../../../../assets/icons/minimize.png");
                 this.WindowState = FormWindowState.Maximized;
                 panel1.Location = new Point(763, 331);
-
-                mainBody.Dock = DockStyle.None;
-                mainContainer.Controls.Add(adFeed1);
             }
             else
             {
@@ -844,16 +841,11 @@ namespace WinForms
 
         private void RegistForm_SizeChanged(object sender, EventArgs e)
         {
-            if (this.WindowState == FormWindowState.Maximized)
+            if(this.WindowState == FormWindowState.Maximized)
             {
 
             }
-
-        }
-
-        private void adFeed1_Paint(object sender, PaintEventArgs e)
-        {
-
+            
         }
     }
 }
