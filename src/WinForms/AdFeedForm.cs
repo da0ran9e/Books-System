@@ -23,6 +23,18 @@ namespace WinForms
             InitializeComponent();
         }
 
+        public static Image resizeImage(Image imgToResize, Size size)
+        {
+            return (Image)(new Bitmap(imgToResize, size));
+        }
+        public static Image setHeight(Image imgToResize, int height)
+        {
+            int w = imgToResize.Width;
+            int h = imgToResize.Height;
+            int width = (height * w / h);
+            Size size = new Size(width, height);
+            return (Image)(new Bitmap(imgToResize, size));
+        }
         private void getAdImage(int index)
         {
 
@@ -50,7 +62,10 @@ namespace WinForms
                             Image image = Image.FromStream(stream);
                             string imgPath = "../../../../../assets/temps/temp" + index + ".jpg";
                             image.Save(imgPath);
-                            label1.Image = Image.FromFile(imgPath);
+                            Image img = Image.FromFile(imgPath);
+                            img = setHeight(img, label1.Height);
+                            //img = resizeImage(img, new Size(350, 350));
+                            label1.Image = img;
                         }
                     }
                     catch (Exception ex)

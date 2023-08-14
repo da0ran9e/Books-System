@@ -68,7 +68,7 @@ namespace WinForms
             label1.ForeColor = SystemColors.ButtonHighlight;
             label1.Location = new Point(0, 0);
             label1.Name = "label1";
-            label1.Size = new Size(531, 915);
+            label1.Size = new Size(826, 538);
             label1.TabIndex = 0;
             label1.Text = "label1";
             label1.TextAlign = ContentAlignment.MiddleCenter;
@@ -78,7 +78,7 @@ namespace WinForms
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(531, 915);
+            ClientSize = new Size(826, 538);
             Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "AdFeedForm";
