@@ -28,6 +28,19 @@ namespace WinForms
             InitializeComponent();
         }
 
+        public static Image resizeImage(Image imgToResize, Size size)
+        {
+            return (Image)(new Bitmap(imgToResize, size));
+        }
+        public static Image setHeight(Image imgToResize, int height)
+        {
+            int w = imgToResize.Width;
+            int h = imgToResize.Height;
+            int width = (height * w / h);
+            Size size = new Size(width, height);
+            return (Image)(new Bitmap(imgToResize, size));
+        }
+
         private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
 
@@ -50,7 +63,7 @@ namespace WinForms
 
         private void getAdImage(int index)
         {
-            
+
             try
             {
                 cmd = new SqlCommand("select [imageURLL] from books where [index] = " + index, con);
@@ -73,7 +86,12 @@ namespace WinForms
                         using (Stream stream = response.Content.ReadAsStreamAsync().Result)
                         {
                             Image image = Image.FromStream(stream);
-                            image.Save("../../../../../assets/temps/temp"+index+".jpg");
+                            string imgPath = "../../../../../assets/temps/temp" + index + ".jpg";
+                            image.Save(imgPath);
+                            Image img = Image.FromFile(imgPath);
+                            img = setHeight(img, adLabel.Height);
+                            //img = resizeImage(img, new Size(350, 350));
+                            adLabel.Image = img;
                         }
                     }
                     catch (Exception ex)
@@ -108,6 +126,14 @@ namespace WinForms
             }
         }
 
+        private int adIndexAutoGen()
+        {
+            int range = 1000;
+            Random rand = new Random();
+            int randIndex = rand.Next(1, range);
+            return randIndex;
+        }
+
         private async void maximize_Click(object sender, EventArgs e)
         {
             if (this.WindowState == FormWindowState.Normal)
@@ -116,9 +142,12 @@ namespace WinForms
                 this.WindowState = FormWindowState.Maximized;
                 panel1.Location = new Point(763, 331);
 
-                int range = 100000;
-                Random rand = new Random();
-                int randIndex = rand.Next(1, range);
+                adLabel.Visible = true;
+                while (adLabel.Visible)
+                {
+                    getAdImage(adIndexAutoGen());
+                    await Task.Delay(3000);
+                }
                 //getAdImage(randIndex);
                 //await Task.Delay(5000);
 
@@ -928,7 +957,7 @@ namespace WinForms
 
         private void adLabel_Click(object sender, EventArgs e)
         {
-            
+
             int range = 1000;
             Random rand = new Random();
             int randIndex = rand.Next(1, range);

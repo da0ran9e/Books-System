@@ -895,11 +895,10 @@
             // 
             // adLabel
             // 
-            adLabel.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            adLabel.AutoSize = true;
-            adLabel.Location = new Point(30, 70);
+            adLabel.Dock = DockStyle.Fill;
+            adLabel.Location = new Point(0, 0);
             adLabel.Name = "adLabel";
-            adLabel.Size = new Size(30, 20);
+            adLabel.Size = new Size(63, 210);
             adLabel.TabIndex = 0;
             adLabel.Text = "❌";
             adLabel.Click += adLabel_Click;
@@ -1040,7 +1039,6 @@
             confirmPanel.PerformLayout();
             donePanel.ResumeLayout(false);
             adPanel.ResumeLayout(false);
-            adPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)adPictureBox).EndInit();
             panel1.ResumeLayout(false);
             ResumeLayout(false);
