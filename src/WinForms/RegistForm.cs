@@ -10,6 +10,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.Net;
+using System.Security.Policy;
+using System.Reflection;
+using System.Net.Http;
 
 namespace WinForms
 {
@@ -18,6 +22,7 @@ namespace WinForms
         SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\vuduc\OneDrive\Documents\BX.mdf;Integrated Security=True;Connect Timeout=30");
         SqlCommand cmd = new SqlCommand();
         SqlDataReader dr;
+
         public RegistForm()
         {
             InitializeComponent();
@@ -43,13 +48,81 @@ namespace WinForms
             this.WindowState = FormWindowState.Minimized;
         }
 
-        private void maximize_Click(object sender, EventArgs e)
+        private void getAdImage(int index)
+        {
+            
+            try
+            {
+                cmd = new SqlCommand("select [imageURLL] from books where [index] = " + index, con);
+                con.Open();
+                dr = cmd.ExecuteReader();
+                dr.Read();
+
+                if (dr.HasRows)
+                {
+                    string url = dr.GetFieldValue<string>(0);
+                    adLabel.Text = url;
+
+                    HttpClient client = new HttpClient();
+                    try
+                    {
+                        client.DefaultRequestHeaders.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.63 Safari/537.36");
+                        HttpResponseMessage response = client.GetAsync(url).Result;
+                        response.EnsureSuccessStatusCode();
+
+                        using (Stream stream = response.Content.ReadAsStreamAsync().Result)
+                        {
+                            Image image = Image.FromStream(stream);
+                            image.Save("../../../../../assets/temps/temp"+index+".jpg");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine($"Error: {ex.Message}");
+                    }
+                }
+                else
+                {
+                    dr.Close();
+                    con.Close();
+                    getAdImage(index + 1);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                // close the reader
+                if (dr != null)
+                {
+                    dr.Close();
+                }
+
+                //Close the connection
+                if (con != null)
+                {
+                    con.Close();
+                }
+            }
+        }
+
+        private async void maximize_Click(object sender, EventArgs e)
         {
             if (this.WindowState == FormWindowState.Normal)
             {
                 maximize.Image = Image.FromFile("../../../../../assets/icons/minimize.png");
                 this.WindowState = FormWindowState.Maximized;
                 panel1.Location = new Point(763, 331);
+
+                int range = 100000;
+                Random rand = new Random();
+                int randIndex = rand.Next(1, range);
+                //getAdImage(randIndex);
+                //await Task.Delay(5000);
+
+
             }
             else
             {
@@ -841,11 +914,26 @@ namespace WinForms
 
         private void RegistForm_SizeChanged(object sender, EventArgs e)
         {
-            if(this.WindowState == FormWindowState.Maximized)
+            if (this.WindowState == FormWindowState.Maximized)
             {
 
             }
+
+        }
+
+        private void adPictureBox_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void adLabel_Click(object sender, EventArgs e)
+        {
             
+            int range = 1000;
+            Random rand = new Random();
+            int randIndex = rand.Next(1, range);
+            adLabel.Text = randIndex.ToString();
+            getAdImage(randIndex);
         }
     }
 }

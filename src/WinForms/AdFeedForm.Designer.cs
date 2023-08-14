@@ -58,13 +58,28 @@ namespace WinForms
         /// </summary>
         private void InitializeComponent()
         {
+            label1 = new Label();
             SuspendLayout();
+            // 
+            // label1
+            // 
+            label1.Dock = DockStyle.Fill;
+            label1.Font = new Font("Exo ExtraBold", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.ForeColor = SystemColors.ButtonHighlight;
+            label1.Location = new Point(0, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(531, 915);
+            label1.TabIndex = 0;
+            label1.Text = "label1";
+            label1.TextAlign = ContentAlignment.MiddleCenter;
+            label1.Click += label1_Click;
             // 
             // AdFeedForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(531, 915);
+            Controls.Add(label1);
             FormBorderStyle = FormBorderStyle.None;
             Name = "AdFeedForm";
             StartPosition = FormStartPosition.CenterScreen;
@@ -74,5 +89,7 @@ namespace WinForms
         }
 
         #endregion
+
+        private Label label1;
     }
 }
