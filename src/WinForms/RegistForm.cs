@@ -74,7 +74,6 @@ namespace WinForms
                 if (dr.HasRows)
                 {
                     string url = dr.GetFieldValue<string>(0);
-                    adLabel.Text = url;
 
                     HttpClient client = new HttpClient();
                     try
@@ -89,9 +88,19 @@ namespace WinForms
                             string imgPath = "../../../../../assets/temps/temp" + index + ".jpg";
                             image.Save(imgPath);
                             Image img = Image.FromFile(imgPath);
-                            img = setHeight(img, adLabel.Height);
-                            //img = resizeImage(img, new Size(350, 350));
-                            adLabel.Image = img;
+                            if (adLabel.Visible)
+                            {
+                                adLabel.Text = url;
+                                img = setHeight(img, adLabel.Height);
+                                adLabel.Image = img;
+                            }
+                            else
+                            {
+                                smallAdLabel.Text = url;
+                                img = setHeight(img, smallAdLabel.Height);
+                                smallAdLabel.Image = img;
+                            }
+
                         }
                     }
                     catch (Exception ex)
@@ -143,14 +152,6 @@ namespace WinForms
                 panel1.Location = new Point(763, 331);
 
                 adLabel.Visible = true;
-                while (adLabel.Visible)
-                {
-                    getAdImage(adIndexAutoGen());
-                    await Task.Delay(3000);
-                }
-                //getAdImage(randIndex);
-                //await Task.Delay(5000);
-
 
             }
             else
@@ -936,9 +937,13 @@ namespace WinForms
 
         }
 
-        private void RegistForm_Load(object sender, EventArgs e)
+        private async void RegistForm_LoadAsync(object sender, EventArgs e)
         {
-
+            while (this.Visible)
+            {
+                getAdImage(adIndexAutoGen());
+                await Task.Delay(3000);
+            }
         }
 
         private void RegistForm_SizeChanged(object sender, EventArgs e)

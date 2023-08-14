@@ -102,6 +102,8 @@
             finish = new Label();
             previous = new Label();
             topBar = new Panel();
+            panel2 = new Panel();
+            smallAdLabel = new Label();
             tableLayoutPanel1.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
@@ -124,6 +126,7 @@
             adPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)adPictureBox).BeginInit();
             panel1.SuspendLayout();
+            panel2.SuspendLayout();
             SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -137,6 +140,7 @@
             tableLayoutPanel1.Controls.Add(tableLayoutPanel2, 1, 1);
             tableLayoutPanel1.Controls.Add(previous, 0, 0);
             tableLayoutPanel1.Controls.Add(topBar, 1, 0);
+            tableLayoutPanel1.Controls.Add(panel2, 1, 2);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -901,6 +905,7 @@
             adLabel.Size = new Size(63, 210);
             adLabel.TabIndex = 0;
             adLabel.Text = "❌";
+            adLabel.Visible = false;
             adLabel.Click += adLabel_Click;
             // 
             // adPictureBox
@@ -990,6 +995,25 @@
             topBar.MouseMove += regisForm_MouseMove;
             topBar.MouseUp += registForm_MouseUp;
             // 
+            // panel2
+            // 
+            panel2.Controls.Add(smallAdLabel);
+            panel2.Dock = DockStyle.Fill;
+            panel2.Location = new Point(36, 397);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(901, 91);
+            panel2.TabIndex = 8;
+            // 
+            // smallAdLabel
+            // 
+            smallAdLabel.Dock = DockStyle.Fill;
+            smallAdLabel.Location = new Point(0, 0);
+            smallAdLabel.Name = "smallAdLabel";
+            smallAdLabel.Size = new Size(901, 91);
+            smallAdLabel.TabIndex = 0;
+            smallAdLabel.Text = "label3";
+            smallAdLabel.TextAlign = ContentAlignment.MiddleCenter;
+            // 
             // RegistForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -1002,7 +1026,7 @@
             Name = "RegistForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "RegistForm";
-            Load += RegistForm_Load;
+            Load += RegistForm_LoadAsync;
             SizeChanged += RegistForm_SizeChanged;
             tableLayoutPanel1.ResumeLayout(false);
             flowLayoutPanel1.ResumeLayout(false);
@@ -1041,6 +1065,7 @@
             adPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)adPictureBox).EndInit();
             panel1.ResumeLayout(false);
+            panel2.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -1120,5 +1145,7 @@
         private Panel adPanel;
         private Label adLabel;
         private PictureBox adPictureBox;
+        private Panel panel2;
+        private Label smallAdLabel;
     }
 }
