@@ -22,5 +22,22 @@ namespace WinForms
             this.BackColor = System.Drawing.ColorTranslator.FromHtml("#010000");
             EnableBlur();
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FlowLayoutPanel1_MouseWheel(object sender, MouseEventArgs e)
+        {
+            int value = flowLayoutPanel1.VerticalScroll.Value + e.Delta;
+            int max = flowLayoutPanel1.HorizontalScroll.Maximum;
+            int min = flowLayoutPanel1.HorizontalScroll.Minimum;
+            if (value < max && value > min)
+            {
+                flowLayoutPanel1.VerticalScroll.Value = value;
+            }
+
+        }
     }
 }
