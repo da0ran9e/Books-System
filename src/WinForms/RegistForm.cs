@@ -74,33 +74,37 @@ namespace WinForms
                 if (dr.HasRows)
                 {
                     string url = dr.GetFieldValue<string>(0);
-
-                    HttpClient client = new HttpClient();
+                    string imgPath = "../../../../../assets/temps/temp" + index + ".jpg";
                     try
                     {
-                        client.DefaultRequestHeaders.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.63 Safari/537.36");
-                        HttpResponseMessage response = client.GetAsync(url).Result;
-                        response.EnsureSuccessStatusCode();
-
-                        using (Stream stream = response.Content.ReadAsStreamAsync().Result)
+                        // if the image does not exist, then get it
+                        if (!File.Exists(imgPath))
                         {
-                            Image image = Image.FromStream(stream);
-                            string imgPath = "../../../../../assets/temps/temp" + index + ".jpg";
-                            image.Save(imgPath);
-                            Image img = Image.FromFile(imgPath);
-                            if (adLabel.Visible)
+                            HttpClient client = new HttpClient();
+                            client.DefaultRequestHeaders.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.63 Safari/537.36");
+                            HttpResponseMessage response = client.GetAsync(url).Result;
+                            response.EnsureSuccessStatusCode();
+                            using (Stream stream = response.Content.ReadAsStreamAsync().Result)
                             {
-                                adLabel.Text = url;
-                                img = setHeight(img, adLabel.Height);
-                                adLabel.Image = img;
+                                Image image = Image.FromStream(stream);
+                            
+                                image.Save(imgPath);
                             }
-                            else
-                            {
-                                smallAdLabel.Text = url;
-                                img = setHeight(img, smallAdLabel.Height);
-                                smallAdLabel.Image = img;
-                            }
+                        }
 
+                        //load image to tha label
+                        Image img = Image.FromFile(imgPath);
+                        if (adLabel.Visible)
+                        {
+                            adLabel.Text = url;
+                            img = setHeight(img, adLabel.Height);
+                            adLabel.Image = img;
+                        }
+                        else
+                        {
+                            smallAdLabel.Text = url;
+                            img = setHeight(img, smallAdLabel.Height);
+                            smallAdLabel.Image = img;
                         }
                     }
                     catch (Exception ex)
@@ -306,9 +310,9 @@ namespace WinForms
                     notification.Text = "Please enter a username to sign in!";
                     notification.ForeColor = Color.Red;
                 }
-                else if (usernameV.Length <= 6)
+                else if (usernameV.Length < 5)
                 {
-                    notification.Text = "Username must have at least 6 characters!";
+                    notification.Text = "Username must have at least 5 characters!";
                     notification.ForeColor = Color.Red;
                 }
                 else if (usernameV.Contains(" "))
@@ -429,7 +433,7 @@ namespace WinForms
                     notification.Text = "Please enter a username to sign in!";
                     notification.ForeColor = Color.Red;
                 }
-                else if (usernameV.Length <= 6)
+                else if (usernameV.Length < 5)
                 {
                     notification.Text = "Username must have at least 6 characters!";
                     notification.ForeColor = Color.Red;
@@ -579,9 +583,9 @@ namespace WinForms
                     notification.ForeColor = Color.Red;
                     usernamePanel.BackColor = Color.LavenderBlush;
                 }
-                else if (usernameV.Length <= 6)
+                else if (usernameV.Length < 5)
                 {
-                    notification.Text = "Username must have at least 6 characters!";
+                    notification.Text = "Username must have at least 5 characters!";
                     notification.ForeColor = Color.Red;
                     usernamePanel.BackColor = Color.LavenderBlush;
                 }
@@ -942,7 +946,7 @@ namespace WinForms
             while (this.Visible)
             {
                 getAdImage(adIndexAutoGen());
-                await Task.Delay(3000);
+                await Task.Delay(1500);
             }
         }
 
@@ -963,9 +967,9 @@ namespace WinForms
         private void adLabel_Click(object sender, EventArgs e)
         {
 
-            int range = 1000;
+            int range = 2000;
             Random rand = new Random();
-            int randIndex = rand.Next(1, range);
+            int randIndex = rand.Next(1000, range);
             adLabel.Text = randIndex.ToString();
             getAdImage(randIndex);
         }
