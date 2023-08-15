@@ -109,5 +109,12 @@ namespace WinForms
         {
 
         }
+
+        private void contentContainer_Paint(object sender, PaintEventArgs e)
+        {
+            LinearGradientBrush lgb = new LinearGradientBrush(contentContainer.ClientRectangle, Color.Red, contentContainer.BackColor, 90F);
+            Graphics g = e.Graphics;
+            g.FillRectangle(lgb, contentContainer.ClientRectangle);
+        }
     }
 }
