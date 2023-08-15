@@ -282,8 +282,14 @@ namespace WinForms
             label37 = new Label();
             label38 = new Label();
             contextMenuStrip1 = new ContextMenuStrip(components);
+            contentContainer = new FlowLayoutPanel();
+            contentImg = new Label();
+            contentTitle = new Label();
+            authorLabel = new Label();
+            label39 = new Label();
             searchTabeLayout.SuspendLayout();
             verticalMenuBar.SuspendLayout();
+            contentPanel.SuspendLayout();
             mainFlowPanel.SuspendLayout();
             homeFlowPanel.SuspendLayout();
             helloPanel.SuspendLayout();
@@ -387,6 +393,7 @@ namespace WinForms
             flowLayoutPanel19.SuspendLayout();
             tableLayoutPanel18.SuspendLayout();
             tableLayoutPanel19.SuspendLayout();
+            contentContainer.SuspendLayout();
             SuspendLayout();
             // 
             // searchTabeLayout
@@ -489,6 +496,7 @@ namespace WinForms
             // contentPanel
             // 
             contentPanel.BackColor = Color.Black;
+            contentPanel.Controls.Add(contentContainer);
             contentPanel.Dock = DockStyle.Fill;
             contentPanel.Location = new Point(3, 3);
             contentPanel.Name = "contentPanel";
@@ -2817,6 +2825,64 @@ namespace WinForms
             contextMenuStrip1.Name = "contextMenuStrip1";
             contextMenuStrip1.Size = new Size(61, 4);
             // 
+            // contentContainer
+            // 
+            contentContainer.Controls.Add(contentImg);
+            contentContainer.Controls.Add(contentTitle);
+            contentContainer.Controls.Add(authorLabel);
+            contentContainer.Controls.Add(label39);
+            contentContainer.Location = new Point(3, 3);
+            contentContainer.Name = "contentContainer";
+            contentContainer.Size = new Size(421, 700);
+            contentContainer.TabIndex = 0;
+            // 
+            // contentImg
+            // 
+            contentImg.BackColor = Color.DimGray;
+            contentImg.Image = (Image)resources.GetObject("contentImg.Image");
+            contentImg.Location = new Point(30, 30);
+            contentImg.Margin = new Padding(30);
+            contentImg.Name = "contentImg";
+            contentImg.Size = new Size(352, 394);
+            contentImg.TabIndex = 0;
+            // 
+            // contentTitle
+            // 
+            contentTitle.AutoEllipsis = true;
+            contentTitle.AutoSize = true;
+            contentContainer.SetFlowBreak(contentTitle, true);
+            contentTitle.Font = new Font("Exo ExtraBold", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
+            contentTitle.ForeColor = SystemColors.ControlLight;
+            contentTitle.Location = new Point(3, 454);
+            contentTitle.Name = "contentTitle";
+            contentTitle.Size = new Size(77, 40);
+            contentTitle.TabIndex = 1;
+            contentTitle.Text = "Title";
+            // 
+            // authorLabel
+            // 
+            authorLabel.AutoSize = true;
+            contentContainer.SetFlowBreak(authorLabel, true);
+            authorLabel.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            authorLabel.ForeColor = SystemColors.ControlDark;
+            authorLabel.Location = new Point(3, 494);
+            authorLabel.Name = "authorLabel";
+            authorLabel.Size = new Size(79, 28);
+            authorLabel.TabIndex = 2;
+            authorLabel.Text = "Author";
+            // 
+            // label39
+            // 
+            label39.AutoSize = true;
+            contentContainer.SetFlowBreak(label39, true);
+            label39.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label39.ForeColor = SystemColors.ControlDark;
+            label39.Location = new Point(3, 522);
+            label39.Name = "label39";
+            label39.Size = new Size(79, 28);
+            label39.TabIndex = 3;
+            label39.Text = "Author";
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -2835,6 +2901,7 @@ namespace WinForms
             MouseWheel += MainForm_MouseWheel;
             searchTabeLayout.ResumeLayout(false);
             verticalMenuBar.ResumeLayout(false);
+            contentPanel.ResumeLayout(false);
             mainFlowPanel.ResumeLayout(false);
             homeFlowPanel.ResumeLayout(false);
             homeFlowPanel.PerformLayout();
@@ -2985,6 +3052,8 @@ namespace WinForms
             flowLayoutPanel19.PerformLayout();
             tableLayoutPanel18.ResumeLayout(false);
             tableLayoutPanel19.ResumeLayout(false);
+            contentContainer.ResumeLayout(false);
+            contentContainer.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -3217,5 +3286,10 @@ namespace WinForms
         private Label label125;
         private Label label126;
         private ContextMenuStrip contextMenuStrip1;
+        private FlowLayoutPanel contentContainer;
+        private Label contentImg;
+        private Label contentTitle;
+        private Label authorLabel;
+        private Label label39;
     }
 }
