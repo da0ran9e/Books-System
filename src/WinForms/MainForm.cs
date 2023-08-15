@@ -116,5 +116,31 @@ namespace WinForms
             Graphics g = e.Graphics;
             g.FillRectangle(lgb, contentContainer.ClientRectangle);
         }
+
+        private void helloPanel_Paint(object sender, PaintEventArgs e)
+        {
+            DateTime currentTime = DateTime.Now;
+
+            int hour = currentTime.Hour;
+            LinearGradientBrush lgb = new LinearGradientBrush(helloPanel.ClientRectangle, Color.White, Color.Black, 60F);
+            if (hour >= 0 && hour < 6)
+            {
+                lgb = new LinearGradientBrush(helloPanel.ClientRectangle, Color.MidnightBlue, Color.Black, 60F);
+            }
+            else if (hour >= 6 && hour < 12)
+            {
+                lgb = new LinearGradientBrush(helloPanel.ClientRectangle, Color.LemonChiffon, Color.Yellow, 60F);
+            }
+            else if (hour >= 12 && hour < 18)
+            {
+                lgb = new LinearGradientBrush(helloPanel.ClientRectangle, Color.Tomato, Color.DeepSkyBlue, 60F);
+            }
+            else
+            {
+                lgb = new LinearGradientBrush(helloPanel.ClientRectangle, Color.DeepSkyBlue, Color.MidnightBlue, 60F);
+            }
+            Graphics g = e.Graphics;
+            g.FillRectangle(lgb, helloPanel.ClientRectangle);
+        }
     }
 }
