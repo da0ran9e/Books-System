@@ -531,7 +531,7 @@ namespace WinForms
             contentContainer.Controls.Add(flowLayoutPanel21);
             contentContainer.Location = new Point(3, 3);
             contentContainer.Name = "contentContainer";
-            contentContainer.Size = new Size(421, 700);
+            contentContainer.Size = new Size(421, 765);
             contentContainer.TabIndex = 0;
             contentContainer.Paint += contentContainer_Paint;
             // 
@@ -790,7 +790,7 @@ namespace WinForms
             // 
             // helloElementTitle1
             // 
-            helloElementTitle1.BackColor = Color.Gray;
+            helloElementTitle1.BackColor = Color.Transparent;
             helloElementTitle1.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             helloElementTitle1.ForeColor = SystemColors.ControlLight;
             helloElementTitle1.Location = new Point(91, 0);
@@ -877,7 +877,7 @@ namespace WinForms
             // 
             // helloElementTitle2
             // 
-            helloElementTitle2.BackColor = Color.Gray;
+            helloElementTitle2.BackColor = Color.Transparent;
             helloElementTitle2.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             helloElementTitle2.ForeColor = SystemColors.ControlLight;
             helloElementTitle2.Location = new Point(91, 0);
@@ -964,7 +964,7 @@ namespace WinForms
             // 
             // helloElementTitle3
             // 
-            helloElementTitle3.BackColor = Color.Gray;
+            helloElementTitle3.BackColor = Color.Transparent;
             helloElementTitle3.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             helloElementTitle3.ForeColor = SystemColors.ControlLight;
             helloElementTitle3.Location = new Point(91, 0);
