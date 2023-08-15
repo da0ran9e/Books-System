@@ -169,11 +169,11 @@
             minimize.Cursor = Cursors.Hand;
             minimize.Font = new Font("Candara", 9F, FontStyle.Bold, GraphicsUnit.Point);
             minimize.ForeColor = SystemColors.ButtonHighlight;
+            minimize.Image = (Image)resources.GetObject("minimize.Image");
             minimize.Location = new Point(3, 0);
             minimize.Name = "minimize";
             minimize.Size = new Size(19, 20);
             minimize.TabIndex = 3;
-            minimize.Text = "➖";
             minimize.TextAlign = ContentAlignment.BottomLeft;
             minimize.Click += minimize_Click;
             // 
@@ -192,12 +192,12 @@
             Close.Cursor = Cursors.Hand;
             Close.Font = new Font("Candara", 9F, FontStyle.Bold, GraphicsUnit.Point);
             Close.ForeColor = SystemColors.ControlLightLight;
+            Close.Image = (Image)resources.GetObject("Close.Image");
             Close.Location = new Point(51, 0);
             Close.Margin = new Padding(0);
             Close.Name = "Close";
             Close.Size = new Size(25, 20);
             Close.TabIndex = 2;
-            Close.Text = "✖";
             Close.TextAlign = ContentAlignment.TopRight;
             Close.Click += Close_Click;
             // 
@@ -904,7 +904,6 @@
             adLabel.Name = "adLabel";
             adLabel.Size = new Size(63, 210);
             adLabel.TabIndex = 0;
-            adLabel.Text = "❌";
             adLabel.Visible = false;
             adLabel.Click += adLabel_Click;
             // 
@@ -1011,7 +1010,6 @@
             smallAdLabel.Name = "smallAdLabel";
             smallAdLabel.Size = new Size(901, 91);
             smallAdLabel.TabIndex = 0;
-            smallAdLabel.Text = "label3";
             smallAdLabel.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // RegistForm

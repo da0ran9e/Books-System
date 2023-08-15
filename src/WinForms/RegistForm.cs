@@ -87,7 +87,7 @@ namespace WinForms
                             using (Stream stream = response.Content.ReadAsStreamAsync().Result)
                             {
                                 Image image = Image.FromStream(stream);
-                            
+
                                 image.Save(imgPath);
                             }
                         }

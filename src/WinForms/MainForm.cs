@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ namespace WinForms
 {
     public partial class MainForm : Form
     {
+
         public MainForm()
         {
             InitializeComponent();
@@ -19,7 +21,7 @@ namespace WinForms
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            EnableBlur();
+            //EnableBlur();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -27,15 +29,58 @@ namespace WinForms
 
         }
 
+        private Rectangle _displayRect = Rectangle.Empty;
         private void FlowLayoutPanel1_MouseWheel(object sender, MouseEventArgs e)
         {
-            int value = flowLayoutPanel1.VerticalScroll.Value + e.Delta;
-            int max = flowLayoutPanel1.HorizontalScroll.Maximum;
-            int min = flowLayoutPanel1.HorizontalScroll.Minimum;
-            if (value < max && value > min)
+            Rectangle panelRectangle = verticalMenuBar.ClientRectangle;
+            Point cursorPos = Cursor.Position;
+
+            if (true)
             {
-                flowLayoutPanel1.VerticalScroll.Value = value;
+                int pos = -_displayRect.Y;
+                int maxPos = -(panelRectangle.Height - _displayRect.Height);
+
+                pos = Math.Max(pos - e.Delta, 0);
+                pos = Math.Min(pos, maxPos);
+
+                SetDisplayRectLocation(_displayRect.X, -pos);
             }
+
+        }
+
+        private void userLabel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void MainForm_MouseWheel(object sender, MouseEventArgs e)
+        {
+
+        }
+
+
+        private void MainForm_MouseMove(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void homeLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label39_Click(object sender, EventArgs e)
+        {
+        }
+
+
+        private void searchFlowPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void bestMatchPanel_Paint(object sender, PaintEventArgs e)
+        {
 
         }
     }
