@@ -22,6 +22,32 @@ namespace WinForms
         private void MainForm_Load(object sender, EventArgs e)
         {
             //EnableBlur();
+
+
+            DateTime currentTime = DateTime.Now;
+
+            int hour = currentTime.Hour;
+
+            // Determine the time range
+            string timeRange;
+
+            if (hour >= 0 && hour < 6)
+            {
+                timeRange = "night";
+            }
+            else if (hour >= 6 && hour < 12)
+            {
+                timeRange = "morning";
+            }
+            else if (hour >= 12 && hour < 18)
+            {
+                timeRange = "afternoon";
+            }
+            else
+            {
+                timeRange = "evening";
+            }
+            helloLabel.Text = $"Good {timeRange}!";
         }
 
         private void label1_Click(object sender, EventArgs e)
