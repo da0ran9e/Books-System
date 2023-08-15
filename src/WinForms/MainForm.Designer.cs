@@ -16,7 +16,6 @@ namespace WinForms
         }
 
         private uint _blurBackgroundColor = 0x990000;
-
         internal void EnableBlur()
         {
             var accent = new AccentPolicy();
@@ -32,6 +31,7 @@ namespace WinForms
             SetWindowCompositionAttribute(this.Handle, ref data);
             Marshal.FreeHGlobal(accentPtr);
         }
+
 
         /// <summary>
         /// Required designer variable.
@@ -68,50 +68,53 @@ namespace WinForms
             heartLabel = new Label();
             librariesLabel = new Label();
             recentLabel = new Label();
+            label6 = new Label();
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
-            label4 = new Label();
-            label5 = new Label();
-            label6 = new Label();
+            recommendFlowPanel = new FlowLayoutPanel();
+            flowLayoutPanel2 = new FlowLayoutPanel();
+            mainPanel = new FlowLayoutPanel();
             tableLayoutPanel1.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
+            recommendFlowPanel.SuspendLayout();
             SuspendLayout();
             // 
             // tableLayoutPanel1
             // 
-            tableLayoutPanel1.BackColor = Color.Black;
+            tableLayoutPanel1.BackColor = Color.Transparent;
             tableLayoutPanel1.ColumnCount = 3;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 450F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 550F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 100F));
             tableLayoutPanel1.Controls.Add(flowLayoutPanel1, 2, 0);
+            tableLayoutPanel1.Controls.Add(recommendFlowPanel, 1, 0);
+            tableLayoutPanel1.Controls.Add(mainPanel, 0, 0);
             tableLayoutPanel1.Dock = DockStyle.Fill;
             tableLayoutPanel1.Location = new Point(0, 0);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 2;
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 100F));
-            tableLayoutPanel1.Size = new Size(1237, 846);
+            tableLayoutPanel1.Size = new Size(819, 846);
             tableLayoutPanel1.TabIndex = 0;
             // 
             // flowLayoutPanel1
             // 
+            flowLayoutPanel1.AutoScroll = true;
             flowLayoutPanel1.Controls.Add(userLabel);
             flowLayoutPanel1.Controls.Add(homeLabel);
             flowLayoutPanel1.Controls.Add(searchLabel);
             flowLayoutPanel1.Controls.Add(heartLabel);
             flowLayoutPanel1.Controls.Add(librariesLabel);
             flowLayoutPanel1.Controls.Add(recentLabel);
+            flowLayoutPanel1.Controls.Add(label6);
             flowLayoutPanel1.Controls.Add(label1);
             flowLayoutPanel1.Controls.Add(label2);
             flowLayoutPanel1.Controls.Add(label3);
-            flowLayoutPanel1.Controls.Add(label4);
-            flowLayoutPanel1.Controls.Add(label5);
-            flowLayoutPanel1.Controls.Add(label6);
             flowLayoutPanel1.Dock = DockStyle.Fill;
             flowLayoutPanel1.FlowDirection = FlowDirection.TopDown;
-            flowLayoutPanel1.Location = new Point(1140, 3);
+            flowLayoutPanel1.Location = new Point(722, 3);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.Size = new Size(94, 740);
             flowLayoutPanel1.TabIndex = 1;
@@ -120,7 +123,7 @@ namespace WinForms
             // 
             // userLabel
             // 
-            userLabel.BackColor = SystemColors.ActiveCaptionText;
+            userLabel.BackColor = Color.Transparent;
             userLabel.Image = (Image)resources.GetObject("userLabel.Image");
             userLabel.Location = new Point(0, 30);
             userLabel.Margin = new Padding(0, 30, 0, 50);
@@ -149,7 +152,7 @@ namespace WinForms
             // 
             // heartLabel
             // 
-            heartLabel.BackColor = Color.Black;
+            heartLabel.BackColor = Color.Transparent;
             heartLabel.Image = (Image)resources.GetObject("heartLabel.Image");
             heartLabel.Location = new Point(13, 341);
             heartLabel.Margin = new Padding(13, 0, 0, 0);
@@ -159,7 +162,7 @@ namespace WinForms
             // 
             // librariesLabel
             // 
-            librariesLabel.BackColor = Color.Black;
+            librariesLabel.BackColor = Color.Transparent;
             librariesLabel.Image = (Image)resources.GetObject("librariesLabel.Image");
             librariesLabel.Location = new Point(13, 412);
             librariesLabel.Margin = new Padding(13, 0, 0, 0);
@@ -169,7 +172,7 @@ namespace WinForms
             // 
             // recentLabel
             // 
-            recentLabel.BackColor = Color.Black;
+            recentLabel.BackColor = Color.Transparent;
             recentLabel.Image = (Image)resources.GetObject("recentLabel.Image");
             recentLabel.Location = new Point(13, 483);
             recentLabel.Margin = new Padding(13, 0, 0, 0);
@@ -177,78 +180,91 @@ namespace WinForms
             recentLabel.Size = new Size(71, 71);
             recentLabel.TabIndex = 5;
             // 
-            // label1
-            // 
-            label1.BackColor = Color.Black;
-            label1.Image = (Image)resources.GetObject("label1.Image");
-            label1.Location = new Point(13, 554);
-            label1.Margin = new Padding(13, 0, 0, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(71, 71);
-            label1.TabIndex = 6;
-            // 
-            // label2
-            // 
-            label2.BackColor = Color.Black;
-            label2.Image = (Image)resources.GetObject("label2.Image");
-            label2.Location = new Point(13, 625);
-            label2.Margin = new Padding(13, 0, 0, 0);
-            label2.Name = "label2";
-            label2.Size = new Size(71, 71);
-            label2.TabIndex = 7;
-            // 
-            // label3
-            // 
-            label3.BackColor = Color.Black;
-            label3.Image = (Image)resources.GetObject("label3.Image");
-            label3.Location = new Point(13, 696);
-            label3.Margin = new Padding(13, 0, 0, 0);
-            label3.Name = "label3";
-            label3.Size = new Size(71, 71);
-            label3.TabIndex = 8;
-            // 
-            // label4
-            // 
-            label4.BackColor = Color.Black;
-            label4.Image = (Image)resources.GetObject("label4.Image");
-            label4.Location = new Point(13, 767);
-            label4.Margin = new Padding(13, 0, 0, 0);
-            label4.Name = "label4";
-            label4.Size = new Size(71, 71);
-            label4.TabIndex = 9;
-            // 
-            // label5
-            // 
-            label5.BackColor = Color.Black;
-            label5.Image = (Image)resources.GetObject("label5.Image");
-            label5.Location = new Point(13, 838);
-            label5.Margin = new Padding(13, 0, 0, 0);
-            label5.Name = "label5";
-            label5.Size = new Size(71, 71);
-            label5.TabIndex = 10;
-            // 
             // label6
             // 
-            label6.BackColor = Color.Black;
+            label6.BackColor = Color.Transparent;
             label6.Image = (Image)resources.GetObject("label6.Image");
-            label6.Location = new Point(13, 909);
+            label6.Location = new Point(13, 554);
             label6.Margin = new Padding(13, 0, 0, 0);
             label6.Name = "label6";
             label6.Size = new Size(71, 71);
             label6.TabIndex = 11;
             // 
+            // label1
+            // 
+            label1.BackColor = Color.Transparent;
+            label1.Image = (Image)resources.GetObject("label1.Image");
+            label1.Location = new Point(13, 625);
+            label1.Margin = new Padding(13, 0, 0, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(71, 71);
+            label1.TabIndex = 12;
+            // 
+            // label2
+            // 
+            label2.BackColor = Color.Transparent;
+            label2.Image = (Image)resources.GetObject("label2.Image");
+            label2.Location = new Point(13, 696);
+            label2.Margin = new Padding(13, 0, 0, 0);
+            label2.Name = "label2";
+            label2.Size = new Size(71, 71);
+            label2.TabIndex = 13;
+            // 
+            // label3
+            // 
+            label3.BackColor = Color.Transparent;
+            label3.Image = (Image)resources.GetObject("label3.Image");
+            label3.Location = new Point(13, 767);
+            label3.Margin = new Padding(13, 0, 0, 0);
+            label3.Name = "label3";
+            label3.Size = new Size(71, 71);
+            label3.TabIndex = 14;
+            // 
+            // recommendFlowPanel
+            // 
+            recommendFlowPanel.AutoScroll = true;
+            recommendFlowPanel.BackColor = Color.Black;
+            recommendFlowPanel.Controls.Add(flowLayoutPanel2);
+            recommendFlowPanel.Dock = DockStyle.Fill;
+            recommendFlowPanel.Location = new Point(172, 3);
+            recommendFlowPanel.Name = "recommendFlowPanel";
+            recommendFlowPanel.Size = new Size(544, 740);
+            recommendFlowPanel.TabIndex = 2;
+            // 
+            // flowLayoutPanel2
+            // 
+            flowLayoutPanel2.BackColor = Color.IndianRed;
+            flowLayoutPanel2.Location = new Point(3, 3);
+            flowLayoutPanel2.Name = "flowLayoutPanel2";
+            flowLayoutPanel2.Size = new Size(531, 212);
+            flowLayoutPanel2.TabIndex = 0;
+            // 
+            // mainPanel
+            // 
+            mainPanel.BackColor = Color.Black;
+            mainPanel.Dock = DockStyle.Fill;
+            mainPanel.Location = new Point(3, 3);
+            mainPanel.Name = "mainPanel";
+            mainPanel.Size = new Size(163, 740);
+            mainPanel.TabIndex = 3;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1237, 846);
+            BackColor = Color.CadetBlue;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            BackgroundImageLayout = ImageLayout.Stretch;
+            ClientSize = new Size(819, 846);
             Controls.Add(tableLayoutPanel1);
+            DoubleBuffered = true;
             Name = "MainForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "MainForm";
             Load += MainForm_Load;
             tableLayoutPanel1.ResumeLayout(false);
             flowLayoutPanel1.ResumeLayout(false);
+            recommendFlowPanel.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -256,6 +272,7 @@ namespace WinForms
         {
             SetStyle(ControlStyles.UserMouse | ControlStyles.Selectable, true);
         }
+
 
         #endregion
 
@@ -267,11 +284,12 @@ namespace WinForms
         private Label homeLabel;
         private Label librariesLabel;
         private Label recentLabel;
+        private Label label6;
+        private FlowLayoutPanel recommendFlowPanel;
         private Label label1;
         private Label label2;
         private Label label3;
-        private Label label4;
-        private Label label5;
-        private Label label6;
+        private FlowLayoutPanel flowLayoutPanel2;
+        private FlowLayoutPanel mainPanel;
     }
 }

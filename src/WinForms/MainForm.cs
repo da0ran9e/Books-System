@@ -19,7 +19,6 @@ namespace WinForms
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            this.BackColor = System.Drawing.ColorTranslator.FromHtml("#010000");
             EnableBlur();
         }
 

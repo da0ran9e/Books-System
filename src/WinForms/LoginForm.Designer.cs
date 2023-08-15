@@ -87,12 +87,12 @@
             Close.Cursor = Cursors.Hand;
             Close.Font = new Font("Candara", 9F, FontStyle.Bold, GraphicsUnit.Point);
             Close.ForeColor = SystemColors.ControlLightLight;
+            Close.Image = (Image)resources.GetObject("Close.Image");
             Close.Location = new Point(495, 0);
             Close.Margin = new Padding(0);
             Close.Name = "Close";
             Close.Size = new Size(25, 20);
             Close.TabIndex = 0;
-            Close.Text = "✖";
             Close.TextAlign = ContentAlignment.TopRight;
             Close.Click += label1_Click_1;
             // 
@@ -102,11 +102,11 @@
             minimize.Cursor = Cursors.Hand;
             minimize.Font = new Font("Candara", 9F, FontStyle.Bold, GraphicsUnit.Point);
             minimize.ForeColor = SystemColors.ButtonHighlight;
+            minimize.Image = (Image)resources.GetObject("minimize.Image");
             minimize.Location = new Point(473, 0);
             minimize.Name = "minimize";
             minimize.Size = new Size(19, 20);
             minimize.TabIndex = 1;
-            minimize.Text = "➖";
             minimize.TextAlign = ContentAlignment.BottomLeft;
             minimize.Click += label2_Click_1;
             // 
