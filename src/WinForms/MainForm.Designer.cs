@@ -96,6 +96,18 @@ namespace WinForms
             helloElementTable0 = new TableLayoutPanel();
             helloElementTitle0 = new Label();
             helloElementImg0 = new Label();
+            helloElement1 = new GradientPanel();
+            helloElementTable1 = new TableLayoutPanel();
+            helloElementTitle1 = new Label();
+            helloElementImg1 = new Label();
+            helloElement2 = new GradientPanel();
+            tableLayoutPanel8 = new TableLayoutPanel();
+            helloElementTitle2 = new Label();
+            helloElementimg2 = new Label();
+            helloElement3 = new GradientPanel();
+            helloElementTable3 = new TableLayoutPanel();
+            helloElementTitle3 = new Label();
+            helloElementImg3 = new Label();
             recommentPanel = new FlowLayoutPanel();
             recommentLabel = new Label();
             flowLayoutPanel22 = new FlowLayoutPanel();
@@ -280,27 +292,27 @@ namespace WinForms
             label37 = new Label();
             label38 = new Label();
             contextMenuStrip1 = new ContextMenuStrip(components);
+            fileToolStripMenuItem = new ToolStripMenuItem();
+            editToolStripMenuItem = new ToolStripMenuItem();
+            viewToolStripMenuItem = new ToolStripMenuItem();
+            helpToolStripMenuItem = new ToolStripMenuItem();
             toolTip1 = new ToolTip(components);
-            gradientPanel1 = new GradientPanel();
-            tableLayoutPanel2 = new TableLayoutPanel();
-            label1 = new Label();
-            label2 = new Label();
             gradientPanel2 = new GradientPanel();
             tableLayoutPanel5 = new TableLayoutPanel();
             label7 = new Label();
             label8 = new Label();
-            gradientPanel3 = new GradientPanel();
-            tableLayoutPanel8 = new TableLayoutPanel();
-            label13 = new Label();
-            label14 = new Label();
             gradientPanel4 = new GradientPanel();
             tableLayoutPanel40 = new TableLayoutPanel();
             label79 = new Label();
             label80 = new Label();
-            gradientPanel5 = new GradientPanel();
-            tableLayoutPanel41 = new TableLayoutPanel();
-            label81 = new Label();
-            label82 = new Label();
+            toolStrip1 = new ToolStrip();
+            toolStripDropDownButton1 = new ToolStripDropDownButton();
+            fileToolStripMenuItem1 = new ToolStripMenuItem();
+            viewToolStripMenuItem1 = new ToolStripMenuItem();
+            helpToolStripMenuItem1 = new ToolStripMenuItem();
+            toolStripButton1 = new ToolStripButton();
+            toolStripButton2 = new ToolStripButton();
+            toolStripButton3 = new ToolStripButton();
             searchTabeLayout.SuspendLayout();
             verticalMenuBar.SuspendLayout();
             contentPanel.SuspendLayout();
@@ -314,6 +326,12 @@ namespace WinForms
             helloPanel.SuspendLayout();
             helloElement0.SuspendLayout();
             helloElementTable0.SuspendLayout();
+            helloElement1.SuspendLayout();
+            helloElementTable1.SuspendLayout();
+            helloElement2.SuspendLayout();
+            tableLayoutPanel8.SuspendLayout();
+            helloElement3.SuspendLayout();
+            helloElementTable3.SuspendLayout();
             recommentPanel.SuspendLayout();
             flowLayoutPanel22.SuspendLayout();
             tableLayoutPanel20.SuspendLayout();
@@ -402,14 +420,10 @@ namespace WinForms
             flowLayoutPanel19.SuspendLayout();
             tableLayoutPanel18.SuspendLayout();
             tableLayoutPanel19.SuspendLayout();
-            gradientPanel1.SuspendLayout();
-            tableLayoutPanel2.SuspendLayout();
+            contextMenuStrip1.SuspendLayout();
             tableLayoutPanel5.SuspendLayout();
-            gradientPanel3.SuspendLayout();
-            tableLayoutPanel8.SuspendLayout();
             tableLayoutPanel40.SuspendLayout();
-            gradientPanel5.SuspendLayout();
-            tableLayoutPanel41.SuspendLayout();
+            toolStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // searchTabeLayout
@@ -424,6 +438,7 @@ namespace WinForms
             searchTabeLayout.Controls.Add(mainFlowPanel, 1, 0);
             searchTabeLayout.Dock = DockStyle.Fill;
             searchTabeLayout.Location = new Point(0, 0);
+            searchTabeLayout.Margin = new Padding(3, 30, 3, 3);
             searchTabeLayout.Name = "searchTabeLayout";
             searchTabeLayout.RowCount = 2;
             searchTabeLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
@@ -747,9 +762,9 @@ namespace WinForms
             helloPanel.AutoSize = true;
             helloPanel.Controls.Add(helloLabel);
             helloPanel.Controls.Add(helloElement0);
-            helloPanel.Controls.Add(gradientPanel1);
-            helloPanel.Controls.Add(gradientPanel3);
-            helloPanel.Controls.Add(gradientPanel5);
+            helloPanel.Controls.Add(helloElement1);
+            helloPanel.Controls.Add(helloElement2);
+            helloPanel.Controls.Add(helloElement3);
             homeFlowPanel.SetFlowBreak(helloPanel, true);
             helloPanel.Location = new Point(3, 30);
             helloPanel.Margin = new Padding(3, 30, 3, 30);
@@ -815,6 +830,147 @@ namespace WinForms
             helloElementImg0.Name = "helloElementImg0";
             helloElementImg0.Size = new Size(82, 88);
             helloElementImg0.TabIndex = 0;
+            // 
+            // helloElement1
+            // 
+            helloElement1.Controls.Add(helloElementTable1);
+            helloElement1.GradientAngle = 60F;
+            helloElement1.GradientPrimaryColor = Color.Transparent;
+            helloElement1.GradientSecondaryColor = Color.FromArgb(255, 128, 128);
+            helloElement1.Location = new Point(358, 85);
+            helloElement1.Name = "helloElement1";
+            helloElement1.Size = new Size(349, 88);
+            helloElement1.TabIndex = 5;
+            // 
+            // helloElementTable1
+            // 
+            helloElementTable1.AutoSize = true;
+            helloElementTable1.ColumnCount = 2;
+            helloElementTable1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 88F));
+            helloElementTable1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            helloElementTable1.Controls.Add(helloElementTitle1, 1, 0);
+            helloElementTable1.Controls.Add(helloElementImg1, 0, 0);
+            helloElementTable1.Dock = DockStyle.Fill;
+            helloElementTable1.Location = new Point(0, 0);
+            helloElementTable1.Name = "helloElementTable1";
+            helloElementTable1.RowCount = 1;
+            helloElementTable1.RowStyles.Add(new RowStyle(SizeType.Absolute, 88F));
+            helloElementTable1.Size = new Size(349, 88);
+            helloElementTable1.TabIndex = 0;
+            // 
+            // helloElementTitle1
+            // 
+            helloElementTitle1.BackColor = Color.Transparent;
+            helloElementTitle1.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            helloElementTitle1.ForeColor = SystemColors.ControlLight;
+            helloElementTitle1.Location = new Point(91, 0);
+            helloElementTitle1.Name = "helloElementTitle1";
+            helloElementTitle1.Size = new Size(252, 88);
+            helloElementTitle1.TabIndex = 1;
+            helloElementTitle1.Text = "title";
+            // 
+            // helloElementImg1
+            // 
+            helloElementImg1.BackColor = Color.DimGray;
+            helloElementImg1.Image = (Image)resources.GetObject("helloElementImg1.Image");
+            helloElementImg1.Location = new Point(3, 0);
+            helloElementImg1.Name = "helloElementImg1";
+            helloElementImg1.Size = new Size(82, 88);
+            helloElementImg1.TabIndex = 0;
+            // 
+            // helloElement2
+            // 
+            helloElement2.Controls.Add(tableLayoutPanel8);
+            helloElement2.GradientAngle = 60F;
+            helloElement2.GradientPrimaryColor = Color.Transparent;
+            helloElement2.GradientSecondaryColor = Color.FromArgb(255, 128, 128);
+            helloElement2.Location = new Point(3, 179);
+            helloElement2.Name = "helloElement2";
+            helloElement2.Size = new Size(349, 88);
+            helloElement2.TabIndex = 6;
+            // 
+            // tableLayoutPanel8
+            // 
+            tableLayoutPanel8.AutoSize = true;
+            tableLayoutPanel8.ColumnCount = 2;
+            tableLayoutPanel8.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 88F));
+            tableLayoutPanel8.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel8.Controls.Add(helloElementTitle2, 1, 0);
+            tableLayoutPanel8.Controls.Add(helloElementimg2, 0, 0);
+            tableLayoutPanel8.Dock = DockStyle.Fill;
+            tableLayoutPanel8.Location = new Point(0, 0);
+            tableLayoutPanel8.Name = "tableLayoutPanel8";
+            tableLayoutPanel8.RowCount = 1;
+            tableLayoutPanel8.RowStyles.Add(new RowStyle(SizeType.Absolute, 88F));
+            tableLayoutPanel8.Size = new Size(349, 88);
+            tableLayoutPanel8.TabIndex = 0;
+            // 
+            // helloElementTitle2
+            // 
+            helloElementTitle2.BackColor = Color.Transparent;
+            helloElementTitle2.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            helloElementTitle2.ForeColor = SystemColors.ControlLight;
+            helloElementTitle2.Location = new Point(91, 0);
+            helloElementTitle2.Name = "helloElementTitle2";
+            helloElementTitle2.Size = new Size(252, 88);
+            helloElementTitle2.TabIndex = 1;
+            helloElementTitle2.Text = "title";
+            // 
+            // helloElementimg2
+            // 
+            helloElementimg2.BackColor = Color.DimGray;
+            helloElementimg2.Image = (Image)resources.GetObject("helloElementimg2.Image");
+            helloElementimg2.Location = new Point(3, 0);
+            helloElementimg2.Name = "helloElementimg2";
+            helloElementimg2.Size = new Size(82, 88);
+            helloElementimg2.TabIndex = 0;
+            // 
+            // helloElement3
+            // 
+            helloElement3.Controls.Add(helloElementTable3);
+            helloElement3.GradientAngle = 60F;
+            helloElement3.GradientPrimaryColor = Color.Transparent;
+            helloElement3.GradientSecondaryColor = Color.FromArgb(255, 128, 128);
+            helloElement3.Location = new Point(358, 179);
+            helloElement3.Name = "helloElement3";
+            helloElement3.Size = new Size(349, 88);
+            helloElement3.TabIndex = 7;
+            // 
+            // helloElementTable3
+            // 
+            helloElementTable3.AutoSize = true;
+            helloElementTable3.ColumnCount = 2;
+            helloElementTable3.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 88F));
+            helloElementTable3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            helloElementTable3.Controls.Add(helloElementTitle3, 1, 0);
+            helloElementTable3.Controls.Add(helloElementImg3, 0, 0);
+            helloElementTable3.Dock = DockStyle.Fill;
+            helloElementTable3.Location = new Point(0, 0);
+            helloElementTable3.Name = "helloElementTable3";
+            helloElementTable3.RowCount = 1;
+            helloElementTable3.RowStyles.Add(new RowStyle(SizeType.Absolute, 88F));
+            helloElementTable3.Size = new Size(349, 88);
+            helloElementTable3.TabIndex = 0;
+            // 
+            // helloElementTitle3
+            // 
+            helloElementTitle3.BackColor = Color.Transparent;
+            helloElementTitle3.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            helloElementTitle3.ForeColor = SystemColors.ControlLight;
+            helloElementTitle3.Location = new Point(91, 0);
+            helloElementTitle3.Name = "helloElementTitle3";
+            helloElementTitle3.Size = new Size(252, 88);
+            helloElementTitle3.TabIndex = 1;
+            helloElementTitle3.Text = "title";
+            // 
+            // helloElementImg3
+            // 
+            helloElementImg3.BackColor = Color.DimGray;
+            helloElementImg3.Image = (Image)resources.GetObject("helloElementImg3.Image");
+            helloElementImg3.Location = new Point(3, 0);
+            helloElementImg3.Name = "helloElementImg3";
+            helloElementImg3.Size = new Size(82, 88);
+            helloElementImg3.TabIndex = 0;
             // 
             // recommentPanel
             // 
@@ -2824,55 +2980,33 @@ namespace WinForms
             // contextMenuStrip1
             // 
             contextMenuStrip1.ImageScalingSize = new Size(20, 20);
+            contextMenuStrip1.Items.AddRange(new ToolStripItem[] { fileToolStripMenuItem, editToolStripMenuItem, viewToolStripMenuItem, helpToolStripMenuItem });
             contextMenuStrip1.Name = "contextMenuStrip1";
-            contextMenuStrip1.Size = new Size(61, 4);
+            contextMenuStrip1.Size = new Size(111, 100);
             // 
-            // gradientPanel1
+            // fileToolStripMenuItem
             // 
-            gradientPanel1.Controls.Add(tableLayoutPanel2);
-            gradientPanel1.GradientAngle = 60F;
-            gradientPanel1.GradientPrimaryColor = Color.Transparent;
-            gradientPanel1.GradientSecondaryColor = Color.FromArgb(255, 128, 128);
-            gradientPanel1.Location = new Point(358, 85);
-            gradientPanel1.Name = "gradientPanel1";
-            gradientPanel1.Size = new Size(349, 88);
-            gradientPanel1.TabIndex = 5;
+            fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            fileToolStripMenuItem.Size = new Size(110, 24);
+            fileToolStripMenuItem.Text = "File";
             // 
-            // tableLayoutPanel2
+            // editToolStripMenuItem
             // 
-            tableLayoutPanel2.AutoSize = true;
-            tableLayoutPanel2.ColumnCount = 2;
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 88F));
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel2.Controls.Add(label1, 1, 0);
-            tableLayoutPanel2.Controls.Add(label2, 0, 0);
-            tableLayoutPanel2.Dock = DockStyle.Fill;
-            tableLayoutPanel2.Location = new Point(0, 0);
-            tableLayoutPanel2.Name = "tableLayoutPanel2";
-            tableLayoutPanel2.RowCount = 1;
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 88F));
-            tableLayoutPanel2.Size = new Size(349, 88);
-            tableLayoutPanel2.TabIndex = 0;
+            editToolStripMenuItem.Name = "editToolStripMenuItem";
+            editToolStripMenuItem.Size = new Size(110, 24);
+            editToolStripMenuItem.Text = "Edit";
             // 
-            // label1
+            // viewToolStripMenuItem
             // 
-            label1.BackColor = Color.Transparent;
-            label1.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.ForeColor = SystemColors.ControlLight;
-            label1.Location = new Point(91, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(252, 88);
-            label1.TabIndex = 1;
-            label1.Text = "title";
+            viewToolStripMenuItem.Name = "viewToolStripMenuItem";
+            viewToolStripMenuItem.Size = new Size(110, 24);
+            viewToolStripMenuItem.Text = "View";
             // 
-            // label2
+            // helpToolStripMenuItem
             // 
-            label2.BackColor = Color.DimGray;
-            label2.Image = (Image)resources.GetObject("label2.Image");
-            label2.Location = new Point(3, 0);
-            label2.Name = "label2";
-            label2.Size = new Size(82, 88);
-            label2.TabIndex = 0;
+            helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            helpToolStripMenuItem.Size = new Size(110, 24);
+            helpToolStripMenuItem.Text = "Help";
             // 
             // gradientPanel2
             // 
@@ -2919,53 +3053,6 @@ namespace WinForms
             label8.Size = new Size(82, 88);
             label8.TabIndex = 0;
             // 
-            // gradientPanel3
-            // 
-            gradientPanel3.Controls.Add(tableLayoutPanel8);
-            gradientPanel3.GradientAngle = 60F;
-            gradientPanel3.GradientPrimaryColor = Color.Transparent;
-            gradientPanel3.GradientSecondaryColor = Color.FromArgb(255, 128, 128);
-            gradientPanel3.Location = new Point(3, 179);
-            gradientPanel3.Name = "gradientPanel3";
-            gradientPanel3.Size = new Size(349, 88);
-            gradientPanel3.TabIndex = 6;
-            // 
-            // tableLayoutPanel8
-            // 
-            tableLayoutPanel8.AutoSize = true;
-            tableLayoutPanel8.ColumnCount = 2;
-            tableLayoutPanel8.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 88F));
-            tableLayoutPanel8.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel8.Controls.Add(label13, 1, 0);
-            tableLayoutPanel8.Controls.Add(label14, 0, 0);
-            tableLayoutPanel8.Dock = DockStyle.Fill;
-            tableLayoutPanel8.Location = new Point(0, 0);
-            tableLayoutPanel8.Name = "tableLayoutPanel8";
-            tableLayoutPanel8.RowCount = 1;
-            tableLayoutPanel8.RowStyles.Add(new RowStyle(SizeType.Absolute, 88F));
-            tableLayoutPanel8.Size = new Size(349, 88);
-            tableLayoutPanel8.TabIndex = 0;
-            // 
-            // label13
-            // 
-            label13.BackColor = Color.Transparent;
-            label13.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label13.ForeColor = SystemColors.ControlLight;
-            label13.Location = new Point(91, 0);
-            label13.Name = "label13";
-            label13.Size = new Size(252, 88);
-            label13.TabIndex = 1;
-            label13.Text = "title";
-            // 
-            // label14
-            // 
-            label14.BackColor = Color.DimGray;
-            label14.Image = (Image)resources.GetObject("label14.Image");
-            label14.Location = new Point(3, 0);
-            label14.Name = "label14";
-            label14.Size = new Size(82, 88);
-            label14.TabIndex = 0;
-            // 
             // gradientPanel4
             // 
             gradientPanel4.GradientAngle = 0F;
@@ -3010,52 +3097,77 @@ namespace WinForms
             label80.Size = new Size(82, 88);
             label80.TabIndex = 0;
             // 
-            // gradientPanel5
+            // toolStrip1
             // 
-            gradientPanel5.Controls.Add(tableLayoutPanel41);
-            gradientPanel5.GradientAngle = 60F;
-            gradientPanel5.GradientPrimaryColor = Color.Transparent;
-            gradientPanel5.GradientSecondaryColor = Color.FromArgb(255, 128, 128);
-            gradientPanel5.Location = new Point(358, 179);
-            gradientPanel5.Name = "gradientPanel5";
-            gradientPanel5.Size = new Size(349, 88);
-            gradientPanel5.TabIndex = 7;
+            toolStrip1.BackColor = Color.Transparent;
+            toolStrip1.Font = new Font("Exo ExtraBold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            toolStrip1.ImageScalingSize = new Size(20, 20);
+            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripDropDownButton1, toolStripButton1, toolStripButton2, toolStripButton3 });
+            toolStrip1.Location = new Point(0, 0);
+            toolStrip1.Name = "toolStrip1";
+            toolStrip1.Size = new Size(1280, 27);
+            toolStrip1.TabIndex = 1;
+            toolStrip1.Text = "toolStrip1";
             // 
-            // tableLayoutPanel41
+            // toolStripDropDownButton1
             // 
-            tableLayoutPanel41.AutoSize = true;
-            tableLayoutPanel41.ColumnCount = 2;
-            tableLayoutPanel41.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 88F));
-            tableLayoutPanel41.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel41.Controls.Add(label81, 1, 0);
-            tableLayoutPanel41.Controls.Add(label82, 0, 0);
-            tableLayoutPanel41.Dock = DockStyle.Fill;
-            tableLayoutPanel41.Location = new Point(0, 0);
-            tableLayoutPanel41.Name = "tableLayoutPanel41";
-            tableLayoutPanel41.RowCount = 1;
-            tableLayoutPanel41.RowStyles.Add(new RowStyle(SizeType.Absolute, 88F));
-            tableLayoutPanel41.Size = new Size(349, 88);
-            tableLayoutPanel41.TabIndex = 0;
+            toolStripDropDownButton1.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            toolStripDropDownButton1.DropDownItems.AddRange(new ToolStripItem[] { fileToolStripMenuItem1, viewToolStripMenuItem1, helpToolStripMenuItem1 });
+            toolStripDropDownButton1.Image = (Image)resources.GetObject("toolStripDropDownButton1.Image");
+            toolStripDropDownButton1.ImageTransparentColor = Color.Navy;
+            toolStripDropDownButton1.Name = "toolStripDropDownButton1";
+            toolStripDropDownButton1.Size = new Size(34, 24);
+            toolStripDropDownButton1.Text = "toolStripDropDownButton1";
             // 
-            // label81
+            // fileToolStripMenuItem1
             // 
-            label81.BackColor = Color.Transparent;
-            label81.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label81.ForeColor = SystemColors.ControlLight;
-            label81.Location = new Point(91, 0);
-            label81.Name = "label81";
-            label81.Size = new Size(252, 88);
-            label81.TabIndex = 1;
-            label81.Text = "title";
+            fileToolStripMenuItem1.Name = "fileToolStripMenuItem1";
+            fileToolStripMenuItem1.Size = new Size(129, 26);
+            fileToolStripMenuItem1.Text = "File";
             // 
-            // label82
+            // viewToolStripMenuItem1
             // 
-            label82.BackColor = Color.DimGray;
-            label82.Image = (Image)resources.GetObject("label82.Image");
-            label82.Location = new Point(3, 0);
-            label82.Name = "label82";
-            label82.Size = new Size(82, 88);
-            label82.TabIndex = 0;
+            viewToolStripMenuItem1.Name = "viewToolStripMenuItem1";
+            viewToolStripMenuItem1.Size = new Size(129, 26);
+            viewToolStripMenuItem1.Text = "View";
+            // 
+            // helpToolStripMenuItem1
+            // 
+            helpToolStripMenuItem1.Name = "helpToolStripMenuItem1";
+            helpToolStripMenuItem1.Size = new Size(129, 26);
+            helpToolStripMenuItem1.Text = "Help";
+            // 
+            // toolStripButton1
+            // 
+            toolStripButton1.Alignment = ToolStripItemAlignment.Right;
+            toolStripButton1.BackColor = Color.Transparent;
+            toolStripButton1.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            toolStripButton1.Image = (Image)resources.GetObject("toolStripButton1.Image");
+            toolStripButton1.ImageTransparentColor = Color.Crimson;
+            toolStripButton1.Name = "toolStripButton1";
+            toolStripButton1.Size = new Size(29, 24);
+            toolStripButton1.Text = "toolStripButton1";
+            toolStripButton1.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // toolStripButton2
+            // 
+            toolStripButton2.Alignment = ToolStripItemAlignment.Right;
+            toolStripButton2.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            toolStripButton2.Image = (Image)resources.GetObject("toolStripButton2.Image");
+            toolStripButton2.ImageTransparentColor = Color.Magenta;
+            toolStripButton2.Name = "toolStripButton2";
+            toolStripButton2.Size = new Size(29, 24);
+            toolStripButton2.Text = "toolStripButton2";
+            // 
+            // toolStripButton3
+            // 
+            toolStripButton3.Alignment = ToolStripItemAlignment.Right;
+            toolStripButton3.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            toolStripButton3.Image = (Image)resources.GetObject("toolStripButton3.Image");
+            toolStripButton3.ImageTransparentColor = Color.Magenta;
+            toolStripButton3.Name = "toolStripButton3";
+            toolStripButton3.Size = new Size(29, 24);
+            toolStripButton3.Text = "toolStripButton3";
             // 
             // MainForm
             // 
@@ -3065,6 +3177,7 @@ namespace WinForms
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1280, 846);
+            Controls.Add(toolStrip1);
             Controls.Add(searchTabeLayout);
             DoubleBuffered = true;
             Name = "MainForm";
@@ -3092,6 +3205,15 @@ namespace WinForms
             helloElement0.ResumeLayout(false);
             helloElement0.PerformLayout();
             helloElementTable0.ResumeLayout(false);
+            helloElement1.ResumeLayout(false);
+            helloElement1.PerformLayout();
+            helloElementTable1.ResumeLayout(false);
+            helloElement2.ResumeLayout(false);
+            helloElement2.PerformLayout();
+            tableLayoutPanel8.ResumeLayout(false);
+            helloElement3.ResumeLayout(false);
+            helloElement3.PerformLayout();
+            helloElementTable3.ResumeLayout(false);
             recommentPanel.ResumeLayout(false);
             flowLayoutPanel22.ResumeLayout(false);
             flowLayoutPanel22.PerformLayout();
@@ -3220,18 +3342,13 @@ namespace WinForms
             flowLayoutPanel19.PerformLayout();
             tableLayoutPanel18.ResumeLayout(false);
             tableLayoutPanel19.ResumeLayout(false);
-            gradientPanel1.ResumeLayout(false);
-            gradientPanel1.PerformLayout();
-            tableLayoutPanel2.ResumeLayout(false);
+            contextMenuStrip1.ResumeLayout(false);
             tableLayoutPanel5.ResumeLayout(false);
-            gradientPanel3.ResumeLayout(false);
-            gradientPanel3.PerformLayout();
-            tableLayoutPanel8.ResumeLayout(false);
             tableLayoutPanel40.ResumeLayout(false);
-            gradientPanel5.ResumeLayout(false);
-            gradientPanel5.PerformLayout();
-            tableLayoutPanel41.ResumeLayout(false);
+            toolStrip1.ResumeLayout(false);
+            toolStrip1.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         private void FlowLayoutPanel1_Scroll(object sender, ScrollEventArgs e)
@@ -3459,19 +3576,19 @@ namespace WinForms
         private Label label77;
         private Label label78;
         private ToolTip toolTip1;
-        private GradientPanel gradientPanel1;
+        private GradientPanel helloElement1;
         private GradientPanel helloElement0;
-        private TableLayoutPanel tableLayoutPanel2;
-        private Label label1;
-        private Label label2;
-        private GradientPanel gradientPanel3;
+        private TableLayoutPanel helloElementTable1;
+        private Label helloElementTitle1;
+        private Label helloElementImg1;
+        private GradientPanel helloElement2;
         private TableLayoutPanel tableLayoutPanel8;
-        private Label label13;
-        private Label label14;
-        private GradientPanel gradientPanel5;
-        private TableLayoutPanel tableLayoutPanel41;
-        private Label label81;
-        private Label label82;
+        private Label helloElementTitle2;
+        private Label helloElementimg2;
+        private GradientPanel helloElement3;
+        private TableLayoutPanel helloElementTable3;
+        private Label helloElementTitle3;
+        private Label helloElementImg3;
         private GradientPanel gradientPanel2;
         private TableLayoutPanel tableLayoutPanel5;
         private Label label7;
@@ -3480,5 +3597,17 @@ namespace WinForms
         private TableLayoutPanel tableLayoutPanel40;
         private Label label79;
         private Label label80;
+        private ToolStripMenuItem fileToolStripMenuItem;
+        private ToolStripMenuItem editToolStripMenuItem;
+        private ToolStripMenuItem viewToolStripMenuItem;
+        private ToolStripMenuItem helpToolStripMenuItem;
+        private ToolStrip toolStrip1;
+        private ToolStripDropDownButton toolStripDropDownButton1;
+        private ToolStripMenuItem fileToolStripMenuItem1;
+        private ToolStripMenuItem viewToolStripMenuItem1;
+        private ToolStripMenuItem helpToolStripMenuItem1;
+        private ToolStripButton toolStripButton1;
+        private ToolStripButton toolStripButton2;
+        private ToolStripButton toolStripButton3;
     }
 }

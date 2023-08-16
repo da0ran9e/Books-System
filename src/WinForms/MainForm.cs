@@ -109,38 +109,58 @@ namespace WinForms
             {
                 timeRange = "night";
                 lgb = new LinearGradientBrush(helloPanel.ClientRectangle, ColorTranslator.FromHtml("#191970"), ColorTranslator.FromHtml("#2F4F4F"), 60F);
+                helloElement0.GradientSecondaryColor = ColorTranslator.FromHtml("#001F3F");
+                helloElement1.GradientSecondaryColor = ColorTranslator.FromHtml("#001F3F");
+                helloElement2.GradientSecondaryColor = ColorTranslator.FromHtml("#001F3F");
+                helloElement3.GradientSecondaryColor = ColorTranslator.FromHtml("#001F3F");
+
             }
             else if (hour >= 6 && hour < 12)
             {
                 timeRange = "morning";
                 lgb = new LinearGradientBrush(helloPanel.ClientRectangle, ColorTranslator.FromHtml("#87CEFA"), ColorTranslator.FromHtml("#FFFFE0"), 60F);
+                helloElement0.GradientSecondaryColor = ColorTranslator.FromHtml("#FDB813");
+                helloElement1.GradientSecondaryColor = ColorTranslator.FromHtml("#FDB813");
+                helloElement2.GradientSecondaryColor = ColorTranslator.FromHtml("#FDB813");
+                helloElement3.GradientSecondaryColor = ColorTranslator.FromHtml("#FDB813");
+
             }
             else if (hour >= 12 && hour < 18)
             {
                 timeRange = "afternoon";
                 lgb = new LinearGradientBrush(helloPanel.ClientRectangle, ColorTranslator.FromHtml("#FFD700"), ColorTranslator.FromHtml("#FFB6C1"), 60F);
+                helloElement0.GradientSecondaryColor = ColorTranslator.FromHtml("#87CEEB");
+                helloElement1.GradientSecondaryColor = ColorTranslator.FromHtml("#87CEEB");
+                helloElement2.GradientSecondaryColor = ColorTranslator.FromHtml("#87CEEB");
+                helloElement3.GradientSecondaryColor = ColorTranslator.FromHtml("#87CEEB");
+
             }
             else
             {
                 timeRange = "evening";
                 lgb = new LinearGradientBrush(helloPanel.ClientRectangle, ColorTranslator.FromHtml("#663399"), ColorTranslator.FromHtml("#00008B"), 60F);
+                helloElement0.GradientSecondaryColor = ColorTranslator.FromHtml("#FD5E53");
+                helloElement1.GradientSecondaryColor = ColorTranslator.FromHtml("#FD5E53");
+                helloElement2.GradientSecondaryColor = ColorTranslator.FromHtml("#FD5E53");
+                helloElement3.GradientSecondaryColor = ColorTranslator.FromHtml("#FD5E53");
+
             }
             helloLabel.Text = $"Good {timeRange}!";
             Graphics g = e.Graphics;
             g.FillRectangle(lgb, helloPanel.ClientRectangle);
-
-            foreach (Control a in helloPanel.Controls)
-            {
-                string nameA = a.ToString();
-                if (nameA.Contains("FlowLayoutPanel"))
-                {
-                    a.BackColor = Color.Transparent;
-                }
-
-            }
         }
 
         private void userLabel_MouseHover(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripLabel1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripLabel2_Click(object sender, EventArgs e)
         {
 
         }
