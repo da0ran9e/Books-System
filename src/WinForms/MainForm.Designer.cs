@@ -53,6 +53,8 @@ namespace WinForms
 
         #region Windows Form Designer generated code
 
+        private string username;
+
         /// <summary>
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
@@ -90,14 +92,9 @@ namespace WinForms
             homeFlowPanel = new FlowLayoutPanel();
             helloPanel = new FlowLayoutPanel();
             helloLabel = new Label();
-            helloElement1 = new FlowLayoutPanel();
             helloElementTable1 = new TableLayoutPanel();
             helloElementTitle1 = new Label();
             helloElementImg1 = new Label();
-            flowLayoutPanel1 = new FlowLayoutPanel();
-            tableLayoutPanel2 = new TableLayoutPanel();
-            label1 = new Label();
-            label2 = new Label();
             helloElement2 = new FlowLayoutPanel();
             helloElementTable2 = new TableLayoutPanel();
             helloElementTitle2 = new Label();
@@ -298,6 +295,8 @@ namespace WinForms
             label37 = new Label();
             label38 = new Label();
             contextMenuStrip1 = new ContextMenuStrip(components);
+            toolTip1 = new ToolTip(components);
+            helloElement0 = new GradientPanel();
             searchTabeLayout.SuspendLayout();
             verticalMenuBar.SuspendLayout();
             contentPanel.SuspendLayout();
@@ -309,10 +308,7 @@ namespace WinForms
             mainFlowPanel.SuspendLayout();
             homeFlowPanel.SuspendLayout();
             helloPanel.SuspendLayout();
-            helloElement1.SuspendLayout();
             helloElementTable1.SuspendLayout();
-            flowLayoutPanel1.SuspendLayout();
-            tableLayoutPanel2.SuspendLayout();
             helloElement2.SuspendLayout();
             helloElementTable2.SuspendLayout();
             flowLayoutPanel4.SuspendLayout();
@@ -409,6 +405,7 @@ namespace WinForms
             flowLayoutPanel19.SuspendLayout();
             tableLayoutPanel18.SuspendLayout();
             tableLayoutPanel19.SuspendLayout();
+            helloElement0.SuspendLayout();
             SuspendLayout();
             // 
             // searchTabeLayout
@@ -456,8 +453,10 @@ namespace WinForms
             userLabel.Name = "userLabel";
             userLabel.Size = new Size(90, 90);
             userLabel.TabIndex = 0;
+            toolTip1.SetToolTip(userLabel, "user");
             userLabel.Click += label1_Click;
             userLabel.Paint += userLabel_Paint;
+            userLabel.MouseHover += userLabel_MouseHover;
             // 
             // homeLabel
             // 
@@ -467,6 +466,7 @@ namespace WinForms
             homeLabel.Name = "homeLabel";
             homeLabel.Size = new Size(71, 71);
             homeLabel.TabIndex = 3;
+            toolTip1.SetToolTip(homeLabel, "Home");
             homeLabel.Click += homeLabel_Click;
             // 
             // searchLabel
@@ -742,9 +742,9 @@ namespace WinForms
             helloPanel.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             helloPanel.AutoSize = true;
             helloPanel.Controls.Add(helloLabel);
-            helloPanel.Controls.Add(helloElement1);
             helloPanel.Controls.Add(helloElement2);
             helloPanel.Controls.Add(helloElement3);
+            helloPanel.Controls.Add(helloElement0);
             homeFlowPanel.SetFlowBreak(helloPanel, true);
             helloPanel.Location = new Point(3, 30);
             helloPanel.Margin = new Padding(3, 30, 3, 30);
@@ -764,15 +764,6 @@ namespace WinForms
             helloLabel.TabIndex = 0;
             helloLabel.Text = "Hello!";
             // 
-            // helloElement1
-            // 
-            helloElement1.Controls.Add(helloElementTable1);
-            helloElement1.Controls.Add(flowLayoutPanel1);
-            helloElement1.Location = new Point(3, 85);
-            helloElement1.Name = "helloElement1";
-            helloElement1.Size = new Size(352, 88);
-            helloElement1.TabIndex = 1;
-            // 
             // helloElementTable1
             // 
             helloElementTable1.AutoSize = true;
@@ -781,11 +772,12 @@ namespace WinForms
             helloElementTable1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             helloElementTable1.Controls.Add(helloElementTitle1, 1, 0);
             helloElementTable1.Controls.Add(helloElementImg1, 0, 0);
-            helloElementTable1.Location = new Point(3, 3);
+            helloElementTable1.Dock = DockStyle.Fill;
+            helloElementTable1.Location = new Point(0, 0);
             helloElementTable1.Name = "helloElementTable1";
             helloElementTable1.RowCount = 1;
             helloElementTable1.RowStyles.Add(new RowStyle(SizeType.Absolute, 88F));
-            helloElementTable1.Size = new Size(346, 88);
+            helloElementTable1.Size = new Size(349, 88);
             helloElementTable1.TabIndex = 0;
             // 
             // helloElementTitle1
@@ -808,54 +800,11 @@ namespace WinForms
             helloElementImg1.Size = new Size(82, 88);
             helloElementImg1.TabIndex = 0;
             // 
-            // flowLayoutPanel1
-            // 
-            flowLayoutPanel1.Controls.Add(tableLayoutPanel2);
-            flowLayoutPanel1.Location = new Point(3, 97);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(370, 88);
-            flowLayoutPanel1.TabIndex = 2;
-            // 
-            // tableLayoutPanel2
-            // 
-            tableLayoutPanel2.AutoSize = true;
-            tableLayoutPanel2.ColumnCount = 2;
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 88F));
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel2.Controls.Add(label1, 1, 0);
-            tableLayoutPanel2.Controls.Add(label2, 0, 0);
-            tableLayoutPanel2.Location = new Point(3, 3);
-            tableLayoutPanel2.Name = "tableLayoutPanel2";
-            tableLayoutPanel2.RowCount = 1;
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 88F));
-            tableLayoutPanel2.Size = new Size(362, 88);
-            tableLayoutPanel2.TabIndex = 0;
-            // 
-            // label1
-            // 
-            label1.BackColor = Color.Gray;
-            label1.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.ForeColor = SystemColors.ControlLight;
-            label1.Location = new Point(91, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(268, 88);
-            label1.TabIndex = 1;
-            label1.Text = "label1";
-            // 
-            // label2
-            // 
-            label2.BackColor = Color.DimGray;
-            label2.Image = (Image)resources.GetObject("label2.Image");
-            label2.Location = new Point(3, 0);
-            label2.Name = "label2";
-            label2.Size = new Size(82, 88);
-            label2.TabIndex = 0;
-            // 
             // helloElement2
             // 
             helloElement2.Controls.Add(helloElementTable2);
             helloElement2.Controls.Add(flowLayoutPanel4);
-            helloElement2.Location = new Point(361, 85);
+            helloElement2.Location = new Point(3, 85);
             helloElement2.Name = "helloElement2";
             helloElement2.Size = new Size(352, 88);
             helloElement2.TabIndex = 2;
@@ -942,7 +891,7 @@ namespace WinForms
             // 
             helloElement3.Controls.Add(helloElementTable3);
             helloElement3.Controls.Add(flowLayoutPanel7);
-            helloElement3.Location = new Point(3, 179);
+            helloElement3.Location = new Point(361, 85);
             helloElement3.Name = "helloElement3";
             helloElement3.Size = new Size(352, 88);
             helloElement3.TabIndex = 3;
@@ -3036,6 +2985,17 @@ namespace WinForms
             contextMenuStrip1.Name = "contextMenuStrip1";
             contextMenuStrip1.Size = new Size(61, 4);
             // 
+            // helloElement0
+            // 
+            helloElement0.Controls.Add(helloElementTable1);
+            helloElement0.GradientAngle = 60F;
+            helloElement0.GradientPrimaryColor = Color.Transparent;
+            helloElement0.GradientSecondaryColor = Color.FromArgb(255, 128, 128);
+            helloElement0.Location = new Point(3, 179);
+            helloElement0.Name = "helloElement0";
+            helloElement0.Size = new Size(349, 88);
+            helloElement0.TabIndex = 4;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -3049,6 +3009,7 @@ namespace WinForms
             Name = "MainForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "MainForm";
+            toolTip1.SetToolTip(this, "user");
             Load += MainForm_Load;
             MouseMove += MainForm_MouseMove;
             MouseWheel += MainForm_MouseWheel;
@@ -3067,12 +3028,7 @@ namespace WinForms
             homeFlowPanel.ResumeLayout(false);
             homeFlowPanel.PerformLayout();
             helloPanel.ResumeLayout(false);
-            helloElement1.ResumeLayout(false);
-            helloElement1.PerformLayout();
             helloElementTable1.ResumeLayout(false);
-            flowLayoutPanel1.ResumeLayout(false);
-            flowLayoutPanel1.PerformLayout();
-            tableLayoutPanel2.ResumeLayout(false);
             helloElement2.ResumeLayout(false);
             helloElement2.PerformLayout();
             helloElementTable2.ResumeLayout(false);
@@ -3213,6 +3169,8 @@ namespace WinForms
             flowLayoutPanel19.PerformLayout();
             tableLayoutPanel18.ResumeLayout(false);
             tableLayoutPanel19.ResumeLayout(false);
+            helloElement0.ResumeLayout(false);
+            helloElement0.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -3237,14 +3195,9 @@ namespace WinForms
         private FlowLayoutPanel homeFlowPanel;
         private FlowLayoutPanel helloPanel;
         private Label helloLabel;
-        private FlowLayoutPanel helloElement1;
         private Label helloElementImg1;
         private Label helloElementTitle1;
         private TableLayoutPanel helloElementTable1;
-        private FlowLayoutPanel flowLayoutPanel1;
-        private TableLayoutPanel tableLayoutPanel2;
-        private Label label1;
-        private Label label2;
         private FlowLayoutPanel helloElement2;
         private TableLayoutPanel helloElementTable2;
         private Label helloElementTitle2;
@@ -3461,5 +3414,8 @@ namespace WinForms
         private TableLayoutPanel tableLayoutPanel39;
         private Label label77;
         private Label label78;
+        private ToolTip toolTip1;
+        private GradientPanel gradientPanel1;
+        private GradientPanel helloElement0;
     }
 }

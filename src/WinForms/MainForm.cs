@@ -8,46 +8,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
+using System.Reflection;
 
 namespace WinForms
 {
     public partial class MainForm : Form
     {
+        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\vuduc\OneDrive\Documents\BX.mdf;Integrated Security=True;Connect Timeout=30");
+        SqlCommand cmd = new SqlCommand();
+        SqlDataReader dr;
 
-        public MainForm()
+        public MainForm(string username)
         {
+            this.username = username;
             InitializeComponent();
         }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
             //EnableBlur();
-
-
-            DateTime currentTime = DateTime.Now;
-
-            int hour = currentTime.Hour;
-
-            // Determine the time range
-            string timeRange;
-
-            if (hour >= 0 && hour < 6)
-            {
-                timeRange = "night";
-            }
-            else if (hour >= 6 && hour < 12)
-            {
-                timeRange = "morning";
-            }
-            else if (hour >= 12 && hour < 18)
-            {
-                timeRange = "afternoon";
-            }
-            else
-            {
-                timeRange = "evening";
-            }
-            helloLabel.Text = $"Good {timeRange}!";
+            toolTip1.SetToolTip(userLabel, username);
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -122,25 +103,46 @@ namespace WinForms
             DateTime currentTime = DateTime.Now;
 
             int hour = currentTime.Hour;
+            string timeRange;
             LinearGradientBrush lgb = new LinearGradientBrush(helloPanel.ClientRectangle, Color.White, Color.Black, 60F);
             if (hour >= 0 && hour < 6)
             {
-                lgb = new LinearGradientBrush(helloPanel.ClientRectangle, Color.MidnightBlue, Color.Black, 60F);
+                timeRange = "night";
+                lgb = new LinearGradientBrush(helloPanel.ClientRectangle, ColorTranslator.FromHtml("#191970"), ColorTranslator.FromHtml("#2F4F4F"), 60F);
             }
             else if (hour >= 6 && hour < 12)
             {
-                lgb = new LinearGradientBrush(helloPanel.ClientRectangle, Color.LemonChiffon, Color.Yellow, 60F);
+                timeRange = "morning";
+                lgb = new LinearGradientBrush(helloPanel.ClientRectangle, ColorTranslator.FromHtml("#87CEFA"), ColorTranslator.FromHtml("#FFFFE0"), 60F);
             }
             else if (hour >= 12 && hour < 18)
             {
-                lgb = new LinearGradientBrush(helloPanel.ClientRectangle, Color.Tomato, Color.DeepSkyBlue, 60F);
+                timeRange = "afternoon";
+                lgb = new LinearGradientBrush(helloPanel.ClientRectangle, ColorTranslator.FromHtml("#FFD700"), ColorTranslator.FromHtml("#FFB6C1"), 60F);
             }
             else
             {
-                lgb = new LinearGradientBrush(helloPanel.ClientRectangle, Color.DeepSkyBlue, Color.MidnightBlue, 60F);
+                timeRange = "evening";
+                lgb = new LinearGradientBrush(helloPanel.ClientRectangle, ColorTranslator.FromHtml("#663399"), ColorTranslator.FromHtml("#00008B"), 60F);
             }
+            helloLabel.Text = $"Good {timeRange}!";
             Graphics g = e.Graphics;
             g.FillRectangle(lgb, helloPanel.ClientRectangle);
+
+            foreach (Control a in helloPanel.Controls)
+            {
+                string nameA = a.ToString();
+                if (nameA.Contains("FlowLayoutPanel"))
+                {
+                    a.BackColor = Color.Transparent;
+                }
+
+            }
+        }
+
+        private void userLabel_MouseHover(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -4,6 +4,9 @@
     <Compile Update="AdFeedForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="GradientPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Update="LoginForm.cs">
       <SubType>Form</SubType>
     </Compile>

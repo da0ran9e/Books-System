@@ -69,7 +69,7 @@ namespace WinForms
                     lb.ForeColor = Color.Green;
                     lb.Padding = new Padding(12, 0, 0, 0);
                     loginNotification.Controls.Add(lb);
-                    Form mainForm = new MainForm();
+                    Form mainForm = new MainForm(usernameTextbox.Text);
                     this.Visible = false;
                     mainForm.ShowDialog();
                 }
