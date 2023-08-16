@@ -742,6 +742,7 @@ namespace WinForms
             mainFlowPanel.Name = "mainFlowPanel";
             mainFlowPanel.Size = new Size(744, 740);
             mainFlowPanel.TabIndex = 4;
+            mainFlowPanel.Paint += mainFlowPanel_Paint;
             // 
             // homeFlowPanel
             // 
@@ -789,7 +790,7 @@ namespace WinForms
             helloElement0.Controls.Add(helloElementTable0);
             helloElement0.GradientAngle = 60F;
             helloElement0.GradientPrimaryColor = Color.Transparent;
-            helloElement0.GradientSecondaryColor = Color.FromArgb(255, 128, 128);
+            helloElement0.GradientSecondaryColor = Color.White;
             helloElement0.Location = new Point(3, 85);
             helloElement0.Name = "helloElement0";
             helloElement0.Size = new Size(349, 88);
@@ -836,7 +837,7 @@ namespace WinForms
             helloElement1.Controls.Add(helloElementTable1);
             helloElement1.GradientAngle = 60F;
             helloElement1.GradientPrimaryColor = Color.Transparent;
-            helloElement1.GradientSecondaryColor = Color.FromArgb(255, 128, 128);
+            helloElement1.GradientSecondaryColor = Color.White;
             helloElement1.Location = new Point(358, 85);
             helloElement1.Name = "helloElement1";
             helloElement1.Size = new Size(349, 88);
@@ -883,7 +884,7 @@ namespace WinForms
             helloElement2.Controls.Add(tableLayoutPanel8);
             helloElement2.GradientAngle = 60F;
             helloElement2.GradientPrimaryColor = Color.Transparent;
-            helloElement2.GradientSecondaryColor = Color.FromArgb(255, 128, 128);
+            helloElement2.GradientSecondaryColor = Color.White;
             helloElement2.Location = new Point(3, 179);
             helloElement2.Name = "helloElement2";
             helloElement2.Size = new Size(349, 88);
@@ -930,7 +931,7 @@ namespace WinForms
             helloElement3.Controls.Add(helloElementTable3);
             helloElement3.GradientAngle = 60F;
             helloElement3.GradientPrimaryColor = Color.Transparent;
-            helloElement3.GradientSecondaryColor = Color.FromArgb(255, 128, 128);
+            helloElement3.GradientSecondaryColor = Color.White;
             helloElement3.Location = new Point(358, 179);
             helloElement3.Name = "helloElement3";
             helloElement3.Size = new Size(349, 88);

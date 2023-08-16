@@ -119,20 +119,20 @@ namespace WinForms
             {
                 timeRange = "morning";
                 lgb = new LinearGradientBrush(helloPanel.ClientRectangle, ColorTranslator.FromHtml("#87CEFA"), ColorTranslator.FromHtml("#FFFFE0"), 60F);
-                helloElement0.GradientSecondaryColor = ColorTranslator.FromHtml("#FDB813");
-                helloElement1.GradientSecondaryColor = ColorTranslator.FromHtml("#FDB813");
-                helloElement2.GradientSecondaryColor = ColorTranslator.FromHtml("#FDB813");
-                helloElement3.GradientSecondaryColor = ColorTranslator.FromHtml("#FDB813");
+                helloElement0.GradientSecondaryColor = ColorTranslator.FromHtml("#FFB6C1");
+                helloElement1.GradientSecondaryColor = ColorTranslator.FromHtml("#FFB6C1");
+                helloElement2.GradientSecondaryColor = ColorTranslator.FromHtml("#FFB6C1");
+                helloElement3.GradientSecondaryColor = ColorTranslator.FromHtml("#FFB6C1");
 
             }
             else if (hour >= 12 && hour < 18)
             {
                 timeRange = "afternoon";
-                lgb = new LinearGradientBrush(helloPanel.ClientRectangle, ColorTranslator.FromHtml("#FFD700"), ColorTranslator.FromHtml("#FFB6C1"), 60F);
-                helloElement0.GradientSecondaryColor = ColorTranslator.FromHtml("#87CEEB");
-                helloElement1.GradientSecondaryColor = ColorTranslator.FromHtml("#87CEEB");
-                helloElement2.GradientSecondaryColor = ColorTranslator.FromHtml("#87CEEB");
-                helloElement3.GradientSecondaryColor = ColorTranslator.FromHtml("#87CEEB");
+                lgb = new LinearGradientBrush(helloPanel.ClientRectangle, ColorTranslator.FromHtml("#FFD700"), ColorTranslator.FromHtml("#87CEEB"), 60F);
+                helloElement0.GradientSecondaryColor = ColorTranslator.FromHtml("#FFB6C1");
+                helloElement1.GradientSecondaryColor = ColorTranslator.FromHtml("#FFB6C1");
+                helloElement2.GradientSecondaryColor = ColorTranslator.FromHtml("#FFB6C1");
+                helloElement3.GradientSecondaryColor = ColorTranslator.FromHtml("#FFB6C1");
 
             }
             else
@@ -163,6 +163,12 @@ namespace WinForms
         private void toolStripLabel2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void mainFlowPanel_Paint(object sender, PaintEventArgs e)
+        {
+            LinearGradientBrush lgb = new LinearGradientBrush(mainFlowPanel.ClientRectangle, ColorTranslator.FromHtml("#145882"), ColorTranslator.FromHtml("#262626"), 60F);
+            e.Graphics.FillRectangle(lgb, mainFlowPanel.ClientRectangle);
         }
     }
 }
