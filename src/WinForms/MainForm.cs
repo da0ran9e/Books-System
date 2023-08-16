@@ -275,6 +275,9 @@ namespace WinForms
             mainFlowPanel.Paint += mainFlowPanel_Paint;
             mainFlowPanel.Invalidate();
             verticalMenuBar.Invalidate();
+
+            homeFlowPanel.Visible = true;
+            searchFlowPanel.Visible = false;
         }
 
         private void searchLabel_Click(object sender, EventArgs e)
@@ -285,6 +288,8 @@ namespace WinForms
             mainFlowPanel.Invalidate();
             verticalMenuBar.Invalidate();
 
+            homeFlowPanel.Visible = false;
+            searchFlowPanel.Visible = true;
         }
 
         private void heartLabel_Click(object sender, EventArgs e)
@@ -294,6 +299,9 @@ namespace WinForms
             mainFlowPanel.Paint += mainFlowPanel_Paint;
             mainFlowPanel.Invalidate();
             verticalMenuBar.Invalidate();
+
+            homeFlowPanel.Visible = false;
+            searchFlowPanel.Visible = false;
         }
 
         private void librariesLabel_Click(object sender, EventArgs e)
@@ -303,6 +311,9 @@ namespace WinForms
             mainFlowPanel.Paint += mainFlowPanel_Paint;
             mainFlowPanel.Invalidate();
             verticalMenuBar.Invalidate();
+
+            homeFlowPanel.Visible = false;
+            searchFlowPanel.Visible = false;
         }
 
         private void recentLabel_Click(object sender, EventArgs e)
@@ -312,6 +323,9 @@ namespace WinForms
             mainFlowPanel.Paint += mainFlowPanel_Paint;
             mainFlowPanel.Invalidate();
             verticalMenuBar.Invalidate();
+
+            homeFlowPanel.Visible = false;
+            searchFlowPanel.Visible = false;
         }
 
         private void toolStripButton2_Click(object sender, EventArgs e)

@@ -196,8 +196,7 @@ namespace WinForms
             label75 = new Label();
             searchFlowPanel = new FlowLayoutPanel();
             searchPanel = new FlowLayoutPanel();
-            tableLayoutPanel38 = new TableLayoutPanel();
-            searchTextBox = new TextBox();
+            searchLayoutTable = new TableLayoutPanel();
             searchImg = new Label();
             bestMatchPanel = new FlowLayoutPanel();
             bestMatchLabel = new Label();
@@ -321,6 +320,7 @@ namespace WinForms
             toolStripButton1 = new ToolStripButton();
             toolStripButton2 = new ToolStripButton();
             toolStripButton3 = new ToolStripButton();
+            transparentTextbox1 = new TransparentTextbox();
             searchTabeLayout.SuspendLayout();
             verticalMenuBar.SuspendLayout();
             verticalTableMenu.SuspendLayout();
@@ -387,7 +387,7 @@ namespace WinForms
             tableLayoutPanel37.SuspendLayout();
             searchFlowPanel.SuspendLayout();
             searchPanel.SuspendLayout();
-            tableLayoutPanel38.SuspendLayout();
+            searchLayoutTable.SuspendLayout();
             bestMatchPanel.SuspendLayout();
             bestMatchResult.SuspendLayout();
             bestMatchTableLayout.SuspendLayout();
@@ -923,6 +923,7 @@ namespace WinForms
             // 
             // helloElement0
             // 
+            helloElement0.BackColor = Color.Transparent;
             helloElement0.Controls.Add(helloElementTable0);
             helloElement0.GradientAngle = 60F;
             helloElement0.GradientPrimaryColor = Color.Transparent;
@@ -1989,7 +1990,7 @@ namespace WinForms
             // 
             searchPanel.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             searchPanel.AutoSize = true;
-            searchPanel.Controls.Add(tableLayoutPanel38);
+            searchPanel.Controls.Add(searchLayoutTable);
             searchFlowPanel.SetFlowBreak(searchPanel, true);
             searchPanel.Location = new Point(3, 30);
             searchPanel.Margin = new Padding(3, 30, 3, 30);
@@ -1997,30 +1998,19 @@ namespace WinForms
             searchPanel.Size = new Size(621, 61);
             searchPanel.TabIndex = 0;
             // 
-            // tableLayoutPanel38
+            // searchLayoutTable
             // 
-            tableLayoutPanel38.AutoSize = true;
-            tableLayoutPanel38.ColumnCount = 2;
-            tableLayoutPanel38.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 55F));
-            tableLayoutPanel38.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel38.Controls.Add(searchTextBox, 1, 0);
-            tableLayoutPanel38.Controls.Add(searchImg, 0, 0);
-            tableLayoutPanel38.Location = new Point(3, 3);
-            tableLayoutPanel38.Name = "tableLayoutPanel38";
-            tableLayoutPanel38.RowCount = 1;
-            tableLayoutPanel38.RowStyles.Add(new RowStyle(SizeType.Absolute, 55F));
-            tableLayoutPanel38.Size = new Size(615, 55);
-            tableLayoutPanel38.TabIndex = 5;
-            // 
-            // searchTextBox
-            // 
-            searchTextBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            searchTextBox.Font = new Font("Exo ExtraBold", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
-            searchTextBox.Location = new Point(58, 3);
-            searchTextBox.Name = "searchTextBox";
-            searchTextBox.PlaceholderText = "What do you want to read?";
-            searchTextBox.Size = new Size(554, 43);
-            searchTextBox.TabIndex = 4;
+            searchLayoutTable.ColumnCount = 2;
+            searchLayoutTable.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 55F));
+            searchLayoutTable.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            searchLayoutTable.Controls.Add(searchImg, 0, 0);
+            searchLayoutTable.Controls.Add(transparentTextbox1, 1, 0);
+            searchLayoutTable.Location = new Point(3, 3);
+            searchLayoutTable.Name = "searchLayoutTable";
+            searchLayoutTable.RowCount = 1;
+            searchLayoutTable.RowStyles.Add(new RowStyle(SizeType.Absolute, 55F));
+            searchLayoutTable.Size = new Size(615, 55);
+            searchLayoutTable.TabIndex = 5;
             // 
             // searchImg
             // 
@@ -3307,6 +3297,17 @@ namespace WinForms
             toolStripButton3.Size = new Size(29, 24);
             toolStripButton3.Text = "toolStripButton3";
             // 
+            // transparentTextbox1
+            // 
+            transparentTextbox1.BackColor = Color.Transparent;
+            transparentTextbox1.Font = new Font("Exo ExtraBold", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            transparentTextbox1.ForeColor = SystemColors.Info;
+            transparentTextbox1.Location = new Point(58, 3);
+            transparentTextbox1.Name = "transparentTextbox1";
+            transparentTextbox1.PlaceholderText = "What do you want to read?";
+            transparentTextbox1.Size = new Size(542, 47);
+            transparentTextbox1.TabIndex = 1;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -3418,9 +3419,8 @@ namespace WinForms
             searchFlowPanel.ResumeLayout(false);
             searchFlowPanel.PerformLayout();
             searchPanel.ResumeLayout(false);
-            searchPanel.PerformLayout();
-            tableLayoutPanel38.ResumeLayout(false);
-            tableLayoutPanel38.PerformLayout();
+            searchLayoutTable.ResumeLayout(false);
+            searchLayoutTable.PerformLayout();
             bestMatchPanel.ResumeLayout(false);
             bestMatchResult.ResumeLayout(false);
             bestMatchResult.PerformLayout();
@@ -3663,8 +3663,7 @@ namespace WinForms
         private Label label75;
         private FlowLayoutPanel searchFlowPanel;
         private FlowLayoutPanel searchPanel;
-        private TableLayoutPanel tableLayoutPanel38;
-        private TextBox searchTextBox;
+        private TableLayoutPanel searchLayoutTable;
         private Label searchImg;
         private FlowLayoutPanel bestMatchPanel;
         private Label bestMatchLabel;
@@ -3761,5 +3760,6 @@ namespace WinForms
         private GradientPanel heartGradientPanel;
         private GradientPanel libraryGradientPanel;
         private GradientPanel recentGradientPanel;
+        private TransparentTextbox transparentTextbox1;
     }
 }
