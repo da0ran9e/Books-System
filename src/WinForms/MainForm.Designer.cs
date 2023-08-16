@@ -92,25 +92,10 @@ namespace WinForms
             homeFlowPanel = new FlowLayoutPanel();
             helloPanel = new FlowLayoutPanel();
             helloLabel = new Label();
-            helloElementTable1 = new TableLayoutPanel();
-            helloElementTitle1 = new Label();
-            helloElementImg1 = new Label();
-            helloElement2 = new FlowLayoutPanel();
-            helloElementTable2 = new TableLayoutPanel();
-            helloElementTitle2 = new Label();
-            helloElementImg2 = new Label();
-            flowLayoutPanel4 = new FlowLayoutPanel();
-            tableLayoutPanel5 = new TableLayoutPanel();
-            label7 = new Label();
-            label8 = new Label();
-            helloElement3 = new FlowLayoutPanel();
-            helloElementTable3 = new TableLayoutPanel();
-            helloElementTitle3 = new Label();
-            helloElementImg3 = new Label();
-            flowLayoutPanel7 = new FlowLayoutPanel();
-            tableLayoutPanel8 = new TableLayoutPanel();
-            label13 = new Label();
-            label14 = new Label();
+            helloElement0 = new GradientPanel();
+            helloElementTable0 = new TableLayoutPanel();
+            helloElementTitle0 = new Label();
+            helloElementImg0 = new Label();
             recommentPanel = new FlowLayoutPanel();
             recommentLabel = new Label();
             flowLayoutPanel22 = new FlowLayoutPanel();
@@ -296,7 +281,26 @@ namespace WinForms
             label38 = new Label();
             contextMenuStrip1 = new ContextMenuStrip(components);
             toolTip1 = new ToolTip(components);
-            helloElement0 = new GradientPanel();
+            gradientPanel1 = new GradientPanel();
+            tableLayoutPanel2 = new TableLayoutPanel();
+            label1 = new Label();
+            label2 = new Label();
+            gradientPanel2 = new GradientPanel();
+            tableLayoutPanel5 = new TableLayoutPanel();
+            label7 = new Label();
+            label8 = new Label();
+            gradientPanel3 = new GradientPanel();
+            tableLayoutPanel8 = new TableLayoutPanel();
+            label13 = new Label();
+            label14 = new Label();
+            gradientPanel4 = new GradientPanel();
+            tableLayoutPanel40 = new TableLayoutPanel();
+            label79 = new Label();
+            label80 = new Label();
+            gradientPanel5 = new GradientPanel();
+            tableLayoutPanel41 = new TableLayoutPanel();
+            label81 = new Label();
+            label82 = new Label();
             searchTabeLayout.SuspendLayout();
             verticalMenuBar.SuspendLayout();
             contentPanel.SuspendLayout();
@@ -308,15 +312,8 @@ namespace WinForms
             mainFlowPanel.SuspendLayout();
             homeFlowPanel.SuspendLayout();
             helloPanel.SuspendLayout();
-            helloElementTable1.SuspendLayout();
-            helloElement2.SuspendLayout();
-            helloElementTable2.SuspendLayout();
-            flowLayoutPanel4.SuspendLayout();
-            tableLayoutPanel5.SuspendLayout();
-            helloElement3.SuspendLayout();
-            helloElementTable3.SuspendLayout();
-            flowLayoutPanel7.SuspendLayout();
-            tableLayoutPanel8.SuspendLayout();
+            helloElement0.SuspendLayout();
+            helloElementTable0.SuspendLayout();
             recommentPanel.SuspendLayout();
             flowLayoutPanel22.SuspendLayout();
             tableLayoutPanel20.SuspendLayout();
@@ -405,7 +402,14 @@ namespace WinForms
             flowLayoutPanel19.SuspendLayout();
             tableLayoutPanel18.SuspendLayout();
             tableLayoutPanel19.SuspendLayout();
-            helloElement0.SuspendLayout();
+            gradientPanel1.SuspendLayout();
+            tableLayoutPanel2.SuspendLayout();
+            tableLayoutPanel5.SuspendLayout();
+            gradientPanel3.SuspendLayout();
+            tableLayoutPanel8.SuspendLayout();
+            tableLayoutPanel40.SuspendLayout();
+            gradientPanel5.SuspendLayout();
+            tableLayoutPanel41.SuspendLayout();
             SuspendLayout();
             // 
             // searchTabeLayout
@@ -742,9 +746,10 @@ namespace WinForms
             helloPanel.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             helloPanel.AutoSize = true;
             helloPanel.Controls.Add(helloLabel);
-            helloPanel.Controls.Add(helloElement2);
-            helloPanel.Controls.Add(helloElement3);
             helloPanel.Controls.Add(helloElement0);
+            helloPanel.Controls.Add(gradientPanel1);
+            helloPanel.Controls.Add(gradientPanel3);
+            helloPanel.Controls.Add(gradientPanel5);
             homeFlowPanel.SetFlowBreak(helloPanel, true);
             helloPanel.Location = new Point(3, 30);
             helloPanel.Margin = new Padding(3, 30, 3, 30);
@@ -764,215 +769,52 @@ namespace WinForms
             helloLabel.TabIndex = 0;
             helloLabel.Text = "Hello!";
             // 
-            // helloElementTable1
+            // helloElement0
             // 
-            helloElementTable1.AutoSize = true;
-            helloElementTable1.ColumnCount = 2;
-            helloElementTable1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 88F));
-            helloElementTable1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            helloElementTable1.Controls.Add(helloElementTitle1, 1, 0);
-            helloElementTable1.Controls.Add(helloElementImg1, 0, 0);
-            helloElementTable1.Dock = DockStyle.Fill;
-            helloElementTable1.Location = new Point(0, 0);
-            helloElementTable1.Name = "helloElementTable1";
-            helloElementTable1.RowCount = 1;
-            helloElementTable1.RowStyles.Add(new RowStyle(SizeType.Absolute, 88F));
-            helloElementTable1.Size = new Size(349, 88);
-            helloElementTable1.TabIndex = 0;
+            helloElement0.Controls.Add(helloElementTable0);
+            helloElement0.GradientAngle = 60F;
+            helloElement0.GradientPrimaryColor = Color.Transparent;
+            helloElement0.GradientSecondaryColor = Color.FromArgb(255, 128, 128);
+            helloElement0.Location = new Point(3, 85);
+            helloElement0.Name = "helloElement0";
+            helloElement0.Size = new Size(349, 88);
+            helloElement0.TabIndex = 4;
             // 
-            // helloElementTitle1
+            // helloElementTable0
             // 
-            helloElementTitle1.BackColor = Color.Transparent;
-            helloElementTitle1.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            helloElementTitle1.ForeColor = SystemColors.ControlLight;
-            helloElementTitle1.Location = new Point(91, 0);
-            helloElementTitle1.Name = "helloElementTitle1";
-            helloElementTitle1.Size = new Size(252, 88);
-            helloElementTitle1.TabIndex = 1;
-            helloElementTitle1.Text = "title";
+            helloElementTable0.AutoSize = true;
+            helloElementTable0.ColumnCount = 2;
+            helloElementTable0.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 88F));
+            helloElementTable0.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            helloElementTable0.Controls.Add(helloElementTitle0, 1, 0);
+            helloElementTable0.Controls.Add(helloElementImg0, 0, 0);
+            helloElementTable0.Dock = DockStyle.Fill;
+            helloElementTable0.Location = new Point(0, 0);
+            helloElementTable0.Name = "helloElementTable0";
+            helloElementTable0.RowCount = 1;
+            helloElementTable0.RowStyles.Add(new RowStyle(SizeType.Absolute, 88F));
+            helloElementTable0.Size = new Size(349, 88);
+            helloElementTable0.TabIndex = 0;
             // 
-            // helloElementImg1
+            // helloElementTitle0
             // 
-            helloElementImg1.BackColor = Color.DimGray;
-            helloElementImg1.Image = (Image)resources.GetObject("helloElementImg1.Image");
-            helloElementImg1.Location = new Point(3, 0);
-            helloElementImg1.Name = "helloElementImg1";
-            helloElementImg1.Size = new Size(82, 88);
-            helloElementImg1.TabIndex = 0;
+            helloElementTitle0.BackColor = Color.Transparent;
+            helloElementTitle0.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            helloElementTitle0.ForeColor = SystemColors.ControlLight;
+            helloElementTitle0.Location = new Point(91, 0);
+            helloElementTitle0.Name = "helloElementTitle0";
+            helloElementTitle0.Size = new Size(252, 88);
+            helloElementTitle0.TabIndex = 1;
+            helloElementTitle0.Text = "title";
             // 
-            // helloElement2
+            // helloElementImg0
             // 
-            helloElement2.Controls.Add(helloElementTable2);
-            helloElement2.Controls.Add(flowLayoutPanel4);
-            helloElement2.Location = new Point(3, 85);
-            helloElement2.Name = "helloElement2";
-            helloElement2.Size = new Size(352, 88);
-            helloElement2.TabIndex = 2;
-            // 
-            // helloElementTable2
-            // 
-            helloElementTable2.AutoSize = true;
-            helloElementTable2.ColumnCount = 2;
-            helloElementTable2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 88F));
-            helloElementTable2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            helloElementTable2.Controls.Add(helloElementTitle2, 1, 0);
-            helloElementTable2.Controls.Add(helloElementImg2, 0, 0);
-            helloElementTable2.Location = new Point(3, 3);
-            helloElementTable2.Name = "helloElementTable2";
-            helloElementTable2.RowCount = 1;
-            helloElementTable2.RowStyles.Add(new RowStyle(SizeType.Absolute, 88F));
-            helloElementTable2.Size = new Size(346, 88);
-            helloElementTable2.TabIndex = 0;
-            // 
-            // helloElementTitle2
-            // 
-            helloElementTitle2.BackColor = Color.Transparent;
-            helloElementTitle2.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            helloElementTitle2.ForeColor = SystemColors.ControlLight;
-            helloElementTitle2.Location = new Point(91, 0);
-            helloElementTitle2.Name = "helloElementTitle2";
-            helloElementTitle2.Size = new Size(252, 88);
-            helloElementTitle2.TabIndex = 1;
-            helloElementTitle2.Text = "title";
-            // 
-            // helloElementImg2
-            // 
-            helloElementImg2.BackColor = Color.DimGray;
-            helloElementImg2.Image = (Image)resources.GetObject("helloElementImg2.Image");
-            helloElementImg2.Location = new Point(3, 0);
-            helloElementImg2.Name = "helloElementImg2";
-            helloElementImg2.Size = new Size(82, 88);
-            helloElementImg2.TabIndex = 0;
-            // 
-            // flowLayoutPanel4
-            // 
-            flowLayoutPanel4.Controls.Add(tableLayoutPanel5);
-            flowLayoutPanel4.Location = new Point(3, 97);
-            flowLayoutPanel4.Name = "flowLayoutPanel4";
-            flowLayoutPanel4.Size = new Size(370, 88);
-            flowLayoutPanel4.TabIndex = 2;
-            // 
-            // tableLayoutPanel5
-            // 
-            tableLayoutPanel5.AutoSize = true;
-            tableLayoutPanel5.ColumnCount = 2;
-            tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 88F));
-            tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel5.Controls.Add(label7, 1, 0);
-            tableLayoutPanel5.Controls.Add(label8, 0, 0);
-            tableLayoutPanel5.Location = new Point(3, 3);
-            tableLayoutPanel5.Name = "tableLayoutPanel5";
-            tableLayoutPanel5.RowCount = 1;
-            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Absolute, 88F));
-            tableLayoutPanel5.Size = new Size(362, 88);
-            tableLayoutPanel5.TabIndex = 0;
-            // 
-            // label7
-            // 
-            label7.BackColor = Color.Gray;
-            label7.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label7.ForeColor = SystemColors.ControlLight;
-            label7.Location = new Point(91, 0);
-            label7.Name = "label7";
-            label7.Size = new Size(268, 88);
-            label7.TabIndex = 1;
-            label7.Text = "label7";
-            // 
-            // label8
-            // 
-            label8.BackColor = Color.DimGray;
-            label8.Image = (Image)resources.GetObject("label8.Image");
-            label8.Location = new Point(3, 0);
-            label8.Name = "label8";
-            label8.Size = new Size(82, 88);
-            label8.TabIndex = 0;
-            // 
-            // helloElement3
-            // 
-            helloElement3.Controls.Add(helloElementTable3);
-            helloElement3.Controls.Add(flowLayoutPanel7);
-            helloElement3.Location = new Point(361, 85);
-            helloElement3.Name = "helloElement3";
-            helloElement3.Size = new Size(352, 88);
-            helloElement3.TabIndex = 3;
-            // 
-            // helloElementTable3
-            // 
-            helloElementTable3.AutoSize = true;
-            helloElementTable3.ColumnCount = 2;
-            helloElementTable3.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 88F));
-            helloElementTable3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            helloElementTable3.Controls.Add(helloElementTitle3, 1, 0);
-            helloElementTable3.Controls.Add(helloElementImg3, 0, 0);
-            helloElementTable3.Location = new Point(3, 3);
-            helloElementTable3.Name = "helloElementTable3";
-            helloElementTable3.RowCount = 1;
-            helloElementTable3.RowStyles.Add(new RowStyle(SizeType.Absolute, 88F));
-            helloElementTable3.Size = new Size(346, 88);
-            helloElementTable3.TabIndex = 0;
-            // 
-            // helloElementTitle3
-            // 
-            helloElementTitle3.BackColor = Color.Transparent;
-            helloElementTitle3.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            helloElementTitle3.ForeColor = SystemColors.ControlLight;
-            helloElementTitle3.Location = new Point(91, 0);
-            helloElementTitle3.Name = "helloElementTitle3";
-            helloElementTitle3.Size = new Size(252, 88);
-            helloElementTitle3.TabIndex = 1;
-            helloElementTitle3.Text = "title";
-            // 
-            // helloElementImg3
-            // 
-            helloElementImg3.BackColor = Color.DimGray;
-            helloElementImg3.Image = (Image)resources.GetObject("helloElementImg3.Image");
-            helloElementImg3.Location = new Point(3, 0);
-            helloElementImg3.Name = "helloElementImg3";
-            helloElementImg3.Size = new Size(82, 88);
-            helloElementImg3.TabIndex = 0;
-            // 
-            // flowLayoutPanel7
-            // 
-            flowLayoutPanel7.Controls.Add(tableLayoutPanel8);
-            flowLayoutPanel7.Location = new Point(3, 97);
-            flowLayoutPanel7.Name = "flowLayoutPanel7";
-            flowLayoutPanel7.Size = new Size(370, 88);
-            flowLayoutPanel7.TabIndex = 2;
-            // 
-            // tableLayoutPanel8
-            // 
-            tableLayoutPanel8.AutoSize = true;
-            tableLayoutPanel8.ColumnCount = 2;
-            tableLayoutPanel8.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 88F));
-            tableLayoutPanel8.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel8.Controls.Add(label13, 1, 0);
-            tableLayoutPanel8.Controls.Add(label14, 0, 0);
-            tableLayoutPanel8.Location = new Point(3, 3);
-            tableLayoutPanel8.Name = "tableLayoutPanel8";
-            tableLayoutPanel8.RowCount = 1;
-            tableLayoutPanel8.RowStyles.Add(new RowStyle(SizeType.Absolute, 88F));
-            tableLayoutPanel8.Size = new Size(362, 88);
-            tableLayoutPanel8.TabIndex = 0;
-            // 
-            // label13
-            // 
-            label13.BackColor = Color.Gray;
-            label13.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label13.ForeColor = SystemColors.ControlLight;
-            label13.Location = new Point(91, 0);
-            label13.Name = "label13";
-            label13.Size = new Size(268, 88);
-            label13.TabIndex = 1;
-            label13.Text = "label13";
-            // 
-            // label14
-            // 
-            label14.BackColor = Color.DimGray;
-            label14.Image = (Image)resources.GetObject("label14.Image");
-            label14.Location = new Point(3, 0);
-            label14.Name = "label14";
-            label14.Size = new Size(82, 88);
-            label14.TabIndex = 0;
+            helloElementImg0.BackColor = Color.DimGray;
+            helloElementImg0.Image = (Image)resources.GetObject("helloElementImg0.Image");
+            helloElementImg0.Location = new Point(3, 0);
+            helloElementImg0.Name = "helloElementImg0";
+            helloElementImg0.Size = new Size(82, 88);
+            helloElementImg0.TabIndex = 0;
             // 
             // recommentPanel
             // 
@@ -2985,16 +2827,235 @@ namespace WinForms
             contextMenuStrip1.Name = "contextMenuStrip1";
             contextMenuStrip1.Size = new Size(61, 4);
             // 
-            // helloElement0
+            // gradientPanel1
             // 
-            helloElement0.Controls.Add(helloElementTable1);
-            helloElement0.GradientAngle = 60F;
-            helloElement0.GradientPrimaryColor = Color.Transparent;
-            helloElement0.GradientSecondaryColor = Color.FromArgb(255, 128, 128);
-            helloElement0.Location = new Point(3, 179);
-            helloElement0.Name = "helloElement0";
-            helloElement0.Size = new Size(349, 88);
-            helloElement0.TabIndex = 4;
+            gradientPanel1.Controls.Add(tableLayoutPanel2);
+            gradientPanel1.GradientAngle = 60F;
+            gradientPanel1.GradientPrimaryColor = Color.Transparent;
+            gradientPanel1.GradientSecondaryColor = Color.FromArgb(255, 128, 128);
+            gradientPanel1.Location = new Point(358, 85);
+            gradientPanel1.Name = "gradientPanel1";
+            gradientPanel1.Size = new Size(349, 88);
+            gradientPanel1.TabIndex = 5;
+            // 
+            // tableLayoutPanel2
+            // 
+            tableLayoutPanel2.AutoSize = true;
+            tableLayoutPanel2.ColumnCount = 2;
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 88F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel2.Controls.Add(label1, 1, 0);
+            tableLayoutPanel2.Controls.Add(label2, 0, 0);
+            tableLayoutPanel2.Dock = DockStyle.Fill;
+            tableLayoutPanel2.Location = new Point(0, 0);
+            tableLayoutPanel2.Name = "tableLayoutPanel2";
+            tableLayoutPanel2.RowCount = 1;
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 88F));
+            tableLayoutPanel2.Size = new Size(349, 88);
+            tableLayoutPanel2.TabIndex = 0;
+            // 
+            // label1
+            // 
+            label1.BackColor = Color.Transparent;
+            label1.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.ForeColor = SystemColors.ControlLight;
+            label1.Location = new Point(91, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(252, 88);
+            label1.TabIndex = 1;
+            label1.Text = "title";
+            // 
+            // label2
+            // 
+            label2.BackColor = Color.DimGray;
+            label2.Image = (Image)resources.GetObject("label2.Image");
+            label2.Location = new Point(3, 0);
+            label2.Name = "label2";
+            label2.Size = new Size(82, 88);
+            label2.TabIndex = 0;
+            // 
+            // gradientPanel2
+            // 
+            gradientPanel2.GradientAngle = 0F;
+            gradientPanel2.GradientPrimaryColor = Color.Empty;
+            gradientPanel2.GradientSecondaryColor = Color.Empty;
+            gradientPanel2.Location = new Point(0, 0);
+            gradientPanel2.Name = "gradientPanel2";
+            gradientPanel2.Size = new Size(200, 100);
+            gradientPanel2.TabIndex = 0;
+            // 
+            // tableLayoutPanel5
+            // 
+            tableLayoutPanel5.AutoSize = true;
+            tableLayoutPanel5.ColumnCount = 2;
+            tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 88F));
+            tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel5.Controls.Add(label7, 1, 0);
+            tableLayoutPanel5.Dock = DockStyle.Fill;
+            tableLayoutPanel5.Location = new Point(0, 0);
+            tableLayoutPanel5.Name = "tableLayoutPanel5";
+            tableLayoutPanel5.RowCount = 1;
+            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel5.Size = new Size(200, 100);
+            tableLayoutPanel5.TabIndex = 0;
+            // 
+            // label7
+            // 
+            label7.BackColor = Color.Transparent;
+            label7.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label7.ForeColor = SystemColors.ControlLight;
+            label7.Location = new Point(91, 0);
+            label7.Name = "label7";
+            label7.Size = new Size(106, 88);
+            label7.TabIndex = 1;
+            label7.Text = "title";
+            // 
+            // label8
+            // 
+            label8.BackColor = Color.DimGray;
+            label8.Image = (Image)resources.GetObject("label8.Image");
+            label8.Location = new Point(3, 0);
+            label8.Name = "label8";
+            label8.Size = new Size(82, 88);
+            label8.TabIndex = 0;
+            // 
+            // gradientPanel3
+            // 
+            gradientPanel3.Controls.Add(tableLayoutPanel8);
+            gradientPanel3.GradientAngle = 60F;
+            gradientPanel3.GradientPrimaryColor = Color.Transparent;
+            gradientPanel3.GradientSecondaryColor = Color.FromArgb(255, 128, 128);
+            gradientPanel3.Location = new Point(3, 179);
+            gradientPanel3.Name = "gradientPanel3";
+            gradientPanel3.Size = new Size(349, 88);
+            gradientPanel3.TabIndex = 6;
+            // 
+            // tableLayoutPanel8
+            // 
+            tableLayoutPanel8.AutoSize = true;
+            tableLayoutPanel8.ColumnCount = 2;
+            tableLayoutPanel8.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 88F));
+            tableLayoutPanel8.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel8.Controls.Add(label13, 1, 0);
+            tableLayoutPanel8.Controls.Add(label14, 0, 0);
+            tableLayoutPanel8.Dock = DockStyle.Fill;
+            tableLayoutPanel8.Location = new Point(0, 0);
+            tableLayoutPanel8.Name = "tableLayoutPanel8";
+            tableLayoutPanel8.RowCount = 1;
+            tableLayoutPanel8.RowStyles.Add(new RowStyle(SizeType.Absolute, 88F));
+            tableLayoutPanel8.Size = new Size(349, 88);
+            tableLayoutPanel8.TabIndex = 0;
+            // 
+            // label13
+            // 
+            label13.BackColor = Color.Transparent;
+            label13.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label13.ForeColor = SystemColors.ControlLight;
+            label13.Location = new Point(91, 0);
+            label13.Name = "label13";
+            label13.Size = new Size(252, 88);
+            label13.TabIndex = 1;
+            label13.Text = "title";
+            // 
+            // label14
+            // 
+            label14.BackColor = Color.DimGray;
+            label14.Image = (Image)resources.GetObject("label14.Image");
+            label14.Location = new Point(3, 0);
+            label14.Name = "label14";
+            label14.Size = new Size(82, 88);
+            label14.TabIndex = 0;
+            // 
+            // gradientPanel4
+            // 
+            gradientPanel4.GradientAngle = 0F;
+            gradientPanel4.GradientPrimaryColor = Color.Empty;
+            gradientPanel4.GradientSecondaryColor = Color.Empty;
+            gradientPanel4.Location = new Point(0, 0);
+            gradientPanel4.Name = "gradientPanel4";
+            gradientPanel4.Size = new Size(200, 100);
+            gradientPanel4.TabIndex = 0;
+            // 
+            // tableLayoutPanel40
+            // 
+            tableLayoutPanel40.AutoSize = true;
+            tableLayoutPanel40.ColumnCount = 2;
+            tableLayoutPanel40.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 88F));
+            tableLayoutPanel40.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel40.Controls.Add(label79, 1, 0);
+            tableLayoutPanel40.Dock = DockStyle.Fill;
+            tableLayoutPanel40.Location = new Point(0, 0);
+            tableLayoutPanel40.Name = "tableLayoutPanel40";
+            tableLayoutPanel40.RowCount = 1;
+            tableLayoutPanel40.Size = new Size(200, 100);
+            tableLayoutPanel40.TabIndex = 0;
+            // 
+            // label79
+            // 
+            label79.BackColor = Color.Transparent;
+            label79.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label79.ForeColor = SystemColors.ControlLight;
+            label79.Location = new Point(91, 0);
+            label79.Name = "label79";
+            label79.Size = new Size(106, 88);
+            label79.TabIndex = 1;
+            label79.Text = "title";
+            // 
+            // label80
+            // 
+            label80.BackColor = Color.DimGray;
+            label80.Image = (Image)resources.GetObject("label80.Image");
+            label80.Location = new Point(3, 0);
+            label80.Name = "label80";
+            label80.Size = new Size(82, 88);
+            label80.TabIndex = 0;
+            // 
+            // gradientPanel5
+            // 
+            gradientPanel5.Controls.Add(tableLayoutPanel41);
+            gradientPanel5.GradientAngle = 60F;
+            gradientPanel5.GradientPrimaryColor = Color.Transparent;
+            gradientPanel5.GradientSecondaryColor = Color.FromArgb(255, 128, 128);
+            gradientPanel5.Location = new Point(358, 179);
+            gradientPanel5.Name = "gradientPanel5";
+            gradientPanel5.Size = new Size(349, 88);
+            gradientPanel5.TabIndex = 7;
+            // 
+            // tableLayoutPanel41
+            // 
+            tableLayoutPanel41.AutoSize = true;
+            tableLayoutPanel41.ColumnCount = 2;
+            tableLayoutPanel41.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 88F));
+            tableLayoutPanel41.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel41.Controls.Add(label81, 1, 0);
+            tableLayoutPanel41.Controls.Add(label82, 0, 0);
+            tableLayoutPanel41.Dock = DockStyle.Fill;
+            tableLayoutPanel41.Location = new Point(0, 0);
+            tableLayoutPanel41.Name = "tableLayoutPanel41";
+            tableLayoutPanel41.RowCount = 1;
+            tableLayoutPanel41.RowStyles.Add(new RowStyle(SizeType.Absolute, 88F));
+            tableLayoutPanel41.Size = new Size(349, 88);
+            tableLayoutPanel41.TabIndex = 0;
+            // 
+            // label81
+            // 
+            label81.BackColor = Color.Transparent;
+            label81.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label81.ForeColor = SystemColors.ControlLight;
+            label81.Location = new Point(91, 0);
+            label81.Name = "label81";
+            label81.Size = new Size(252, 88);
+            label81.TabIndex = 1;
+            label81.Text = "title";
+            // 
+            // label82
+            // 
+            label82.BackColor = Color.DimGray;
+            label82.Image = (Image)resources.GetObject("label82.Image");
+            label82.Location = new Point(3, 0);
+            label82.Name = "label82";
+            label82.Size = new Size(82, 88);
+            label82.TabIndex = 0;
             // 
             // MainForm
             // 
@@ -3028,19 +3089,9 @@ namespace WinForms
             homeFlowPanel.ResumeLayout(false);
             homeFlowPanel.PerformLayout();
             helloPanel.ResumeLayout(false);
-            helloElementTable1.ResumeLayout(false);
-            helloElement2.ResumeLayout(false);
-            helloElement2.PerformLayout();
-            helloElementTable2.ResumeLayout(false);
-            flowLayoutPanel4.ResumeLayout(false);
-            flowLayoutPanel4.PerformLayout();
-            tableLayoutPanel5.ResumeLayout(false);
-            helloElement3.ResumeLayout(false);
-            helloElement3.PerformLayout();
-            helloElementTable3.ResumeLayout(false);
-            flowLayoutPanel7.ResumeLayout(false);
-            flowLayoutPanel7.PerformLayout();
-            tableLayoutPanel8.ResumeLayout(false);
+            helloElement0.ResumeLayout(false);
+            helloElement0.PerformLayout();
+            helloElementTable0.ResumeLayout(false);
             recommentPanel.ResumeLayout(false);
             flowLayoutPanel22.ResumeLayout(false);
             flowLayoutPanel22.PerformLayout();
@@ -3169,8 +3220,17 @@ namespace WinForms
             flowLayoutPanel19.PerformLayout();
             tableLayoutPanel18.ResumeLayout(false);
             tableLayoutPanel19.ResumeLayout(false);
-            helloElement0.ResumeLayout(false);
-            helloElement0.PerformLayout();
+            gradientPanel1.ResumeLayout(false);
+            gradientPanel1.PerformLayout();
+            tableLayoutPanel2.ResumeLayout(false);
+            tableLayoutPanel5.ResumeLayout(false);
+            gradientPanel3.ResumeLayout(false);
+            gradientPanel3.PerformLayout();
+            tableLayoutPanel8.ResumeLayout(false);
+            tableLayoutPanel40.ResumeLayout(false);
+            gradientPanel5.ResumeLayout(false);
+            gradientPanel5.PerformLayout();
+            tableLayoutPanel41.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -3195,17 +3255,9 @@ namespace WinForms
         private FlowLayoutPanel homeFlowPanel;
         private FlowLayoutPanel helloPanel;
         private Label helloLabel;
-        private Label helloElementImg1;
-        private Label helloElementTitle1;
-        private TableLayoutPanel helloElementTable1;
-        private FlowLayoutPanel helloElement2;
-        private TableLayoutPanel helloElementTable2;
-        private Label helloElementTitle2;
-        private Label helloElementImg2;
-        private FlowLayoutPanel flowLayoutPanel4;
-        private TableLayoutPanel tableLayoutPanel5;
-        private Label label7;
-        private Label label8;
+        private Label helloElementImg0;
+        private Label helloElementTitle0;
+        private TableLayoutPanel helloElementTable0;
         private FlowLayoutPanel flowLayoutPanel2;
         private TableLayoutPanel tableLayoutPanel3;
         private Label label3;
@@ -3218,14 +3270,6 @@ namespace WinForms
         private TableLayoutPanel tableLayoutPanel7;
         private Label label11;
         private Label label12;
-        private FlowLayoutPanel helloElement3;
-        private TableLayoutPanel helloElementTable3;
-        private Label helloElementTitle3;
-        private Label helloElementImg3;
-        private FlowLayoutPanel flowLayoutPanel7;
-        private TableLayoutPanel tableLayoutPanel8;
-        private Label label13;
-        private Label label14;
         private FlowLayoutPanel recommentPanel;
         private Label recommentLabel;
         private FlowLayoutPanel flowLayoutPanel22;
@@ -3417,5 +3461,24 @@ namespace WinForms
         private ToolTip toolTip1;
         private GradientPanel gradientPanel1;
         private GradientPanel helloElement0;
+        private TableLayoutPanel tableLayoutPanel2;
+        private Label label1;
+        private Label label2;
+        private GradientPanel gradientPanel3;
+        private TableLayoutPanel tableLayoutPanel8;
+        private Label label13;
+        private Label label14;
+        private GradientPanel gradientPanel5;
+        private TableLayoutPanel tableLayoutPanel41;
+        private Label label81;
+        private Label label82;
+        private GradientPanel gradientPanel2;
+        private TableLayoutPanel tableLayoutPanel5;
+        private Label label7;
+        private Label label8;
+        private GradientPanel gradientPanel4;
+        private TableLayoutPanel tableLayoutPanel40;
+        private Label label79;
+        private Label label80;
     }
 }
