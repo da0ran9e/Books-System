@@ -71,11 +71,6 @@ namespace WinForms
 
         }
 
-        private void homeLabel_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void label39_Click(object sender, EventArgs e)
         {
         }
@@ -169,6 +164,29 @@ namespace WinForms
         {
             LinearGradientBrush lgb = new LinearGradientBrush(mainFlowPanel.ClientRectangle, ColorTranslator.FromHtml("#145882"), ColorTranslator.FromHtml("#262626"), 60F);
             e.Graphics.FillRectangle(lgb, mainFlowPanel.ClientRectangle);
+        }
+
+        private string state = "home";
+        private void homeLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void verticalMenuBar_Paint(object sender, PaintEventArgs e)
+        {
+            Rectangle rectangle = verticalMenuBar.ClientRectangle;
+
+            Point homePoint = homeLabel.Location;
+            Rectangle homeTop = new Rectangle(rectangle.X, rectangle.Y, rectangle.Width, homePoint.Y);
+            Rectangle homeRec = homeLabel.ClientRectangle;
+            Rectangle homeBot = new Rectangle(homePoint.X, homePoint.Y - homeRec.Height, rectangle.Width, rectangle.Height - homePoint.Y - homeRec.Height);
+            if (state == "home")
+            {
+                LinearGradientBrush lgbT = new LinearGradientBrush(homeTop, ColorTranslator.FromHtml("#145882"), ColorTranslator.FromHtml("#262626"), 60F);
+                LinearGradientBrush lgbB = new LinearGradientBrush(homeBot, ColorTranslator.FromHtml("#262626"), ColorTranslator.FromHtml("#145882"), 60F);
+                e.Graphics.FillRectangle(lgbT, homeTop);
+                //e.Graphics.FillRectangle(lgbB, homeBot);
+            }
         }
     }
 }

@@ -461,6 +461,7 @@ namespace WinForms
             verticalMenuBar.Size = new Size(94, 740);
             verticalMenuBar.TabIndex = 1;
             verticalMenuBar.WrapContents = false;
+            verticalMenuBar.Paint += verticalMenuBar_Paint;
             verticalMenuBar.MouseWheel += FlowLayoutPanel1_MouseWheel;
             // 
             // userLabel
