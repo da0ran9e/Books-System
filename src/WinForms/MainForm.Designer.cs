@@ -66,10 +66,18 @@ namespace WinForms
             searchTabeLayout = new TableLayoutPanel();
             verticalMenuBar = new FlowLayoutPanel();
             userLabel = new Label();
+            tableLayoutPanel2 = new TableLayoutPanel();
+            bottomBlank = new GradientPanel();
+            topBlank = new GradientPanel();
+            homeGradientPanel = new GradientPanel();
             homeLabel = new Label();
+            searchGradientPanel = new GradientPanel();
             searchLabel = new Label();
+            heartGradientPanel = new GradientPanel();
             heartLabel = new Label();
+            libraryGradientPanel = new GradientPanel();
             librariesLabel = new Label();
+            recentGradientPanel = new GradientPanel();
             recentLabel = new Label();
             contentPanel = new FlowLayoutPanel();
             contentContainer = new FlowLayoutPanel();
@@ -315,6 +323,12 @@ namespace WinForms
             toolStripButton3 = new ToolStripButton();
             searchTabeLayout.SuspendLayout();
             verticalMenuBar.SuspendLayout();
+            tableLayoutPanel2.SuspendLayout();
+            homeGradientPanel.SuspendLayout();
+            searchGradientPanel.SuspendLayout();
+            heartGradientPanel.SuspendLayout();
+            libraryGradientPanel.SuspendLayout();
+            recentGradientPanel.SuspendLayout();
             contentPanel.SuspendLayout();
             contentContainer.SuspendLayout();
             flowLayoutPanel21.SuspendLayout();
@@ -449,11 +463,7 @@ namespace WinForms
             // verticalMenuBar
             // 
             verticalMenuBar.Controls.Add(userLabel);
-            verticalMenuBar.Controls.Add(homeLabel);
-            verticalMenuBar.Controls.Add(searchLabel);
-            verticalMenuBar.Controls.Add(heartLabel);
-            verticalMenuBar.Controls.Add(librariesLabel);
-            verticalMenuBar.Controls.Add(recentLabel);
+            verticalMenuBar.Controls.Add(tableLayoutPanel2);
             verticalMenuBar.Dock = DockStyle.Fill;
             verticalMenuBar.FlowDirection = FlowDirection.TopDown;
             verticalMenuBar.Location = new Point(1183, 3);
@@ -469,7 +479,7 @@ namespace WinForms
             userLabel.BackColor = Color.DimGray;
             userLabel.Image = (Image)resources.GetObject("userLabel.Image");
             userLabel.Location = new Point(0, 30);
-            userLabel.Margin = new Padding(0, 30, 0, 50);
+            userLabel.Margin = new Padding(0, 30, 0, 0);
             userLabel.Name = "userLabel";
             userLabel.Size = new Size(90, 90);
             userLabel.TabIndex = 0;
@@ -478,54 +488,176 @@ namespace WinForms
             userLabel.Paint += userLabel_Paint;
             userLabel.MouseHover += userLabel_MouseHover;
             // 
+            // tableLayoutPanel2
+            // 
+            tableLayoutPanel2.ColumnCount = 1;
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel2.Controls.Add(bottomBlank, 0, 6);
+            tableLayoutPanel2.Controls.Add(topBlank, 0, 0);
+            tableLayoutPanel2.Controls.Add(homeGradientPanel, 0, 1);
+            tableLayoutPanel2.Controls.Add(searchGradientPanel, 0, 2);
+            tableLayoutPanel2.Controls.Add(heartGradientPanel, 0, 3);
+            tableLayoutPanel2.Controls.Add(libraryGradientPanel, 0, 4);
+            tableLayoutPanel2.Controls.Add(recentGradientPanel, 0, 5);
+            tableLayoutPanel2.Dock = DockStyle.Bottom;
+            tableLayoutPanel2.Location = new Point(0, 120);
+            tableLayoutPanel2.Margin = new Padding(0);
+            tableLayoutPanel2.Name = "tableLayoutPanel2";
+            tableLayoutPanel2.RowCount = 7;
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 71F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 71F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 71F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 71F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 71F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 200F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutPanel2.Size = new Size(90, 635);
+            tableLayoutPanel2.TabIndex = 1;
+            // 
+            // bottomBlank
+            // 
+            bottomBlank.Dock = DockStyle.Fill;
+            bottomBlank.GradientAngle = 90F;
+            bottomBlank.GradientPrimaryColor = Color.White;
+            bottomBlank.GradientSecondaryColor = Color.Black;
+            bottomBlank.Location = new Point(0, 405);
+            bottomBlank.Margin = new Padding(0);
+            bottomBlank.Name = "bottomBlank";
+            bottomBlank.Size = new Size(90, 230);
+            bottomBlank.TabIndex = 6;
+            // 
+            // topBlank
+            // 
+            topBlank.Dock = DockStyle.Fill;
+            topBlank.GradientAngle = 90F;
+            topBlank.GradientPrimaryColor = Color.Black;
+            topBlank.GradientSecondaryColor = Color.AliceBlue;
+            topBlank.Location = new Point(0, 0);
+            topBlank.Margin = new Padding(0);
+            topBlank.Name = "topBlank";
+            topBlank.Size = new Size(90, 50);
+            topBlank.TabIndex = 7;
+            // 
+            // homeGradientPanel
+            // 
+            homeGradientPanel.Controls.Add(homeLabel);
+            homeGradientPanel.Dock = DockStyle.Fill;
+            homeGradientPanel.GradientAngle = 90F;
+            homeGradientPanel.GradientPrimaryColor = Color.White;
+            homeGradientPanel.GradientSecondaryColor = Color.Empty;
+            homeGradientPanel.Location = new Point(0, 50);
+            homeGradientPanel.Margin = new Padding(0);
+            homeGradientPanel.Name = "homeGradientPanel";
+            homeGradientPanel.Size = new Size(90, 71);
+            homeGradientPanel.TabIndex = 8;
+            // 
             // homeLabel
             // 
+            homeLabel.Dock = DockStyle.Fill;
             homeLabel.Image = (Image)resources.GetObject("homeLabel.Image");
-            homeLabel.Location = new Point(13, 180);
-            homeLabel.Margin = new Padding(13, 10, 0, 0);
+            homeLabel.Location = new Point(0, 0);
+            homeLabel.Margin = new Padding(0);
             homeLabel.Name = "homeLabel";
-            homeLabel.Size = new Size(71, 71);
+            homeLabel.Size = new Size(90, 71);
             homeLabel.TabIndex = 3;
             toolTip1.SetToolTip(homeLabel, "Home");
             homeLabel.Click += homeLabel_Click;
             // 
+            // searchGradientPanel
+            // 
+            searchGradientPanel.Controls.Add(searchLabel);
+            searchGradientPanel.Dock = DockStyle.Fill;
+            searchGradientPanel.GradientAngle = 90F;
+            searchGradientPanel.GradientPrimaryColor = Color.White;
+            searchGradientPanel.GradientSecondaryColor = Color.Empty;
+            searchGradientPanel.Location = new Point(0, 121);
+            searchGradientPanel.Margin = new Padding(0);
+            searchGradientPanel.Name = "searchGradientPanel";
+            searchGradientPanel.Size = new Size(90, 71);
+            searchGradientPanel.TabIndex = 9;
+            // 
             // searchLabel
             // 
+            searchLabel.Dock = DockStyle.Fill;
             searchLabel.Image = (Image)resources.GetObject("searchLabel.Image");
-            searchLabel.Location = new Point(13, 270);
-            searchLabel.Margin = new Padding(13, 19, 0, 0);
+            searchLabel.Location = new Point(0, 0);
+            searchLabel.Margin = new Padding(0);
             searchLabel.Name = "searchLabel";
-            searchLabel.Size = new Size(71, 71);
+            searchLabel.Size = new Size(90, 71);
             searchLabel.TabIndex = 1;
+            searchLabel.Click += searchLabel_Click;
+            // 
+            // heartGradientPanel
+            // 
+            heartGradientPanel.Controls.Add(heartLabel);
+            heartGradientPanel.Dock = DockStyle.Fill;
+            heartGradientPanel.GradientAngle = 90F;
+            heartGradientPanel.GradientPrimaryColor = Color.White;
+            heartGradientPanel.GradientSecondaryColor = Color.Empty;
+            heartGradientPanel.Location = new Point(0, 192);
+            heartGradientPanel.Margin = new Padding(0);
+            heartGradientPanel.Name = "heartGradientPanel";
+            heartGradientPanel.Size = new Size(90, 71);
+            heartGradientPanel.TabIndex = 10;
             // 
             // heartLabel
             // 
             heartLabel.BackColor = Color.Transparent;
+            heartLabel.Dock = DockStyle.Fill;
             heartLabel.Image = (Image)resources.GetObject("heartLabel.Image");
-            heartLabel.Location = new Point(13, 341);
-            heartLabel.Margin = new Padding(13, 0, 0, 0);
+            heartLabel.Location = new Point(0, 0);
+            heartLabel.Margin = new Padding(0);
             heartLabel.Name = "heartLabel";
-            heartLabel.Size = new Size(71, 71);
+            heartLabel.Size = new Size(90, 71);
             heartLabel.TabIndex = 2;
+            // 
+            // libraryGradientPanel
+            // 
+            libraryGradientPanel.Controls.Add(librariesLabel);
+            libraryGradientPanel.Dock = DockStyle.Fill;
+            libraryGradientPanel.GradientAngle = 90F;
+            libraryGradientPanel.GradientPrimaryColor = Color.White;
+            libraryGradientPanel.GradientSecondaryColor = Color.Empty;
+            libraryGradientPanel.Location = new Point(0, 263);
+            libraryGradientPanel.Margin = new Padding(0);
+            libraryGradientPanel.Name = "libraryGradientPanel";
+            libraryGradientPanel.Size = new Size(90, 71);
+            libraryGradientPanel.TabIndex = 11;
             // 
             // librariesLabel
             // 
             librariesLabel.BackColor = Color.Transparent;
+            librariesLabel.Dock = DockStyle.Fill;
             librariesLabel.Image = (Image)resources.GetObject("librariesLabel.Image");
-            librariesLabel.Location = new Point(13, 412);
-            librariesLabel.Margin = new Padding(13, 0, 0, 0);
+            librariesLabel.Location = new Point(0, 0);
+            librariesLabel.Margin = new Padding(0);
             librariesLabel.Name = "librariesLabel";
-            librariesLabel.Size = new Size(71, 71);
+            librariesLabel.Size = new Size(90, 71);
             librariesLabel.TabIndex = 4;
+            // 
+            // recentGradientPanel
+            // 
+            recentGradientPanel.Controls.Add(recentLabel);
+            recentGradientPanel.Dock = DockStyle.Fill;
+            recentGradientPanel.GradientAngle = 90F;
+            recentGradientPanel.GradientPrimaryColor = Color.White;
+            recentGradientPanel.GradientSecondaryColor = Color.Empty;
+            recentGradientPanel.Location = new Point(0, 334);
+            recentGradientPanel.Margin = new Padding(0);
+            recentGradientPanel.Name = "recentGradientPanel";
+            recentGradientPanel.Size = new Size(90, 71);
+            recentGradientPanel.TabIndex = 12;
             // 
             // recentLabel
             // 
             recentLabel.BackColor = Color.Transparent;
+            recentLabel.Dock = DockStyle.Fill;
             recentLabel.Image = (Image)resources.GetObject("recentLabel.Image");
-            recentLabel.Location = new Point(13, 483);
-            recentLabel.Margin = new Padding(13, 0, 0, 0);
+            recentLabel.Location = new Point(0, 0);
+            recentLabel.Margin = new Padding(0);
             recentLabel.Name = "recentLabel";
-            recentLabel.Size = new Size(71, 71);
+            recentLabel.Size = new Size(90, 71);
             recentLabel.TabIndex = 5;
             // 
             // contentPanel
@@ -3191,6 +3323,12 @@ namespace WinForms
             MouseWheel += MainForm_MouseWheel;
             searchTabeLayout.ResumeLayout(false);
             verticalMenuBar.ResumeLayout(false);
+            tableLayoutPanel2.ResumeLayout(false);
+            homeGradientPanel.ResumeLayout(false);
+            searchGradientPanel.ResumeLayout(false);
+            heartGradientPanel.ResumeLayout(false);
+            libraryGradientPanel.ResumeLayout(false);
+            recentGradientPanel.ResumeLayout(false);
             contentPanel.ResumeLayout(false);
             contentContainer.ResumeLayout(false);
             contentContainer.PerformLayout();
@@ -3611,5 +3749,13 @@ namespace WinForms
         private ToolStripButton toolStripButton1;
         private ToolStripButton toolStripButton2;
         private ToolStripButton toolStripButton3;
+        private TableLayoutPanel tableLayoutPanel2;
+        private GradientPanel bottomBlank;
+        private GradientPanel topBlank;
+        private GradientPanel homeGradientPanel;
+        private GradientPanel searchGradientPanel;
+        private GradientPanel heartGradientPanel;
+        private GradientPanel libraryGradientPanel;
+        private GradientPanel recentGradientPanel;
     }
 }

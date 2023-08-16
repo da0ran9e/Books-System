@@ -167,26 +167,59 @@ namespace WinForms
         }
 
         private string state = "home";
-        private void homeLabel_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void verticalMenuBar_Paint(object sender, PaintEventArgs e)
         {
+            Graphics g = e.Graphics;
+            Rectangle r = e.ClipRectangle;
             Rectangle rectangle = verticalMenuBar.ClientRectangle;
 
             Point homePoint = homeLabel.Location;
             Rectangle homeTop = new Rectangle(rectangle.X, rectangle.Y, rectangle.Width, homePoint.Y);
-            Rectangle homeRec = homeLabel.ClientRectangle;
-            Rectangle homeBot = new Rectangle(homePoint.X, homePoint.Y - homeRec.Height, rectangle.Width, rectangle.Height - homePoint.Y - homeRec.Height);
+            //Rectangle homeRec = homeLabel.ClientRectangle;
+            //Rectangle homeBot = new Rectangle(homePoint.X, homePoint.Y - homeRec.Height, rectangle.Width, rectangle.Height - homePoint.Y - homeRec.Height);
             if (state == "home")
             {
-                LinearGradientBrush lgbT = new LinearGradientBrush(homeTop, ColorTranslator.FromHtml("#145882"), ColorTranslator.FromHtml("#262626"), 60F);
-                LinearGradientBrush lgbB = new LinearGradientBrush(homeBot, ColorTranslator.FromHtml("#262626"), ColorTranslator.FromHtml("#145882"), 60F);
-                e.Graphics.FillRectangle(lgbT, homeTop);
-                //e.Graphics.FillRectangle(lgbB, homeBot);
+                topBlank.GradientSecondaryColor = ColorTranslator.FromHtml("#02c2cc");
+                homeGradientPanel.GradientPrimaryColor = ColorTranslator.FromHtml("#07e0eb");
+                homeGradientPanel.GradientSecondaryColor = ColorTranslator.FromHtml("#07e0eb");
+                searchGradientPanel.GradientPrimaryColor = ColorTranslator.FromHtml("#02a5ad");
+                searchGradientPanel.GradientSecondaryColor = ColorTranslator.FromHtml("#017c82");
+                heartGradientPanel.GradientPrimaryColor = ColorTranslator.FromHtml("#017c82");
+                heartGradientPanel.GradientSecondaryColor = ColorTranslator.FromHtml("#015357");
+                libraryGradientPanel.GradientPrimaryColor = ColorTranslator.FromHtml("#015357");
+                libraryGradientPanel.GradientSecondaryColor = ColorTranslator.FromHtml("#013f42");
+                recentGradientPanel.GradientPrimaryColor = ColorTranslator.FromHtml("#013f42");
+                recentGradientPanel.GradientSecondaryColor = ColorTranslator.FromHtml("#002729");
+                bottomBlank.GradientPrimaryColor = ColorTranslator.FromHtml("#002729");
             }
+            else if (state == "search")
+            {
+                topBlank.GradientSecondaryColor = ColorTranslator.FromHtml("#3e0180");
+                homeGradientPanel.GradientPrimaryColor = ColorTranslator.FromHtml("#3e0180");
+                homeGradientPanel.GradientSecondaryColor = ColorTranslator.FromHtml("#5905b3");
+                searchGradientPanel.GradientPrimaryColor = ColorTranslator.FromHtml("#6f00e6");
+                searchGradientPanel.GradientSecondaryColor = ColorTranslator.FromHtml("#6f00e6");
+                heartGradientPanel.GradientPrimaryColor = ColorTranslator.FromHtml("#5905b3");
+                heartGradientPanel.GradientSecondaryColor = ColorTranslator.FromHtml("#3e0180");
+                libraryGradientPanel.GradientPrimaryColor = ColorTranslator.FromHtml("#3e0180");
+                libraryGradientPanel.GradientSecondaryColor = ColorTranslator.FromHtml("#310263");
+                recentGradientPanel.GradientPrimaryColor = ColorTranslator.FromHtml("#310263");
+                recentGradientPanel.GradientSecondaryColor = ColorTranslator.FromHtml("#1d013b");
+                bottomBlank.GradientPrimaryColor = ColorTranslator.FromHtml("#1d013b");
+            }
+        }
+        private void homeLabel_Click(object sender, EventArgs e)
+        {
+
+            state = "home";
+            verticalMenuBar.Paint += verticalMenuBar_Paint;
+        }
+
+        private void searchLabel_Click(object sender, EventArgs e)
+        {
+            state = "search";
+            verticalMenuBar.Paint += verticalMenuBar_Paint;
         }
     }
 }
