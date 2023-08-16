@@ -166,19 +166,11 @@ namespace WinForms
             e.Graphics.FillRectangle(lgb, mainFlowPanel.ClientRectangle);
         }
 
-        private string state = "home";
+        private int state = 0;
 
         private void verticalMenuBar_Paint(object sender, PaintEventArgs e)
         {
-            Graphics g = e.Graphics;
-            Rectangle r = e.ClipRectangle;
-            Rectangle rectangle = verticalMenuBar.ClientRectangle;
-
-            Point homePoint = homeLabel.Location;
-            Rectangle homeTop = new Rectangle(rectangle.X, rectangle.Y, rectangle.Width, homePoint.Y);
-            //Rectangle homeRec = homeLabel.ClientRectangle;
-            //Rectangle homeBot = new Rectangle(homePoint.X, homePoint.Y - homeRec.Height, rectangle.Width, rectangle.Height - homePoint.Y - homeRec.Height);
-            if (state == "home")
+            if (state == 0)
             {
                 topBlank.GradientSecondaryColor = ColorTranslator.FromHtml("#02c2cc");
                 homeGradientPanel.GradientPrimaryColor = ColorTranslator.FromHtml("#07e0eb");
@@ -193,7 +185,7 @@ namespace WinForms
                 recentGradientPanel.GradientSecondaryColor = ColorTranslator.FromHtml("#002729");
                 bottomBlank.GradientPrimaryColor = ColorTranslator.FromHtml("#002729");
             }
-            else if (state == "search")
+            else if (state == 1)
             {
                 topBlank.GradientSecondaryColor = ColorTranslator.FromHtml("#3e0180");
                 homeGradientPanel.GradientPrimaryColor = ColorTranslator.FromHtml("#3e0180");
@@ -212,14 +204,21 @@ namespace WinForms
         private void homeLabel_Click(object sender, EventArgs e)
         {
 
-            state = "home";
+            state = 0;
             verticalMenuBar.Paint += verticalMenuBar_Paint;
+            verticalMenuBar.Invalidate();
         }
 
         private void searchLabel_Click(object sender, EventArgs e)
         {
-            state = "search";
+            state = 1;
             verticalMenuBar.Paint += verticalMenuBar_Paint;
+            verticalMenuBar.Invalidate();
+        }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

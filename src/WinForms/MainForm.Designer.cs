@@ -66,7 +66,7 @@ namespace WinForms
             searchTabeLayout = new TableLayoutPanel();
             verticalMenuBar = new FlowLayoutPanel();
             userLabel = new Label();
-            tableLayoutPanel2 = new TableLayoutPanel();
+            verticalTableMenu = new TableLayoutPanel();
             bottomBlank = new GradientPanel();
             topBlank = new GradientPanel();
             homeGradientPanel = new GradientPanel();
@@ -323,7 +323,7 @@ namespace WinForms
             toolStripButton3 = new ToolStripButton();
             searchTabeLayout.SuspendLayout();
             verticalMenuBar.SuspendLayout();
-            tableLayoutPanel2.SuspendLayout();
+            verticalTableMenu.SuspendLayout();
             homeGradientPanel.SuspendLayout();
             searchGradientPanel.SuspendLayout();
             heartGradientPanel.SuspendLayout();
@@ -463,7 +463,7 @@ namespace WinForms
             // verticalMenuBar
             // 
             verticalMenuBar.Controls.Add(userLabel);
-            verticalMenuBar.Controls.Add(tableLayoutPanel2);
+            verticalMenuBar.Controls.Add(verticalTableMenu);
             verticalMenuBar.Dock = DockStyle.Fill;
             verticalMenuBar.FlowDirection = FlowDirection.TopDown;
             verticalMenuBar.Location = new Point(1183, 3);
@@ -488,32 +488,32 @@ namespace WinForms
             userLabel.Paint += userLabel_Paint;
             userLabel.MouseHover += userLabel_MouseHover;
             // 
-            // tableLayoutPanel2
+            // verticalTableMenu
             // 
-            tableLayoutPanel2.ColumnCount = 1;
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel2.Controls.Add(bottomBlank, 0, 6);
-            tableLayoutPanel2.Controls.Add(topBlank, 0, 0);
-            tableLayoutPanel2.Controls.Add(homeGradientPanel, 0, 1);
-            tableLayoutPanel2.Controls.Add(searchGradientPanel, 0, 2);
-            tableLayoutPanel2.Controls.Add(heartGradientPanel, 0, 3);
-            tableLayoutPanel2.Controls.Add(libraryGradientPanel, 0, 4);
-            tableLayoutPanel2.Controls.Add(recentGradientPanel, 0, 5);
-            tableLayoutPanel2.Dock = DockStyle.Bottom;
-            tableLayoutPanel2.Location = new Point(0, 120);
-            tableLayoutPanel2.Margin = new Padding(0);
-            tableLayoutPanel2.Name = "tableLayoutPanel2";
-            tableLayoutPanel2.RowCount = 7;
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 71F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 71F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 71F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 71F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 71F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 200F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel2.Size = new Size(90, 635);
-            tableLayoutPanel2.TabIndex = 1;
+            verticalTableMenu.ColumnCount = 1;
+            verticalTableMenu.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            verticalTableMenu.Controls.Add(bottomBlank, 0, 6);
+            verticalTableMenu.Controls.Add(topBlank, 0, 0);
+            verticalTableMenu.Controls.Add(homeGradientPanel, 0, 1);
+            verticalTableMenu.Controls.Add(searchGradientPanel, 0, 2);
+            verticalTableMenu.Controls.Add(heartGradientPanel, 0, 3);
+            verticalTableMenu.Controls.Add(libraryGradientPanel, 0, 4);
+            verticalTableMenu.Controls.Add(recentGradientPanel, 0, 5);
+            verticalTableMenu.Dock = DockStyle.Bottom;
+            verticalTableMenu.Location = new Point(0, 120);
+            verticalTableMenu.Margin = new Padding(0);
+            verticalTableMenu.Name = "verticalTableMenu";
+            verticalTableMenu.RowCount = 7;
+            verticalTableMenu.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
+            verticalTableMenu.RowStyles.Add(new RowStyle(SizeType.Absolute, 71F));
+            verticalTableMenu.RowStyles.Add(new RowStyle(SizeType.Absolute, 71F));
+            verticalTableMenu.RowStyles.Add(new RowStyle(SizeType.Absolute, 71F));
+            verticalTableMenu.RowStyles.Add(new RowStyle(SizeType.Absolute, 71F));
+            verticalTableMenu.RowStyles.Add(new RowStyle(SizeType.Absolute, 71F));
+            verticalTableMenu.RowStyles.Add(new RowStyle(SizeType.Absolute, 200F));
+            verticalTableMenu.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            verticalTableMenu.Size = new Size(90, 635);
+            verticalTableMenu.TabIndex = 1;
             // 
             // bottomBlank
             // 
@@ -3292,6 +3292,7 @@ namespace WinForms
             toolStripButton2.Name = "toolStripButton2";
             toolStripButton2.Size = new Size(29, 24);
             toolStripButton2.Text = "toolStripButton2";
+            toolStripButton2.Click += toolStripButton2_Click;
             // 
             // toolStripButton3
             // 
@@ -3323,7 +3324,7 @@ namespace WinForms
             MouseWheel += MainForm_MouseWheel;
             searchTabeLayout.ResumeLayout(false);
             verticalMenuBar.ResumeLayout(false);
-            tableLayoutPanel2.ResumeLayout(false);
+            verticalTableMenu.ResumeLayout(false);
             homeGradientPanel.ResumeLayout(false);
             searchGradientPanel.ResumeLayout(false);
             heartGradientPanel.ResumeLayout(false);
@@ -3749,7 +3750,7 @@ namespace WinForms
         private ToolStripButton toolStripButton1;
         private ToolStripButton toolStripButton2;
         private ToolStripButton toolStripButton3;
-        private TableLayoutPanel tableLayoutPanel2;
+        private TableLayoutPanel verticalTableMenu;
         private GradientPanel bottomBlank;
         private GradientPanel topBlank;
         private GradientPanel homeGradientPanel;
