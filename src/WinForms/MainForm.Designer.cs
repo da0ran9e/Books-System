@@ -611,6 +611,7 @@ namespace WinForms
             heartLabel.Name = "heartLabel";
             heartLabel.Size = new Size(90, 71);
             heartLabel.TabIndex = 2;
+            heartLabel.Click += heartLabel_Click;
             // 
             // libraryGradientPanel
             // 
@@ -635,6 +636,7 @@ namespace WinForms
             librariesLabel.Name = "librariesLabel";
             librariesLabel.Size = new Size(90, 71);
             librariesLabel.TabIndex = 4;
+            librariesLabel.Click += librariesLabel_Click;
             // 
             // recentGradientPanel
             // 
@@ -659,6 +661,7 @@ namespace WinForms
             recentLabel.Name = "recentLabel";
             recentLabel.Size = new Size(90, 71);
             recentLabel.TabIndex = 5;
+            recentLabel.Click += recentLabel_Click;
             // 
             // contentPanel
             // 

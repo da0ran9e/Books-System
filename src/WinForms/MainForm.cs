@@ -160,13 +160,34 @@ namespace WinForms
 
         }
 
+        private int state = 0;
+
         private void mainFlowPanel_Paint(object sender, PaintEventArgs e)
         {
-            LinearGradientBrush lgb = new LinearGradientBrush(mainFlowPanel.ClientRectangle, ColorTranslator.FromHtml("#145882"), ColorTranslator.FromHtml("#262626"), 60F);
+            LinearGradientBrush lgb = new LinearGradientBrush(mainFlowPanel.ClientRectangle, ColorTranslator.FromHtml("#ffffff"), ColorTranslator.FromHtml("#000000"), 60F);
+            if (state == 0)
+            {
+                lgb = new LinearGradientBrush(mainFlowPanel.ClientRectangle, ColorTranslator.FromHtml("#07e0eb"), ColorTranslator.FromHtml("#262626"), 60F);
+            }
+            if (state == 1)
+            {
+                lgb = new LinearGradientBrush(mainFlowPanel.ClientRectangle, ColorTranslator.FromHtml("#6f00e6"), ColorTranslator.FromHtml("#262626"), 60F);
+            }
+            if (state == 2)
+            {
+                lgb = new LinearGradientBrush(mainFlowPanel.ClientRectangle, ColorTranslator.FromHtml("#c4293b"), ColorTranslator.FromHtml("#262626"), 60F);
+            }
+            if (state == 3)
+            {
+                lgb = new LinearGradientBrush(mainFlowPanel.ClientRectangle, ColorTranslator.FromHtml("#02c92d"), ColorTranslator.FromHtml("#262626"), 60F);
+            }
+            if (state == 4)
+            {
+                lgb = new LinearGradientBrush(mainFlowPanel.ClientRectangle, ColorTranslator.FromHtml("#c7c704"), ColorTranslator.FromHtml("#262626"), 60F);
+            }
+
             e.Graphics.FillRectangle(lgb, mainFlowPanel.ClientRectangle);
         }
-
-        private int state = 0;
 
         private void verticalMenuBar_Paint(object sender, PaintEventArgs e)
         {
@@ -200,12 +221,59 @@ namespace WinForms
                 recentGradientPanel.GradientSecondaryColor = ColorTranslator.FromHtml("#1d013b");
                 bottomBlank.GradientPrimaryColor = ColorTranslator.FromHtml("#1d013b");
             }
+            else if (state == 2)
+            {
+                topBlank.GradientSecondaryColor = ColorTranslator.FromHtml("#3b0a10");//#3b0a10
+                homeGradientPanel.GradientPrimaryColor = ColorTranslator.FromHtml("#3b0a10");//#3b0a10
+                homeGradientPanel.GradientSecondaryColor = ColorTranslator.FromHtml("#6b1620");//#6b1620
+                searchGradientPanel.GradientPrimaryColor = ColorTranslator.FromHtml("#6b1620");//#6b1620
+                searchGradientPanel.GradientSecondaryColor = ColorTranslator.FromHtml("#8c1d2a");//#8c1d2a
+                heartGradientPanel.GradientPrimaryColor = ColorTranslator.FromHtml("#c4293b");//#c4293b
+                heartGradientPanel.GradientSecondaryColor = ColorTranslator.FromHtml("#c4293b");//#c4293b
+                libraryGradientPanel.GradientPrimaryColor = ColorTranslator.FromHtml("#8c1d2a");//#8c1d2a
+                libraryGradientPanel.GradientSecondaryColor = ColorTranslator.FromHtml("#6b1620");//#6b1620
+                recentGradientPanel.GradientPrimaryColor = ColorTranslator.FromHtml("#6b1620");//#6b1620
+                recentGradientPanel.GradientSecondaryColor = ColorTranslator.FromHtml("#3b0a10");//#3b0a10
+                bottomBlank.GradientPrimaryColor = ColorTranslator.FromHtml("#3b0a10");//#3b0a10
+            }
+            else if (state == 3)
+            {
+                topBlank.GradientSecondaryColor = ColorTranslator.FromHtml("#02360c");//#02360c
+                homeGradientPanel.GradientPrimaryColor = ColorTranslator.FromHtml("#02360c");//#02360c
+                homeGradientPanel.GradientSecondaryColor = ColorTranslator.FromHtml("#025413");//#025413
+                searchGradientPanel.GradientPrimaryColor = ColorTranslator.FromHtml("#025413");//#025413
+                searchGradientPanel.GradientSecondaryColor = ColorTranslator.FromHtml("#047a1d");//#047a1d
+                heartGradientPanel.GradientPrimaryColor = ColorTranslator.FromHtml("#047a1d");//#047a1d
+                heartGradientPanel.GradientSecondaryColor = ColorTranslator.FromHtml("#05a327");//#05a327
+                libraryGradientPanel.GradientPrimaryColor = ColorTranslator.FromHtml("#02c92d");//#02c92d
+                libraryGradientPanel.GradientSecondaryColor = ColorTranslator.FromHtml("#02c92d");//#02c92d
+                recentGradientPanel.GradientPrimaryColor = ColorTranslator.FromHtml("#05a327");//#05a327
+                recentGradientPanel.GradientSecondaryColor = ColorTranslator.FromHtml("#025413");//#025413
+                bottomBlank.GradientPrimaryColor = ColorTranslator.FromHtml("#025413");//#025413
+            }
+            else if (state == 4)
+            {
+                topBlank.GradientSecondaryColor = ColorTranslator.FromHtml("#363601");//#363601
+                homeGradientPanel.GradientPrimaryColor = ColorTranslator.FromHtml("#363601");//#363601
+                homeGradientPanel.GradientSecondaryColor = ColorTranslator.FromHtml("#4a4a02");//#4a4a02
+                searchGradientPanel.GradientPrimaryColor = ColorTranslator.FromHtml("#4a4a02");//#4a4a02
+                searchGradientPanel.GradientSecondaryColor = ColorTranslator.FromHtml("#5e5e02");//#5e5e02
+                heartGradientPanel.GradientPrimaryColor = ColorTranslator.FromHtml("#5e5e02");//#5e5e02
+                heartGradientPanel.GradientSecondaryColor = ColorTranslator.FromHtml("#7d7d02");//#7d7d02
+                libraryGradientPanel.GradientPrimaryColor = ColorTranslator.FromHtml("#7d7d02");//#7d7d02
+                libraryGradientPanel.GradientSecondaryColor = ColorTranslator.FromHtml("#a1a105");//#a1a105
+                recentGradientPanel.GradientPrimaryColor = ColorTranslator.FromHtml("#c7c704");//#c7c704
+                recentGradientPanel.GradientSecondaryColor = ColorTranslator.FromHtml("#c7c704");//#c7c704
+                bottomBlank.GradientPrimaryColor = ColorTranslator.FromHtml("#5e5e02");//#5e5e02
+            }
         }
         private void homeLabel_Click(object sender, EventArgs e)
         {
 
             state = 0;
             verticalMenuBar.Paint += verticalMenuBar_Paint;
+            mainFlowPanel.Paint += mainFlowPanel_Paint;
+            mainFlowPanel.Invalidate();
             verticalMenuBar.Invalidate();
         }
 
@@ -213,6 +281,36 @@ namespace WinForms
         {
             state = 1;
             verticalMenuBar.Paint += verticalMenuBar_Paint;
+            mainFlowPanel.Paint += mainFlowPanel_Paint;
+            mainFlowPanel.Invalidate();
+            verticalMenuBar.Invalidate();
+
+        }
+
+        private void heartLabel_Click(object sender, EventArgs e)
+        {
+            state = 2;
+            verticalMenuBar.Paint += verticalMenuBar_Paint;
+            mainFlowPanel.Paint += mainFlowPanel_Paint;
+            mainFlowPanel.Invalidate();
+            verticalMenuBar.Invalidate();
+        }
+
+        private void librariesLabel_Click(object sender, EventArgs e)
+        {
+            state = 3;
+            verticalMenuBar.Paint += verticalMenuBar_Paint;
+            mainFlowPanel.Paint += mainFlowPanel_Paint;
+            mainFlowPanel.Invalidate();
+            verticalMenuBar.Invalidate();
+        }
+
+        private void recentLabel_Click(object sender, EventArgs e)
+        {
+            state = 4;
+            verticalMenuBar.Paint += verticalMenuBar_Paint;
+            mainFlowPanel.Paint += mainFlowPanel_Paint;
+            mainFlowPanel.Invalidate();
             verticalMenuBar.Invalidate();
         }
 
