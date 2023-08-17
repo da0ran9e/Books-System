@@ -3685,6 +3685,7 @@ namespace WinForms
             toolStripButton1.Size = new Size(29, 24);
             toolStripButton1.Text = "toolStripButton1";
             toolStripButton1.TextAlign = ContentAlignment.MiddleRight;
+            toolStripButton1.Click += toolStripButton1_Click;
             // 
             // toolStripButton2
             // 
