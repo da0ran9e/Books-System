@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Reflection;
+using System.Reflection.Emit;
 
 namespace WinForms
 {
@@ -18,6 +19,203 @@ namespace WinForms
         SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\vuduc\OneDrive\Documents\BX.mdf;Integrated Security=True;Connect Timeout=30");
         SqlCommand cmd = new SqlCommand();
         SqlDataReader dr;
+
+        public static Image resizeImage(Image imgToResize, Size size)
+        {
+            return (Image)(new Bitmap(imgToResize, size));
+        }
+        public static Image SetHeight(Image imgToResize, int height)
+        {
+            int w = imgToResize.Width;
+            int h = imgToResize.Height;
+            int width = (height * w / h);
+            Size size = new Size(width, height);
+            return (Image)(new Bitmap(imgToResize, size));
+        }
+
+        private Image GetBookImage(int index)
+        {
+            Image img = Image.FromFile("../../../../../assets/icons/image_L.png");
+            try
+            {
+                cmd = new SqlCommand("select [imageURLL] from books where [index] = " + index, con);
+                con.Open();
+                dr = cmd.ExecuteReader();
+                dr.Read();
+
+                if (dr.HasRows)
+                {
+                    string url = dr.GetFieldValue<string>(0);
+                    string imgPath = "../../../../../assets/LImgs/temp" + index + ".jpg";
+                    try
+                    {
+                        // if the image does not exist, then get it
+                        if (!File.Exists(imgPath))
+                        {
+                            HttpClient client = new HttpClient();
+                            client.DefaultRequestHeaders.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.63 Safari/537.36");
+                            HttpResponseMessage response = client.GetAsync(url).Result;
+                            response.EnsureSuccessStatusCode();
+                            using (Stream stream = response.Content.ReadAsStreamAsync().Result)
+                            {
+                                Image image = Image.FromStream(stream);
+
+                                image.Save(imgPath);
+                            }
+                        }
+
+                        //load image to tha label
+
+                        if (Image.FromFile(imgPath).Height >= 70)
+                            img = Image.FromFile(imgPath);
+
+                        return img;
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine($"Error: {ex.Message}");
+                    }
+                }
+                else
+                {
+                    dr.Close();
+                    con.Close();
+                    return GetBookImage(index + 1);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                // close the reader
+                if (dr != null)
+                {
+                    dr.Close();
+                }
+
+                //Close the connection
+                if (con != null)
+                {
+                    con.Close();
+                }
+            }
+            return img;
+        }
+
+        public struct Book
+        {
+            public string isbn { get; set; }
+            public string title { get; set; }
+            public string author { get; set; }
+            public string publisher { get; set; }
+            public int year { get; set; }
+
+            public Book()
+            {
+                this.isbn = null;
+                this.title = null;
+                this.author = null;
+                this.publisher = null;
+                this.year = 0;
+            }
+
+            public Book(string isbn, string title, string author, string publisher, int year)
+            {
+                this.isbn = isbn;
+                this.title = title;
+                this.author = author;
+                this.publisher = publisher;
+                this.year = year;
+            }
+        }
+        private Book GetBookInformation(int index)
+        {
+            Book book = new Book();
+
+            try
+            {
+                cmd = new SqlCommand("select * from books where [index] = " + index, con);
+                con.Open();
+                dr = cmd.ExecuteReader();
+                dr.Read();
+
+                if (dr.HasRows)
+                {
+                    book.isbn = dr.GetFieldValue<string>(1);
+                    book.title = dr.GetFieldValue<string>(2);
+                    book.author = dr.GetFieldValue<string>(3);
+                    book.year = dr.GetFieldValue<int>(4);
+                    book.publisher = dr.GetFieldValue<string>(5);
+
+                    return book;
+                }
+                else
+                {
+                    dr.Close();
+                    con.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                // close the reader
+                if (dr != null)
+                {
+                    dr.Close();
+                }
+
+                //Close the connection
+                if (con != null)
+                {
+                    con.Close();
+                }
+            }
+            return book;
+        }
+
+        private Color[] GetBorderColors(Bitmap image, Size size)
+        {
+            int width = image.Width;
+            int height = image.Height;
+
+            Color[] borderColors = new Color[(size.Width * 2) + (size.Height * 2)]; // 4 edges
+
+            for (int i = 0; i < size.Height; i++)
+            {
+                borderColors[i] = image.GetPixel(0, i); // Đỉnh trái
+                borderColors[i + size.Height] = image.GetPixel(width - 1, i); // Đỉnh phải
+            }
+            for (int i = 0; i < size.Width; i++)
+            {
+                borderColors[i + size.Height * 2] = image.GetPixel(i, 0); // Đỉnh trên
+                borderColors[i + size.Height * 2 + size.Width] = image.GetPixel(i, height - 1); // Đỉnh dưới
+            }
+
+            return borderColors;
+        }
+
+        private Color CalculateAverageColor(Color[] colors)
+        {
+            int totalR = 0, totalG = 0, totalB = 0;
+
+            foreach (Color color in colors)
+            {
+                totalR += color.R;
+                totalG += color.G;
+                totalB += color.B;
+            }
+
+            int averageR = totalR / colors.Length;
+            int averageG = totalG / colors.Length;
+            int averageB = totalB / colors.Length;
+
+            return Color.FromArgb(averageR, averageG, averageB);
+        }
 
         public MainForm(string username)
         {
@@ -29,6 +227,51 @@ namespace WinForms
         {
             //EnableBlur();
             toolTip1.SetToolTip(userLabel, username);
+
+            Random rand = new Random();
+            int randC = rand.Next(1, 1000);
+            Image currentImg = GetBookImage(randC);
+            Book book = GetBookInformation(randC);
+            Color borderColor = CalculateAverageColor(GetBorderColors(new Bitmap(currentImg), currentImg.Size));
+
+            contentImg.Image = SetHeight(currentImg, contentImg.Height);
+            currentLabel.Image = SetHeight(currentImg, currentLabel.Height);
+
+            contentTitle.Text = book.title;
+            authorLabel.Text = book.author;
+            publisherLabel.Text = book.publisher;
+
+            currentBookTitle.Text = book.title;
+            currentBookAuthor.Text = book.author;
+            currentPublisher.Text = book.publisher;
+            yearOfPublication.Text = book.year.ToString();
+
+
+            currentPanel.BackColor = borderColor;
+            currentProperties.GradientPrimaryColor = borderColor;
+            currentProperties.GradientSecondaryColor = Color.Transparent;
+            int randH0 = rand.Next(1, 1000);
+            int randH1 = rand.Next(1, 1000);
+            int randH2 = rand.Next(1, 1000);
+            int randH3 = rand.Next(1, 1000);
+            helloElementImg0.Image = SetHeight(GetBookImage(randH0), helloElementImg0.Height);
+            helloElementImg1.Image = SetHeight(GetBookImage(randH1), helloElementImg1.Height);
+            helloElementImg2.Image = SetHeight(GetBookImage(randH2), helloElementImg2.Height);
+            helloElementImg3.Image = SetHeight(GetBookImage(randH3), helloElementImg3.Height);
+
+            Book helloBook0 = GetBookInformation(randH0);
+            Book helloBook1 = GetBookInformation(randH1);
+            Book helloBook2 = GetBookInformation(randH2);
+            Book helloBook3 = GetBookInformation(randH3);
+
+            helloElementTitle0.Text = helloBook0.title;
+            helloAuthor0.Text = helloBook0.author;
+            helloElementTitle1.Text = helloBook1.title;
+            helloAuthor1.Text = helloBook1.author;
+            helloElementTitle2.Text = helloBook2.title;
+            helloAuthor2.Text = helloBook2.author;
+            helloElementTitle3.Text = helloBook3.title;
+            helloAuthor3.Text = helloBook3.author;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -88,7 +331,7 @@ namespace WinForms
 
         private void contentContainer_Paint(object sender, PaintEventArgs e)
         {
-            LinearGradientBrush lgb = new LinearGradientBrush(contentContainer.ClientRectangle, Color.Red, contentContainer.BackColor, 90F);
+            LinearGradientBrush lgb = new LinearGradientBrush(contentContainer.ClientRectangle, ColorTranslator.FromHtml("#300004"), contentContainer.BackColor, 90F);
             Graphics g = e.Graphics;
             g.FillRectangle(lgb, contentContainer.ClientRectangle);
         }
@@ -368,6 +611,16 @@ namespace WinForms
             }
             else searchBoxContainer.GradientAngle = 70;
             searchBoxContainer.Invalidate();
+        }
+
+        private void helloElementTable0_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void helloElementTitle2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

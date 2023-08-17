@@ -74,7 +74,7 @@ namespace WinForms
                 if (dr.HasRows)
                 {
                     string url = dr.GetFieldValue<string>(0);
-                    string imgPath = "../../../../../assets/temps/temp" + index + ".jpg";
+                    string imgPath = "../../../../../assets/LImgs/temp" + index + ".jpg";
                     try
                     {
                         // if the image does not exist, then get it

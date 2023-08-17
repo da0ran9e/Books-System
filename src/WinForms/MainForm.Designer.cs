@@ -62,8 +62,8 @@ namespace WinForms
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            SingleTextView singleTextView2 = new TSkin.ST.SingleTextView();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            //SingleTextView singleTextView1 = new TSkin.ST.SingleTextView();
             searchTabeLayout = new TableLayoutPanel();
             verticalMenuBar = new FlowLayoutPanel();
             userLabel = new Label();
@@ -103,20 +103,28 @@ namespace WinForms
             helloLabel = new Label();
             helloElement0 = new GradientPanel();
             helloElementTable0 = new TableLayoutPanel();
-            helloElementTitle0 = new Label();
             helloElementImg0 = new Label();
+            helloFlow0 = new FlowLayoutPanel();
+            helloElementTitle0 = new Label();
+            helloAuthor0 = new Label();
             helloElement1 = new GradientPanel();
             helloElementTable1 = new TableLayoutPanel();
-            helloElementTitle1 = new Label();
             helloElementImg1 = new Label();
+            flowLayoutPanel1 = new FlowLayoutPanel();
+            helloElementTitle1 = new Label();
+            helloAuthor1 = new Label();
             helloElement2 = new GradientPanel();
             tableLayoutPanel8 = new TableLayoutPanel();
+            helloElementImg2 = new Label();
+            helloFlow2 = new FlowLayoutPanel();
             helloElementTitle2 = new Label();
-            helloElementimg2 = new Label();
+            helloAuthor2 = new Label();
             helloElement3 = new GradientPanel();
             helloElementTable3 = new TableLayoutPanel();
-            helloElementTitle3 = new Label();
             helloElementImg3 = new Label();
+            helloFlow3 = new FlowLayoutPanel();
+            helloElementTitle3 = new Label();
+            helloAuthor3 = new Label();
             recommentPanel = new FlowLayoutPanel();
             recommentLabel = new Label();
             flowLayoutPanel22 = new FlowLayoutPanel();
@@ -237,6 +245,25 @@ namespace WinForms
             tableLayoutPanel61 = new TableLayoutPanel();
             label125 = new Label();
             label126 = new Label();
+            currentPanel = new Panel();
+            currentLabel = new Label();
+            currentProperties = new GradientPanel();
+            currentPropertiesTable = new TableLayoutPanel();
+            currentBookPanel = new FlowLayoutPanel();
+            currentBookTitle = new Label();
+            currentBookAuthor = new Label();
+            currentBookRate = new Label();
+            currentPagePanel = new Panel();
+            totalPage = new Label();
+            currentPage = new Label();
+            currentPublisherPanel = new FlowLayoutPanel();
+            currentPublisher = new Label();
+            yearOfPublication = new Label();
+            optionPanel = new GradientPanel();
+            optionsFlowPanel = new FlowLayoutPanel();
+            heartOption = new Label();
+            textToSpeech = new Label();
+            brightness = new Label();
             flowLayoutPanel2 = new FlowLayoutPanel();
             tableLayoutPanel3 = new TableLayoutPanel();
             label3 = new Label();
@@ -323,14 +350,6 @@ namespace WinForms
             toolStripButton1 = new ToolStripButton();
             toolStripButton2 = new ToolStripButton();
             toolStripButton3 = new ToolStripButton();
-            currentPanel = new Panel();
-            currentLabel = new Label();
-            currentProperties = new GradientPanel();
-            tableLayoutPanel2 = new TableLayoutPanel();
-            currentBookPanel = new FlowLayoutPanel();
-            currentBookTitle = new Label();
-            currentBookAuthor = new Label();
-            currentBookRate = new Label();
             searchTabeLayout.SuspendLayout();
             verticalMenuBar.SuspendLayout();
             verticalTableMenu.SuspendLayout();
@@ -350,12 +369,16 @@ namespace WinForms
             helloPanel.SuspendLayout();
             helloElement0.SuspendLayout();
             helloElementTable0.SuspendLayout();
+            helloFlow0.SuspendLayout();
             helloElement1.SuspendLayout();
             helloElementTable1.SuspendLayout();
+            flowLayoutPanel1.SuspendLayout();
             helloElement2.SuspendLayout();
             tableLayoutPanel8.SuspendLayout();
+            helloFlow2.SuspendLayout();
             helloElement3.SuspendLayout();
             helloElementTable3.SuspendLayout();
+            helloFlow3.SuspendLayout();
             recommentPanel.SuspendLayout();
             flowLayoutPanel22.SuspendLayout();
             tableLayoutPanel20.SuspendLayout();
@@ -417,6 +440,14 @@ namespace WinForms
             tableLayoutPanel60.SuspendLayout();
             flowLayoutPanel67.SuspendLayout();
             tableLayoutPanel61.SuspendLayout();
+            currentPanel.SuspendLayout();
+            currentProperties.SuspendLayout();
+            currentPropertiesTable.SuspendLayout();
+            currentBookPanel.SuspendLayout();
+            currentPagePanel.SuspendLayout();
+            currentPublisherPanel.SuspendLayout();
+            optionPanel.SuspendLayout();
+            optionsFlowPanel.SuspendLayout();
             tableLayoutPanel3.SuspendLayout();
             flowLayoutPanel5.SuspendLayout();
             tableLayoutPanel6.SuspendLayout();
@@ -449,10 +480,6 @@ namespace WinForms
             tableLayoutPanel5.SuspendLayout();
             tableLayoutPanel40.SuspendLayout();
             toolStrip1.SuspendLayout();
-            currentPanel.SuspendLayout();
-            currentProperties.SuspendLayout();
-            tableLayoutPanel2.SuspendLayout();
-            currentBookPanel.SuspendLayout();
             SuspendLayout();
             // 
             // searchTabeLayout
@@ -467,6 +494,7 @@ namespace WinForms
             searchTabeLayout.Controls.Add(mainFlowPanel, 1, 0);
             searchTabeLayout.Controls.Add(currentPanel, 2, 1);
             searchTabeLayout.Controls.Add(currentProperties, 1, 1);
+            searchTabeLayout.Controls.Add(optionPanel, 0, 1);
             searchTabeLayout.Dock = DockStyle.Fill;
             searchTabeLayout.Location = new Point(0, 0);
             searchTabeLayout.Margin = new Padding(0, 500, 0, 0);
@@ -711,10 +739,10 @@ namespace WinForms
             // 
             // contentImg
             // 
-            contentImg.BackColor = Color.DimGray;
+            contentImg.BackColor = Color.Transparent;
             contentImg.Image = (Image)resources.GetObject("contentImg.Image");
-            contentImg.Location = new Point(30, 30);
-            contentImg.Margin = new Padding(30);
+            contentImg.Location = new Point(30, 50);
+            contentImg.Margin = new Padding(30, 50, 30, 30);
             contentImg.Name = "contentImg";
             contentImg.Size = new Size(352, 394);
             contentImg.TabIndex = 1;
@@ -727,7 +755,7 @@ namespace WinForms
             contentContainer.SetFlowBreak(contentTitle, true);
             contentTitle.Font = new Font("Exo ExtraBold", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
             contentTitle.ForeColor = SystemColors.ControlLight;
-            contentTitle.Location = new Point(3, 454);
+            contentTitle.Location = new Point(3, 474);
             contentTitle.Name = "contentTitle";
             contentTitle.Size = new Size(77, 40);
             contentTitle.TabIndex = 2;
@@ -740,7 +768,7 @@ namespace WinForms
             contentContainer.SetFlowBreak(authorLabel, true);
             authorLabel.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             authorLabel.ForeColor = SystemColors.ControlDark;
-            authorLabel.Location = new Point(3, 494);
+            authorLabel.Location = new Point(3, 514);
             authorLabel.Name = "authorLabel";
             authorLabel.Size = new Size(79, 28);
             authorLabel.TabIndex = 3;
@@ -753,7 +781,7 @@ namespace WinForms
             contentContainer.SetFlowBreak(publisherLabel, true);
             publisherLabel.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             publisherLabel.ForeColor = SystemColors.ControlDark;
-            publisherLabel.Location = new Point(3, 522);
+            publisherLabel.Location = new Point(3, 542);
             publisherLabel.Name = "publisherLabel";
             publisherLabel.Size = new Size(102, 28);
             publisherLabel.TabIndex = 0;
@@ -767,7 +795,7 @@ namespace WinForms
             contentContainer.SetFlowBreak(aboutAuthor, true);
             aboutAuthor.Font = new Font("Exo ExtraBold", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
             aboutAuthor.ForeColor = SystemColors.ControlLight;
-            aboutAuthor.Location = new Point(3, 562);
+            aboutAuthor.Location = new Point(3, 582);
             aboutAuthor.Name = "aboutAuthor";
             aboutAuthor.Size = new Size(191, 40);
             aboutAuthor.TabIndex = 4;
@@ -780,7 +808,7 @@ namespace WinForms
             contentContainer.SetFlowBreak(authorDesLabel, true);
             authorDesLabel.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             authorDesLabel.ForeColor = SystemColors.ControlDark;
-            authorDesLabel.Location = new Point(3, 602);
+            authorDesLabel.Location = new Point(3, 622);
             authorDesLabel.Name = "authorDesLabel";
             authorDesLabel.Size = new Size(120, 28);
             authorDesLabel.TabIndex = 5;
@@ -794,7 +822,7 @@ namespace WinForms
             contentContainer.SetFlowBreak(categoryLabel, true);
             categoryLabel.Font = new Font("Exo ExtraBold", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
             categoryLabel.ForeColor = SystemColors.ControlLight;
-            categoryLabel.Location = new Point(3, 642);
+            categoryLabel.Location = new Point(3, 662);
             categoryLabel.Name = "categoryLabel";
             categoryLabel.Size = new Size(285, 40);
             categoryLabel.TabIndex = 6;
@@ -804,7 +832,7 @@ namespace WinForms
             // 
             category0.Controls.Add(tableLayoutPanel1);
             category0.Controls.Add(flowLayoutPanel40);
-            category0.Location = new Point(3, 685);
+            category0.Location = new Point(3, 705);
             category0.Margin = new Padding(3, 3, 3, 15);
             category0.Name = "category0";
             category0.Size = new Size(352, 88);
@@ -961,8 +989,8 @@ namespace WinForms
             helloElementTable0.ColumnCount = 2;
             helloElementTable0.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 88F));
             helloElementTable0.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            helloElementTable0.Controls.Add(helloElementTitle0, 1, 0);
             helloElementTable0.Controls.Add(helloElementImg0, 0, 0);
+            helloElementTable0.Controls.Add(helloFlow0, 1, 0);
             helloElementTable0.Dock = DockStyle.Fill;
             helloElementTable0.Location = new Point(0, 0);
             helloElementTable0.Name = "helloElementTable0";
@@ -971,25 +999,51 @@ namespace WinForms
             helloElementTable0.Size = new Size(349, 88);
             helloElementTable0.TabIndex = 0;
             // 
-            // helloElementTitle0
-            // 
-            helloElementTitle0.BackColor = Color.Transparent;
-            helloElementTitle0.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            helloElementTitle0.ForeColor = SystemColors.ControlLight;
-            helloElementTitle0.Location = new Point(91, 0);
-            helloElementTitle0.Name = "helloElementTitle0";
-            helloElementTitle0.Size = new Size(252, 88);
-            helloElementTitle0.TabIndex = 1;
-            helloElementTitle0.Text = "title";
-            // 
             // helloElementImg0
             // 
-            helloElementImg0.BackColor = Color.DimGray;
+            helloElementImg0.BackColor = Color.Transparent;
             helloElementImg0.Image = (Image)resources.GetObject("helloElementImg0.Image");
             helloElementImg0.Location = new Point(3, 0);
             helloElementImg0.Name = "helloElementImg0";
             helloElementImg0.Size = new Size(82, 88);
             helloElementImg0.TabIndex = 0;
+            // 
+            // helloFlow0
+            // 
+            helloFlow0.AutoSize = true;
+            helloFlow0.Controls.Add(helloElementTitle0);
+            helloFlow0.Controls.Add(helloAuthor0);
+            helloFlow0.Dock = DockStyle.Fill;
+            helloFlow0.Location = new Point(91, 3);
+            helloFlow0.Name = "helloFlow0";
+            helloFlow0.Size = new Size(255, 82);
+            helloFlow0.TabIndex = 1;
+            // 
+            // helloElementTitle0
+            // 
+            helloElementTitle0.AutoSize = true;
+            helloElementTitle0.BackColor = Color.Transparent;
+            helloFlow0.SetFlowBreak(helloElementTitle0, true);
+            helloElementTitle0.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            helloElementTitle0.ForeColor = SystemColors.ControlLight;
+            helloElementTitle0.Location = new Point(3, 0);
+            helloElementTitle0.Name = "helloElementTitle0";
+            helloElementTitle0.Size = new Size(50, 28);
+            helloElementTitle0.TabIndex = 1;
+            helloElementTitle0.Text = "title";
+            // 
+            // helloAuthor0
+            // 
+            helloAuthor0.AutoSize = true;
+            helloAuthor0.BackColor = Color.Transparent;
+            helloFlow0.SetFlowBreak(helloAuthor0, true);
+            helloAuthor0.Font = new Font("Exo ExtraBold", 7.799999F, FontStyle.Bold, GraphicsUnit.Point);
+            helloAuthor0.ForeColor = SystemColors.ControlLight;
+            helloAuthor0.Location = new Point(3, 28);
+            helloAuthor0.Name = "helloAuthor0";
+            helloAuthor0.Size = new Size(50, 19);
+            helloAuthor0.TabIndex = 2;
+            helloAuthor0.Text = "author";
             // 
             // helloElement1
             // 
@@ -1008,8 +1062,8 @@ namespace WinForms
             helloElementTable1.ColumnCount = 2;
             helloElementTable1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 88F));
             helloElementTable1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            helloElementTable1.Controls.Add(helloElementTitle1, 1, 0);
             helloElementTable1.Controls.Add(helloElementImg1, 0, 0);
+            helloElementTable1.Controls.Add(flowLayoutPanel1, 1, 0);
             helloElementTable1.Dock = DockStyle.Fill;
             helloElementTable1.Location = new Point(0, 0);
             helloElementTable1.Name = "helloElementTable1";
@@ -1018,25 +1072,50 @@ namespace WinForms
             helloElementTable1.Size = new Size(349, 88);
             helloElementTable1.TabIndex = 0;
             // 
-            // helloElementTitle1
-            // 
-            helloElementTitle1.BackColor = Color.Transparent;
-            helloElementTitle1.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            helloElementTitle1.ForeColor = SystemColors.ControlLight;
-            helloElementTitle1.Location = new Point(91, 0);
-            helloElementTitle1.Name = "helloElementTitle1";
-            helloElementTitle1.Size = new Size(252, 88);
-            helloElementTitle1.TabIndex = 1;
-            helloElementTitle1.Text = "title";
-            // 
             // helloElementImg1
             // 
-            helloElementImg1.BackColor = Color.DimGray;
+            helloElementImg1.BackColor = Color.Transparent;
             helloElementImg1.Image = (Image)resources.GetObject("helloElementImg1.Image");
             helloElementImg1.Location = new Point(3, 0);
             helloElementImg1.Name = "helloElementImg1";
             helloElementImg1.Size = new Size(82, 88);
             helloElementImg1.TabIndex = 0;
+            // 
+            // flowLayoutPanel1
+            // 
+            flowLayoutPanel1.Controls.Add(helloElementTitle1);
+            flowLayoutPanel1.Controls.Add(helloAuthor1);
+            flowLayoutPanel1.Dock = DockStyle.Fill;
+            flowLayoutPanel1.Location = new Point(91, 3);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(255, 82);
+            flowLayoutPanel1.TabIndex = 1;
+            // 
+            // helloElementTitle1
+            // 
+            helloElementTitle1.AutoSize = true;
+            helloElementTitle1.BackColor = Color.Transparent;
+            flowLayoutPanel1.SetFlowBreak(helloElementTitle1, true);
+            helloElementTitle1.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            helloElementTitle1.ForeColor = SystemColors.ControlLight;
+            helloElementTitle1.Location = new Point(3, 0);
+            helloElementTitle1.Name = "helloElementTitle1";
+            helloElementTitle1.Size = new Size(50, 28);
+            helloElementTitle1.TabIndex = 1;
+            helloElementTitle1.Text = "title";
+            // 
+            // helloAuthor1
+            // 
+            helloAuthor1.AutoSize = true;
+            helloAuthor1.BackColor = Color.Transparent;
+            flowLayoutPanel1.SetFlowBreak(helloAuthor1, true);
+            helloAuthor1.Font = new Font("Exo ExtraBold", 7.799999F, FontStyle.Bold, GraphicsUnit.Point);
+            helloAuthor1.ForeColor = SystemColors.ControlLight;
+            helloAuthor1.Location = new Point(3, 28);
+            helloAuthor1.Name = "helloAuthor1";
+            helloAuthor1.Size = new Size(50, 19);
+            helloAuthor1.TabIndex = 3;
+            helloAuthor1.Text = "author";
             // 
             // helloElement2
             // 
@@ -1055,8 +1134,8 @@ namespace WinForms
             tableLayoutPanel8.ColumnCount = 2;
             tableLayoutPanel8.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 88F));
             tableLayoutPanel8.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel8.Controls.Add(helloElementTitle2, 1, 0);
-            tableLayoutPanel8.Controls.Add(helloElementimg2, 0, 0);
+            tableLayoutPanel8.Controls.Add(helloElementImg2, 0, 0);
+            tableLayoutPanel8.Controls.Add(helloFlow2, 1, 0);
             tableLayoutPanel8.Dock = DockStyle.Fill;
             tableLayoutPanel8.Location = new Point(0, 0);
             tableLayoutPanel8.Name = "tableLayoutPanel8";
@@ -1065,25 +1144,51 @@ namespace WinForms
             tableLayoutPanel8.Size = new Size(349, 88);
             tableLayoutPanel8.TabIndex = 0;
             // 
+            // helloElementImg2
+            // 
+            helloElementImg2.BackColor = Color.Transparent;
+            helloElementImg2.Image = (Image)resources.GetObject("helloElementImg2.Image");
+            helloElementImg2.Location = new Point(3, 0);
+            helloElementImg2.Name = "helloElementImg2";
+            helloElementImg2.Size = new Size(82, 88);
+            helloElementImg2.TabIndex = 0;
+            // 
+            // helloFlow2
+            // 
+            helloFlow2.Controls.Add(helloElementTitle2);
+            helloFlow2.Controls.Add(helloAuthor2);
+            helloFlow2.Dock = DockStyle.Fill;
+            helloFlow2.Location = new Point(91, 3);
+            helloFlow2.Name = "helloFlow2";
+            helloFlow2.Size = new Size(255, 82);
+            helloFlow2.TabIndex = 1;
+            // 
             // helloElementTitle2
             // 
+            helloElementTitle2.AutoSize = true;
             helloElementTitle2.BackColor = Color.Transparent;
+            helloFlow2.SetFlowBreak(helloElementTitle2, true);
             helloElementTitle2.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             helloElementTitle2.ForeColor = SystemColors.ControlLight;
-            helloElementTitle2.Location = new Point(91, 0);
+            helloElementTitle2.Location = new Point(3, 0);
             helloElementTitle2.Name = "helloElementTitle2";
-            helloElementTitle2.Size = new Size(252, 88);
+            helloElementTitle2.Size = new Size(50, 28);
             helloElementTitle2.TabIndex = 1;
             helloElementTitle2.Text = "title";
+            helloElementTitle2.Click += helloElementTitle2_Click;
             // 
-            // helloElementimg2
+            // helloAuthor2
             // 
-            helloElementimg2.BackColor = Color.DimGray;
-            helloElementimg2.Image = (Image)resources.GetObject("helloElementimg2.Image");
-            helloElementimg2.Location = new Point(3, 0);
-            helloElementimg2.Name = "helloElementimg2";
-            helloElementimg2.Size = new Size(82, 88);
-            helloElementimg2.TabIndex = 0;
+            helloAuthor2.AutoSize = true;
+            helloAuthor2.BackColor = Color.Transparent;
+            helloFlow2.SetFlowBreak(helloAuthor2, true);
+            helloAuthor2.Font = new Font("Exo ExtraBold", 7.799999F, FontStyle.Bold, GraphicsUnit.Point);
+            helloAuthor2.ForeColor = SystemColors.ControlLight;
+            helloAuthor2.Location = new Point(3, 28);
+            helloAuthor2.Name = "helloAuthor2";
+            helloAuthor2.Size = new Size(50, 19);
+            helloAuthor2.TabIndex = 4;
+            helloAuthor2.Text = "author";
             // 
             // helloElement3
             // 
@@ -1102,8 +1207,8 @@ namespace WinForms
             helloElementTable3.ColumnCount = 2;
             helloElementTable3.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 88F));
             helloElementTable3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            helloElementTable3.Controls.Add(helloElementTitle3, 1, 0);
             helloElementTable3.Controls.Add(helloElementImg3, 0, 0);
+            helloElementTable3.Controls.Add(helloFlow3, 1, 0);
             helloElementTable3.Dock = DockStyle.Fill;
             helloElementTable3.Location = new Point(0, 0);
             helloElementTable3.Name = "helloElementTable3";
@@ -1112,25 +1217,50 @@ namespace WinForms
             helloElementTable3.Size = new Size(349, 88);
             helloElementTable3.TabIndex = 0;
             // 
-            // helloElementTitle3
-            // 
-            helloElementTitle3.BackColor = Color.Transparent;
-            helloElementTitle3.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            helloElementTitle3.ForeColor = SystemColors.ControlLight;
-            helloElementTitle3.Location = new Point(91, 0);
-            helloElementTitle3.Name = "helloElementTitle3";
-            helloElementTitle3.Size = new Size(252, 88);
-            helloElementTitle3.TabIndex = 1;
-            helloElementTitle3.Text = "title";
-            // 
             // helloElementImg3
             // 
-            helloElementImg3.BackColor = Color.DimGray;
+            helloElementImg3.BackColor = Color.Transparent;
             helloElementImg3.Image = (Image)resources.GetObject("helloElementImg3.Image");
             helloElementImg3.Location = new Point(3, 0);
             helloElementImg3.Name = "helloElementImg3";
             helloElementImg3.Size = new Size(82, 88);
             helloElementImg3.TabIndex = 0;
+            // 
+            // helloFlow3
+            // 
+            helloFlow3.Controls.Add(helloElementTitle3);
+            helloFlow3.Controls.Add(helloAuthor3);
+            helloFlow3.Dock = DockStyle.Fill;
+            helloFlow3.Location = new Point(91, 3);
+            helloFlow3.Name = "helloFlow3";
+            helloFlow3.Size = new Size(255, 82);
+            helloFlow3.TabIndex = 1;
+            // 
+            // helloElementTitle3
+            // 
+            helloElementTitle3.AutoSize = true;
+            helloElementTitle3.BackColor = Color.Transparent;
+            helloFlow3.SetFlowBreak(helloElementTitle3, true);
+            helloElementTitle3.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            helloElementTitle3.ForeColor = SystemColors.ControlLight;
+            helloElementTitle3.Location = new Point(3, 0);
+            helloElementTitle3.Name = "helloElementTitle3";
+            helloElementTitle3.Size = new Size(50, 28);
+            helloElementTitle3.TabIndex = 1;
+            helloElementTitle3.Text = "title";
+            // 
+            // helloAuthor3
+            // 
+            helloAuthor3.AutoSize = true;
+            helloAuthor3.BackColor = Color.Transparent;
+            helloFlow3.SetFlowBreak(helloAuthor3, true);
+            helloAuthor3.Font = new Font("Exo ExtraBold", 7.799999F, FontStyle.Bold, GraphicsUnit.Point);
+            helloAuthor3.ForeColor = SystemColors.ControlLight;
+            helloAuthor3.Location = new Point(3, 28);
+            helloAuthor3.Name = "helloAuthor3";
+            helloAuthor3.Size = new Size(50, 19);
+            helloAuthor3.TabIndex = 5;
+            helloAuthor3.Text = "author";
             // 
             // recommentPanel
             // 
@@ -2040,7 +2170,7 @@ namespace WinForms
             searchBoxContainer.Controls.Add(searchBox);
             searchBoxContainer.Dock = DockStyle.Fill;
             searchBoxContainer.GradientAngle = 70F;
-            searchBoxContainer.GradientPrimaryColor = Color.FromArgb(255, 28, 107);
+            searchBoxContainer.GradientPrimaryColor = Color.FromArgb(245, 127, 243);
             searchBoxContainer.GradientSecondaryColor = Color.Transparent;
             searchBoxContainer.Location = new Point(55, 0);
             searchBoxContainer.Margin = new Padding(0);
@@ -2052,11 +2182,11 @@ namespace WinForms
             // 
             searchBox.Dock = DockStyle.Fill;
             searchBox.Font = new Font("Exo ExtraBold", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
-            searchBox.ForeColor = SystemColors.GrayText;
+            searchBox.ForeColor = SystemColors.ControlLight;
             searchBox.Location = new Point(0, 0);
             searchBox.Margin = new Padding(0);
             searchBox.Name = "searchBox";
-            searchBox.SetTextView = singleTextView2;
+            //searchBox.SetTextView = singleTextView1;
             searchBox.Size = new Size(560, 55);
             searchBox.TabIndex = 5;
             searchBox.Text = "What do you want to read?";
@@ -2474,6 +2604,232 @@ namespace WinForms
             label126.Name = "label126";
             label126.Size = new Size(82, 88);
             label126.TabIndex = 0;
+            // 
+            // currentPanel
+            // 
+            currentPanel.BackColor = Color.Gainsboro;
+            currentPanel.Controls.Add(currentLabel);
+            currentPanel.Dock = DockStyle.Fill;
+            currentPanel.Location = new Point(1180, 746);
+            currentPanel.Margin = new Padding(0);
+            currentPanel.Name = "currentPanel";
+            currentPanel.Size = new Size(100, 100);
+            currentPanel.TabIndex = 5;
+            // 
+            // currentLabel
+            // 
+            currentLabel.BackColor = Color.Transparent;
+            currentLabel.Dock = DockStyle.Fill;
+            currentLabel.Image = (Image)resources.GetObject("currentLabel.Image");
+            currentLabel.Location = new Point(0, 0);
+            currentLabel.Name = "currentLabel";
+            currentLabel.Size = new Size(100, 100);
+            currentLabel.TabIndex = 0;
+            // 
+            // currentProperties
+            // 
+            currentProperties.Controls.Add(currentPropertiesTable);
+            currentProperties.Dock = DockStyle.Fill;
+            currentProperties.GradientAngle = 180F;
+            currentProperties.GradientPrimaryColor = Color.FromArgb(0, 64, 0);
+            currentProperties.GradientSecondaryColor = Color.Empty;
+            currentProperties.Location = new Point(430, 746);
+            currentProperties.Margin = new Padding(0);
+            currentProperties.Name = "currentProperties";
+            currentProperties.Size = new Size(750, 100);
+            currentProperties.TabIndex = 6;
+            // 
+            // currentPropertiesTable
+            // 
+            currentPropertiesTable.ColumnCount = 3;
+            currentPropertiesTable.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            currentPropertiesTable.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 100F));
+            currentPropertiesTable.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            currentPropertiesTable.Controls.Add(currentBookPanel, 2, 0);
+            currentPropertiesTable.Controls.Add(currentPagePanel, 1, 0);
+            currentPropertiesTable.Controls.Add(currentPublisherPanel, 0, 0);
+            currentPropertiesTable.Dock = DockStyle.Fill;
+            currentPropertiesTable.Location = new Point(0, 0);
+            currentPropertiesTable.Margin = new Padding(0);
+            currentPropertiesTable.Name = "currentPropertiesTable";
+            currentPropertiesTable.RowCount = 1;
+            currentPropertiesTable.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            currentPropertiesTable.Size = new Size(750, 100);
+            currentPropertiesTable.TabIndex = 0;
+            // 
+            // currentBookPanel
+            // 
+            currentBookPanel.Controls.Add(currentBookTitle);
+            currentBookPanel.Controls.Add(currentBookAuthor);
+            currentBookPanel.Controls.Add(currentBookRate);
+            currentBookPanel.Dock = DockStyle.Fill;
+            currentBookPanel.FlowDirection = FlowDirection.RightToLeft;
+            currentBookPanel.Location = new Point(425, 0);
+            currentBookPanel.Margin = new Padding(0);
+            currentBookPanel.Name = "currentBookPanel";
+            currentBookPanel.Size = new Size(325, 100);
+            currentBookPanel.TabIndex = 0;
+            // 
+            // currentBookTitle
+            // 
+            currentBookTitle.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
+            currentBookTitle.AutoSize = true;
+            currentBookPanel.SetFlowBreak(currentBookTitle, true);
+            currentBookTitle.Font = new Font("Exo ExtraBold", 10.1999989F, FontStyle.Bold, GraphicsUnit.Point);
+            currentBookTitle.ForeColor = SystemColors.Menu;
+            currentBookTitle.Location = new Point(227, 10);
+            currentBookTitle.Margin = new Padding(3, 10, 10, 0);
+            currentBookTitle.Name = "currentBookTitle";
+            currentBookTitle.Size = new Size(88, 24);
+            currentBookTitle.TabIndex = 0;
+            currentBookTitle.Text = "Book title";
+            // 
+            // currentBookAuthor
+            // 
+            currentBookAuthor.AutoSize = true;
+            currentBookPanel.SetFlowBreak(currentBookAuthor, true);
+            currentBookAuthor.Font = new Font("Exo ExtraBold", 7.799999F, FontStyle.Bold, GraphicsUnit.Point);
+            currentBookAuthor.ForeColor = SystemColors.Menu;
+            currentBookAuthor.Location = new Point(231, 34);
+            currentBookAuthor.Margin = new Padding(3, 0, 10, 0);
+            currentBookAuthor.Name = "currentBookAuthor";
+            currentBookAuthor.Size = new Size(84, 19);
+            currentBookAuthor.TabIndex = 1;
+            currentBookAuthor.Text = "Book Author";
+            // 
+            // currentBookRate
+            // 
+            currentBookRate.Font = new Font("Exo ExtraBold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            currentBookRate.ForeColor = SystemColors.Menu;
+            currentBookRate.Image = (Image)resources.GetObject("currentBookRate.Image");
+            currentBookRate.Location = new Point(222, 59);
+            currentBookRate.Name = "currentBookRate";
+            currentBookRate.Size = new Size(100, 25);
+            currentBookRate.TabIndex = 2;
+            currentBookRate.Text = "3.0";
+            // 
+            // currentPagePanel
+            // 
+            currentPagePanel.Controls.Add(totalPage);
+            currentPagePanel.Controls.Add(currentPage);
+            currentPagePanel.Location = new Point(325, 0);
+            currentPagePanel.Margin = new Padding(0);
+            currentPagePanel.Name = "currentPagePanel";
+            currentPagePanel.Size = new Size(94, 94);
+            currentPagePanel.TabIndex = 1;
+            // 
+            // totalPage
+            // 
+            totalPage.AutoSize = true;
+            totalPage.ForeColor = SystemColors.Menu;
+            totalPage.Location = new Point(42, 53);
+            totalPage.Name = "totalPage";
+            totalPage.Size = new Size(45, 20);
+            totalPage.TabIndex = 1;
+            totalPage.Text = "/NaN";
+            // 
+            // currentPage
+            // 
+            currentPage.AutoSize = true;
+            currentPage.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point);
+            currentPage.ForeColor = SystemColors.Menu;
+            currentPage.Location = new Point(6, 20);
+            currentPage.Name = "currentPage";
+            currentPage.Size = new Size(45, 23);
+            currentPage.TabIndex = 0;
+            currentPage.Text = "NaN";
+            // 
+            // currentPublisherPanel
+            // 
+            currentPublisherPanel.Controls.Add(currentPublisher);
+            currentPublisherPanel.Controls.Add(yearOfPublication);
+            currentPublisherPanel.Dock = DockStyle.Fill;
+            currentPublisherPanel.Location = new Point(0, 0);
+            currentPublisherPanel.Margin = new Padding(0);
+            currentPublisherPanel.Name = "currentPublisherPanel";
+            currentPublisherPanel.Size = new Size(325, 100);
+            currentPublisherPanel.TabIndex = 2;
+            // 
+            // currentPublisher
+            // 
+            currentPublisher.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
+            currentPublisher.AutoSize = true;
+            currentPublisherPanel.SetFlowBreak(currentPublisher, true);
+            currentPublisher.Font = new Font("Exo ExtraBold", 10.1999989F, FontStyle.Bold, GraphicsUnit.Point);
+            currentPublisher.ForeColor = SystemColors.Menu;
+            currentPublisher.Location = new Point(3, 15);
+            currentPublisher.Margin = new Padding(3, 15, 10, 0);
+            currentPublisher.Name = "currentPublisher";
+            currentPublisher.Size = new Size(86, 24);
+            currentPublisher.TabIndex = 1;
+            currentPublisher.Text = "Publisher";
+            // 
+            // yearOfPublication
+            // 
+            yearOfPublication.AutoSize = true;
+            currentPublisherPanel.SetFlowBreak(yearOfPublication, true);
+            yearOfPublication.Font = new Font("Exo ExtraBold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            yearOfPublication.ForeColor = SystemColors.Menu;
+            yearOfPublication.Location = new Point(3, 39);
+            yearOfPublication.Margin = new Padding(3, 0, 10, 0);
+            yearOfPublication.Name = "yearOfPublication";
+            yearOfPublication.Size = new Size(47, 21);
+            yearOfPublication.TabIndex = 2;
+            yearOfPublication.Text = "2022";
+            // 
+            // optionPanel
+            // 
+            optionPanel.Controls.Add(optionsFlowPanel);
+            optionPanel.Dock = DockStyle.Fill;
+            optionPanel.GradientAngle = 90F;
+            optionPanel.GradientPrimaryColor = Color.Black;
+            optionPanel.GradientSecondaryColor = Color.Empty;
+            optionPanel.Location = new Point(0, 746);
+            optionPanel.Margin = new Padding(0);
+            optionPanel.Name = "optionPanel";
+            optionPanel.Size = new Size(430, 100);
+            optionPanel.TabIndex = 7;
+            // 
+            // optionsFlowPanel
+            // 
+            optionsFlowPanel.Controls.Add(heartOption);
+            optionsFlowPanel.Controls.Add(textToSpeech);
+            optionsFlowPanel.Controls.Add(brightness);
+            optionsFlowPanel.Dock = DockStyle.Fill;
+            optionsFlowPanel.FlowDirection = FlowDirection.RightToLeft;
+            optionsFlowPanel.Location = new Point(0, 0);
+            optionsFlowPanel.Name = "optionsFlowPanel";
+            optionsFlowPanel.Size = new Size(430, 100);
+            optionsFlowPanel.TabIndex = 0;
+            // 
+            // heartOption
+            // 
+            heartOption.Image = (Image)resources.GetObject("heartOption.Image");
+            heartOption.Location = new Point(353, 30);
+            heartOption.Margin = new Padding(10, 30, 30, 30);
+            heartOption.Name = "heartOption";
+            heartOption.Size = new Size(47, 41);
+            heartOption.TabIndex = 0;
+            // 
+            // textToSpeech
+            // 
+            textToSpeech.Enabled = false;
+            textToSpeech.Image = (Image)resources.GetObject("textToSpeech.Image");
+            textToSpeech.Location = new Point(296, 30);
+            textToSpeech.Margin = new Padding(10, 30, 0, 30);
+            textToSpeech.Name = "textToSpeech";
+            textToSpeech.Size = new Size(47, 41);
+            textToSpeech.TabIndex = 1;
+            // 
+            // brightness
+            // 
+            brightness.Enabled = false;
+            brightness.Image = (Image)resources.GetObject("brightness.Image");
+            brightness.Location = new Point(239, 30);
+            brightness.Margin = new Padding(15, 30, 0, 30);
+            brightness.Name = "brightness";
+            brightness.Size = new Size(47, 41);
+            brightness.TabIndex = 2;
             // 
             // flowLayoutPanel2
             // 
@@ -3351,100 +3707,6 @@ namespace WinForms
             toolStripButton3.Size = new Size(29, 24);
             toolStripButton3.Text = "toolStripButton3";
             // 
-            // currentPanel
-            // 
-            currentPanel.BackColor = Color.Gainsboro;
-            currentPanel.Controls.Add(currentLabel);
-            currentPanel.Location = new Point(1180, 746);
-            currentPanel.Margin = new Padding(0);
-            currentPanel.Name = "currentPanel";
-            currentPanel.Size = new Size(100, 100);
-            currentPanel.TabIndex = 5;
-            // 
-            // currentLabel
-            // 
-            currentLabel.Dock = DockStyle.Fill;
-            currentLabel.Image = (Image)resources.GetObject("currentLabel.Image");
-            currentLabel.Location = new Point(0, 0);
-            currentLabel.Name = "currentLabel";
-            currentLabel.Size = new Size(100, 100);
-            currentLabel.TabIndex = 0;
-            // 
-            // currentProperties
-            // 
-            currentProperties.Controls.Add(tableLayoutPanel2);
-            currentProperties.Dock = DockStyle.Fill;
-            currentProperties.GradientAngle = 180F;
-            currentProperties.GradientPrimaryColor = Color.White;
-            currentProperties.GradientSecondaryColor = Color.Empty;
-            currentProperties.Location = new Point(430, 746);
-            currentProperties.Margin = new Padding(0);
-            currentProperties.Name = "currentProperties";
-            currentProperties.Size = new Size(750, 100);
-            currentProperties.TabIndex = 6;
-            // 
-            // tableLayoutPanel2
-            // 
-            tableLayoutPanel2.ColumnCount = 3;
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 100F));
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel2.Controls.Add(currentBookPanel, 2, 0);
-            tableLayoutPanel2.Dock = DockStyle.Fill;
-            tableLayoutPanel2.Location = new Point(0, 0);
-            tableLayoutPanel2.Margin = new Padding(0);
-            tableLayoutPanel2.Name = "tableLayoutPanel2";
-            tableLayoutPanel2.RowCount = 1;
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel2.Size = new Size(750, 100);
-            tableLayoutPanel2.TabIndex = 0;
-            // 
-            // currentBookPanel
-            // 
-            currentBookPanel.Controls.Add(currentBookTitle);
-            currentBookPanel.Controls.Add(currentBookAuthor);
-            currentBookPanel.Controls.Add(currentBookRate);
-            currentBookPanel.Dock = DockStyle.Fill;
-            currentBookPanel.FlowDirection = FlowDirection.RightToLeft;
-            currentBookPanel.Location = new Point(425, 0);
-            currentBookPanel.Margin = new Padding(0);
-            currentBookPanel.Name = "currentBookPanel";
-            currentBookPanel.Size = new Size(325, 100);
-            currentBookPanel.TabIndex = 0;
-            // 
-            // currentBookTitle
-            // 
-            currentBookTitle.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
-            currentBookTitle.AutoSize = true;
-            currentBookPanel.SetFlowBreak(currentBookTitle, true);
-            currentBookTitle.Font = new Font("Exo ExtraBold", 10.7999992F, FontStyle.Bold, GraphicsUnit.Point);
-            currentBookTitle.Location = new Point(229, 0);
-            currentBookTitle.Name = "currentBookTitle";
-            currentBookTitle.Size = new Size(93, 25);
-            currentBookTitle.TabIndex = 0;
-            currentBookTitle.Text = "Book title";
-            // 
-            // currentBookAuthor
-            // 
-            currentBookAuthor.AutoSize = true;
-            currentBookPanel.SetFlowBreak(currentBookAuthor, true);
-            currentBookAuthor.Font = new Font("Exo ExtraBold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            currentBookAuthor.Location = new Point(222, 25);
-            currentBookAuthor.Name = "currentBookAuthor";
-            currentBookAuthor.Size = new Size(100, 21);
-            currentBookAuthor.TabIndex = 1;
-            currentBookAuthor.Text = "Book Author";
-            // 
-            // currentBookRate
-            // 
-            currentBookRate.Font = new Font("Exo ExtraBold", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            currentBookRate.Image = (Image)resources.GetObject("currentBookRate.Image");
-            currentBookRate.Location = new Point(222, 50);
-            currentBookRate.Name = "currentBookRate";
-            currentBookRate.Size = new Size(100, 25);
-            currentBookRate.TabIndex = 2;
-            currentBookRate.Text = "3.0";
-            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -3456,6 +3718,7 @@ namespace WinForms
             Controls.Add(toolStrip1);
             Controls.Add(searchTabeLayout);
             DoubleBuffered = true;
+            FormBorderStyle = FormBorderStyle.None;
             Name = "MainForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "MainForm";
@@ -3487,15 +3750,24 @@ namespace WinForms
             helloElement0.ResumeLayout(false);
             helloElement0.PerformLayout();
             helloElementTable0.ResumeLayout(false);
+            helloElementTable0.PerformLayout();
+            helloFlow0.ResumeLayout(false);
+            helloFlow0.PerformLayout();
             helloElement1.ResumeLayout(false);
             helloElement1.PerformLayout();
             helloElementTable1.ResumeLayout(false);
+            flowLayoutPanel1.ResumeLayout(false);
+            flowLayoutPanel1.PerformLayout();
             helloElement2.ResumeLayout(false);
             helloElement2.PerformLayout();
             tableLayoutPanel8.ResumeLayout(false);
+            helloFlow2.ResumeLayout(false);
+            helloFlow2.PerformLayout();
             helloElement3.ResumeLayout(false);
             helloElement3.PerformLayout();
             helloElementTable3.ResumeLayout(false);
+            helloFlow3.ResumeLayout(false);
+            helloFlow3.PerformLayout();
             recommentPanel.ResumeLayout(false);
             flowLayoutPanel22.ResumeLayout(false);
             flowLayoutPanel22.PerformLayout();
@@ -3584,6 +3856,17 @@ namespace WinForms
             flowLayoutPanel67.ResumeLayout(false);
             flowLayoutPanel67.PerformLayout();
             tableLayoutPanel61.ResumeLayout(false);
+            currentPanel.ResumeLayout(false);
+            currentProperties.ResumeLayout(false);
+            currentPropertiesTable.ResumeLayout(false);
+            currentBookPanel.ResumeLayout(false);
+            currentBookPanel.PerformLayout();
+            currentPagePanel.ResumeLayout(false);
+            currentPagePanel.PerformLayout();
+            currentPublisherPanel.ResumeLayout(false);
+            currentPublisherPanel.PerformLayout();
+            optionPanel.ResumeLayout(false);
+            optionsFlowPanel.ResumeLayout(false);
             tableLayoutPanel3.ResumeLayout(false);
             flowLayoutPanel5.ResumeLayout(false);
             flowLayoutPanel5.PerformLayout();
@@ -3628,11 +3911,6 @@ namespace WinForms
             tableLayoutPanel40.ResumeLayout(false);
             toolStrip1.ResumeLayout(false);
             toolStrip1.PerformLayout();
-            currentPanel.ResumeLayout(false);
-            currentProperties.ResumeLayout(false);
-            tableLayoutPanel2.ResumeLayout(false);
-            currentBookPanel.ResumeLayout(false);
-            currentBookPanel.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -3869,7 +4147,7 @@ namespace WinForms
         private GradientPanel helloElement2;
         private TableLayoutPanel tableLayoutPanel8;
         private Label helloElementTitle2;
-        private Label helloElementimg2;
+        private Label helloElementImg2;
         private GradientPanel helloElement3;
         private TableLayoutPanel helloElementTable3;
         private Label helloElementTitle3;
@@ -3908,10 +4186,29 @@ namespace WinForms
         private Panel currentPanel;
         private Label currentLabel;
         private GradientPanel currentProperties;
-        private TableLayoutPanel tableLayoutPanel2;
+        private TableLayoutPanel currentPropertiesTable;
         private FlowLayoutPanel currentBookPanel;
         private Label currentBookTitle;
         private Label currentBookAuthor;
         private Label currentBookRate;
+        private Panel currentPagePanel;
+        private Label currentPage;
+        private Label totalPage;
+        private FlowLayoutPanel currentPublisherPanel;
+        private Label currentPublisher;
+        private Label yearOfPublication;
+        private GradientPanel optionPanel;
+        private FlowLayoutPanel optionsFlowPanel;
+        private Label heartOption;
+        private Label textToSpeech;
+        private Label brightness;
+        private FlowLayoutPanel helloFlow0;
+        private Label helloAuthor0;
+        private FlowLayoutPanel flowLayoutPanel1;
+        private Label helloAuthor1;
+        private FlowLayoutPanel helloFlow2;
+        private Label helloAuthor2;
+        private FlowLayoutPanel helloFlow3;
+        private Label helloAuthor3;
     }
 }
