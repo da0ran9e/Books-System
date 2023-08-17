@@ -146,6 +146,19 @@
             "rid": "win"
           }
         }
+      },
+      "STTextBox/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/STTextBox.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/STTextBox.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WindowsForms"
+        ]
       }
     }
   },
@@ -462,10 +475,16 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "STTextBox/1.0.0": {
+      "type": "project",
+      "path": "../../../../../../Downloads/TransparentTextBox-main/TransparentTextBox-main/src/STTextBox/STTextBox.csproj",
+      "msbuildProject": "../../../../../../Downloads/TransparentTextBox-main/TransparentTextBox-main/src/STTextBox/STTextBox.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0-windows7.0": [
+      "STTextBox >= 1.0.0",
       "System.Data.SqlClient >= 4.8.5"
     ]
   },
@@ -500,7 +519,11 @@
       "frameworks": {
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\vuduc\\Downloads\\TransparentTextBox-main\\TransparentTextBox-main\\src\\STTextBox\\STTextBox.csproj": {
+              "projectPath": "C:\\Users\\vuduc\\Downloads\\TransparentTextBox-main\\TransparentTextBox-main\\src\\STTextBox\\STTextBox.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

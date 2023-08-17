@@ -198,6 +198,7 @@ namespace WinForms
             searchPanel = new FlowLayoutPanel();
             searchLayoutTable = new TableLayoutPanel();
             searchImg = new Label();
+            searchBox = new TSkin.ST.STTextBox();
             bestMatchPanel = new FlowLayoutPanel();
             bestMatchLabel = new Label();
             bestMatchResult = new FlowLayoutPanel();
@@ -320,7 +321,7 @@ namespace WinForms
             toolStripButton1 = new ToolStripButton();
             toolStripButton2 = new ToolStripButton();
             toolStripButton3 = new ToolStripButton();
-            transparentTextbox1 = new TransparentTextbox();
+            searchBoxContainer = new GradientPanel();
             searchTabeLayout.SuspendLayout();
             verticalMenuBar.SuspendLayout();
             verticalTableMenu.SuspendLayout();
@@ -438,6 +439,7 @@ namespace WinForms
             tableLayoutPanel5.SuspendLayout();
             tableLayoutPanel40.SuspendLayout();
             toolStrip1.SuspendLayout();
+            searchBoxContainer.SuspendLayout();
             SuspendLayout();
             // 
             // searchTabeLayout
@@ -2003,8 +2005,8 @@ namespace WinForms
             searchLayoutTable.ColumnCount = 2;
             searchLayoutTable.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 55F));
             searchLayoutTable.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            searchLayoutTable.Controls.Add(searchBoxContainer, 1, 0);
             searchLayoutTable.Controls.Add(searchImg, 0, 0);
-            searchLayoutTable.Controls.Add(transparentTextbox1, 1, 0);
             searchLayoutTable.Location = new Point(3, 3);
             searchLayoutTable.Name = "searchLayoutTable";
             searchLayoutTable.RowCount = 1;
@@ -2021,6 +2023,21 @@ namespace WinForms
             searchImg.Name = "searchImg";
             searchImg.Size = new Size(49, 55);
             searchImg.TabIndex = 0;
+            // 
+            // searchBox
+            // 
+            searchBox.Dock = DockStyle.Fill;
+            searchBox.Font = new Font("Exo ExtraBold", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
+            searchBox.ForeColor = SystemColors.GrayText;
+            searchBox.Location = new Point(0, 0);
+            searchBox.Margin = new Padding(0);
+            searchBox.Name = "searchBox";
+            searchBox.Size = new Size(560, 55);
+            searchBox.TabIndex = 5;
+            searchBox.Text = "What do you want to read?";
+            searchBox.Paint += searchBox_Paint;
+            searchBox.GotFocus += SearchBox_GotFocus;
+            searchBox.LostFocus += SearchBox_LostFocus;
             // 
             // bestMatchPanel
             // 
@@ -3297,16 +3314,18 @@ namespace WinForms
             toolStripButton3.Size = new Size(29, 24);
             toolStripButton3.Text = "toolStripButton3";
             // 
-            // transparentTextbox1
+            // searchBoxContainer
             // 
-            transparentTextbox1.BackColor = Color.Transparent;
-            transparentTextbox1.Font = new Font("Exo ExtraBold", 18F, FontStyle.Bold, GraphicsUnit.Point);
-            transparentTextbox1.ForeColor = SystemColors.Info;
-            transparentTextbox1.Location = new Point(58, 3);
-            transparentTextbox1.Name = "transparentTextbox1";
-            transparentTextbox1.PlaceholderText = "What do you want to read?";
-            transparentTextbox1.Size = new Size(542, 47);
-            transparentTextbox1.TabIndex = 1;
+            searchBoxContainer.Controls.Add(searchBox);
+            searchBoxContainer.Dock = DockStyle.Fill;
+            searchBoxContainer.GradientAngle = 70F;
+            searchBoxContainer.GradientPrimaryColor = Color.DeepPink;
+            searchBoxContainer.GradientSecondaryColor = Color.Transparent;
+            searchBoxContainer.Location = new Point(55, 0);
+            searchBoxContainer.Margin = new Padding(0);
+            searchBoxContainer.Name = "searchBoxContainer";
+            searchBoxContainer.Size = new Size(560, 55);
+            searchBoxContainer.TabIndex = 2;
             // 
             // MainForm
             // 
@@ -3420,7 +3439,6 @@ namespace WinForms
             searchFlowPanel.PerformLayout();
             searchPanel.ResumeLayout(false);
             searchLayoutTable.ResumeLayout(false);
-            searchLayoutTable.PerformLayout();
             bestMatchPanel.ResumeLayout(false);
             bestMatchResult.ResumeLayout(false);
             bestMatchResult.PerformLayout();
@@ -3491,8 +3509,19 @@ namespace WinForms
             tableLayoutPanel40.ResumeLayout(false);
             toolStrip1.ResumeLayout(false);
             toolStrip1.PerformLayout();
+            searchBoxContainer.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
+        }
+
+        private void SearchBox_LostFocus(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void SearchBox_GotFocus(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         private void FlowLayoutPanel1_Scroll(object sender, ScrollEventArgs e)
@@ -3761,5 +3790,7 @@ namespace WinForms
         private GradientPanel libraryGradientPanel;
         private GradientPanel recentGradientPanel;
         private TransparentTextbox transparentTextbox1;
+        private TSkin.ST.STTextBox searchBox;
+        private GradientPanel searchBoxContainer;
     }
 }

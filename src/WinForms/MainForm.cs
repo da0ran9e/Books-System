@@ -332,5 +332,14 @@ namespace WinForms
         {
 
         }
+
+        private void searchBox_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+        private void searchBox_GotForcus(object sender, EventArgs e)
+        {
+
+        }
     }
 }

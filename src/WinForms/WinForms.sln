@@ -5,6 +5,8 @@ VisualStudioVersion = 17.6.33829.357
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WinForms", "WinForms.csproj", "{280DD0CB-6AF8-4418-A91E-82495ED0AF25}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "STTextBox", "..\..\..\..\..\..\Downloads\TransparentTextBox-main\TransparentTextBox-main\src\STTextBox\STTextBox.csproj", "{D12461E4-5DB3-47BF-BCEF-BBA9873DC740}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,14 @@ Global
 		{280DD0CB-6AF8-4418-A91E-82495ED0AF25}.Release|Any CPU.Build.0 = Release|Any CPU
 		{280DD0CB-6AF8-4418-A91E-82495ED0AF25}.Release|ARM64.ActiveCfg = Release|ARM64
 		{280DD0CB-6AF8-4418-A91E-82495ED0AF25}.Release|ARM64.Build.0 = Release|ARM64
+		{D12461E4-5DB3-47BF-BCEF-BBA9873DC740}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D12461E4-5DB3-47BF-BCEF-BBA9873DC740}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D12461E4-5DB3-47BF-BCEF-BBA9873DC740}.Debug|ARM64.ActiveCfg = Debug|Any CPU
+		{D12461E4-5DB3-47BF-BCEF-BBA9873DC740}.Debug|ARM64.Build.0 = Debug|Any CPU
+		{D12461E4-5DB3-47BF-BCEF-BBA9873DC740}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D12461E4-5DB3-47BF-BCEF-BBA9873DC740}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D12461E4-5DB3-47BF-BCEF-BBA9873DC740}.Release|ARM64.ActiveCfg = Release|Any CPU
+		{D12461E4-5DB3-47BF-BCEF-BBA9873DC740}.Release|ARM64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
