@@ -320,6 +320,7 @@ namespace WinForms
             toolStripButton1 = new ToolStripButton();
             toolStripButton2 = new ToolStripButton();
             toolStripButton3 = new ToolStripButton();
+            transparentTextbox1 = new TransparentTextbox();
             searchTabeLayout.SuspendLayout();
             verticalMenuBar.SuspendLayout();
             verticalTableMenu.SuspendLayout();
@@ -2003,6 +2004,7 @@ namespace WinForms
             searchLayoutTable.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 55F));
             searchLayoutTable.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             searchLayoutTable.Controls.Add(searchImg, 0, 0);
+            searchLayoutTable.Controls.Add(transparentTextbox1, 1, 0);
             searchLayoutTable.Location = new Point(3, 3);
             searchLayoutTable.Name = "searchLayoutTable";
             searchLayoutTable.RowCount = 1;
@@ -3295,6 +3297,17 @@ namespace WinForms
             toolStripButton3.Size = new Size(29, 24);
             toolStripButton3.Text = "toolStripButton3";
             // 
+            // transparentTextbox1
+            // 
+            transparentTextbox1.BackColor = Color.Transparent;
+            transparentTextbox1.Font = new Font("Exo ExtraBold", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            transparentTextbox1.ForeColor = SystemColors.Info;
+            transparentTextbox1.Location = new Point(58, 3);
+            transparentTextbox1.Name = "transparentTextbox1";
+            transparentTextbox1.PlaceholderText = "What do you want to read?";
+            transparentTextbox1.Size = new Size(542, 47);
+            transparentTextbox1.TabIndex = 1;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -3407,6 +3420,7 @@ namespace WinForms
             searchFlowPanel.PerformLayout();
             searchPanel.ResumeLayout(false);
             searchLayoutTable.ResumeLayout(false);
+            searchLayoutTable.PerformLayout();
             bestMatchPanel.ResumeLayout(false);
             bestMatchResult.ResumeLayout(false);
             bestMatchResult.PerformLayout();
@@ -3746,5 +3760,6 @@ namespace WinForms
         private GradientPanel heartGradientPanel;
         private GradientPanel libraryGradientPanel;
         private GradientPanel recentGradientPanel;
+        private TransparentTextbox transparentTextbox1;
     }
 }

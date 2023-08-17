@@ -16,18 +16,6 @@
     <Compile Update="RegistForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="STTextBox.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="STTextBox.Interface.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="STTextBox.KeyEvent.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Update="STTextBox.MouseEvent.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Update="TransparentTextbox.cs">
       <SubType>Component</SubType>
     </Compile>
