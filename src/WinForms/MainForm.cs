@@ -337,9 +337,37 @@ namespace WinForms
         {
 
         }
-        private void searchBox_GotForcus(object sender, EventArgs e)
+        private void SearchBox_GotFocus(object sender, EventArgs e)
         {
+            searchBoxContainer.GradientAngle = 250;
+            searchBox.Text = "";
+            searchBoxContainer.Invalidate();
+        }
 
+        private void SearchBox_LostFocus(object sender, EventArgs e)
+        {
+            searchBoxContainer.GradientAngle = 70;
+            if(searchBox.Text.Length <=0)
+            {
+                searchBox.Text = "What do you want to read?";
+            }
+            
+            searchBoxContainer.Invalidate();
+        }
+        private void SearchBox_Hover(object sender, EventArgs e)
+        {
+            searchBoxContainer.GradientAngle = 160;
+            searchBoxContainer.Invalidate();
+        }
+
+        private void SearchBox_MouseLeave(object sender, EventArgs e)
+        {
+            if (searchBox.Focused)
+            {
+                searchBoxContainer.GradientAngle = 250;
+            }
+            else searchBoxContainer.GradientAngle = 70;
+            searchBoxContainer.Invalidate();
         }
     }
 }

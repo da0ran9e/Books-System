@@ -63,6 +63,7 @@ namespace WinForms
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            //SingleTextView singleTextView2 = new TSkin.ST.SingleTextView();
             searchTabeLayout = new TableLayoutPanel();
             verticalMenuBar = new FlowLayoutPanel();
             userLabel = new Label();
@@ -88,7 +89,7 @@ namespace WinForms
             aboutAuthor = new Label();
             authorDesLabel = new Label();
             categoryLabel = new Label();
-            flowLayoutPanel21 = new FlowLayoutPanel();
+            category0 = new FlowLayoutPanel();
             tableLayoutPanel1 = new TableLayoutPanel();
             label39 = new Label();
             label76 = new Label();
@@ -197,8 +198,9 @@ namespace WinForms
             searchFlowPanel = new FlowLayoutPanel();
             searchPanel = new FlowLayoutPanel();
             searchLayoutTable = new TableLayoutPanel();
-            searchImg = new Label();
+            searchBoxContainer = new GradientPanel();
             searchBox = new TSkin.ST.STTextBox();
+            searchImg = new Label();
             bestMatchPanel = new FlowLayoutPanel();
             bestMatchLabel = new Label();
             bestMatchResult = new FlowLayoutPanel();
@@ -321,7 +323,6 @@ namespace WinForms
             toolStripButton1 = new ToolStripButton();
             toolStripButton2 = new ToolStripButton();
             toolStripButton3 = new ToolStripButton();
-            searchBoxContainer = new GradientPanel();
             searchTabeLayout.SuspendLayout();
             verticalMenuBar.SuspendLayout();
             verticalTableMenu.SuspendLayout();
@@ -332,7 +333,7 @@ namespace WinForms
             recentGradientPanel.SuspendLayout();
             contentPanel.SuspendLayout();
             contentContainer.SuspendLayout();
-            flowLayoutPanel21.SuspendLayout();
+            category0.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             flowLayoutPanel40.SuspendLayout();
             tableLayoutPanel39.SuspendLayout();
@@ -389,6 +390,7 @@ namespace WinForms
             searchFlowPanel.SuspendLayout();
             searchPanel.SuspendLayout();
             searchLayoutTable.SuspendLayout();
+            searchBoxContainer.SuspendLayout();
             bestMatchPanel.SuspendLayout();
             bestMatchResult.SuspendLayout();
             bestMatchTableLayout.SuspendLayout();
@@ -439,7 +441,6 @@ namespace WinForms
             tableLayoutPanel5.SuspendLayout();
             tableLayoutPanel40.SuspendLayout();
             toolStrip1.SuspendLayout();
-            searchBoxContainer.SuspendLayout();
             SuspendLayout();
             // 
             // searchTabeLayout
@@ -454,7 +455,7 @@ namespace WinForms
             searchTabeLayout.Controls.Add(mainFlowPanel, 1, 0);
             searchTabeLayout.Dock = DockStyle.Fill;
             searchTabeLayout.Location = new Point(0, 0);
-            searchTabeLayout.Margin = new Padding(3, 30, 3, 3);
+            searchTabeLayout.Margin = new Padding(0, 500, 0, 0);
             searchTabeLayout.Name = "searchTabeLayout";
             searchTabeLayout.RowCount = 2;
             searchTabeLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
@@ -468,9 +469,10 @@ namespace WinForms
             verticalMenuBar.Controls.Add(verticalTableMenu);
             verticalMenuBar.Dock = DockStyle.Fill;
             verticalMenuBar.FlowDirection = FlowDirection.TopDown;
-            verticalMenuBar.Location = new Point(1183, 3);
+            verticalMenuBar.Location = new Point(1180, 0);
+            verticalMenuBar.Margin = new Padding(0);
             verticalMenuBar.Name = "verticalMenuBar";
-            verticalMenuBar.Size = new Size(94, 740);
+            verticalMenuBar.Size = new Size(100, 746);
             verticalMenuBar.TabIndex = 1;
             verticalMenuBar.WrapContents = false;
             verticalMenuBar.Paint += verticalMenuBar_Paint;
@@ -685,10 +687,11 @@ namespace WinForms
             contentContainer.Controls.Add(aboutAuthor);
             contentContainer.Controls.Add(authorDesLabel);
             contentContainer.Controls.Add(categoryLabel);
-            contentContainer.Controls.Add(flowLayoutPanel21);
-            contentContainer.Location = new Point(3, 3);
+            contentContainer.Controls.Add(category0);
+            contentContainer.Location = new Point(0, 0);
+            contentContainer.Margin = new Padding(0);
             contentContainer.Name = "contentContainer";
-            contentContainer.Size = new Size(421, 765);
+            contentContainer.Size = new Size(450, 762);
             contentContainer.TabIndex = 0;
             contentContainer.Paint += contentContainer_Paint;
             // 
@@ -783,14 +786,15 @@ namespace WinForms
             categoryLabel.TabIndex = 6;
             categoryLabel.Text = "Publisher's category";
             // 
-            // flowLayoutPanel21
+            // category0
             // 
-            flowLayoutPanel21.Controls.Add(tableLayoutPanel1);
-            flowLayoutPanel21.Controls.Add(flowLayoutPanel40);
-            flowLayoutPanel21.Location = new Point(3, 685);
-            flowLayoutPanel21.Name = "flowLayoutPanel21";
-            flowLayoutPanel21.Size = new Size(352, 88);
-            flowLayoutPanel21.TabIndex = 7;
+            category0.Controls.Add(tableLayoutPanel1);
+            category0.Controls.Add(flowLayoutPanel40);
+            category0.Location = new Point(3, 685);
+            category0.Margin = new Padding(3, 3, 3, 15);
+            category0.Name = "category0";
+            category0.Size = new Size(352, 88);
+            category0.TabIndex = 7;
             // 
             // tableLayoutPanel1
             // 
@@ -876,9 +880,10 @@ namespace WinForms
             mainFlowPanel.Controls.Add(homeFlowPanel);
             mainFlowPanel.Controls.Add(searchFlowPanel);
             mainFlowPanel.Dock = DockStyle.Fill;
-            mainFlowPanel.Location = new Point(433, 3);
+            mainFlowPanel.Location = new Point(430, 0);
+            mainFlowPanel.Margin = new Padding(0);
             mainFlowPanel.Name = "mainFlowPanel";
-            mainFlowPanel.Size = new Size(744, 740);
+            mainFlowPanel.Size = new Size(750, 746);
             mainFlowPanel.TabIndex = 4;
             mainFlowPanel.Paint += mainFlowPanel_Paint;
             // 
@@ -890,7 +895,8 @@ namespace WinForms
             homeFlowPanel.Controls.Add(recommentPanel);
             homeFlowPanel.Controls.Add(recentPanel);
             homeFlowPanel.Controls.Add(bestBookPanel);
-            homeFlowPanel.Location = new Point(3, 3);
+            homeFlowPanel.Location = new Point(0, 0);
+            homeFlowPanel.Margin = new Padding(0);
             homeFlowPanel.Name = "homeFlowPanel";
             homeFlowPanel.Size = new Size(767, 765);
             homeFlowPanel.TabIndex = 0;
@@ -905,8 +911,8 @@ namespace WinForms
             helloPanel.Controls.Add(helloElement2);
             helloPanel.Controls.Add(helloElement3);
             homeFlowPanel.SetFlowBreak(helloPanel, true);
-            helloPanel.Location = new Point(3, 30);
-            helloPanel.Margin = new Padding(3, 30, 3, 30);
+            helloPanel.Location = new Point(0, 27);
+            helloPanel.Margin = new Padding(0, 27, 0, 0);
             helloPanel.Name = "helloPanel";
             helloPanel.Size = new Size(741, 270);
             helloPanel.TabIndex = 0;
@@ -1121,7 +1127,7 @@ namespace WinForms
             recommentPanel.Controls.Add(flowLayoutPanel24);
             recommentPanel.Controls.Add(flowLayoutPanel26);
             homeFlowPanel.SetFlowBreak(recommentPanel, true);
-            recommentPanel.Location = new Point(3, 333);
+            recommentPanel.Location = new Point(3, 300);
             recommentPanel.Margin = new Padding(3, 3, 3, 30);
             recommentPanel.Name = "recommentPanel";
             recommentPanel.Size = new Size(741, 270);
@@ -1409,7 +1415,7 @@ namespace WinForms
             recentPanel.Controls.Add(flowLayoutPanel30);
             recentPanel.Controls.Add(flowLayoutPanel32);
             homeFlowPanel.SetFlowBreak(recentPanel, true);
-            recentPanel.Location = new Point(3, 636);
+            recentPanel.Location = new Point(3, 603);
             recentPanel.Margin = new Padding(3, 3, 3, 30);
             recentPanel.Name = "recentPanel";
             recentPanel.Size = new Size(741, 270);
@@ -1696,7 +1702,7 @@ namespace WinForms
             bestBookPanel.Controls.Add(flowLayoutPanel36);
             bestBookPanel.Controls.Add(flowLayoutPanel38);
             homeFlowPanel.SetFlowBreak(bestBookPanel, true);
-            bestBookPanel.Location = new Point(3, 939);
+            bestBookPanel.Location = new Point(3, 906);
             bestBookPanel.Margin = new Padding(3, 3, 3, 30);
             bestBookPanel.Name = "bestBookPanel";
             bestBookPanel.Size = new Size(741, 270);
@@ -1981,7 +1987,8 @@ namespace WinForms
             searchFlowPanel.Controls.Add(searchPanel);
             searchFlowPanel.Controls.Add(bestMatchPanel);
             searchFlowPanel.Controls.Add(flowLayoutPanel61);
-            searchFlowPanel.Location = new Point(3, 774);
+            searchFlowPanel.Location = new Point(0, 792);
+            searchFlowPanel.Margin = new Padding(0, 27, 0, 0);
             searchFlowPanel.Name = "searchFlowPanel";
             searchFlowPanel.Size = new Size(767, 765);
             searchFlowPanel.TabIndex = 1;
@@ -2014,15 +2021,18 @@ namespace WinForms
             searchLayoutTable.Size = new Size(615, 55);
             searchLayoutTable.TabIndex = 5;
             // 
-            // searchImg
+            // searchBoxContainer
             // 
-            searchImg.Font = new Font("Exo ExtraBold", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point);
-            searchImg.ForeColor = SystemColors.ControlLightLight;
-            searchImg.Image = (Image)resources.GetObject("searchImg.Image");
-            searchImg.Location = new Point(3, 0);
-            searchImg.Name = "searchImg";
-            searchImg.Size = new Size(49, 55);
-            searchImg.TabIndex = 0;
+            searchBoxContainer.Controls.Add(searchBox);
+            searchBoxContainer.Dock = DockStyle.Fill;
+            searchBoxContainer.GradientAngle = 70F;
+            searchBoxContainer.GradientPrimaryColor = ColorTranslator.FromHtml("#ff1c6b");
+            searchBoxContainer.GradientSecondaryColor = Color.Transparent;
+            searchBoxContainer.Location = new Point(55, 0);
+            searchBoxContainer.Margin = new Padding(0);
+            searchBoxContainer.Name = "searchBoxContainer";
+            searchBoxContainer.Size = new Size(560, 55);
+            searchBoxContainer.TabIndex = 2;
             // 
             // searchBox
             // 
@@ -2032,12 +2042,25 @@ namespace WinForms
             searchBox.Location = new Point(0, 0);
             searchBox.Margin = new Padding(0);
             searchBox.Name = "searchBox";
+            //searchBox.SetTextView = singleTextView2;
             searchBox.Size = new Size(560, 55);
             searchBox.TabIndex = 5;
             searchBox.Text = "What do you want to read?";
             searchBox.Paint += searchBox_Paint;
             searchBox.GotFocus += SearchBox_GotFocus;
             searchBox.LostFocus += SearchBox_LostFocus;
+            searchBox.MouseHover += SearchBox_Hover;
+            searchBox.MouseLeave += SearchBox_MouseLeave;
+            // 
+            // searchImg
+            // 
+            searchImg.Font = new Font("Exo ExtraBold", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point);
+            searchImg.ForeColor = SystemColors.ControlLightLight;
+            searchImg.Image = (Image)resources.GetObject("searchImg.Image");
+            searchImg.Location = new Point(3, 0);
+            searchImg.Name = "searchImg";
+            searchImg.Size = new Size(49, 55);
+            searchImg.TabIndex = 0;
             // 
             // bestMatchPanel
             // 
@@ -3314,19 +3337,6 @@ namespace WinForms
             toolStripButton3.Size = new Size(29, 24);
             toolStripButton3.Text = "toolStripButton3";
             // 
-            // searchBoxContainer
-            // 
-            searchBoxContainer.Controls.Add(searchBox);
-            searchBoxContainer.Dock = DockStyle.Fill;
-            searchBoxContainer.GradientAngle = 70F;
-            searchBoxContainer.GradientPrimaryColor = Color.DeepPink;
-            searchBoxContainer.GradientSecondaryColor = Color.Transparent;
-            searchBoxContainer.Location = new Point(55, 0);
-            searchBoxContainer.Margin = new Padding(0);
-            searchBoxContainer.Name = "searchBoxContainer";
-            searchBoxContainer.Size = new Size(560, 55);
-            searchBoxContainer.TabIndex = 2;
-            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -3356,8 +3366,8 @@ namespace WinForms
             contentPanel.ResumeLayout(false);
             contentContainer.ResumeLayout(false);
             contentContainer.PerformLayout();
-            flowLayoutPanel21.ResumeLayout(false);
-            flowLayoutPanel21.PerformLayout();
+            category0.ResumeLayout(false);
+            category0.PerformLayout();
             tableLayoutPanel1.ResumeLayout(false);
             flowLayoutPanel40.ResumeLayout(false);
             flowLayoutPanel40.PerformLayout();
@@ -3439,6 +3449,7 @@ namespace WinForms
             searchFlowPanel.PerformLayout();
             searchPanel.ResumeLayout(false);
             searchLayoutTable.ResumeLayout(false);
+            searchBoxContainer.ResumeLayout(false);
             bestMatchPanel.ResumeLayout(false);
             bestMatchResult.ResumeLayout(false);
             bestMatchResult.PerformLayout();
@@ -3509,19 +3520,8 @@ namespace WinForms
             tableLayoutPanel40.ResumeLayout(false);
             toolStrip1.ResumeLayout(false);
             toolStrip1.PerformLayout();
-            searchBoxContainer.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
-        }
-
-        private void SearchBox_LostFocus(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void SearchBox_GotFocus(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
         }
 
         private void FlowLayoutPanel1_Scroll(object sender, ScrollEventArgs e)
@@ -3739,7 +3739,7 @@ namespace WinForms
         private Label aboutAuthor;
         private Label authorDesLabel;
         private Label categoryLabel;
-        private FlowLayoutPanel flowLayoutPanel21;
+        private FlowLayoutPanel category0;
         private TableLayoutPanel tableLayoutPanel1;
         private Label label39;
         private Label label76;
