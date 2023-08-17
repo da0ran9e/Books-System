@@ -347,11 +347,11 @@ namespace WinForms
         private void SearchBox_LostFocus(object sender, EventArgs e)
         {
             searchBoxContainer.GradientAngle = 70;
-            if(searchBox.Text.Length <=0)
+            if (searchBox.Text.Length <= 0)
             {
                 searchBox.Text = "What do you want to read?";
             }
-            
+
             searchBoxContainer.Invalidate();
         }
         private void SearchBox_Hover(object sender, EventArgs e)

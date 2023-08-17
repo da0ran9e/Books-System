@@ -62,8 +62,8 @@ namespace WinForms
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            SingleTextView singleTextView2 = new TSkin.ST.SingleTextView();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            //SingleTextView singleTextView2 = new TSkin.ST.SingleTextView();
             searchTabeLayout = new TableLayoutPanel();
             verticalMenuBar = new FlowLayoutPanel();
             userLabel = new Label();
@@ -323,6 +323,14 @@ namespace WinForms
             toolStripButton1 = new ToolStripButton();
             toolStripButton2 = new ToolStripButton();
             toolStripButton3 = new ToolStripButton();
+            currentPanel = new Panel();
+            currentLabel = new Label();
+            currentProperties = new GradientPanel();
+            tableLayoutPanel2 = new TableLayoutPanel();
+            currentBookPanel = new FlowLayoutPanel();
+            currentBookTitle = new Label();
+            currentBookAuthor = new Label();
+            currentBookRate = new Label();
             searchTabeLayout.SuspendLayout();
             verticalMenuBar.SuspendLayout();
             verticalTableMenu.SuspendLayout();
@@ -441,6 +449,10 @@ namespace WinForms
             tableLayoutPanel5.SuspendLayout();
             tableLayoutPanel40.SuspendLayout();
             toolStrip1.SuspendLayout();
+            currentPanel.SuspendLayout();
+            currentProperties.SuspendLayout();
+            tableLayoutPanel2.SuspendLayout();
+            currentBookPanel.SuspendLayout();
             SuspendLayout();
             // 
             // searchTabeLayout
@@ -453,6 +465,8 @@ namespace WinForms
             searchTabeLayout.Controls.Add(verticalMenuBar, 2, 0);
             searchTabeLayout.Controls.Add(contentPanel, 0, 0);
             searchTabeLayout.Controls.Add(mainFlowPanel, 1, 0);
+            searchTabeLayout.Controls.Add(currentPanel, 2, 1);
+            searchTabeLayout.Controls.Add(currentProperties, 1, 1);
             searchTabeLayout.Dock = DockStyle.Fill;
             searchTabeLayout.Location = new Point(0, 0);
             searchTabeLayout.Margin = new Padding(0, 500, 0, 0);
@@ -2026,7 +2040,7 @@ namespace WinForms
             searchBoxContainer.Controls.Add(searchBox);
             searchBoxContainer.Dock = DockStyle.Fill;
             searchBoxContainer.GradientAngle = 70F;
-            searchBoxContainer.GradientPrimaryColor = ColorTranslator.FromHtml("#ff1c6b");
+            searchBoxContainer.GradientPrimaryColor = Color.FromArgb(255, 28, 107);
             searchBoxContainer.GradientSecondaryColor = Color.Transparent;
             searchBoxContainer.Location = new Point(55, 0);
             searchBoxContainer.Margin = new Padding(0);
@@ -2042,15 +2056,15 @@ namespace WinForms
             searchBox.Location = new Point(0, 0);
             searchBox.Margin = new Padding(0);
             searchBox.Name = "searchBox";
-            //searchBox.SetTextView = singleTextView2;
+            searchBox.SetTextView = singleTextView2;
             searchBox.Size = new Size(560, 55);
             searchBox.TabIndex = 5;
             searchBox.Text = "What do you want to read?";
             searchBox.Paint += searchBox_Paint;
             searchBox.GotFocus += SearchBox_GotFocus;
             searchBox.LostFocus += SearchBox_LostFocus;
-            searchBox.MouseHover += SearchBox_Hover;
             searchBox.MouseLeave += SearchBox_MouseLeave;
+            searchBox.MouseHover += SearchBox_Hover;
             // 
             // searchImg
             // 
@@ -3337,6 +3351,100 @@ namespace WinForms
             toolStripButton3.Size = new Size(29, 24);
             toolStripButton3.Text = "toolStripButton3";
             // 
+            // currentPanel
+            // 
+            currentPanel.BackColor = Color.Gainsboro;
+            currentPanel.Controls.Add(currentLabel);
+            currentPanel.Location = new Point(1180, 746);
+            currentPanel.Margin = new Padding(0);
+            currentPanel.Name = "currentPanel";
+            currentPanel.Size = new Size(100, 100);
+            currentPanel.TabIndex = 5;
+            // 
+            // currentLabel
+            // 
+            currentLabel.Dock = DockStyle.Fill;
+            currentLabel.Image = (Image)resources.GetObject("currentLabel.Image");
+            currentLabel.Location = new Point(0, 0);
+            currentLabel.Name = "currentLabel";
+            currentLabel.Size = new Size(100, 100);
+            currentLabel.TabIndex = 0;
+            // 
+            // currentProperties
+            // 
+            currentProperties.Controls.Add(tableLayoutPanel2);
+            currentProperties.Dock = DockStyle.Fill;
+            currentProperties.GradientAngle = 180F;
+            currentProperties.GradientPrimaryColor = Color.White;
+            currentProperties.GradientSecondaryColor = Color.Empty;
+            currentProperties.Location = new Point(430, 746);
+            currentProperties.Margin = new Padding(0);
+            currentProperties.Name = "currentProperties";
+            currentProperties.Size = new Size(750, 100);
+            currentProperties.TabIndex = 6;
+            // 
+            // tableLayoutPanel2
+            // 
+            tableLayoutPanel2.ColumnCount = 3;
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 100F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel2.Controls.Add(currentBookPanel, 2, 0);
+            tableLayoutPanel2.Dock = DockStyle.Fill;
+            tableLayoutPanel2.Location = new Point(0, 0);
+            tableLayoutPanel2.Margin = new Padding(0);
+            tableLayoutPanel2.Name = "tableLayoutPanel2";
+            tableLayoutPanel2.RowCount = 1;
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel2.Size = new Size(750, 100);
+            tableLayoutPanel2.TabIndex = 0;
+            // 
+            // currentBookPanel
+            // 
+            currentBookPanel.Controls.Add(currentBookTitle);
+            currentBookPanel.Controls.Add(currentBookAuthor);
+            currentBookPanel.Controls.Add(currentBookRate);
+            currentBookPanel.Dock = DockStyle.Fill;
+            currentBookPanel.FlowDirection = FlowDirection.RightToLeft;
+            currentBookPanel.Location = new Point(425, 0);
+            currentBookPanel.Margin = new Padding(0);
+            currentBookPanel.Name = "currentBookPanel";
+            currentBookPanel.Size = new Size(325, 100);
+            currentBookPanel.TabIndex = 0;
+            // 
+            // currentBookTitle
+            // 
+            currentBookTitle.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
+            currentBookTitle.AutoSize = true;
+            currentBookPanel.SetFlowBreak(currentBookTitle, true);
+            currentBookTitle.Font = new Font("Exo ExtraBold", 10.7999992F, FontStyle.Bold, GraphicsUnit.Point);
+            currentBookTitle.Location = new Point(229, 0);
+            currentBookTitle.Name = "currentBookTitle";
+            currentBookTitle.Size = new Size(93, 25);
+            currentBookTitle.TabIndex = 0;
+            currentBookTitle.Text = "Book title";
+            // 
+            // currentBookAuthor
+            // 
+            currentBookAuthor.AutoSize = true;
+            currentBookPanel.SetFlowBreak(currentBookAuthor, true);
+            currentBookAuthor.Font = new Font("Exo ExtraBold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            currentBookAuthor.Location = new Point(222, 25);
+            currentBookAuthor.Name = "currentBookAuthor";
+            currentBookAuthor.Size = new Size(100, 21);
+            currentBookAuthor.TabIndex = 1;
+            currentBookAuthor.Text = "Book Author";
+            // 
+            // currentBookRate
+            // 
+            currentBookRate.Font = new Font("Exo ExtraBold", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            currentBookRate.Image = (Image)resources.GetObject("currentBookRate.Image");
+            currentBookRate.Location = new Point(222, 50);
+            currentBookRate.Name = "currentBookRate";
+            currentBookRate.Size = new Size(100, 25);
+            currentBookRate.TabIndex = 2;
+            currentBookRate.Text = "3.0";
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -3520,6 +3628,11 @@ namespace WinForms
             tableLayoutPanel40.ResumeLayout(false);
             toolStrip1.ResumeLayout(false);
             toolStrip1.PerformLayout();
+            currentPanel.ResumeLayout(false);
+            currentProperties.ResumeLayout(false);
+            tableLayoutPanel2.ResumeLayout(false);
+            currentBookPanel.ResumeLayout(false);
+            currentBookPanel.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -3792,5 +3905,13 @@ namespace WinForms
         private TransparentTextbox transparentTextbox1;
         private TSkin.ST.STTextBox searchBox;
         private GradientPanel searchBoxContainer;
+        private Panel currentPanel;
+        private Label currentLabel;
+        private GradientPanel currentProperties;
+        private TableLayoutPanel tableLayoutPanel2;
+        private FlowLayoutPanel currentBookPanel;
+        private Label currentBookTitle;
+        private Label currentBookAuthor;
+        private Label currentBookRate;
     }
 }
