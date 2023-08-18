@@ -64,9 +64,10 @@ namespace WinForms
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            //SingleTextView singleTextView1 = new TSkin.ST.SingleTextView();
+            
             searchTabeLayout = new TableLayoutPanel();
             verticalMenuBar = new FlowLayoutPanel();
+            userLabel = new Label();
             verticalTableMenu = new TableLayoutPanel();
             bottomBlank = new GradientPanel();
             topBlank = new GradientPanel();
@@ -344,8 +345,6 @@ namespace WinForms
             heartOption = new Label();
             textToSpeech = new Label();
             brightness = new Label();
-            forward = new Label();
-            bookmark = new Label();
             flowLayoutPanel2 = new FlowLayoutPanel();
             tableLayoutPanel3 = new TableLayoutPanel();
             label3 = new Label();
@@ -432,12 +431,11 @@ namespace WinForms
             toolStripButton1 = new ToolStripButton();
             toolStripButton2 = new ToolStripButton();
             toolStripButton3 = new ToolStripButton();
-            rjButton1 = new RJButton();
-            rjButton2 = new RJButton();
+            forward = new Label();
+            bookmark = new Label();
             searchTabeLayout.SuspendLayout();
             verticalMenuBar.SuspendLayout();
             verticalTableMenu.SuspendLayout();
-            bottomBlank.SuspendLayout();
             homeGradientPanel.SuspendLayout();
             searchGradientPanel.SuspendLayout();
             heartGradientPanel.SuspendLayout();
@@ -633,6 +631,7 @@ namespace WinForms
             // 
             // verticalMenuBar
             // 
+            verticalMenuBar.Controls.Add(userLabel);
             verticalMenuBar.Controls.Add(verticalTableMenu);
             verticalMenuBar.Dock = DockStyle.Fill;
             verticalMenuBar.FlowDirection = FlowDirection.TopDown;
@@ -643,6 +642,17 @@ namespace WinForms
             verticalMenuBar.TabIndex = 1;
             verticalMenuBar.WrapContents = false;
             verticalMenuBar.Paint += verticalMenuBar_Paint;
+            // 
+            // userLabel
+            // 
+            userLabel.BackColor = Color.DimGray;
+            userLabel.Image = (Image)resources.GetObject("userLabel.Image");
+            userLabel.Location = new Point(0, 30);
+            userLabel.Margin = new Padding(0, 30, 0, 0);
+            userLabel.Name = "userLabel";
+            userLabel.Size = new Size(90, 90);
+            userLabel.TabIndex = 0;
+            toolTip1.SetToolTip(userLabel, "user");
             // 
             // verticalTableMenu
             // 
@@ -656,7 +666,7 @@ namespace WinForms
             verticalTableMenu.Controls.Add(libraryGradientPanel, 0, 4);
             verticalTableMenu.Controls.Add(recentGradientPanel, 0, 5);
             verticalTableMenu.Dock = DockStyle.Bottom;
-            verticalTableMenu.Location = new Point(0, 0);
+            verticalTableMenu.Location = new Point(0, 120);
             verticalTableMenu.Margin = new Padding(0);
             verticalTableMenu.Name = "verticalTableMenu";
             verticalTableMenu.RowCount = 7;
@@ -668,12 +678,11 @@ namespace WinForms
             verticalTableMenu.RowStyles.Add(new RowStyle(SizeType.Absolute, 71F));
             verticalTableMenu.RowStyles.Add(new RowStyle(SizeType.Absolute, 200F));
             verticalTableMenu.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            verticalTableMenu.Size = new Size(0, 635);
+            verticalTableMenu.Size = new Size(90, 635);
             verticalTableMenu.TabIndex = 1;
             // 
             // bottomBlank
             // 
-            bottomBlank.Controls.Add(rjButton2);
             bottomBlank.Dock = DockStyle.Fill;
             bottomBlank.GradientAngle = 90F;
             bottomBlank.GradientPrimaryColor = Color.White;
@@ -681,7 +690,7 @@ namespace WinForms
             bottomBlank.Location = new Point(0, 405);
             bottomBlank.Margin = new Padding(0);
             bottomBlank.Name = "bottomBlank";
-            bottomBlank.Size = new Size(1, 230);
+            bottomBlank.Size = new Size(90, 230);
             bottomBlank.TabIndex = 6;
             // 
             // topBlank
@@ -693,7 +702,7 @@ namespace WinForms
             topBlank.Location = new Point(0, 0);
             topBlank.Margin = new Padding(0);
             topBlank.Name = "topBlank";
-            topBlank.Size = new Size(1, 50);
+            topBlank.Size = new Size(90, 50);
             topBlank.TabIndex = 7;
             // 
             // homeGradientPanel
@@ -706,7 +715,7 @@ namespace WinForms
             homeGradientPanel.Location = new Point(0, 50);
             homeGradientPanel.Margin = new Padding(0);
             homeGradientPanel.Name = "homeGradientPanel";
-            homeGradientPanel.Size = new Size(1, 71);
+            homeGradientPanel.Size = new Size(90, 71);
             homeGradientPanel.TabIndex = 8;
             // 
             // homeLabel
@@ -716,7 +725,7 @@ namespace WinForms
             homeLabel.Location = new Point(0, 0);
             homeLabel.Margin = new Padding(0);
             homeLabel.Name = "homeLabel";
-            homeLabel.Size = new Size(1, 71);
+            homeLabel.Size = new Size(90, 71);
             homeLabel.TabIndex = 3;
             toolTip1.SetToolTip(homeLabel, "Home");
             homeLabel.Click += homeLabel_Click;
@@ -731,7 +740,7 @@ namespace WinForms
             searchGradientPanel.Location = new Point(0, 121);
             searchGradientPanel.Margin = new Padding(0);
             searchGradientPanel.Name = "searchGradientPanel";
-            searchGradientPanel.Size = new Size(1, 71);
+            searchGradientPanel.Size = new Size(90, 71);
             searchGradientPanel.TabIndex = 9;
             // 
             // searchLabel
@@ -741,7 +750,7 @@ namespace WinForms
             searchLabel.Location = new Point(0, 0);
             searchLabel.Margin = new Padding(0);
             searchLabel.Name = "searchLabel";
-            searchLabel.Size = new Size(1, 71);
+            searchLabel.Size = new Size(90, 71);
             searchLabel.TabIndex = 1;
             searchLabel.Click += searchLabel_Click;
             // 
@@ -755,7 +764,7 @@ namespace WinForms
             heartGradientPanel.Location = new Point(0, 192);
             heartGradientPanel.Margin = new Padding(0);
             heartGradientPanel.Name = "heartGradientPanel";
-            heartGradientPanel.Size = new Size(1, 71);
+            heartGradientPanel.Size = new Size(90, 71);
             heartGradientPanel.TabIndex = 10;
             // 
             // heartLabel
@@ -766,7 +775,7 @@ namespace WinForms
             heartLabel.Location = new Point(0, 0);
             heartLabel.Margin = new Padding(0);
             heartLabel.Name = "heartLabel";
-            heartLabel.Size = new Size(1, 71);
+            heartLabel.Size = new Size(90, 71);
             heartLabel.TabIndex = 2;
             heartLabel.Click += heartLabel_Click;
             // 
@@ -780,7 +789,7 @@ namespace WinForms
             libraryGradientPanel.Location = new Point(0, 263);
             libraryGradientPanel.Margin = new Padding(0);
             libraryGradientPanel.Name = "libraryGradientPanel";
-            libraryGradientPanel.Size = new Size(1, 71);
+            libraryGradientPanel.Size = new Size(90, 71);
             libraryGradientPanel.TabIndex = 11;
             // 
             // librariesLabel
@@ -791,7 +800,7 @@ namespace WinForms
             librariesLabel.Location = new Point(0, 0);
             librariesLabel.Margin = new Padding(0);
             librariesLabel.Name = "librariesLabel";
-            librariesLabel.Size = new Size(1, 71);
+            librariesLabel.Size = new Size(90, 71);
             librariesLabel.TabIndex = 4;
             librariesLabel.Click += librariesLabel_Click;
             // 
@@ -805,7 +814,7 @@ namespace WinForms
             recentGradientPanel.Location = new Point(0, 334);
             recentGradientPanel.Margin = new Padding(0);
             recentGradientPanel.Name = "recentGradientPanel";
-            recentGradientPanel.Size = new Size(1, 71);
+            recentGradientPanel.Size = new Size(90, 71);
             recentGradientPanel.TabIndex = 12;
             // 
             // recentLabel
@@ -816,7 +825,7 @@ namespace WinForms
             recentLabel.Location = new Point(0, 0);
             recentLabel.Margin = new Padding(0);
             recentLabel.Name = "recentLabel";
-            recentLabel.Size = new Size(1, 71);
+            recentLabel.Size = new Size(90, 71);
             recentLabel.TabIndex = 5;
             recentLabel.Click += recentLabel_Click;
             // 
@@ -3982,7 +3991,6 @@ namespace WinForms
             optionsFlowPanel.Controls.Add(brightness);
             optionsFlowPanel.Controls.Add(forward);
             optionsFlowPanel.Controls.Add(bookmark);
-            optionsFlowPanel.Controls.Add(rjButton1);
             optionsFlowPanel.Dock = DockStyle.Fill;
             optionsFlowPanel.FlowDirection = FlowDirection.RightToLeft;
             optionsFlowPanel.Location = new Point(0, 0);
@@ -4018,26 +4026,6 @@ namespace WinForms
             brightness.Name = "brightness";
             brightness.Size = new Size(47, 41);
             brightness.TabIndex = 2;
-            // 
-            // forward
-            // 
-            forward.Enabled = false;
-            forward.Image = (Image)resources.GetObject("forward.Image");
-            forward.Location = new Point(177, 30);
-            forward.Margin = new Padding(15, 30, 0, 30);
-            forward.Name = "forward";
-            forward.Size = new Size(47, 41);
-            forward.TabIndex = 3;
-            // 
-            // bookmark
-            // 
-            bookmark.Enabled = false;
-            bookmark.Image = (Image)resources.GetObject("bookmark.Image");
-            bookmark.Location = new Point(115, 30);
-            bookmark.Margin = new Padding(15, 30, 0, 30);
-            bookmark.Name = "bookmark";
-            bookmark.Size = new Size(47, 41);
-            bookmark.TabIndex = 4;
             // 
             // flowLayoutPanel2
             // 
@@ -4915,41 +4903,25 @@ namespace WinForms
             toolStripButton3.Size = new Size(29, 24);
             toolStripButton3.Text = "toolStripButton3";
             // 
-            // rjButton1
+            // forward
             // 
-            rjButton1.BackColor = Color.MediumSlateBlue;
-            rjButton1.BackgroundColor = Color.MediumSlateBlue;
-            rjButton1.BorderColor = Color.PaleVioletRed;
-            rjButton1.BorderRadius = 30;
-            rjButton1.BorderSize = 0;
-            rjButton1.FlatAppearance.BorderSize = 0;
-            rjButton1.FlatStyle = FlatStyle.Flat;
-            rjButton1.ForeColor = Color.White;
-            rjButton1.Location = new Point(39, 3);
-            rjButton1.Name = "rjButton1";
-            rjButton1.Size = new Size(58, 57);
-            rjButton1.TabIndex = 5;
-            rjButton1.Text = "rjButton1";
-            rjButton1.TextColor = Color.White;
-            rjButton1.UseVisualStyleBackColor = false;
+            forward.Enabled = false;
+            forward.Image = (Image)resources.GetObject("forward.Image");
+            forward.Location = new Point(177, 30);
+            forward.Margin = new Padding(15, 30, 0, 30);
+            forward.Name = "forward";
+            forward.Size = new Size(47, 41);
+            forward.TabIndex = 3;
             // 
-            // rjButton2
+            // bookmark
             // 
-            rjButton2.BackColor = Color.DimGray;
-            rjButton2.BackgroundColor = Color.DimGray;
-            rjButton2.BorderColor = Color.PaleVioletRed;
-            rjButton2.BorderRadius = 45;
-            rjButton2.BorderSize = 0;
-            rjButton2.FlatAppearance.BorderSize = 0;
-            rjButton2.FlatStyle = FlatStyle.Flat;
-            rjButton2.ForeColor = Color.White;
-            rjButton2.Location = new Point(0, 27);
-            rjButton2.Name = "rjButton2";
-            rjButton2.Size = new Size(94, 89);
-            rjButton2.TabIndex = 6;
-            rjButton2.Text = "rjButton2";
-            rjButton2.TextColor = Color.White;
-            rjButton2.UseVisualStyleBackColor = false;
+            bookmark.Enabled = false;
+            bookmark.Image = (Image)resources.GetObject("bookmark.Image");
+            bookmark.Location = new Point(115, 30);
+            bookmark.Margin = new Padding(15, 30, 0, 30);
+            bookmark.Name = "bookmark";
+            bookmark.Size = new Size(47, 41);
+            bookmark.TabIndex = 4;
             // 
             // MainForm
             // 
@@ -4970,7 +4942,6 @@ namespace WinForms
             searchTabeLayout.ResumeLayout(false);
             verticalMenuBar.ResumeLayout(false);
             verticalTableMenu.ResumeLayout(false);
-            bottomBlank.ResumeLayout(false);
             homeGradientPanel.ResumeLayout(false);
             searchGradientPanel.ResumeLayout(false);
             heartGradientPanel.ResumeLayout(false);
@@ -5247,6 +5218,7 @@ namespace WinForms
 
 
         private TableLayoutPanel searchTabeLayout;
+        private Label userLabel;
         private FlowLayoutPanel verticalMenuBar;
         private Label searchLabel;
         private Label heartLabel;
@@ -5614,7 +5586,5 @@ namespace WinForms
         private Label label119;
         private Label forward;
         private Label bookmark;
-        private RJButton rjButton1;
-        private RJButton rjButton2;
     }
 }
