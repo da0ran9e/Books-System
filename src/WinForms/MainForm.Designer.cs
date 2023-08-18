@@ -64,7 +64,7 @@ namespace WinForms
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            SingleTextView singleTextView1 = new TSkin.ST.SingleTextView();
+            
             searchTabeLayout = new TableLayoutPanel();
             verticalMenuBar = new FlowLayoutPanel();
             userLabel = new Label();
@@ -432,6 +432,7 @@ namespace WinForms
             toolStripButton2 = new ToolStripButton();
             toolStripButton3 = new ToolStripButton();
             forward = new Label();
+            bookmark = new Label();
             searchTabeLayout.SuspendLayout();
             verticalMenuBar.SuspendLayout();
             verticalTableMenu.SuspendLayout();
@@ -2383,7 +2384,7 @@ namespace WinForms
             searchBox.Location = new Point(0, 0);
             searchBox.Margin = new Padding(0);
             searchBox.Name = "searchBox";
-            searchBox.SetTextView = singleTextView1;
+            //searchBox.SetTextView = singleTextView1;
             searchBox.Size = new Size(560, 55);
             searchBox.TabIndex = 5;
             searchBox.Text = "What do you want to read?";
@@ -3989,6 +3990,7 @@ namespace WinForms
             optionsFlowPanel.Controls.Add(textToSpeech);
             optionsFlowPanel.Controls.Add(brightness);
             optionsFlowPanel.Controls.Add(forward);
+            optionsFlowPanel.Controls.Add(bookmark);
             optionsFlowPanel.Dock = DockStyle.Fill;
             optionsFlowPanel.FlowDirection = FlowDirection.RightToLeft;
             optionsFlowPanel.Location = new Point(0, 0);
@@ -4911,6 +4913,16 @@ namespace WinForms
             forward.Size = new Size(47, 41);
             forward.TabIndex = 3;
             // 
+            // bookmark
+            // 
+            bookmark.Enabled = false;
+            bookmark.Image = (Image)resources.GetObject("bookmark.Image");
+            bookmark.Location = new Point(115, 30);
+            bookmark.Margin = new Padding(15, 30, 0, 30);
+            bookmark.Name = "bookmark";
+            bookmark.Size = new Size(47, 41);
+            bookmark.TabIndex = 4;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -5573,5 +5585,6 @@ namespace WinForms
         private Label label118;
         private Label label119;
         private Label forward;
+        private Label bookmark;
     }
 }
