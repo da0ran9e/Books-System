@@ -283,7 +283,7 @@ namespace WinForms
             SetDoubleBuffer(tableLayoutPanel45, true);
             #endregion
             //update userlabel
-            toolTip1.SetToolTip(userLabel, username);
+            //toolTip1.SetToolTip(userLabel, username);
 
             #region test application graphic by getting random index of books
             Random rand = new Random();
