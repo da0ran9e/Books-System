@@ -5,6 +5,7 @@ namespace WinForms
 {
     partial class MainForm
     {
+
         [DllImport("user32.dll")]
         internal static extern int SetWindowCompositionAttribute(IntPtr hwnd, ref WindowCompositionAttributeData data);
 
@@ -63,7 +64,7 @@ namespace WinForms
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            //SingleTextView singleTextView1 = new TSkin.ST.SingleTextView();
+           // SingleTextView singleTextView1 = new TSkin.ST.SingleTextView();
             searchTabeLayout = new TableLayoutPanel();
             verticalMenuBar = new FlowLayoutPanel();
             userLabel = new Label();
@@ -114,7 +115,7 @@ namespace WinForms
             helloElementTitle1 = new Label();
             helloAuthor1 = new Label();
             helloElement2 = new GradientPanel();
-            tableLayoutPanel8 = new TableLayoutPanel();
+            helloElementTable2 = new TableLayoutPanel();
             helloElementImg2 = new Label();
             helloFlow2 = new FlowLayoutPanel();
             helloElementTitle2 = new Label();
@@ -374,7 +375,7 @@ namespace WinForms
             helloElementTable1.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
             helloElement2.SuspendLayout();
-            tableLayoutPanel8.SuspendLayout();
+            helloElementTable2.SuspendLayout();
             helloFlow2.SuspendLayout();
             helloElement3.SuspendLayout();
             helloElementTable3.SuspendLayout();
@@ -518,7 +519,6 @@ namespace WinForms
             verticalMenuBar.TabIndex = 1;
             verticalMenuBar.WrapContents = false;
             verticalMenuBar.Paint += verticalMenuBar_Paint;
-            verticalMenuBar.MouseWheel += FlowLayoutPanel1_MouseWheel;
             // 
             // userLabel
             // 
@@ -530,9 +530,6 @@ namespace WinForms
             userLabel.Size = new Size(90, 90);
             userLabel.TabIndex = 0;
             toolTip1.SetToolTip(userLabel, "user");
-            userLabel.Click += label1_Click;
-            userLabel.Paint += userLabel_Paint;
-            userLabel.MouseHover += userLabel_MouseHover;
             // 
             // verticalTableMenu
             // 
@@ -1119,7 +1116,7 @@ namespace WinForms
             // 
             // helloElement2
             // 
-            helloElement2.Controls.Add(tableLayoutPanel8);
+            helloElement2.Controls.Add(helloElementTable2);
             helloElement2.GradientAngle = 60F;
             helloElement2.GradientPrimaryColor = Color.Transparent;
             helloElement2.GradientSecondaryColor = Color.White;
@@ -1128,21 +1125,21 @@ namespace WinForms
             helloElement2.Size = new Size(349, 88);
             helloElement2.TabIndex = 6;
             // 
-            // tableLayoutPanel8
+            // helloElementTable2
             // 
-            tableLayoutPanel8.AutoSize = true;
-            tableLayoutPanel8.ColumnCount = 2;
-            tableLayoutPanel8.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 88F));
-            tableLayoutPanel8.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel8.Controls.Add(helloElementImg2, 0, 0);
-            tableLayoutPanel8.Controls.Add(helloFlow2, 1, 0);
-            tableLayoutPanel8.Dock = DockStyle.Fill;
-            tableLayoutPanel8.Location = new Point(0, 0);
-            tableLayoutPanel8.Name = "tableLayoutPanel8";
-            tableLayoutPanel8.RowCount = 1;
-            tableLayoutPanel8.RowStyles.Add(new RowStyle(SizeType.Absolute, 88F));
-            tableLayoutPanel8.Size = new Size(349, 88);
-            tableLayoutPanel8.TabIndex = 0;
+            helloElementTable2.AutoSize = true;
+            helloElementTable2.ColumnCount = 2;
+            helloElementTable2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 88F));
+            helloElementTable2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            helloElementTable2.Controls.Add(helloElementImg2, 0, 0);
+            helloElementTable2.Controls.Add(helloFlow2, 1, 0);
+            helloElementTable2.Dock = DockStyle.Fill;
+            helloElementTable2.Location = new Point(0, 0);
+            helloElementTable2.Name = "helloElementTable2";
+            helloElementTable2.RowCount = 1;
+            helloElementTable2.RowStyles.Add(new RowStyle(SizeType.Absolute, 88F));
+            helloElementTable2.Size = new Size(349, 88);
+            helloElementTable2.TabIndex = 0;
             // 
             // helloElementImg2
             // 
@@ -1175,7 +1172,6 @@ namespace WinForms
             helloElementTitle2.Size = new Size(50, 28);
             helloElementTitle2.TabIndex = 1;
             helloElementTitle2.Text = "title";
-            helloElementTitle2.Click += helloElementTitle2_Click;
             // 
             // helloAuthor2
             // 
@@ -1287,7 +1283,6 @@ namespace WinForms
             recommentLabel.Size = new Size(735, 82);
             recommentLabel.TabIndex = 0;
             recommentLabel.Text = "Made for you";
-            recommentLabel.Click += label39_Click;
             // 
             // flowLayoutPanel22
             // 
@@ -2137,7 +2132,6 @@ namespace WinForms
             searchFlowPanel.Size = new Size(767, 765);
             searchFlowPanel.TabIndex = 1;
             searchFlowPanel.Visible = false;
-            searchFlowPanel.Paint += searchFlowPanel_Paint;
             // 
             // searchPanel
             // 
@@ -2186,11 +2180,10 @@ namespace WinForms
             searchBox.Location = new Point(0, 0);
             searchBox.Margin = new Padding(0);
             searchBox.Name = "searchBox";
-            //searchBox.SetTextView = singleTextView1;
+           // searchBox.SetTextView = singleTextView1;
             searchBox.Size = new Size(560, 55);
             searchBox.TabIndex = 5;
             searchBox.Text = "What do you want to read?";
-            searchBox.Paint += searchBox_Paint;
             searchBox.GotFocus += SearchBox_GotFocus;
             searchBox.LostFocus += SearchBox_LostFocus;
             searchBox.MouseLeave += SearchBox_MouseLeave;
@@ -2218,7 +2211,7 @@ namespace WinForms
             bestMatchPanel.Name = "bestMatchPanel";
             bestMatchPanel.Size = new Size(741, 176);
             bestMatchPanel.TabIndex = 1;
-            bestMatchPanel.Paint += bestMatchPanel_Paint;
+
             // 
             // bestMatchLabel
             // 
@@ -3696,7 +3689,6 @@ namespace WinForms
             toolStripButton2.Name = "toolStripButton2";
             toolStripButton2.Size = new Size(29, 24);
             toolStripButton2.Text = "toolStripButton2";
-            toolStripButton2.Click += toolStripButton2_Click;
             // 
             // toolStripButton3
             // 
@@ -3719,14 +3711,11 @@ namespace WinForms
             Controls.Add(toolStrip1);
             Controls.Add(searchTabeLayout);
             DoubleBuffered = true;
-            FormBorderStyle = FormBorderStyle.None;
             Name = "MainForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "MainForm";
             toolTip1.SetToolTip(this, "user");
             Load += MainForm_Load;
-            MouseMove += MainForm_MouseMove;
-            MouseWheel += MainForm_MouseWheel;
             searchTabeLayout.ResumeLayout(false);
             verticalMenuBar.ResumeLayout(false);
             verticalTableMenu.ResumeLayout(false);
@@ -3761,7 +3750,7 @@ namespace WinForms
             flowLayoutPanel1.PerformLayout();
             helloElement2.ResumeLayout(false);
             helloElement2.PerformLayout();
-            tableLayoutPanel8.ResumeLayout(false);
+            helloElementTable2.ResumeLayout(false);
             helloFlow2.ResumeLayout(false);
             helloFlow2.PerformLayout();
             helloElement3.ResumeLayout(false);
@@ -3923,6 +3912,7 @@ namespace WinForms
 
 
         #endregion
+
 
         private TableLayoutPanel searchTabeLayout;
         private Label userLabel;
@@ -4146,7 +4136,7 @@ namespace WinForms
         private Label helloElementTitle1;
         private Label helloElementImg1;
         private GradientPanel helloElement2;
-        private TableLayoutPanel tableLayoutPanel8;
+        private TableLayoutPanel helloElementTable2;
         private Label helloElementTitle2;
         private Label helloElementImg2;
         private GradientPanel helloElement3;

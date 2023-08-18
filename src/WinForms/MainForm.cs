@@ -11,19 +11,47 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Reflection;
 using System.Reflection.Emit;
+using System.Security.Policy;
 
 namespace WinForms
 {
     public partial class MainForm : Form
     {
+
         SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\vuduc\OneDrive\Documents\BX.mdf;Integrated Security=True;Connect Timeout=30");
         SqlCommand cmd = new SqlCommand();
         SqlDataReader dr;
 
+        #region  Set Control to be double buffered
+        static void SetDoubleBuffer(Control ctl, bool DoubleBuffered)
+        {
+            try
+            {
+                typeof(Control).InvokeMember("DoubleBuffered", BindingFlags.NonPublic |
+                    BindingFlags.Instance |
+                    BindingFlags.SetProperty,
+                null, ctl, new object[] { DoubleBuffered });
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        #endregion
+
+        #region Image properties setting and get Image from URL
+
+        //
+        // Resize image
+        //
         public static Image resizeImage(Image imgToResize, Size size)
         {
             return (Image)(new Bitmap(imgToResize, size));
         }
+
+        //
+        //This also resize image base on given height
+        //
         public static Image SetHeight(Image imgToResize, int height)
         {
             int w = imgToResize.Width;
@@ -36,146 +64,37 @@ namespace WinForms
         private Image GetBookImage(int index)
         {
             Image img = Image.FromFile("../../../../../assets/icons/image_L.png");
+            string imgPath = "../../../../../assets/LImgs/temp" + index + ".jpg";
             try
             {
-                cmd = new SqlCommand("select [imageURLL] from books where [index] = " + index, con);
-                con.Open();
-                dr = cmd.ExecuteReader();
-                dr.Read();
-
-                if (dr.HasRows)
+                Book book = GetBookInformation(index);
+                // if the image does not exist, then get it
+                if (!File.Exists(imgPath))
                 {
-                    string url = dr.GetFieldValue<string>(0);
-                    string imgPath = "../../../../../assets/LImgs/temp" + index + ".jpg";
-                    try
+                    HttpClient client = new HttpClient();
+                    client.DefaultRequestHeaders.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.63 Safari/537.36");
+                    HttpResponseMessage response = client.GetAsync(book.lURL).Result;
+                    response.EnsureSuccessStatusCode();
+                    using (Stream stream = response.Content.ReadAsStreamAsync().Result)
                     {
-                        // if the image does not exist, then get it
-                        if (!File.Exists(imgPath))
-                        {
-                            HttpClient client = new HttpClient();
-                            client.DefaultRequestHeaders.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.63 Safari/537.36");
-                            HttpResponseMessage response = client.GetAsync(url).Result;
-                            response.EnsureSuccessStatusCode();
-                            using (Stream stream = response.Content.ReadAsStreamAsync().Result)
-                            {
-                                Image image = Image.FromStream(stream);
+                        Image image = Image.FromStream(stream);
 
-                                image.Save(imgPath);
-                            }
-                        }
-
-                        //load image to tha label
-
-                        if (Image.FromFile(imgPath).Height >= 70)
-                            img = Image.FromFile(imgPath);
-
-                        return img;
-                    }
-                    catch (Exception ex)
-                    {
-                        Console.WriteLine($"Error: {ex.Message}");
+                        image.Save(imgPath);
                     }
                 }
-                else
-                {
-                    dr.Close();
-                    con.Close();
-                    return GetBookImage(index + 1);
-                }
+
+                //load image to tha label
+
+                if (Image.FromFile(imgPath).Height >= 70)
+                    img = Image.FromFile(imgPath);
+
+                return img;
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                // close the reader
-                if (dr != null)
-                {
-                    dr.Close();
-                }
-
-                //Close the connection
-                if (con != null)
-                {
-                    con.Close();
-                }
+                Console.WriteLine($"Error: {ex.Message}");
             }
             return img;
-        }
-
-        public struct Book
-        {
-            public string isbn { get; set; }
-            public string title { get; set; }
-            public string author { get; set; }
-            public string publisher { get; set; }
-            public int year { get; set; }
-
-            public Book()
-            {
-                this.isbn = null;
-                this.title = null;
-                this.author = null;
-                this.publisher = null;
-                this.year = 0;
-            }
-
-            public Book(string isbn, string title, string author, string publisher, int year)
-            {
-                this.isbn = isbn;
-                this.title = title;
-                this.author = author;
-                this.publisher = publisher;
-                this.year = year;
-            }
-        }
-        private Book GetBookInformation(int index)
-        {
-            Book book = new Book();
-
-            try
-            {
-                cmd = new SqlCommand("select * from books where [index] = " + index, con);
-                con.Open();
-                dr = cmd.ExecuteReader();
-                dr.Read();
-
-                if (dr.HasRows)
-                {
-                    book.isbn = dr.GetFieldValue<string>(1);
-                    book.title = dr.GetFieldValue<string>(2);
-                    book.author = dr.GetFieldValue<string>(3);
-                    book.year = dr.GetFieldValue<int>(4);
-                    book.publisher = dr.GetFieldValue<string>(5);
-
-                    return book;
-                }
-                else
-                {
-                    dr.Close();
-                    con.Close();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                // close the reader
-                if (dr != null)
-                {
-                    dr.Close();
-                }
-
-                //Close the connection
-                if (con != null)
-                {
-                    con.Close();
-                }
-            }
-            return book;
         }
 
         private Color[] GetBorderColors(Bitmap image, Size size)
@@ -217,17 +136,145 @@ namespace WinForms
             return Color.FromArgb(averageR, averageG, averageB);
         }
 
+        #endregion
+
+        #region Book properties
+        public struct Book
+        {
+            public int index { get; set; }
+            public string isbn { get; set; }
+            public string title { get; set; }
+            public string author { get; set; }
+            public string publisher { get; set; }
+            public int year { get; set; }
+            public string sURL { get; set; }
+            public string mURL { get; set; }
+            public string lURL { get; set; }
+
+            public Book()
+            {
+                this.index = 0;
+                this.isbn = null;
+                this.title = null;
+                this.author = null;
+                this.publisher = null;
+                this.year = 0;
+                this.sURL = null;
+                this.mURL = null;
+                this.lURL = null;
+            }
+
+            public Book(int index, string isbn, string title, string author, string publisher, int year, string sURL, string mURL, string lURL)
+            {
+                this.index = index;
+                this.isbn = isbn;
+                this.title = title;
+                this.author = author;
+                this.publisher = publisher;
+                this.year = year;
+                this.sURL = sURL;
+                this.mURL = mURL;
+                this.lURL = lURL;
+            }
+        }
+        private Book GetBookInformation(int index)
+        {
+            Book book = new Book();
+
+            try
+            {
+                cmd = new SqlCommand("select * from books where [index] = " + index, con);
+                con.Open();
+                dr = cmd.ExecuteReader();
+                dr.Read();
+
+                if (dr.HasRows)
+                {
+                    book.index = index;
+                    book.isbn = dr.GetFieldValue<string>(1);
+                    book.title = dr.GetFieldValue<string>(2);
+                    book.author = dr.GetFieldValue<string>(3);
+                    book.year = dr.GetFieldValue<int>(4);
+                    book.publisher = dr.GetFieldValue<string>(5);
+                    book.sURL = dr.GetFieldValue<string>(6);
+                    book.mURL = dr.GetFieldValue<string>(7);
+                    book.lURL = dr.GetFieldValue<string>(8);
+
+                    return book;
+                }
+                else
+                {
+                    dr.Close();
+                    con.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                // close the reader
+                if (dr != null)
+                {
+                    dr.Close();
+                }
+
+                //Close the connection
+                if (con != null)
+                {
+                    con.Close();
+                }
+            }
+            return book;
+        }
+
+        #endregion
+
         public MainForm(string username)
         {
             this.username = username;
             InitializeComponent();
         }
 
+        //
+        // MainForm on load event handler
+        //
         private void MainForm_Load(object sender, EventArgs e)
         {
-            //EnableBlur();
+            //Set tables double buffered 
+            SetDoubleBuffer(tableLayoutPanel1, true);
+            SetDoubleBuffer(tableLayoutPanel39, true);
+            SetDoubleBuffer(tableLayoutPanel21, true);
+            SetDoubleBuffer(tableLayoutPanel22, true);
+            SetDoubleBuffer(tableLayoutPanel23, true);
+            SetDoubleBuffer(tableLayoutPanel24, true);
+            SetDoubleBuffer(tableLayoutPanel25, true);
+            SetDoubleBuffer(tableLayoutPanel26, true);
+            SetDoubleBuffer(tableLayoutPanel27, true);
+            SetDoubleBuffer(tableLayoutPanel28, true);
+            SetDoubleBuffer(tableLayoutPanel29, true);
+            SetDoubleBuffer(tableLayoutPanel30, true);
+            SetDoubleBuffer(tableLayoutPanel31, true);
+            SetDoubleBuffer(tableLayoutPanel32, true);
+            SetDoubleBuffer(tableLayoutPanel33, true);
+            SetDoubleBuffer(tableLayoutPanel34, true);
+            SetDoubleBuffer(tableLayoutPanel35, true);
+            SetDoubleBuffer(tableLayoutPanel36, true);
+            SetDoubleBuffer(tableLayoutPanel37, true);
+            SetDoubleBuffer(searchLayoutTable, true);
+            SetDoubleBuffer(bestMatchTableLayout, true);
+            SetDoubleBuffer(tableLayoutPanel45, true);
+            SetDoubleBuffer(tableLayoutPanel56, true);
+            SetDoubleBuffer(tableLayoutPanel57, true);
+            SetDoubleBuffer(tableLayoutPanel58, true);
+            SetDoubleBuffer(tableLayoutPanel59, true);
+            SetDoubleBuffer(tableLayoutPanel60, true);
+            SetDoubleBuffer(tableLayoutPanel61, true);
+            //update userlabel
             toolTip1.SetToolTip(userLabel, username);
 
+            #region test application graphic by getting random index of books
             Random rand = new Random();
             int randC = rand.Next(1, 1000);
             Image currentImg = GetBookImage(randC);
@@ -272,63 +319,10 @@ namespace WinForms
             helloAuthor2.Text = helloBook2.author;
             helloElementTitle3.Text = helloBook3.title;
             helloAuthor3.Text = helloBook3.author;
+            #endregion
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private Rectangle _displayRect = Rectangle.Empty;
-        private void FlowLayoutPanel1_MouseWheel(object sender, MouseEventArgs e)
-        {
-            Rectangle panelRectangle = verticalMenuBar.ClientRectangle;
-            Point cursorPos = Cursor.Position;
-
-            if (true)
-            {
-                int pos = -_displayRect.Y;
-                int maxPos = -(panelRectangle.Height - _displayRect.Height);
-
-                pos = Math.Max(pos - e.Delta, 0);
-                pos = Math.Min(pos, maxPos);
-
-                SetDisplayRectLocation(_displayRect.X, -pos);
-            }
-
-        }
-
-        private void userLabel_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void MainForm_MouseWheel(object sender, MouseEventArgs e)
-        {
-
-        }
-
-
-        private void MainForm_MouseMove(object sender, MouseEventArgs e)
-        {
-
-        }
-
-        private void label39_Click(object sender, EventArgs e)
-        {
-        }
-
-
-        private void searchFlowPanel_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void bestMatchPanel_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
+        //unneccessary!
         private void contentContainer_Paint(object sender, PaintEventArgs e)
         {
             LinearGradientBrush lgb = new LinearGradientBrush(contentContainer.ClientRectangle, ColorTranslator.FromHtml("#300004"), contentContainer.BackColor, 90F);
@@ -336,6 +330,8 @@ namespace WinForms
             g.FillRectangle(lgb, contentContainer.ClientRectangle);
         }
 
+
+        #region Update welcome panel by real time detector and change color
         private void helloPanel_Paint(object sender, PaintEventArgs e)
         {
             DateTime currentTime = DateTime.Now;
@@ -387,22 +383,10 @@ namespace WinForms
             Graphics g = e.Graphics;
             g.FillRectangle(lgb, helloPanel.ClientRectangle);
         }
+        #endregion
 
-        private void userLabel_MouseHover(object sender, EventArgs e)
-        {
-
-        }
-
-        private void toolStripLabel1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void toolStripLabel2_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        #region menu bar and main theme handler on menu state
+        // state on menu bar
         private int state = 0;
 
         private void mainFlowPanel_Paint(object sender, PaintEventArgs e)
@@ -571,15 +555,6 @@ namespace WinForms
             searchFlowPanel.Visible = false;
         }
 
-        private void toolStripButton2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void searchBox_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
         private void SearchBox_GotFocus(object sender, EventArgs e)
         {
             searchBoxContainer.GradientAngle = 250;
@@ -612,16 +587,7 @@ namespace WinForms
             else searchBoxContainer.GradientAngle = 70;
             searchBoxContainer.Invalidate();
         }
-
-        private void helloElementTable0_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void helloElementTitle2_Click(object sender, EventArgs e)
-        {
-
-        }
+        #endregion
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
