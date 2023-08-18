@@ -155,6 +155,10 @@ namespace WinForms
 
         #region Book properties
         //
+        //This list to store book whenever it's information collected
+        //
+        private List<Book> bookList = new List<Book>();
+        //
         //Book object
         //
         public struct Book
@@ -222,6 +226,7 @@ namespace WinForms
                     book.mURL = dr.GetFieldValue<string>(7);
                     book.lURL = dr.GetFieldValue<string>(8);
 
+                    bookList.Add(book);
                     return book;
                 }
                 else
@@ -258,7 +263,7 @@ namespace WinForms
         //
         private void MainForm_Load(object sender, EventArgs e)
         {
-            //Set tables double buffered 
+            #region Set tables double buffered 
             SetDoubleBuffer(tableLayoutPanel1, true);
             SetDoubleBuffer(tableLayoutPanel39, true);
             SetDoubleBuffer(recommentTable3, true);
@@ -283,6 +288,7 @@ namespace WinForms
             SetDoubleBuffer(tableLayoutPanel59, true);
             SetDoubleBuffer(tableLayoutPanel60, true);
             SetDoubleBuffer(tableLayoutPanel61, true);
+            #endregion
             //update userlabel
             toolTip1.SetToolTip(userLabel, username);
 
@@ -310,6 +316,7 @@ namespace WinForms
             currentPanel.BackColor = borderColor;
             currentProperties.GradientPrimaryColor = borderColor;
             currentProperties.GradientSecondaryColor = Color.Transparent;
+
             int randH0 = rand.Next(1, 1000);
             int randH1 = rand.Next(1, 1000);
             int randH2 = rand.Next(1, 1000);
@@ -424,6 +431,7 @@ namespace WinForms
         #region menu bar and main theme handler on menu state
         // state on menu bar
         private int state = 0;
+
 
         private void mainFlowPanel_Paint(object sender, PaintEventArgs e)
         {
@@ -625,9 +633,84 @@ namespace WinForms
         }
         #endregion
 
+        private Book bookPicking(string name)
+        {
+            Book book = new Book();
+            foreach (Book b in bookList)
+            {
+                if (b.title.Equals(name)) return b;
+            }
+            return book;
+        }
+
+        private void updateCurrentBook(Book book)
+        {
+            string imgPath = "../../../../../assets/LImgs/temp" + book.index + ".jpg";
+            Image currentImg = Image.FromFile(imgPath);
+
+            contentImg.Image = SetHeight(currentImg, contentImg.Height);
+            currentLabel.Image = SetHeight(currentImg, currentLabel.Height);
+
+            contentTitle.Text = book.title;
+            authorLabel.Text = book.author;
+            publisherLabel.Text = book.publisher;
+            contentYear.Text = book.year.ToString();
+
+            currentBookTitle.Text = book.title;
+            currentBookAuthor.Text = book.author;
+            currentPublisher.Text = book.publisher;
+            yearOfPublication.Text = book.year.ToString();
+
+            Color borderColor = CalculateAverageColor(GetBorderColors(new Bitmap(currentImg), currentImg.Size));
+
+            currentPanel.BackColor = borderColor;
+            currentProperties.GradientPrimaryColor = borderColor;
+            currentProperties.GradientSecondaryColor = Color.Transparent;
+        }
+
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void helloFlow0_Click(object sender, EventArgs e)
+        {
+            updateCurrentBook(bookPicking(helloElementTitle0.Text));
+        }
+
+        private void flowLayoutPanel1_Click(object sender, EventArgs e)
+        {
+            updateCurrentBook(bookPicking(helloElementTitle1.Text));
+        }
+
+        private void helloFlow2_Click(object sender, EventArgs e)
+        {
+            updateCurrentBook(bookPicking(helloElementTitle2.Text));
+        }
+
+        private void helloFlow3_Click(object sender, EventArgs e)
+        {
+            updateCurrentBook(bookPicking(helloElementTitle3.Text));
+        }
+
+        private void recommentFlowPanel0_Click(object sender, EventArgs e)
+        {
+            updateCurrentBook(bookPicking(recommentTitle0.Text));
+        }
+
+        private void recommentFlowPanel1_Click(object sender, EventArgs e)
+        {
+            updateCurrentBook(bookPicking(recommentTitle1.Text));
+        }
+
+        private void recommentFlowLabel2_Click(object sender, EventArgs e)
+        {
+            updateCurrentBook(bookPicking(recommentTitle2.Text));
+        }
+
+        private void recommentFlowLabel3_Click(object sender, EventArgs e)
+        {
+            updateCurrentBook(bookPicking(recommentTitle3.Text));
         }
     }
 }

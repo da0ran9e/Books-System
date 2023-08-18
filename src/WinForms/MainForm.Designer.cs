@@ -64,7 +64,7 @@ namespace WinForms
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            //SingleTextView singleTextView2 = new TSkin.ST.SingleTextView();
+            //SingleTextView singleTextView1 = new TSkin.ST.SingleTextView();
             searchTabeLayout = new TableLayoutPanel();
             verticalMenuBar = new FlowLayoutPanel();
             userLabel = new Label();
@@ -112,7 +112,7 @@ namespace WinForms
             helloElement1 = new GradientPanel();
             helloElementTable1 = new TableLayoutPanel();
             helloElementImg1 = new Label();
-            flowLayoutPanel1 = new FlowLayoutPanel();
+            helloFlow1 = new FlowLayoutPanel();
             helloElementTitle1 = new Label();
             helloAuthor1 = new Label();
             helloElement2 = new GradientPanel();
@@ -374,7 +374,7 @@ namespace WinForms
             helloFlow0.SuspendLayout();
             helloElement1.SuspendLayout();
             helloElementTable1.SuspendLayout();
-            flowLayoutPanel1.SuspendLayout();
+            helloFlow1.SuspendLayout();
             helloElement2.SuspendLayout();
             helloElementTable2.SuspendLayout();
             helloFlow2.SuspendLayout();
@@ -1020,6 +1020,7 @@ namespace WinForms
             helloElementImg0.Name = "helloElementImg0";
             helloElementImg0.Size = new Size(82, 88);
             helloElementImg0.TabIndex = 0;
+            helloElementImg0.Click += helloFlow0_Click;
             // 
             // helloFlow0
             // 
@@ -1031,6 +1032,7 @@ namespace WinForms
             helloFlow0.Name = "helloFlow0";
             helloFlow0.Size = new Size(255, 82);
             helloFlow0.TabIndex = 1;
+            helloFlow0.Click += helloFlow0_Click;
             // 
             // helloElementTitle0
             // 
@@ -1076,7 +1078,7 @@ namespace WinForms
             helloElementTable1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 88F));
             helloElementTable1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             helloElementTable1.Controls.Add(helloElementImg1, 0, 0);
-            helloElementTable1.Controls.Add(flowLayoutPanel1, 1, 0);
+            helloElementTable1.Controls.Add(helloFlow1, 1, 0);
             helloElementTable1.Dock = DockStyle.Fill;
             helloElementTable1.Location = new Point(0, 0);
             helloElementTable1.Name = "helloElementTable1";
@@ -1093,22 +1095,24 @@ namespace WinForms
             helloElementImg1.Name = "helloElementImg1";
             helloElementImg1.Size = new Size(82, 88);
             helloElementImg1.TabIndex = 0;
+            helloElementImg1.Click += flowLayoutPanel1_Click;
             // 
-            // flowLayoutPanel1
+            // helloFlow1
             // 
-            flowLayoutPanel1.Controls.Add(helloElementTitle1);
-            flowLayoutPanel1.Controls.Add(helloAuthor1);
-            flowLayoutPanel1.Dock = DockStyle.Fill;
-            flowLayoutPanel1.Location = new Point(91, 3);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(255, 82);
-            flowLayoutPanel1.TabIndex = 1;
+            helloFlow1.Controls.Add(helloElementTitle1);
+            helloFlow1.Controls.Add(helloAuthor1);
+            helloFlow1.Dock = DockStyle.Fill;
+            helloFlow1.Location = new Point(91, 3);
+            helloFlow1.Name = "helloFlow1";
+            helloFlow1.Size = new Size(255, 82);
+            helloFlow1.TabIndex = 1;
+            helloFlow1.Click += flowLayoutPanel1_Click;
             // 
             // helloElementTitle1
             // 
             helloElementTitle1.AutoSize = true;
             helloElementTitle1.BackColor = Color.Transparent;
-            flowLayoutPanel1.SetFlowBreak(helloElementTitle1, true);
+            helloFlow1.SetFlowBreak(helloElementTitle1, true);
             helloElementTitle1.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             helloElementTitle1.ForeColor = SystemColors.ControlLight;
             helloElementTitle1.Location = new Point(3, 0);
@@ -1121,7 +1125,7 @@ namespace WinForms
             // 
             helloAuthor1.AutoSize = true;
             helloAuthor1.BackColor = Color.Transparent;
-            flowLayoutPanel1.SetFlowBreak(helloAuthor1, true);
+            helloFlow1.SetFlowBreak(helloAuthor1, true);
             helloAuthor1.Font = new Font("Exo ExtraBold", 7.799999F, FontStyle.Bold, GraphicsUnit.Point);
             helloAuthor1.ForeColor = SystemColors.ControlLight;
             helloAuthor1.Location = new Point(3, 28);
@@ -1165,6 +1169,7 @@ namespace WinForms
             helloElementImg2.Name = "helloElementImg2";
             helloElementImg2.Size = new Size(82, 88);
             helloElementImg2.TabIndex = 0;
+            helloElementImg2.Click += helloFlow2_Click;
             // 
             // helloFlow2
             // 
@@ -1175,6 +1180,7 @@ namespace WinForms
             helloFlow2.Name = "helloFlow2";
             helloFlow2.Size = new Size(255, 82);
             helloFlow2.TabIndex = 1;
+            helloFlow2.Click += helloFlow2_Click;
             // 
             // helloElementTitle2
             // 
@@ -1237,6 +1243,7 @@ namespace WinForms
             helloElementImg3.Name = "helloElementImg3";
             helloElementImg3.Size = new Size(82, 88);
             helloElementImg3.TabIndex = 0;
+            helloElementImg3.Click += helloFlow3_Click;
             // 
             // helloFlow3
             // 
@@ -1247,6 +1254,7 @@ namespace WinForms
             helloFlow3.Name = "helloFlow3";
             helloFlow3.Size = new Size(255, 82);
             helloFlow3.TabIndex = 1;
+            helloFlow3.Click += helloFlow3_Click;
             // 
             // helloElementTitle3
             // 
@@ -1336,6 +1344,7 @@ namespace WinForms
             recommentImg0.Name = "recommentImg0";
             recommentImg0.Size = new Size(82, 88);
             recommentImg0.TabIndex = 0;
+            recommentImg0.Click += recommentFlowPanel0_Click;
             // 
             // recommentFlowPanel0
             // 
@@ -1346,6 +1355,7 @@ namespace WinForms
             recommentFlowPanel0.Name = "recommentFlowPanel0";
             recommentFlowPanel0.Size = new Size(255, 82);
             recommentFlowPanel0.TabIndex = 1;
+            recommentFlowPanel0.Click += recommentFlowPanel0_Click;
             // 
             // recommentTitle0
             // 
@@ -1408,6 +1418,7 @@ namespace WinForms
             recommentImg1.Name = "recommentImg1";
             recommentImg1.Size = new Size(82, 88);
             recommentImg1.TabIndex = 0;
+            recommentImg1.Click += recommentFlowPanel1_Click;
             // 
             // recommentFlowPanel1
             // 
@@ -1418,6 +1429,7 @@ namespace WinForms
             recommentFlowPanel1.Name = "recommentFlowPanel1";
             recommentFlowPanel1.Size = new Size(255, 82);
             recommentFlowPanel1.TabIndex = 1;
+            recommentFlowPanel1.Click += recommentFlowPanel1_Click;
             // 
             // recommentTitle1
             // 
@@ -1480,6 +1492,7 @@ namespace WinForms
             recommentImg2.Name = "recommentImg2";
             recommentImg2.Size = new Size(82, 88);
             recommentImg2.TabIndex = 0;
+            recommentImg2.Click += recommentFlowLabel2_Click;
             // 
             // recommentFlowLabel2
             // 
@@ -1490,6 +1503,7 @@ namespace WinForms
             recommentFlowLabel2.Name = "recommentFlowLabel2";
             recommentFlowLabel2.Size = new Size(255, 82);
             recommentFlowLabel2.TabIndex = 1;
+            recommentFlowLabel2.Click += recommentFlowLabel2_Click;
             // 
             // recommentTitle2
             // 
@@ -1552,6 +1566,7 @@ namespace WinForms
             recommentImg3.Name = "recommentImg3";
             recommentImg3.Size = new Size(82, 88);
             recommentImg3.TabIndex = 0;
+            recommentImg3.Click += recommentFlowLabel3_Click;
             // 
             // recommentFlowLabel3
             // 
@@ -1562,6 +1577,7 @@ namespace WinForms
             recommentFlowLabel3.Name = "recommentFlowLabel3";
             recommentFlowLabel3.Size = new Size(255, 82);
             recommentFlowLabel3.TabIndex = 1;
+            recommentFlowLabel3.Click += recommentFlowLabel3_Click;
             // 
             // recommentTitle3
             // 
@@ -2224,7 +2240,7 @@ namespace WinForms
             searchBox.Location = new Point(0, 0);
             searchBox.Margin = new Padding(0);
             searchBox.Name = "searchBox";
-            //searchBox.SetTextView = singleTextView2;
+            //searchBox.SetTextView = singleTextView1;
             searchBox.Size = new Size(560, 55);
             searchBox.TabIndex = 5;
             searchBox.Text = "What do you want to read?";
@@ -3790,8 +3806,8 @@ namespace WinForms
             helloElement1.ResumeLayout(false);
             helloElement1.PerformLayout();
             helloElementTable1.ResumeLayout(false);
-            flowLayoutPanel1.ResumeLayout(false);
-            flowLayoutPanel1.PerformLayout();
+            helloFlow1.ResumeLayout(false);
+            helloFlow1.PerformLayout();
             helloElement2.ResumeLayout(false);
             helloElement2.PerformLayout();
             helloElementTable2.ResumeLayout(false);
@@ -4217,7 +4233,7 @@ namespace WinForms
         private Label brightness;
         private FlowLayoutPanel helloFlow0;
         private Label helloAuthor0;
-        private FlowLayoutPanel flowLayoutPanel1;
+        private FlowLayoutPanel helloFlow1;
         private Label helloAuthor1;
         private FlowLayoutPanel helloFlow2;
         private Label helloAuthor2;
