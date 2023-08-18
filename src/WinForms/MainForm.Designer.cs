@@ -64,7 +64,7 @@ namespace WinForms
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-           // SingleTextView singleTextView1 = new TSkin.ST.SingleTextView();
+            //SingleTextView singleTextView2 = new TSkin.ST.SingleTextView();
             searchTabeLayout = new TableLayoutPanel();
             verticalMenuBar = new FlowLayoutPanel();
             userLabel = new Label();
@@ -83,10 +83,11 @@ namespace WinForms
             recentLabel = new Label();
             contentPanel = new FlowLayoutPanel();
             contentContainer = new FlowLayoutPanel();
+            publisherLabel = new Label();
+            contentYear = new Label();
             contentImg = new Label();
             contentTitle = new Label();
             authorLabel = new Label();
-            publisherLabel = new Label();
             aboutAuthor = new Label();
             authorDesLabel = new Label();
             categoryLabel = new Label();
@@ -128,30 +129,30 @@ namespace WinForms
             helloAuthor3 = new Label();
             recommentPanel = new FlowLayoutPanel();
             recommentLabel = new Label();
-            flowLayoutPanel22 = new FlowLayoutPanel();
-            tableLayoutPanel20 = new TableLayoutPanel();
-            label40 = new Label();
-            label41 = new Label();
-            flowLayoutPanel23 = new FlowLayoutPanel();
-            tableLayoutPanel21 = new TableLayoutPanel();
-            label42 = new Label();
-            label43 = new Label();
-            flowLayoutPanel24 = new FlowLayoutPanel();
-            tableLayoutPanel22 = new TableLayoutPanel();
-            label44 = new Label();
-            label45 = new Label();
-            flowLayoutPanel25 = new FlowLayoutPanel();
-            tableLayoutPanel23 = new TableLayoutPanel();
-            label46 = new Label();
-            label47 = new Label();
-            flowLayoutPanel26 = new FlowLayoutPanel();
-            tableLayoutPanel24 = new TableLayoutPanel();
-            label48 = new Label();
-            label49 = new Label();
-            flowLayoutPanel27 = new FlowLayoutPanel();
-            tableLayoutPanel25 = new TableLayoutPanel();
-            label50 = new Label();
-            label51 = new Label();
+            recommendElement0 = new GradientPanel();
+            recommentTable0 = new TableLayoutPanel();
+            recommentImg0 = new Label();
+            recommentFlowPanel0 = new FlowLayoutPanel();
+            recommentTitle0 = new Label();
+            recommentAuthor0 = new Label();
+            recommentElement1 = new GradientPanel();
+            tableLayoutPanel8 = new TableLayoutPanel();
+            recommentImg1 = new Label();
+            recommentFlowPanel1 = new FlowLayoutPanel();
+            recommentTitle1 = new Label();
+            recommentAuthor1 = new Label();
+            recommentElement2 = new GradientPanel();
+            recommentTable2 = new TableLayoutPanel();
+            recommentImg2 = new Label();
+            recommentFlowLabel2 = new FlowLayoutPanel();
+            recommentTitle2 = new Label();
+            recommentAuthor2 = new Label();
+            recommentElement3 = new GradientPanel();
+            recommentTable3 = new TableLayoutPanel();
+            recommentImg3 = new Label();
+            recommentFlowLabel3 = new FlowLayoutPanel();
+            recommentTitle3 = new Label();
+            recommentAuthor3 = new Label();
             recentPanel = new FlowLayoutPanel();
             recentReadPanel = new Label();
             flowLayoutPanel28 = new FlowLayoutPanel();
@@ -381,18 +382,18 @@ namespace WinForms
             helloElementTable3.SuspendLayout();
             helloFlow3.SuspendLayout();
             recommentPanel.SuspendLayout();
-            flowLayoutPanel22.SuspendLayout();
-            tableLayoutPanel20.SuspendLayout();
-            flowLayoutPanel23.SuspendLayout();
-            tableLayoutPanel21.SuspendLayout();
-            flowLayoutPanel24.SuspendLayout();
-            tableLayoutPanel22.SuspendLayout();
-            flowLayoutPanel25.SuspendLayout();
-            tableLayoutPanel23.SuspendLayout();
-            flowLayoutPanel26.SuspendLayout();
-            tableLayoutPanel24.SuspendLayout();
-            flowLayoutPanel27.SuspendLayout();
-            tableLayoutPanel25.SuspendLayout();
+            recommendElement0.SuspendLayout();
+            recommentTable0.SuspendLayout();
+            recommentFlowPanel0.SuspendLayout();
+            recommentElement1.SuspendLayout();
+            tableLayoutPanel8.SuspendLayout();
+            recommentFlowPanel1.SuspendLayout();
+            recommentElement2.SuspendLayout();
+            recommentTable2.SuspendLayout();
+            recommentFlowLabel2.SuspendLayout();
+            recommentElement3.SuspendLayout();
+            recommentTable3.SuspendLayout();
+            recommentFlowLabel3.SuspendLayout();
             recentPanel.SuspendLayout();
             flowLayoutPanel28.SuspendLayout();
             tableLayoutPanel26.SuspendLayout();
@@ -719,10 +720,11 @@ namespace WinForms
             // contentContainer
             // 
             contentContainer.AutoScroll = true;
+            contentContainer.Controls.Add(publisherLabel);
+            contentContainer.Controls.Add(contentYear);
             contentContainer.Controls.Add(contentImg);
             contentContainer.Controls.Add(contentTitle);
             contentContainer.Controls.Add(authorLabel);
-            contentContainer.Controls.Add(publisherLabel);
             contentContainer.Controls.Add(aboutAuthor);
             contentContainer.Controls.Add(authorDesLabel);
             contentContainer.Controls.Add(categoryLabel);
@@ -734,12 +736,39 @@ namespace WinForms
             contentContainer.TabIndex = 0;
             contentContainer.Paint += contentContainer_Paint;
             // 
+            // publisherLabel
+            // 
+            publisherLabel.AutoSize = true;
+            publisherLabel.BackColor = Color.Transparent;
+            contentContainer.SetFlowBreak(publisherLabel, true);
+            publisherLabel.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            publisherLabel.ForeColor = SystemColors.ControlDark;
+            publisherLabel.Location = new Point(0, 30);
+            publisherLabel.Margin = new Padding(0, 30, 0, 0);
+            publisherLabel.Name = "publisherLabel";
+            publisherLabel.Size = new Size(102, 28);
+            publisherLabel.TabIndex = 0;
+            publisherLabel.Text = "Publisher";
+            // 
+            // contentYear
+            // 
+            contentYear.AutoSize = true;
+            contentYear.BackColor = Color.Transparent;
+            contentContainer.SetFlowBreak(contentYear, true);
+            contentYear.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            contentYear.ForeColor = SystemColors.ControlDark;
+            contentYear.Location = new Point(3, 58);
+            contentYear.Name = "contentYear";
+            contentYear.Size = new Size(51, 28);
+            contentYear.TabIndex = 8;
+            contentYear.Text = "NaN";
+            // 
             // contentImg
             // 
             contentImg.BackColor = Color.Transparent;
             contentImg.Image = (Image)resources.GetObject("contentImg.Image");
-            contentImg.Location = new Point(30, 50);
-            contentImg.Margin = new Padding(30, 50, 30, 30);
+            contentImg.Location = new Point(30, 116);
+            contentImg.Margin = new Padding(30);
             contentImg.Name = "contentImg";
             contentImg.Size = new Size(352, 394);
             contentImg.TabIndex = 1;
@@ -752,7 +781,7 @@ namespace WinForms
             contentContainer.SetFlowBreak(contentTitle, true);
             contentTitle.Font = new Font("Exo ExtraBold", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
             contentTitle.ForeColor = SystemColors.ControlLight;
-            contentTitle.Location = new Point(3, 474);
+            contentTitle.Location = new Point(3, 540);
             contentTitle.Name = "contentTitle";
             contentTitle.Size = new Size(77, 40);
             contentTitle.TabIndex = 2;
@@ -765,24 +794,11 @@ namespace WinForms
             contentContainer.SetFlowBreak(authorLabel, true);
             authorLabel.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             authorLabel.ForeColor = SystemColors.ControlDark;
-            authorLabel.Location = new Point(3, 514);
+            authorLabel.Location = new Point(3, 580);
             authorLabel.Name = "authorLabel";
             authorLabel.Size = new Size(79, 28);
             authorLabel.TabIndex = 3;
             authorLabel.Text = "Author";
-            // 
-            // publisherLabel
-            // 
-            publisherLabel.AutoSize = true;
-            publisherLabel.BackColor = Color.Transparent;
-            contentContainer.SetFlowBreak(publisherLabel, true);
-            publisherLabel.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            publisherLabel.ForeColor = SystemColors.ControlDark;
-            publisherLabel.Location = new Point(3, 542);
-            publisherLabel.Name = "publisherLabel";
-            publisherLabel.Size = new Size(102, 28);
-            publisherLabel.TabIndex = 0;
-            publisherLabel.Text = "Publisher";
             // 
             // aboutAuthor
             // 
@@ -792,7 +808,7 @@ namespace WinForms
             contentContainer.SetFlowBreak(aboutAuthor, true);
             aboutAuthor.Font = new Font("Exo ExtraBold", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
             aboutAuthor.ForeColor = SystemColors.ControlLight;
-            aboutAuthor.Location = new Point(3, 582);
+            aboutAuthor.Location = new Point(3, 620);
             aboutAuthor.Name = "aboutAuthor";
             aboutAuthor.Size = new Size(191, 40);
             aboutAuthor.TabIndex = 4;
@@ -805,7 +821,7 @@ namespace WinForms
             contentContainer.SetFlowBreak(authorDesLabel, true);
             authorDesLabel.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             authorDesLabel.ForeColor = SystemColors.ControlDark;
-            authorDesLabel.Location = new Point(3, 622);
+            authorDesLabel.Location = new Point(3, 660);
             authorDesLabel.Name = "authorDesLabel";
             authorDesLabel.Size = new Size(120, 28);
             authorDesLabel.TabIndex = 5;
@@ -819,7 +835,7 @@ namespace WinForms
             contentContainer.SetFlowBreak(categoryLabel, true);
             categoryLabel.Font = new Font("Exo ExtraBold", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
             categoryLabel.ForeColor = SystemColors.ControlLight;
-            categoryLabel.Location = new Point(3, 662);
+            categoryLabel.Location = new Point(3, 700);
             categoryLabel.Name = "categoryLabel";
             categoryLabel.Size = new Size(285, 40);
             categoryLabel.TabIndex = 6;
@@ -829,7 +845,7 @@ namespace WinForms
             // 
             category0.Controls.Add(tableLayoutPanel1);
             category0.Controls.Add(flowLayoutPanel40);
-            category0.Location = new Point(3, 705);
+            category0.Location = new Point(3, 743);
             category0.Margin = new Padding(3, 3, 3, 15);
             category0.Name = "category0";
             category0.Size = new Size(352, 88);
@@ -1263,9 +1279,10 @@ namespace WinForms
             recommentPanel.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             recommentPanel.AutoSize = true;
             recommentPanel.Controls.Add(recommentLabel);
-            recommentPanel.Controls.Add(flowLayoutPanel22);
-            recommentPanel.Controls.Add(flowLayoutPanel24);
-            recommentPanel.Controls.Add(flowLayoutPanel26);
+            recommentPanel.Controls.Add(recommendElement0);
+            recommentPanel.Controls.Add(recommentElement1);
+            recommentPanel.Controls.Add(recommentElement2);
+            recommentPanel.Controls.Add(recommentElement3);
             homeFlowPanel.SetFlowBreak(recommentPanel, true);
             recommentPanel.Location = new Point(3, 300);
             recommentPanel.Margin = new Padding(3, 3, 3, 30);
@@ -1284,266 +1301,293 @@ namespace WinForms
             recommentLabel.TabIndex = 0;
             recommentLabel.Text = "Made for you";
             // 
-            // flowLayoutPanel22
+            // recommendElement0
             // 
-            flowLayoutPanel22.Controls.Add(tableLayoutPanel20);
-            flowLayoutPanel22.Controls.Add(flowLayoutPanel23);
-            flowLayoutPanel22.Location = new Point(3, 85);
-            flowLayoutPanel22.Name = "flowLayoutPanel22";
-            flowLayoutPanel22.Size = new Size(352, 88);
-            flowLayoutPanel22.TabIndex = 1;
+            recommendElement0.Controls.Add(recommentTable0);
+            recommendElement0.GradientAngle = 60F;
+            recommendElement0.GradientPrimaryColor = Color.Transparent;
+            recommendElement0.GradientSecondaryColor = Color.White;
+            recommendElement0.Location = new Point(3, 85);
+            recommendElement0.Name = "recommendElement0";
+            recommendElement0.Size = new Size(349, 88);
+            recommendElement0.TabIndex = 8;
             // 
-            // tableLayoutPanel20
+            // recommentTable0
             // 
-            tableLayoutPanel20.AutoSize = true;
-            tableLayoutPanel20.ColumnCount = 2;
-            tableLayoutPanel20.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 88F));
-            tableLayoutPanel20.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel20.Controls.Add(label40, 1, 0);
-            tableLayoutPanel20.Controls.Add(label41, 0, 0);
-            tableLayoutPanel20.Location = new Point(3, 3);
-            tableLayoutPanel20.Name = "tableLayoutPanel20";
-            tableLayoutPanel20.RowCount = 1;
-            tableLayoutPanel20.RowStyles.Add(new RowStyle(SizeType.Absolute, 88F));
-            tableLayoutPanel20.Size = new Size(346, 88);
-            tableLayoutPanel20.TabIndex = 0;
+            recommentTable0.AutoSize = true;
+            recommentTable0.ColumnCount = 2;
+            recommentTable0.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 88F));
+            recommentTable0.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            recommentTable0.Controls.Add(recommentImg0, 0, 0);
+            recommentTable0.Controls.Add(recommentFlowPanel0, 1, 0);
+            recommentTable0.Dock = DockStyle.Fill;
+            recommentTable0.Location = new Point(0, 0);
+            recommentTable0.Name = "recommentTable0";
+            recommentTable0.RowCount = 1;
+            recommentTable0.RowStyles.Add(new RowStyle(SizeType.Absolute, 88F));
+            recommentTable0.Size = new Size(349, 88);
+            recommentTable0.TabIndex = 0;
             // 
-            // label40
+            // recommentImg0
             // 
-            label40.BackColor = Color.Gray;
-            label40.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label40.ForeColor = SystemColors.ControlLight;
-            label40.Location = new Point(91, 0);
-            label40.Name = "label40";
-            label40.Size = new Size(252, 88);
-            label40.TabIndex = 1;
-            label40.Text = "title";
+            recommentImg0.BackColor = Color.Transparent;
+            recommentImg0.Image = (Image)resources.GetObject("recommentImg0.Image");
+            recommentImg0.Location = new Point(3, 0);
+            recommentImg0.Name = "recommentImg0";
+            recommentImg0.Size = new Size(82, 88);
+            recommentImg0.TabIndex = 0;
             // 
-            // label41
+            // recommentFlowPanel0
             // 
-            label41.BackColor = Color.DimGray;
-            label41.Image = (Image)resources.GetObject("label41.Image");
-            label41.Location = new Point(3, 0);
-            label41.Name = "label41";
-            label41.Size = new Size(82, 88);
-            label41.TabIndex = 0;
+            recommentFlowPanel0.Controls.Add(recommentTitle0);
+            recommentFlowPanel0.Controls.Add(recommentAuthor0);
+            recommentFlowPanel0.Dock = DockStyle.Fill;
+            recommentFlowPanel0.Location = new Point(91, 3);
+            recommentFlowPanel0.Name = "recommentFlowPanel0";
+            recommentFlowPanel0.Size = new Size(255, 82);
+            recommentFlowPanel0.TabIndex = 1;
             // 
-            // flowLayoutPanel23
+            // recommentTitle0
             // 
-            flowLayoutPanel23.Controls.Add(tableLayoutPanel21);
-            flowLayoutPanel23.Location = new Point(3, 97);
-            flowLayoutPanel23.Name = "flowLayoutPanel23";
-            flowLayoutPanel23.Size = new Size(370, 88);
-            flowLayoutPanel23.TabIndex = 2;
+            recommentTitle0.AutoSize = true;
+            recommentTitle0.BackColor = Color.Transparent;
+            recommentFlowPanel0.SetFlowBreak(recommentTitle0, true);
+            recommentTitle0.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            recommentTitle0.ForeColor = SystemColors.ControlLight;
+            recommentTitle0.Location = new Point(3, 0);
+            recommentTitle0.Name = "recommentTitle0";
+            recommentTitle0.Size = new Size(50, 28);
+            recommentTitle0.TabIndex = 1;
+            recommentTitle0.Text = "title";
             // 
-            // tableLayoutPanel21
+            // recommentAuthor0
             // 
-            tableLayoutPanel21.AutoSize = true;
-            tableLayoutPanel21.ColumnCount = 2;
-            tableLayoutPanel21.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 88F));
-            tableLayoutPanel21.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel21.Controls.Add(label42, 1, 0);
-            tableLayoutPanel21.Controls.Add(label43, 0, 0);
-            tableLayoutPanel21.Location = new Point(3, 3);
-            tableLayoutPanel21.Name = "tableLayoutPanel21";
-            tableLayoutPanel21.RowCount = 1;
-            tableLayoutPanel21.RowStyles.Add(new RowStyle(SizeType.Absolute, 88F));
-            tableLayoutPanel21.Size = new Size(362, 88);
-            tableLayoutPanel21.TabIndex = 0;
+            recommentAuthor0.AutoSize = true;
+            recommentAuthor0.BackColor = Color.Transparent;
+            recommentFlowPanel0.SetFlowBreak(recommentAuthor0, true);
+            recommentAuthor0.Font = new Font("Exo ExtraBold", 7.799999F, FontStyle.Bold, GraphicsUnit.Point);
+            recommentAuthor0.ForeColor = SystemColors.ControlLight;
+            recommentAuthor0.Location = new Point(3, 28);
+            recommentAuthor0.Name = "recommentAuthor0";
+            recommentAuthor0.Size = new Size(50, 19);
+            recommentAuthor0.TabIndex = 5;
+            recommentAuthor0.Text = "author";
             // 
-            // label42
+            // recommentElement1
             // 
-            label42.BackColor = Color.Gray;
-            label42.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label42.ForeColor = SystemColors.ControlLight;
-            label42.Location = new Point(91, 0);
-            label42.Name = "label42";
-            label42.Size = new Size(268, 88);
-            label42.TabIndex = 1;
-            label42.Text = "label42";
+            recommentElement1.Controls.Add(tableLayoutPanel8);
+            recommentElement1.GradientAngle = 60F;
+            recommentElement1.GradientPrimaryColor = Color.Transparent;
+            recommentElement1.GradientSecondaryColor = Color.White;
+            recommentElement1.Location = new Point(358, 85);
+            recommentElement1.Name = "recommentElement1";
+            recommentElement1.Size = new Size(349, 88);
+            recommentElement1.TabIndex = 9;
             // 
-            // label43
+            // tableLayoutPanel8
             // 
-            label43.BackColor = Color.DimGray;
-            label43.Image = (Image)resources.GetObject("label43.Image");
-            label43.Location = new Point(3, 0);
-            label43.Name = "label43";
-            label43.Size = new Size(82, 88);
-            label43.TabIndex = 0;
+            tableLayoutPanel8.AutoSize = true;
+            tableLayoutPanel8.ColumnCount = 2;
+            tableLayoutPanel8.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 88F));
+            tableLayoutPanel8.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel8.Controls.Add(recommentImg1, 0, 0);
+            tableLayoutPanel8.Controls.Add(recommentFlowPanel1, 1, 0);
+            tableLayoutPanel8.Dock = DockStyle.Fill;
+            tableLayoutPanel8.Location = new Point(0, 0);
+            tableLayoutPanel8.Name = "tableLayoutPanel8";
+            tableLayoutPanel8.RowCount = 1;
+            tableLayoutPanel8.RowStyles.Add(new RowStyle(SizeType.Absolute, 88F));
+            tableLayoutPanel8.Size = new Size(349, 88);
+            tableLayoutPanel8.TabIndex = 0;
             // 
-            // flowLayoutPanel24
+            // recommentImg1
             // 
-            flowLayoutPanel24.Controls.Add(tableLayoutPanel22);
-            flowLayoutPanel24.Controls.Add(flowLayoutPanel25);
-            flowLayoutPanel24.Location = new Point(361, 85);
-            flowLayoutPanel24.Name = "flowLayoutPanel24";
-            flowLayoutPanel24.Size = new Size(352, 88);
-            flowLayoutPanel24.TabIndex = 2;
+            recommentImg1.BackColor = Color.Transparent;
+            recommentImg1.Image = (Image)resources.GetObject("recommentImg1.Image");
+            recommentImg1.Location = new Point(3, 0);
+            recommentImg1.Name = "recommentImg1";
+            recommentImg1.Size = new Size(82, 88);
+            recommentImg1.TabIndex = 0;
             // 
-            // tableLayoutPanel22
+            // recommentFlowPanel1
             // 
-            tableLayoutPanel22.AutoSize = true;
-            tableLayoutPanel22.ColumnCount = 2;
-            tableLayoutPanel22.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 88F));
-            tableLayoutPanel22.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel22.Controls.Add(label44, 1, 0);
-            tableLayoutPanel22.Controls.Add(label45, 0, 0);
-            tableLayoutPanel22.Location = new Point(3, 3);
-            tableLayoutPanel22.Name = "tableLayoutPanel22";
-            tableLayoutPanel22.RowCount = 1;
-            tableLayoutPanel22.RowStyles.Add(new RowStyle(SizeType.Absolute, 88F));
-            tableLayoutPanel22.Size = new Size(346, 88);
-            tableLayoutPanel22.TabIndex = 0;
+            recommentFlowPanel1.Controls.Add(recommentTitle1);
+            recommentFlowPanel1.Controls.Add(recommentAuthor1);
+            recommentFlowPanel1.Dock = DockStyle.Fill;
+            recommentFlowPanel1.Location = new Point(91, 3);
+            recommentFlowPanel1.Name = "recommentFlowPanel1";
+            recommentFlowPanel1.Size = new Size(255, 82);
+            recommentFlowPanel1.TabIndex = 1;
             // 
-            // label44
+            // recommentTitle1
             // 
-            label44.BackColor = Color.Gray;
-            label44.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label44.ForeColor = SystemColors.ControlLight;
-            label44.Location = new Point(91, 0);
-            label44.Name = "label44";
-            label44.Size = new Size(252, 88);
-            label44.TabIndex = 1;
-            label44.Text = "title";
+            recommentTitle1.AutoSize = true;
+            recommentTitle1.BackColor = Color.Transparent;
+            recommentFlowPanel1.SetFlowBreak(recommentTitle1, true);
+            recommentTitle1.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            recommentTitle1.ForeColor = SystemColors.ControlLight;
+            recommentTitle1.Location = new Point(3, 0);
+            recommentTitle1.Name = "recommentTitle1";
+            recommentTitle1.Size = new Size(50, 28);
+            recommentTitle1.TabIndex = 1;
+            recommentTitle1.Text = "title";
             // 
-            // label45
+            // recommentAuthor1
             // 
-            label45.BackColor = Color.DimGray;
-            label45.Image = (Image)resources.GetObject("label45.Image");
-            label45.Location = new Point(3, 0);
-            label45.Name = "label45";
-            label45.Size = new Size(82, 88);
-            label45.TabIndex = 0;
+            recommentAuthor1.AutoSize = true;
+            recommentAuthor1.BackColor = Color.Transparent;
+            recommentFlowPanel1.SetFlowBreak(recommentAuthor1, true);
+            recommentAuthor1.Font = new Font("Exo ExtraBold", 7.799999F, FontStyle.Bold, GraphicsUnit.Point);
+            recommentAuthor1.ForeColor = SystemColors.ControlLight;
+            recommentAuthor1.Location = new Point(3, 28);
+            recommentAuthor1.Name = "recommentAuthor1";
+            recommentAuthor1.Size = new Size(50, 19);
+            recommentAuthor1.TabIndex = 5;
+            recommentAuthor1.Text = "author";
             // 
-            // flowLayoutPanel25
+            // recommentElement2
             // 
-            flowLayoutPanel25.Controls.Add(tableLayoutPanel23);
-            flowLayoutPanel25.Location = new Point(3, 97);
-            flowLayoutPanel25.Name = "flowLayoutPanel25";
-            flowLayoutPanel25.Size = new Size(370, 88);
-            flowLayoutPanel25.TabIndex = 2;
+            recommentElement2.Controls.Add(recommentTable2);
+            recommentElement2.GradientAngle = 60F;
+            recommentElement2.GradientPrimaryColor = Color.Transparent;
+            recommentElement2.GradientSecondaryColor = Color.White;
+            recommentElement2.Location = new Point(3, 179);
+            recommentElement2.Name = "recommentElement2";
+            recommentElement2.Size = new Size(349, 88);
+            recommentElement2.TabIndex = 10;
             // 
-            // tableLayoutPanel23
+            // recommentTable2
             // 
-            tableLayoutPanel23.AutoSize = true;
-            tableLayoutPanel23.ColumnCount = 2;
-            tableLayoutPanel23.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 88F));
-            tableLayoutPanel23.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel23.Controls.Add(label46, 1, 0);
-            tableLayoutPanel23.Controls.Add(label47, 0, 0);
-            tableLayoutPanel23.Location = new Point(3, 3);
-            tableLayoutPanel23.Name = "tableLayoutPanel23";
-            tableLayoutPanel23.RowCount = 1;
-            tableLayoutPanel23.RowStyles.Add(new RowStyle(SizeType.Absolute, 88F));
-            tableLayoutPanel23.Size = new Size(362, 88);
-            tableLayoutPanel23.TabIndex = 0;
+            recommentTable2.AutoSize = true;
+            recommentTable2.ColumnCount = 2;
+            recommentTable2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 88F));
+            recommentTable2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            recommentTable2.Controls.Add(recommentImg2, 0, 0);
+            recommentTable2.Controls.Add(recommentFlowLabel2, 1, 0);
+            recommentTable2.Dock = DockStyle.Fill;
+            recommentTable2.Location = new Point(0, 0);
+            recommentTable2.Name = "recommentTable2";
+            recommentTable2.RowCount = 1;
+            recommentTable2.RowStyles.Add(new RowStyle(SizeType.Absolute, 88F));
+            recommentTable2.Size = new Size(349, 88);
+            recommentTable2.TabIndex = 0;
             // 
-            // label46
+            // recommentImg2
             // 
-            label46.BackColor = Color.Gray;
-            label46.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label46.ForeColor = SystemColors.ControlLight;
-            label46.Location = new Point(91, 0);
-            label46.Name = "label46";
-            label46.Size = new Size(268, 88);
-            label46.TabIndex = 1;
-            label46.Text = "label46";
+            recommentImg2.BackColor = Color.Transparent;
+            recommentImg2.Image = (Image)resources.GetObject("recommentImg2.Image");
+            recommentImg2.Location = new Point(3, 0);
+            recommentImg2.Name = "recommentImg2";
+            recommentImg2.Size = new Size(82, 88);
+            recommentImg2.TabIndex = 0;
             // 
-            // label47
+            // recommentFlowLabel2
             // 
-            label47.BackColor = Color.DimGray;
-            label47.Image = (Image)resources.GetObject("label47.Image");
-            label47.Location = new Point(3, 0);
-            label47.Name = "label47";
-            label47.Size = new Size(82, 88);
-            label47.TabIndex = 0;
+            recommentFlowLabel2.Controls.Add(recommentTitle2);
+            recommentFlowLabel2.Controls.Add(recommentAuthor2);
+            recommentFlowLabel2.Dock = DockStyle.Fill;
+            recommentFlowLabel2.Location = new Point(91, 3);
+            recommentFlowLabel2.Name = "recommentFlowLabel2";
+            recommentFlowLabel2.Size = new Size(255, 82);
+            recommentFlowLabel2.TabIndex = 1;
             // 
-            // flowLayoutPanel26
+            // recommentTitle2
             // 
-            flowLayoutPanel26.Controls.Add(tableLayoutPanel24);
-            flowLayoutPanel26.Controls.Add(flowLayoutPanel27);
-            flowLayoutPanel26.Location = new Point(3, 179);
-            flowLayoutPanel26.Name = "flowLayoutPanel26";
-            flowLayoutPanel26.Size = new Size(352, 88);
-            flowLayoutPanel26.TabIndex = 3;
+            recommentTitle2.AutoSize = true;
+            recommentTitle2.BackColor = Color.Transparent;
+            recommentFlowLabel2.SetFlowBreak(recommentTitle2, true);
+            recommentTitle2.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            recommentTitle2.ForeColor = SystemColors.ControlLight;
+            recommentTitle2.Location = new Point(3, 0);
+            recommentTitle2.Name = "recommentTitle2";
+            recommentTitle2.Size = new Size(50, 28);
+            recommentTitle2.TabIndex = 1;
+            recommentTitle2.Text = "title";
             // 
-            // tableLayoutPanel24
+            // recommentAuthor2
             // 
-            tableLayoutPanel24.AutoSize = true;
-            tableLayoutPanel24.ColumnCount = 2;
-            tableLayoutPanel24.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 88F));
-            tableLayoutPanel24.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel24.Controls.Add(label48, 1, 0);
-            tableLayoutPanel24.Controls.Add(label49, 0, 0);
-            tableLayoutPanel24.Location = new Point(3, 3);
-            tableLayoutPanel24.Name = "tableLayoutPanel24";
-            tableLayoutPanel24.RowCount = 1;
-            tableLayoutPanel24.RowStyles.Add(new RowStyle(SizeType.Absolute, 88F));
-            tableLayoutPanel24.Size = new Size(346, 88);
-            tableLayoutPanel24.TabIndex = 0;
+            recommentAuthor2.AutoSize = true;
+            recommentAuthor2.BackColor = Color.Transparent;
+            recommentFlowLabel2.SetFlowBreak(recommentAuthor2, true);
+            recommentAuthor2.Font = new Font("Exo ExtraBold", 7.799999F, FontStyle.Bold, GraphicsUnit.Point);
+            recommentAuthor2.ForeColor = SystemColors.ControlLight;
+            recommentAuthor2.Location = new Point(3, 28);
+            recommentAuthor2.Name = "recommentAuthor2";
+            recommentAuthor2.Size = new Size(50, 19);
+            recommentAuthor2.TabIndex = 5;
+            recommentAuthor2.Text = "author";
             // 
-            // label48
+            // recommentElement3
             // 
-            label48.BackColor = Color.Gray;
-            label48.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label48.ForeColor = SystemColors.ControlLight;
-            label48.Location = new Point(91, 0);
-            label48.Name = "label48";
-            label48.Size = new Size(252, 88);
-            label48.TabIndex = 1;
-            label48.Text = "title";
+            recommentElement3.Controls.Add(recommentTable3);
+            recommentElement3.GradientAngle = 60F;
+            recommentElement3.GradientPrimaryColor = Color.Transparent;
+            recommentElement3.GradientSecondaryColor = Color.White;
+            recommentElement3.Location = new Point(358, 179);
+            recommentElement3.Name = "recommentElement3";
+            recommentElement3.Size = new Size(349, 88);
+            recommentElement3.TabIndex = 11;
             // 
-            // label49
+            // recommentTable3
             // 
-            label49.BackColor = Color.DimGray;
-            label49.Image = (Image)resources.GetObject("label49.Image");
-            label49.Location = new Point(3, 0);
-            label49.Name = "label49";
-            label49.Size = new Size(82, 88);
-            label49.TabIndex = 0;
+            recommentTable3.AutoSize = true;
+            recommentTable3.ColumnCount = 2;
+            recommentTable3.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 88F));
+            recommentTable3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            recommentTable3.Controls.Add(recommentImg3, 0, 0);
+            recommentTable3.Controls.Add(recommentFlowLabel3, 1, 0);
+            recommentTable3.Dock = DockStyle.Fill;
+            recommentTable3.Location = new Point(0, 0);
+            recommentTable3.Name = "recommentTable3";
+            recommentTable3.RowCount = 1;
+            recommentTable3.RowStyles.Add(new RowStyle(SizeType.Absolute, 88F));
+            recommentTable3.Size = new Size(349, 88);
+            recommentTable3.TabIndex = 0;
             // 
-            // flowLayoutPanel27
+            // recommentImg3
             // 
-            flowLayoutPanel27.Controls.Add(tableLayoutPanel25);
-            flowLayoutPanel27.Location = new Point(3, 97);
-            flowLayoutPanel27.Name = "flowLayoutPanel27";
-            flowLayoutPanel27.Size = new Size(370, 88);
-            flowLayoutPanel27.TabIndex = 2;
+            recommentImg3.BackColor = Color.Transparent;
+            recommentImg3.Image = (Image)resources.GetObject("recommentImg3.Image");
+            recommentImg3.Location = new Point(3, 0);
+            recommentImg3.Name = "recommentImg3";
+            recommentImg3.Size = new Size(82, 88);
+            recommentImg3.TabIndex = 0;
             // 
-            // tableLayoutPanel25
+            // recommentFlowLabel3
             // 
-            tableLayoutPanel25.AutoSize = true;
-            tableLayoutPanel25.ColumnCount = 2;
-            tableLayoutPanel25.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 88F));
-            tableLayoutPanel25.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel25.Controls.Add(label50, 1, 0);
-            tableLayoutPanel25.Controls.Add(label51, 0, 0);
-            tableLayoutPanel25.Location = new Point(3, 3);
-            tableLayoutPanel25.Name = "tableLayoutPanel25";
-            tableLayoutPanel25.RowCount = 1;
-            tableLayoutPanel25.RowStyles.Add(new RowStyle(SizeType.Absolute, 88F));
-            tableLayoutPanel25.Size = new Size(362, 88);
-            tableLayoutPanel25.TabIndex = 0;
+            recommentFlowLabel3.Controls.Add(recommentTitle3);
+            recommentFlowLabel3.Controls.Add(recommentAuthor3);
+            recommentFlowLabel3.Dock = DockStyle.Fill;
+            recommentFlowLabel3.Location = new Point(91, 3);
+            recommentFlowLabel3.Name = "recommentFlowLabel3";
+            recommentFlowLabel3.Size = new Size(255, 82);
+            recommentFlowLabel3.TabIndex = 1;
             // 
-            // label50
+            // recommentTitle3
             // 
-            label50.BackColor = Color.Gray;
-            label50.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label50.ForeColor = SystemColors.ControlLight;
-            label50.Location = new Point(91, 0);
-            label50.Name = "label50";
-            label50.Size = new Size(268, 88);
-            label50.TabIndex = 1;
-            label50.Text = "label50";
+            recommentTitle3.AutoSize = true;
+            recommentTitle3.BackColor = Color.Transparent;
+            recommentFlowLabel3.SetFlowBreak(recommentTitle3, true);
+            recommentTitle3.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            recommentTitle3.ForeColor = SystemColors.ControlLight;
+            recommentTitle3.Location = new Point(3, 0);
+            recommentTitle3.Name = "recommentTitle3";
+            recommentTitle3.Size = new Size(50, 28);
+            recommentTitle3.TabIndex = 1;
+            recommentTitle3.Text = "title";
             // 
-            // label51
+            // recommentAuthor3
             // 
-            label51.BackColor = Color.DimGray;
-            label51.Image = (Image)resources.GetObject("label51.Image");
-            label51.Location = new Point(3, 0);
-            label51.Name = "label51";
-            label51.Size = new Size(82, 88);
-            label51.TabIndex = 0;
+            recommentAuthor3.AutoSize = true;
+            recommentAuthor3.BackColor = Color.Transparent;
+            recommentFlowLabel3.SetFlowBreak(recommentAuthor3, true);
+            recommentAuthor3.Font = new Font("Exo ExtraBold", 7.799999F, FontStyle.Bold, GraphicsUnit.Point);
+            recommentAuthor3.ForeColor = SystemColors.ControlLight;
+            recommentAuthor3.Location = new Point(3, 28);
+            recommentAuthor3.Name = "recommentAuthor3";
+            recommentAuthor3.Size = new Size(50, 19);
+            recommentAuthor3.TabIndex = 5;
+            recommentAuthor3.Text = "author";
             // 
             // recentPanel
             // 
@@ -2180,7 +2224,7 @@ namespace WinForms
             searchBox.Location = new Point(0, 0);
             searchBox.Margin = new Padding(0);
             searchBox.Name = "searchBox";
-           // searchBox.SetTextView = singleTextView1;
+            //searchBox.SetTextView = singleTextView2;
             searchBox.Size = new Size(560, 55);
             searchBox.TabIndex = 5;
             searchBox.Text = "What do you want to read?";
@@ -2211,7 +2255,6 @@ namespace WinForms
             bestMatchPanel.Name = "bestMatchPanel";
             bestMatchPanel.Size = new Size(741, 176);
             bestMatchPanel.TabIndex = 1;
-
             // 
             // bestMatchLabel
             // 
@@ -2705,10 +2748,11 @@ namespace WinForms
             // 
             currentPagePanel.Controls.Add(totalPage);
             currentPagePanel.Controls.Add(currentPage);
+            currentPagePanel.Dock = DockStyle.Fill;
             currentPagePanel.Location = new Point(325, 0);
             currentPagePanel.Margin = new Padding(0);
             currentPagePanel.Name = "currentPagePanel";
-            currentPagePanel.Size = new Size(94, 94);
+            currentPagePanel.Size = new Size(100, 100);
             currentPagePanel.TabIndex = 1;
             // 
             // totalPage
@@ -3759,24 +3803,26 @@ namespace WinForms
             helloFlow3.ResumeLayout(false);
             helloFlow3.PerformLayout();
             recommentPanel.ResumeLayout(false);
-            flowLayoutPanel22.ResumeLayout(false);
-            flowLayoutPanel22.PerformLayout();
-            tableLayoutPanel20.ResumeLayout(false);
-            flowLayoutPanel23.ResumeLayout(false);
-            flowLayoutPanel23.PerformLayout();
-            tableLayoutPanel21.ResumeLayout(false);
-            flowLayoutPanel24.ResumeLayout(false);
-            flowLayoutPanel24.PerformLayout();
-            tableLayoutPanel22.ResumeLayout(false);
-            flowLayoutPanel25.ResumeLayout(false);
-            flowLayoutPanel25.PerformLayout();
-            tableLayoutPanel23.ResumeLayout(false);
-            flowLayoutPanel26.ResumeLayout(false);
-            flowLayoutPanel26.PerformLayout();
-            tableLayoutPanel24.ResumeLayout(false);
-            flowLayoutPanel27.ResumeLayout(false);
-            flowLayoutPanel27.PerformLayout();
-            tableLayoutPanel25.ResumeLayout(false);
+            recommendElement0.ResumeLayout(false);
+            recommendElement0.PerformLayout();
+            recommentTable0.ResumeLayout(false);
+            recommentFlowPanel0.ResumeLayout(false);
+            recommentFlowPanel0.PerformLayout();
+            recommentElement1.ResumeLayout(false);
+            recommentElement1.PerformLayout();
+            tableLayoutPanel8.ResumeLayout(false);
+            recommentFlowPanel1.ResumeLayout(false);
+            recommentFlowPanel1.PerformLayout();
+            recommentElement2.ResumeLayout(false);
+            recommentElement2.PerformLayout();
+            recommentTable2.ResumeLayout(false);
+            recommentFlowLabel2.ResumeLayout(false);
+            recommentFlowLabel2.PerformLayout();
+            recommentElement3.ResumeLayout(false);
+            recommentElement3.PerformLayout();
+            recommentTable3.ResumeLayout(false);
+            recommentFlowLabel3.ResumeLayout(false);
+            recommentFlowLabel3.PerformLayout();
             recentPanel.ResumeLayout(false);
             flowLayoutPanel28.ResumeLayout(false);
             flowLayoutPanel28.PerformLayout();
@@ -3944,30 +3990,6 @@ namespace WinForms
         private Label label12;
         private FlowLayoutPanel recommentPanel;
         private Label recommentLabel;
-        private FlowLayoutPanel flowLayoutPanel22;
-        private TableLayoutPanel tableLayoutPanel20;
-        private Label label40;
-        private Label label41;
-        private FlowLayoutPanel flowLayoutPanel23;
-        private TableLayoutPanel tableLayoutPanel21;
-        private Label label42;
-        private Label label43;
-        private FlowLayoutPanel flowLayoutPanel24;
-        private TableLayoutPanel tableLayoutPanel22;
-        private Label label44;
-        private Label label45;
-        private FlowLayoutPanel flowLayoutPanel25;
-        private TableLayoutPanel tableLayoutPanel23;
-        private Label label46;
-        private Label label47;
-        private FlowLayoutPanel flowLayoutPanel26;
-        private TableLayoutPanel tableLayoutPanel24;
-        private Label label48;
-        private Label label49;
-        private FlowLayoutPanel flowLayoutPanel27;
-        private TableLayoutPanel tableLayoutPanel25;
-        private Label label50;
-        private Label label51;
         private FlowLayoutPanel flowLayoutPanel3;
         private Label label5;
         private FlowLayoutPanel flowLayoutPanel8;
@@ -4201,5 +4223,30 @@ namespace WinForms
         private Label helloAuthor2;
         private FlowLayoutPanel helloFlow3;
         private Label helloAuthor3;
+        private GradientPanel recommendElement0;
+        private TableLayoutPanel recommentTable0;
+        private Label recommentImg0;
+        private FlowLayoutPanel recommentFlowPanel0;
+        private Label recommentTitle0;
+        private Label recommentAuthor0;
+        private GradientPanel recommentElement1;
+        private TableLayoutPanel tableLayoutPanel8;
+        private Label recommentImg1;
+        private FlowLayoutPanel recommentFlowPanel1;
+        private Label recommentTitle1;
+        private Label recommentAuthor1;
+        private GradientPanel recommentElement2;
+        private TableLayoutPanel recommentTable2;
+        private Label recommentImg2;
+        private FlowLayoutPanel recommentFlowLabel2;
+        private Label recommentTitle2;
+        private Label recommentAuthor2;
+        private GradientPanel recommentElement3;
+        private TableLayoutPanel recommentTable3;
+        private Label recommentImg3;
+        private FlowLayoutPanel recommentFlowLabel3;
+        private Label recommentTitle3;
+        private Label recommentAuthor3;
+        private Label contentYear;
     }
 }

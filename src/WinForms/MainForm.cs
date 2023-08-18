@@ -12,6 +12,7 @@ using System.Data.SqlClient;
 using System.Reflection;
 using System.Reflection.Emit;
 using System.Security.Policy;
+using static WinForms.MainForm;
 
 namespace WinForms
 {
@@ -61,6 +62,16 @@ namespace WinForms
             return (Image)(new Bitmap(imgToResize, size));
         }
 
+        private Stream LoaderFromURL(string url)
+        {
+            HttpClient client = new HttpClient();
+            client.DefaultRequestHeaders.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.63 Safari/537.36");
+            HttpResponseMessage response = client.GetAsync(url).Result;
+            response.EnsureSuccessStatusCode();
+
+            return response.Content.ReadAsStreamAsync().Result;
+        }
+
         private Image GetBookImage(int index)
         {
             Image img = Image.FromFile("../../../../../assets/icons/image_L.png");
@@ -71,14 +82,13 @@ namespace WinForms
                 // if the image does not exist, then get it
                 if (!File.Exists(imgPath))
                 {
-                    HttpClient client = new HttpClient();
-                    client.DefaultRequestHeaders.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.63 Safari/537.36");
-                    HttpResponseMessage response = client.GetAsync(book.lURL).Result;
-                    response.EnsureSuccessStatusCode();
-                    using (Stream stream = response.Content.ReadAsStreamAsync().Result)
+                    using (Stream stream = LoaderFromURL(book.lURL))
                     {
                         Image image = Image.FromStream(stream);
-
+                        if (image.Height <= 20)
+                        {
+                            image = Image.FromStream(LoaderFromURL(book.mURL));
+                        }
                         image.Save(imgPath);
                     }
                 }
@@ -86,9 +96,7 @@ namespace WinForms
                 //load image to tha label
 
                 if (Image.FromFile(imgPath).Height >= 70)
-                    img = Image.FromFile(imgPath);
-
-                return img;
+                    return img = Image.FromFile(imgPath);
             }
             catch (Exception ex)
             {
@@ -97,6 +105,10 @@ namespace WinForms
             return img;
         }
 
+
+        //
+        //Gather color of image border by pixels
+        //
         private Color[] GetBorderColors(Bitmap image, Size size)
         {
             int width = image.Width;
@@ -106,18 +118,21 @@ namespace WinForms
 
             for (int i = 0; i < size.Height; i++)
             {
-                borderColors[i] = image.GetPixel(0, i); // Đỉnh trái
-                borderColors[i + size.Height] = image.GetPixel(width - 1, i); // Đỉnh phải
+                borderColors[i] = image.GetPixel(0, i); // left edge
+                borderColors[i + size.Height] = image.GetPixel(width - 1, i); // right edge
             }
             for (int i = 0; i < size.Width; i++)
             {
-                borderColors[i + size.Height * 2] = image.GetPixel(i, 0); // Đỉnh trên
-                borderColors[i + size.Height * 2 + size.Width] = image.GetPixel(i, height - 1); // Đỉnh dưới
+                borderColors[i + size.Height * 2] = image.GetPixel(i, 0); // top edge
+                borderColors[i + size.Height * 2 + size.Width] = image.GetPixel(i, height - 1); // bottom edge
             }
 
             return borderColors;
         }
 
+        //
+        //Analyze color
+        //
         private Color CalculateAverageColor(Color[] colors)
         {
             int totalR = 0, totalG = 0, totalB = 0;
@@ -139,6 +154,9 @@ namespace WinForms
         #endregion
 
         #region Book properties
+        //
+        //Book object
+        //
         public struct Book
         {
             public int index { get; set; }
@@ -177,6 +195,10 @@ namespace WinForms
                 this.lURL = lURL;
             }
         }
+
+        //
+        //Use Sql query to get book information from Database
+        //
         private Book GetBookInformation(int index)
         {
             Book book = new Book();
@@ -214,23 +236,17 @@ namespace WinForms
             }
             finally
             {
-                // close the reader
-                if (dr != null)
-                {
-                    dr.Close();
-                }
-
-                //Close the connection
-                if (con != null)
-                {
-                    con.Close();
-                }
+                if (dr != null) dr.Close();
+                if (con != null) con.Close();
             }
             return book;
         }
 
         #endregion
 
+        //
+        //MainForm only work went user login successfully
+        //
         public MainForm(string username)
         {
             this.username = username;
@@ -245,11 +261,7 @@ namespace WinForms
             //Set tables double buffered 
             SetDoubleBuffer(tableLayoutPanel1, true);
             SetDoubleBuffer(tableLayoutPanel39, true);
-            SetDoubleBuffer(tableLayoutPanel21, true);
-            SetDoubleBuffer(tableLayoutPanel22, true);
-            SetDoubleBuffer(tableLayoutPanel23, true);
-            SetDoubleBuffer(tableLayoutPanel24, true);
-            SetDoubleBuffer(tableLayoutPanel25, true);
+            SetDoubleBuffer(recommentTable3, true);
             SetDoubleBuffer(tableLayoutPanel26, true);
             SetDoubleBuffer(tableLayoutPanel27, true);
             SetDoubleBuffer(tableLayoutPanel28, true);
@@ -287,6 +299,7 @@ namespace WinForms
             contentTitle.Text = book.title;
             authorLabel.Text = book.author;
             publisherLabel.Text = book.publisher;
+            contentYear.Text = book.year.ToString();
 
             currentBookTitle.Text = book.title;
             currentBookAuthor.Text = book.author;
@@ -319,6 +332,29 @@ namespace WinForms
             helloAuthor2.Text = helloBook2.author;
             helloElementTitle3.Text = helloBook3.title;
             helloAuthor3.Text = helloBook3.author;
+
+            int randC0 = rand.Next(1, 1000);
+            int randC1 = rand.Next(1, 1000);
+            int randC2 = rand.Next(1, 1000);
+            int randC3 = rand.Next(1, 1000);
+            recommentImg0.Image = SetHeight(GetBookImage(randC0), recommentImg0.Height);
+            recommentImg1.Image = SetHeight(GetBookImage(randC1), recommentImg1.Height);
+            recommentImg2.Image = SetHeight(GetBookImage(randC2), recommentImg2.Height);
+            recommentImg3.Image = SetHeight(GetBookImage(randC3), recommentImg3.Height);
+
+            Book recommentBook0 = GetBookInformation(randC0);
+            Book recommentBook1 = GetBookInformation(randC1);
+            Book recommentBook2 = GetBookInformation(randC2);
+            Book recommentBook3 = GetBookInformation(randC3);
+
+            recommentTitle0.Text = recommentBook0.title;
+            recommentAuthor0.Text = recommentBook0.author;
+            recommentTitle1.Text = recommentBook1.title;
+            recommentAuthor1.Text = recommentBook1.author;
+            recommentTitle2.Text = recommentBook2.title;
+            recommentAuthor2.Text = recommentBook2.author;
+            recommentTitle3.Text = recommentBook3.title;
+            recommentAuthor3.Text = recommentBook3.author;
             #endregion
         }
 
