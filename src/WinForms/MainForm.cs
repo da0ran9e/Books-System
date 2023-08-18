@@ -280,14 +280,7 @@ namespace WinForms
             SetDoubleBuffer(tableLayoutPanel36, true);
             SetDoubleBuffer(tableLayoutPanel37, true);
             SetDoubleBuffer(searchLayoutTable, true);
-            SetDoubleBuffer(bestMatchTableLayout, true);
             SetDoubleBuffer(tableLayoutPanel45, true);
-            SetDoubleBuffer(tableLayoutPanel56, true);
-            SetDoubleBuffer(tableLayoutPanel57, true);
-            SetDoubleBuffer(tableLayoutPanel58, true);
-            SetDoubleBuffer(tableLayoutPanel59, true);
-            SetDoubleBuffer(tableLayoutPanel60, true);
-            SetDoubleBuffer(tableLayoutPanel61, true);
             #endregion
             //update userlabel
             toolTip1.SetToolTip(userLabel, username);
@@ -549,6 +542,9 @@ namespace WinForms
 
             homeFlowPanel.Visible = true;
             searchFlowPanel.Visible = false;
+            favoritePanel.Visible = false;
+            categoriesPanel.Visible = false;
+            historyPanel.Visible = false;
         }
 
         private void searchLabel_Click(object sender, EventArgs e)
@@ -561,6 +557,9 @@ namespace WinForms
 
             homeFlowPanel.Visible = false;
             searchFlowPanel.Visible = true;
+            favoritePanel.Visible = false;
+            categoriesPanel.Visible = false;
+            historyPanel.Visible = false;
         }
 
         private void heartLabel_Click(object sender, EventArgs e)
@@ -573,6 +572,9 @@ namespace WinForms
 
             homeFlowPanel.Visible = false;
             searchFlowPanel.Visible = false;
+            favoritePanel.Visible = true;
+            categoriesPanel.Visible = false;
+            historyPanel.Visible = false;
         }
 
         private void librariesLabel_Click(object sender, EventArgs e)
@@ -585,6 +587,9 @@ namespace WinForms
 
             homeFlowPanel.Visible = false;
             searchFlowPanel.Visible = false;
+            favoritePanel.Visible = false;
+            categoriesPanel.Visible = true;
+            historyPanel.Visible = false;
         }
 
         private void recentLabel_Click(object sender, EventArgs e)
@@ -597,6 +602,9 @@ namespace WinForms
 
             homeFlowPanel.Visible = false;
             searchFlowPanel.Visible = false;
+            favoritePanel.Visible = false;
+            categoriesPanel.Visible = false;
+            historyPanel.Visible = true;
         }
 
         private void SearchBox_GotFocus(object sender, EventArgs e)
@@ -666,6 +674,7 @@ namespace WinForms
             currentPanel.BackColor = borderColor;
             currentProperties.GradientPrimaryColor = borderColor;
             currentProperties.GradientSecondaryColor = Color.Transparent;
+            currentProperties.Invalidate();
         }
 
         private void toolStripButton1_Click(object sender, EventArgs e)
