@@ -766,7 +766,10 @@ namespace WinForms
             searchFlowPanel.Width = mainFlowPanel.Width + difW;
 
             searchPanel.Width = mainFlowPanel.Width / 3 + 150;
-            searchPanel.Margin = new System.Windows.Forms.Padding((searchFlowPanel.Width - searchPanel.Width) / 2, 30, 3, 30);
+            searchPanel.Margin = new Padding((searchFlowPanel.Width - searchPanel.Width) / 2, 30, 3, 30);
+
+            bestMatchPanel.Width = searchFlowPanel.Width;
+            topSearchPanel.Width = searchFlowPanel.Width / 2 - 6;
         }
 
         private void MainForm_ResizeBegin(object sender, EventArgs e)
