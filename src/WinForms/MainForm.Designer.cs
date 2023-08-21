@@ -64,7 +64,7 @@ namespace WinForms
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            //SingleTextView singleTextView1 = new TSkin.ST.SingleTextView();
+            //SingleTextView singleTextView2 = new TSkin.ST.SingleTextView();
             searchTabeLayout = new TableLayoutPanel();
             verticalMenuBar = new FlowLayoutPanel();
             userLabel = new Label();
@@ -383,6 +383,34 @@ namespace WinForms
             toolStripButton1 = new ToolStripButton();
             toolStripButton2 = new ToolStripButton();
             toolStripButton3 = new ToolStripButton();
+            flowLayoutPanel4 = new FlowLayoutPanel();
+            bestBookPanel = new FlowLayoutPanel();
+            bestBookFlowPanel = new FlowLayoutPanel();
+            bestBookLabel = new Label();
+            bestBookElement0 = new GradientPanel();
+            bestBookTable0 = new TableLayoutPanel();
+            bestBookImg0 = new Label();
+            bestBookLabel0 = new FlowLayoutPanel();
+            bestBookTitle0 = new Label();
+            bestBookAuthor0 = new Label();
+            bestBookElement1 = new GradientPanel();
+            bestBookTable1 = new TableLayoutPanel();
+            bestBookImg1 = new Label();
+            bestBookLabel1 = new FlowLayoutPanel();
+            bestBookTitle1 = new Label();
+            bestBookAuthor1 = new Label();
+            bestBookElement2 = new GradientPanel();
+            bestBookTable2 = new TableLayoutPanel();
+            bestBookImg2 = new Label();
+            bestBookLabel2 = new FlowLayoutPanel();
+            bestBookTitle2 = new Label();
+            bestBookAuthor2 = new Label();
+            bestBookElement3 = new GradientPanel();
+            bestBookTable3 = new TableLayoutPanel();
+            bestBookImg3 = new Label();
+            bestBookLabel3 = new FlowLayoutPanel();
+            bestBookTitle3 = new Label();
+            bestBookAuthor3 = new Label();
             searchTabeLayout.SuspendLayout();
             verticalMenuBar.SuspendLayout();
             verticalTableMenu.SuspendLayout();
@@ -529,6 +557,20 @@ namespace WinForms
             tableLayoutPanel5.SuspendLayout();
             tableLayoutPanel40.SuspendLayout();
             toolStrip1.SuspendLayout();
+            bestBookPanel.SuspendLayout();
+            bestBookFlowPanel.SuspendLayout();
+            bestBookElement0.SuspendLayout();
+            bestBookTable0.SuspendLayout();
+            bestBookLabel0.SuspendLayout();
+            bestBookElement1.SuspendLayout();
+            bestBookTable1.SuspendLayout();
+            bestBookLabel1.SuspendLayout();
+            bestBookElement2.SuspendLayout();
+            bestBookTable2.SuspendLayout();
+            bestBookLabel2.SuspendLayout();
+            bestBookElement3.SuspendLayout();
+            bestBookTable3.SuspendLayout();
+            bestBookLabel3.SuspendLayout();
             SuspendLayout();
             // 
             // searchTabeLayout
@@ -1004,6 +1046,8 @@ namespace WinForms
             mainFlowPanel.Controls.Add(favoritePanel);
             mainFlowPanel.Controls.Add(categoriesPanel);
             mainFlowPanel.Controls.Add(historyPanel);
+            mainFlowPanel.Controls.Add(flowLayoutPanel4);
+            mainFlowPanel.Controls.Add(bestBookPanel);
             mainFlowPanel.Dock = DockStyle.Fill;
             mainFlowPanel.Location = new Point(400, 0);
             mainFlowPanel.Margin = new Padding(0);
@@ -1765,7 +1809,7 @@ namespace WinForms
             searchBox.Location = new Point(0, 0);
             searchBox.Margin = new Padding(0);
             searchBox.Name = "searchBox";
-           // searchBox.SetTextView = singleTextView1;
+            //searchBox.SetTextView = singleTextView2;
             searchBox.Size = new Size(560, 55);
             searchBox.TabIndex = 5;
             searchBox.Text = "What do you want to read?";
@@ -4304,6 +4348,341 @@ namespace WinForms
             toolStripButton3.Size = new Size(29, 24);
             toolStripButton3.Text = "toolStripButton3";
             // 
+            // flowLayoutPanel4
+            // 
+            flowLayoutPanel4.Location = new Point(3, 3855);
+            flowLayoutPanel4.Name = "flowLayoutPanel4";
+            flowLayoutPanel4.Size = new Size(250, 125);
+            flowLayoutPanel4.TabIndex = 16;
+            // 
+            // bestBookPanel
+            // 
+            bestBookPanel.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            bestBookPanel.AutoScroll = true;
+            bestBookPanel.Controls.Add(bestBookFlowPanel);
+            bestBookPanel.Location = new Point(0, 3983);
+            bestBookPanel.Margin = new Padding(0);
+            bestBookPanel.Name = "bestBookPanel";
+            bestBookPanel.Size = new Size(767, 765);
+            bestBookPanel.TabIndex = 17;
+            // 
+            // bestBookFlowPanel
+            // 
+            bestBookFlowPanel.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            bestBookFlowPanel.AutoSize = true;
+            bestBookFlowPanel.Controls.Add(bestBookLabel);
+            bestBookFlowPanel.Controls.Add(bestBookElement0);
+            bestBookFlowPanel.Controls.Add(bestBookElement1);
+            bestBookFlowPanel.Controls.Add(bestBookElement2);
+            bestBookFlowPanel.Controls.Add(bestBookElement3);
+            bestBookPanel.SetFlowBreak(bestBookFlowPanel, true);
+            bestBookFlowPanel.Location = new Point(0, 27);
+            bestBookFlowPanel.Margin = new Padding(0, 27, 0, 0);
+            bestBookFlowPanel.Name = "bestBookFlowPanel";
+            bestBookFlowPanel.Size = new Size(741, 270);
+            bestBookFlowPanel.TabIndex = 0;
+            // 
+            // bestBookLabel
+            // 
+            bestBookFlowPanel.SetFlowBreak(bestBookLabel, true);
+            bestBookLabel.Font = new Font("Exo ExtraBold", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point);
+            bestBookLabel.ForeColor = SystemColors.ControlLightLight;
+            bestBookLabel.Location = new Point(3, 0);
+            bestBookLabel.Name = "bestBookLabel";
+            bestBookLabel.Size = new Size(735, 82);
+            bestBookLabel.TabIndex = 0;
+            bestBookLabel.Text = "Best Book!";
+            // 
+            // bestBookElement0
+            // 
+            bestBookElement0.BackColor = Color.Transparent;
+            bestBookElement0.Controls.Add(bestBookTable0);
+            bestBookElement0.GradientAngle = 60F;
+            bestBookElement0.GradientPrimaryColor = Color.Transparent;
+            bestBookElement0.GradientSecondaryColor = Color.White;
+            bestBookElement0.Location = new Point(3, 85);
+            bestBookElement0.Name = "bestBookElement0";
+            bestBookElement0.Size = new Size(349, 88);
+            bestBookElement0.TabIndex = 4;
+            // 
+            // bestBookTable0
+            // 
+            bestBookTable0.AutoSize = true;
+            bestBookTable0.ColumnCount = 2;
+            bestBookTable0.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 88F));
+            bestBookTable0.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            bestBookTable0.Controls.Add(bestBookImg0, 0, 0);
+            bestBookTable0.Controls.Add(bestBookLabel0, 1, 0);
+            bestBookTable0.Dock = DockStyle.Fill;
+            bestBookTable0.Location = new Point(0, 0);
+            bestBookTable0.Name = "bestBookTable0";
+            bestBookTable0.RowCount = 1;
+            bestBookTable0.RowStyles.Add(new RowStyle(SizeType.Absolute, 88F));
+            bestBookTable0.Size = new Size(349, 88);
+            bestBookTable0.TabIndex = 0;
+            // 
+            // bestBookImg0
+            // 
+            bestBookImg0.BackColor = Color.Transparent;
+            bestBookImg0.Image = (Image)resources.GetObject("bestBookImg0.Image");
+            bestBookImg0.Location = new Point(3, 0);
+            bestBookImg0.Name = "bestBookImg0";
+            bestBookImg0.Size = new Size(82, 88);
+            bestBookImg0.TabIndex = 0;
+            // 
+            // bestBookLabel0
+            // 
+            bestBookLabel0.AutoSize = true;
+            bestBookLabel0.Controls.Add(bestBookTitle0);
+            bestBookLabel0.Controls.Add(bestBookAuthor0);
+            bestBookLabel0.Dock = DockStyle.Fill;
+            bestBookLabel0.Location = new Point(91, 3);
+            bestBookLabel0.Name = "bestBookLabel0";
+            bestBookLabel0.Size = new Size(255, 82);
+            bestBookLabel0.TabIndex = 1;
+            // 
+            // bestBookTitle0
+            // 
+            bestBookTitle0.AutoSize = true;
+            bestBookTitle0.BackColor = Color.Transparent;
+            bestBookLabel0.SetFlowBreak(bestBookTitle0, true);
+            bestBookTitle0.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            bestBookTitle0.ForeColor = SystemColors.ControlLight;
+            bestBookTitle0.Location = new Point(3, 0);
+            bestBookTitle0.Name = "bestBookTitle0";
+            bestBookTitle0.Size = new Size(50, 28);
+            bestBookTitle0.TabIndex = 1;
+            bestBookTitle0.Text = "title";
+            // 
+            // bestBookAuthor0
+            // 
+            bestBookAuthor0.AutoSize = true;
+            bestBookAuthor0.BackColor = Color.Transparent;
+            bestBookLabel0.SetFlowBreak(bestBookAuthor0, true);
+            bestBookAuthor0.Font = new Font("Exo ExtraBold", 7.799999F, FontStyle.Bold, GraphicsUnit.Point);
+            bestBookAuthor0.ForeColor = SystemColors.ControlLight;
+            bestBookAuthor0.Location = new Point(3, 28);
+            bestBookAuthor0.Name = "bestBookAuthor0";
+            bestBookAuthor0.Size = new Size(50, 19);
+            bestBookAuthor0.TabIndex = 2;
+            bestBookAuthor0.Text = "author";
+            // 
+            // bestBookElement1
+            // 
+            bestBookElement1.Controls.Add(bestBookTable1);
+            bestBookElement1.GradientAngle = 60F;
+            bestBookElement1.GradientPrimaryColor = Color.Transparent;
+            bestBookElement1.GradientSecondaryColor = Color.White;
+            bestBookElement1.Location = new Point(358, 85);
+            bestBookElement1.Name = "bestBookElement1";
+            bestBookElement1.Size = new Size(349, 88);
+            bestBookElement1.TabIndex = 5;
+            // 
+            // bestBookTable1
+            // 
+            bestBookTable1.AutoSize = true;
+            bestBookTable1.ColumnCount = 2;
+            bestBookTable1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 88F));
+            bestBookTable1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            bestBookTable1.Controls.Add(bestBookImg1, 0, 0);
+            bestBookTable1.Controls.Add(bestBookLabel1, 1, 0);
+            bestBookTable1.Dock = DockStyle.Fill;
+            bestBookTable1.Location = new Point(0, 0);
+            bestBookTable1.Name = "bestBookTable1";
+            bestBookTable1.RowCount = 1;
+            bestBookTable1.RowStyles.Add(new RowStyle(SizeType.Absolute, 88F));
+            bestBookTable1.Size = new Size(349, 88);
+            bestBookTable1.TabIndex = 0;
+            // 
+            // bestBookImg1
+            // 
+            bestBookImg1.BackColor = Color.Transparent;
+            bestBookImg1.Image = (Image)resources.GetObject("bestBookImg1.Image");
+            bestBookImg1.Location = new Point(3, 0);
+            bestBookImg1.Name = "bestBookImg1";
+            bestBookImg1.Size = new Size(82, 88);
+            bestBookImg1.TabIndex = 0;
+            // 
+            // bestBookLabel1
+            // 
+            bestBookLabel1.Controls.Add(bestBookTitle1);
+            bestBookLabel1.Controls.Add(bestBookAuthor1);
+            bestBookLabel1.Dock = DockStyle.Fill;
+            bestBookLabel1.Location = new Point(91, 3);
+            bestBookLabel1.Name = "bestBookLabel1";
+            bestBookLabel1.Size = new Size(255, 82);
+            bestBookLabel1.TabIndex = 1;
+            // 
+            // bestBookTitle1
+            // 
+            bestBookTitle1.AutoSize = true;
+            bestBookTitle1.BackColor = Color.Transparent;
+            bestBookLabel1.SetFlowBreak(bestBookTitle1, true);
+            bestBookTitle1.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            bestBookTitle1.ForeColor = SystemColors.ControlLight;
+            bestBookTitle1.Location = new Point(3, 0);
+            bestBookTitle1.Name = "bestBookTitle1";
+            bestBookTitle1.Size = new Size(50, 28);
+            bestBookTitle1.TabIndex = 1;
+            bestBookTitle1.Text = "title";
+            // 
+            // bestBookAuthor1
+            // 
+            bestBookAuthor1.AutoSize = true;
+            bestBookAuthor1.BackColor = Color.Transparent;
+            bestBookLabel1.SetFlowBreak(bestBookAuthor1, true);
+            bestBookAuthor1.Font = new Font("Exo ExtraBold", 7.799999F, FontStyle.Bold, GraphicsUnit.Point);
+            bestBookAuthor1.ForeColor = SystemColors.ControlLight;
+            bestBookAuthor1.Location = new Point(3, 28);
+            bestBookAuthor1.Name = "bestBookAuthor1";
+            bestBookAuthor1.Size = new Size(50, 19);
+            bestBookAuthor1.TabIndex = 3;
+            bestBookAuthor1.Text = "author";
+            // 
+            // bestBookElement2
+            // 
+            bestBookElement2.Controls.Add(bestBookTable2);
+            bestBookElement2.GradientAngle = 60F;
+            bestBookElement2.GradientPrimaryColor = Color.Transparent;
+            bestBookElement2.GradientSecondaryColor = Color.White;
+            bestBookElement2.Location = new Point(3, 179);
+            bestBookElement2.Name = "bestBookElement2";
+            bestBookElement2.Size = new Size(349, 88);
+            bestBookElement2.TabIndex = 6;
+            // 
+            // bestBookTable2
+            // 
+            bestBookTable2.AutoSize = true;
+            bestBookTable2.ColumnCount = 2;
+            bestBookTable2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 88F));
+            bestBookTable2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            bestBookTable2.Controls.Add(bestBookImg2, 0, 0);
+            bestBookTable2.Controls.Add(bestBookLabel2, 1, 0);
+            bestBookTable2.Dock = DockStyle.Fill;
+            bestBookTable2.Location = new Point(0, 0);
+            bestBookTable2.Name = "bestBookTable2";
+            bestBookTable2.RowCount = 1;
+            bestBookTable2.RowStyles.Add(new RowStyle(SizeType.Absolute, 88F));
+            bestBookTable2.Size = new Size(349, 88);
+            bestBookTable2.TabIndex = 0;
+            // 
+            // bestBookImg2
+            // 
+            bestBookImg2.BackColor = Color.Transparent;
+            bestBookImg2.Image = (Image)resources.GetObject("bestBookImg2.Image");
+            bestBookImg2.Location = new Point(3, 0);
+            bestBookImg2.Name = "bestBookImg2";
+            bestBookImg2.Size = new Size(82, 88);
+            bestBookImg2.TabIndex = 0;
+            // 
+            // bestBookLabel2
+            // 
+            bestBookLabel2.Controls.Add(bestBookTitle2);
+            bestBookLabel2.Controls.Add(bestBookAuthor2);
+            bestBookLabel2.Dock = DockStyle.Fill;
+            bestBookLabel2.Location = new Point(91, 3);
+            bestBookLabel2.Name = "bestBookLabel2";
+            bestBookLabel2.Size = new Size(255, 82);
+            bestBookLabel2.TabIndex = 1;
+            // 
+            // bestBookTitle2
+            // 
+            bestBookTitle2.AutoSize = true;
+            bestBookTitle2.BackColor = Color.Transparent;
+            bestBookLabel2.SetFlowBreak(bestBookTitle2, true);
+            bestBookTitle2.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            bestBookTitle2.ForeColor = SystemColors.ControlLight;
+            bestBookTitle2.Location = new Point(3, 0);
+            bestBookTitle2.Name = "bestBookTitle2";
+            bestBookTitle2.Size = new Size(50, 28);
+            bestBookTitle2.TabIndex = 1;
+            bestBookTitle2.Text = "title";
+            // 
+            // bestBookAuthor2
+            // 
+            bestBookAuthor2.AutoSize = true;
+            bestBookAuthor2.BackColor = Color.Transparent;
+            bestBookLabel2.SetFlowBreak(bestBookAuthor2, true);
+            bestBookAuthor2.Font = new Font("Exo ExtraBold", 7.799999F, FontStyle.Bold, GraphicsUnit.Point);
+            bestBookAuthor2.ForeColor = SystemColors.ControlLight;
+            bestBookAuthor2.Location = new Point(3, 28);
+            bestBookAuthor2.Name = "bestBookAuthor2";
+            bestBookAuthor2.Size = new Size(50, 19);
+            bestBookAuthor2.TabIndex = 4;
+            bestBookAuthor2.Text = "author";
+            // 
+            // bestBookElement3
+            // 
+            bestBookElement3.Controls.Add(bestBookTable3);
+            bestBookElement3.GradientAngle = 60F;
+            bestBookElement3.GradientPrimaryColor = Color.Transparent;
+            bestBookElement3.GradientSecondaryColor = Color.White;
+            bestBookElement3.Location = new Point(358, 179);
+            bestBookElement3.Name = "bestBookElement3";
+            bestBookElement3.Size = new Size(349, 88);
+            bestBookElement3.TabIndex = 7;
+            // 
+            // bestBookTable3
+            // 
+            bestBookTable3.AutoSize = true;
+            bestBookTable3.ColumnCount = 2;
+            bestBookTable3.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 88F));
+            bestBookTable3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            bestBookTable3.Controls.Add(bestBookImg3, 0, 0);
+            bestBookTable3.Controls.Add(bestBookLabel3, 1, 0);
+            bestBookTable3.Dock = DockStyle.Fill;
+            bestBookTable3.Location = new Point(0, 0);
+            bestBookTable3.Name = "bestBookTable3";
+            bestBookTable3.RowCount = 1;
+            bestBookTable3.RowStyles.Add(new RowStyle(SizeType.Absolute, 88F));
+            bestBookTable3.Size = new Size(349, 88);
+            bestBookTable3.TabIndex = 0;
+            // 
+            // bestBookImg3
+            // 
+            bestBookImg3.BackColor = Color.Transparent;
+            bestBookImg3.Image = (Image)resources.GetObject("bestBookImg3.Image");
+            bestBookImg3.Location = new Point(3, 0);
+            bestBookImg3.Name = "bestBookImg3";
+            bestBookImg3.Size = new Size(82, 88);
+            bestBookImg3.TabIndex = 0;
+            // 
+            // bestBookLabel3
+            // 
+            bestBookLabel3.Controls.Add(bestBookTitle3);
+            bestBookLabel3.Controls.Add(bestBookAuthor3);
+            bestBookLabel3.Dock = DockStyle.Fill;
+            bestBookLabel3.Location = new Point(91, 3);
+            bestBookLabel3.Name = "bestBookLabel3";
+            bestBookLabel3.Size = new Size(255, 82);
+            bestBookLabel3.TabIndex = 1;
+            // 
+            // bestBookTitle3
+            // 
+            bestBookTitle3.AutoSize = true;
+            bestBookTitle3.BackColor = Color.Transparent;
+            bestBookLabel3.SetFlowBreak(bestBookTitle3, true);
+            bestBookTitle3.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            bestBookTitle3.ForeColor = SystemColors.ControlLight;
+            bestBookTitle3.Location = new Point(3, 0);
+            bestBookTitle3.Name = "bestBookTitle3";
+            bestBookTitle3.Size = new Size(50, 28);
+            bestBookTitle3.TabIndex = 1;
+            bestBookTitle3.Text = "title";
+            // 
+            // bestBookAuthor3
+            // 
+            bestBookAuthor3.AutoSize = true;
+            bestBookAuthor3.BackColor = Color.Transparent;
+            bestBookLabel3.SetFlowBreak(bestBookAuthor3, true);
+            bestBookAuthor3.Font = new Font("Exo ExtraBold", 7.799999F, FontStyle.Bold, GraphicsUnit.Point);
+            bestBookAuthor3.ForeColor = SystemColors.ControlLight;
+            bestBookAuthor3.Location = new Point(3, 28);
+            bestBookAuthor3.Name = "bestBookAuthor3";
+            bestBookAuthor3.Size = new Size(50, 19);
+            bestBookAuthor3.TabIndex = 5;
+            bestBookAuthor3.Text = "author";
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -4547,6 +4926,30 @@ namespace WinForms
             tableLayoutPanel40.ResumeLayout(false);
             toolStrip1.ResumeLayout(false);
             toolStrip1.PerformLayout();
+            bestBookPanel.ResumeLayout(false);
+            bestBookPanel.PerformLayout();
+            bestBookFlowPanel.ResumeLayout(false);
+            bestBookElement0.ResumeLayout(false);
+            bestBookElement0.PerformLayout();
+            bestBookTable0.ResumeLayout(false);
+            bestBookTable0.PerformLayout();
+            bestBookLabel0.ResumeLayout(false);
+            bestBookLabel0.PerformLayout();
+            bestBookElement1.ResumeLayout(false);
+            bestBookElement1.PerformLayout();
+            bestBookTable1.ResumeLayout(false);
+            bestBookLabel1.ResumeLayout(false);
+            bestBookLabel1.PerformLayout();
+            bestBookElement2.ResumeLayout(false);
+            bestBookElement2.PerformLayout();
+            bestBookTable2.ResumeLayout(false);
+            bestBookLabel2.ResumeLayout(false);
+            bestBookLabel2.PerformLayout();
+            bestBookElement3.ResumeLayout(false);
+            bestBookElement3.PerformLayout();
+            bestBookTable3.ResumeLayout(false);
+            bestBookLabel3.ResumeLayout(false);
+            bestBookLabel3.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -4884,5 +5287,33 @@ namespace WinForms
         private Label bookmark;
         private Winforms.RJButton user;
         private Label userLabel;
+        private FlowLayoutPanel flowLayoutPanel4;
+        private FlowLayoutPanel bestBookPanel;
+        private FlowLayoutPanel bestBookFlowPanel;
+        private Label bestBookLabel;
+        private GradientPanel bestBookElement0;
+        private TableLayoutPanel bestBookTable0;
+        private Label bestBookImg0;
+        private FlowLayoutPanel bestBookLabel0;
+        private Label bestBookTitle0;
+        private Label bestBookAuthor0;
+        private GradientPanel bestBookElement1;
+        private TableLayoutPanel bestBookTable1;
+        private Label bestBookImg1;
+        private FlowLayoutPanel bestBookLabel1;
+        private Label bestBookTitle1;
+        private Label bestBookAuthor1;
+        private GradientPanel bestBookElement2;
+        private TableLayoutPanel bestBookTable2;
+        private Label bestBookImg2;
+        private FlowLayoutPanel bestBookLabel2;
+        private Label bestBookTitle2;
+        private Label bestBookAuthor2;
+        private GradientPanel bestBookElement3;
+        private TableLayoutPanel bestBookTable3;
+        private Label bestBookImg3;
+        private FlowLayoutPanel bestBookLabel3;
+        private Label bestBookTitle3;
+        private Label bestBookAuthor3;
     }
 }

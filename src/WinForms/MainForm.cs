@@ -374,6 +374,10 @@ namespace WinForms
             recommentTitle3.Text = recommentBook3.title;
             recommentAuthor3.Text = recommentBook3.author;
             #endregion
+
+            homeFlowPanel.Controls.Add(bestBookPanel);
+            //bestBookPanel.Visible = false;
+
         }
 
         //unneccessary!
@@ -770,6 +774,8 @@ namespace WinForms
 
             bestMatchPanel.Width = searchFlowPanel.Width;
             topSearchPanel.Width = searchFlowPanel.Width / 2 - 6;
+
+
         }
 
         private void MainForm_ResizeBegin(object sender, EventArgs e)
