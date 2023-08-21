@@ -745,14 +745,28 @@ namespace WinForms
         private int difW;
         private void MainForm_Resize(object sender, EventArgs e)
         {
+            //homeFlowPanel resize
             homeFlowPanel.Height = mainFlowPanel.Height + difH;
             homeFlowPanel.Width = mainFlowPanel.Width + difW;
+
             helloPanel.Width = homeFlowPanel.Width;
-            //helloPanel.Invalidate();
             helloElement0.Width = (homeFlowPanel.Width) / 2 - 6;
             helloElement1.Width = (homeFlowPanel.Width) / 2 - 6;
             helloElement2.Width = (homeFlowPanel.Width) / 2 - 6;
             helloElement3.Width = (homeFlowPanel.Width) / 2 - 6;
+
+            recommentPanel.Width = homeFlowPanel.Width;
+            recommentElement0.Width = (homeFlowPanel.Width) / 2 - 6;
+            recommentElement1.Width = (homeFlowPanel.Width) / 2 - 6;
+            recommentElement2.Width = (homeFlowPanel.Width) / 2 - 6;
+            recommentElement3.Width = (homeFlowPanel.Width) / 2 - 6;
+
+            //searchFlowPanel resize
+            searchFlowPanel.Height = mainFlowPanel.Height + difH;
+            searchFlowPanel.Width = mainFlowPanel.Width + difW;
+
+            searchPanel.Width = mainFlowPanel.Width / 3 + 150;
+            searchPanel.Margin = new System.Windows.Forms.Padding((searchFlowPanel.Width - searchPanel.Width) / 2, 30, 3, 30);
         }
 
         private void MainForm_ResizeBegin(object sender, EventArgs e)

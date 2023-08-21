@@ -64,7 +64,7 @@ namespace WinForms
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-           // SingleTextView singleTextView2 = new TSkin.ST.SingleTextView();
+            //SingleTextView singleTextView1 = new TSkin.ST.SingleTextView();
             searchTabeLayout = new TableLayoutPanel();
             verticalMenuBar = new FlowLayoutPanel();
             userLabel = new Label();
@@ -130,7 +130,7 @@ namespace WinForms
             helloAuthor3 = new Label();
             recommentPanel = new FlowLayoutPanel();
             recommentLabel = new Label();
-            recommendElement0 = new GradientPanel();
+            recommentElement0 = new GradientPanel();
             recommentTable0 = new TableLayoutPanel();
             recommentImg0 = new Label();
             recommentFlowPanel0 = new FlowLayoutPanel();
@@ -414,7 +414,7 @@ namespace WinForms
             helloElementTable3.SuspendLayout();
             helloFlow3.SuspendLayout();
             recommentPanel.SuspendLayout();
-            recommendElement0.SuspendLayout();
+            recommentElement0.SuspendLayout();
             recommentTable0.SuspendLayout();
             recommentFlowPanel0.SuspendLayout();
             recommentElement1.SuspendLayout();
@@ -781,7 +781,7 @@ namespace WinForms
             contentPanel.Dock = DockStyle.Fill;
             contentPanel.Location = new Point(3, 3);
             contentPanel.Name = "contentPanel";
-            contentPanel.Size = new Size(384, 700);
+            contentPanel.Size = new Size(394, 700);
             contentPanel.TabIndex = 3;
             // 
             // contentContainer
@@ -1005,10 +1005,10 @@ namespace WinForms
             mainFlowPanel.Controls.Add(categoriesPanel);
             mainFlowPanel.Controls.Add(historyPanel);
             mainFlowPanel.Dock = DockStyle.Fill;
-            mainFlowPanel.Location = new Point(390, 0);
+            mainFlowPanel.Location = new Point(400, 0);
             mainFlowPanel.Margin = new Padding(0);
             mainFlowPanel.Name = "mainFlowPanel";
-            mainFlowPanel.Size = new Size(750, 706);
+            mainFlowPanel.Size = new Size(740, 706);
             mainFlowPanel.TabIndex = 4;
             mainFlowPanel.Paint += mainFlowPanel_Paint;
             // 
@@ -1364,13 +1364,13 @@ namespace WinForms
             recommentPanel.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             recommentPanel.AutoSize = true;
             recommentPanel.Controls.Add(recommentLabel);
-            recommentPanel.Controls.Add(recommendElement0);
+            recommentPanel.Controls.Add(recommentElement0);
             recommentPanel.Controls.Add(recommentElement1);
             recommentPanel.Controls.Add(recommentElement2);
             recommentPanel.Controls.Add(recommentElement3);
             homeFlowPanel.SetFlowBreak(recommentPanel, true);
-            recommentPanel.Location = new Point(3, 300);
-            recommentPanel.Margin = new Padding(3, 3, 3, 30);
+            recommentPanel.Location = new Point(0, 297);
+            recommentPanel.Margin = new Padding(0);
             recommentPanel.Name = "recommentPanel";
             recommentPanel.Size = new Size(741, 270);
             recommentPanel.TabIndex = 1;
@@ -1386,16 +1386,16 @@ namespace WinForms
             recommentLabel.TabIndex = 0;
             recommentLabel.Text = "Made for you";
             // 
-            // recommendElement0
+            // recommentElement0
             // 
-            recommendElement0.Controls.Add(recommentTable0);
-            recommendElement0.GradientAngle = 60F;
-            recommendElement0.GradientPrimaryColor = Color.Transparent;
-            recommendElement0.GradientSecondaryColor = Color.White;
-            recommendElement0.Location = new Point(3, 85);
-            recommendElement0.Name = "recommendElement0";
-            recommendElement0.Size = new Size(349, 88);
-            recommendElement0.TabIndex = 8;
+            recommentElement0.Controls.Add(recommentTable0);
+            recommentElement0.GradientAngle = 60F;
+            recommentElement0.GradientPrimaryColor = Color.Transparent;
+            recommentElement0.GradientSecondaryColor = Color.White;
+            recommentElement0.Location = new Point(3, 85);
+            recommentElement0.Name = "recommentElement0";
+            recommentElement0.Size = new Size(349, 88);
+            recommentElement0.TabIndex = 8;
             // 
             // recommentTable0
             // 
@@ -1694,7 +1694,7 @@ namespace WinForms
             recentPanel.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             recentPanel.AutoSize = true;
             homeFlowPanel.SetFlowBreak(recentPanel, true);
-            recentPanel.Location = new Point(3, 603);
+            recentPanel.Location = new Point(3, 570);
             recentPanel.Margin = new Padding(3, 3, 3, 30);
             recentPanel.Name = "recentPanel";
             recentPanel.Size = new Size(0, 0);
@@ -1724,8 +1724,8 @@ namespace WinForms
             searchPanel.AutoSize = true;
             searchPanel.Controls.Add(searchLayoutTable);
             searchFlowPanel.SetFlowBreak(searchPanel, true);
-            searchPanel.Location = new Point(3, 30);
-            searchPanel.Margin = new Padding(3, 30, 3, 30);
+            searchPanel.Location = new Point(50, 30);
+            searchPanel.Margin = new Padding(50, 30, 3, 30);
             searchPanel.Name = "searchPanel";
             searchPanel.Size = new Size(621, 61);
             searchPanel.TabIndex = 0;
@@ -1765,7 +1765,7 @@ namespace WinForms
             searchBox.Location = new Point(0, 0);
             searchBox.Margin = new Padding(0);
             searchBox.Name = "searchBox";
-            //searchBox.SetTextView = singleTextView2;
+           // searchBox.SetTextView = singleTextView1;
             searchBox.Size = new Size(560, 55);
             searchBox.TabIndex = 5;
             searchBox.Text = "What do you want to read?";
@@ -3207,10 +3207,10 @@ namespace WinForms
             currentProperties.GradientAngle = 180F;
             currentProperties.GradientPrimaryColor = Color.FromArgb(0, 64, 0);
             currentProperties.GradientSecondaryColor = Color.Empty;
-            currentProperties.Location = new Point(390, 706);
+            currentProperties.Location = new Point(400, 706);
             currentProperties.Margin = new Padding(0);
             currentProperties.Name = "currentProperties";
-            currentProperties.Size = new Size(750, 100);
+            currentProperties.Size = new Size(740, 100);
             currentProperties.TabIndex = 6;
             // 
             // currentPropertiesTable
@@ -3228,7 +3228,7 @@ namespace WinForms
             currentPropertiesTable.Name = "currentPropertiesTable";
             currentPropertiesTable.RowCount = 1;
             currentPropertiesTable.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            currentPropertiesTable.Size = new Size(750, 100);
+            currentPropertiesTable.Size = new Size(740, 100);
             currentPropertiesTable.TabIndex = 0;
             // 
             // currentBookPanel
@@ -3238,10 +3238,10 @@ namespace WinForms
             currentBookPanel.Controls.Add(currentBookRate);
             currentBookPanel.Dock = DockStyle.Fill;
             currentBookPanel.FlowDirection = FlowDirection.RightToLeft;
-            currentBookPanel.Location = new Point(425, 0);
+            currentBookPanel.Location = new Point(420, 0);
             currentBookPanel.Margin = new Padding(0);
             currentBookPanel.Name = "currentBookPanel";
-            currentBookPanel.Size = new Size(325, 100);
+            currentBookPanel.Size = new Size(320, 100);
             currentBookPanel.TabIndex = 0;
             // 
             // currentBookTitle
@@ -3251,7 +3251,7 @@ namespace WinForms
             currentBookPanel.SetFlowBreak(currentBookTitle, true);
             currentBookTitle.Font = new Font("Exo ExtraBold", 10.1999989F, FontStyle.Bold, GraphicsUnit.Point);
             currentBookTitle.ForeColor = SystemColors.Menu;
-            currentBookTitle.Location = new Point(227, 10);
+            currentBookTitle.Location = new Point(222, 10);
             currentBookTitle.Margin = new Padding(3, 10, 10, 0);
             currentBookTitle.Name = "currentBookTitle";
             currentBookTitle.Size = new Size(88, 24);
@@ -3264,7 +3264,7 @@ namespace WinForms
             currentBookPanel.SetFlowBreak(currentBookAuthor, true);
             currentBookAuthor.Font = new Font("Exo ExtraBold", 7.799999F, FontStyle.Bold, GraphicsUnit.Point);
             currentBookAuthor.ForeColor = SystemColors.Menu;
-            currentBookAuthor.Location = new Point(231, 34);
+            currentBookAuthor.Location = new Point(226, 34);
             currentBookAuthor.Margin = new Padding(3, 0, 10, 0);
             currentBookAuthor.Name = "currentBookAuthor";
             currentBookAuthor.Size = new Size(84, 19);
@@ -3276,7 +3276,7 @@ namespace WinForms
             currentBookRate.Font = new Font("Exo ExtraBold", 9F, FontStyle.Bold, GraphicsUnit.Point);
             currentBookRate.ForeColor = SystemColors.Menu;
             currentBookRate.Image = (Image)resources.GetObject("currentBookRate.Image");
-            currentBookRate.Location = new Point(222, 59);
+            currentBookRate.Location = new Point(217, 59);
             currentBookRate.Name = "currentBookRate";
             currentBookRate.Size = new Size(100, 25);
             currentBookRate.TabIndex = 2;
@@ -3287,7 +3287,7 @@ namespace WinForms
             currentPagePanel.Controls.Add(totalPage);
             currentPagePanel.Controls.Add(currentPage);
             currentPagePanel.Dock = DockStyle.Fill;
-            currentPagePanel.Location = new Point(325, 0);
+            currentPagePanel.Location = new Point(320, 0);
             currentPagePanel.Margin = new Padding(0);
             currentPagePanel.Name = "currentPagePanel";
             currentPagePanel.Size = new Size(100, 100);
@@ -3322,7 +3322,7 @@ namespace WinForms
             currentPublisherPanel.Location = new Point(0, 0);
             currentPublisherPanel.Margin = new Padding(0);
             currentPublisherPanel.Name = "currentPublisherPanel";
-            currentPublisherPanel.Size = new Size(325, 100);
+            currentPublisherPanel.Size = new Size(320, 100);
             currentPublisherPanel.TabIndex = 2;
             // 
             // currentPublisher
@@ -3362,7 +3362,7 @@ namespace WinForms
             optionPanel.Location = new Point(0, 706);
             optionPanel.Margin = new Padding(0);
             optionPanel.Name = "optionPanel";
-            optionPanel.Size = new Size(390, 100);
+            optionPanel.Size = new Size(400, 100);
             optionPanel.TabIndex = 7;
             // 
             // optionsFlowPanel
@@ -3376,13 +3376,13 @@ namespace WinForms
             optionsFlowPanel.FlowDirection = FlowDirection.RightToLeft;
             optionsFlowPanel.Location = new Point(0, 0);
             optionsFlowPanel.Name = "optionsFlowPanel";
-            optionsFlowPanel.Size = new Size(390, 100);
+            optionsFlowPanel.Size = new Size(400, 100);
             optionsFlowPanel.TabIndex = 0;
             // 
             // heartOption
             // 
             heartOption.Image = (Image)resources.GetObject("heartOption.Image");
-            heartOption.Location = new Point(313, 30);
+            heartOption.Location = new Point(323, 30);
             heartOption.Margin = new Padding(10, 30, 30, 30);
             heartOption.Name = "heartOption";
             heartOption.Size = new Size(47, 41);
@@ -3392,7 +3392,7 @@ namespace WinForms
             // 
             textToSpeech.Enabled = false;
             textToSpeech.Image = (Image)resources.GetObject("textToSpeech.Image");
-            textToSpeech.Location = new Point(256, 30);
+            textToSpeech.Location = new Point(266, 30);
             textToSpeech.Margin = new Padding(10, 30, 0, 30);
             textToSpeech.Name = "textToSpeech";
             textToSpeech.Size = new Size(47, 41);
@@ -3402,7 +3402,7 @@ namespace WinForms
             // 
             brightness.Enabled = false;
             brightness.Image = (Image)resources.GetObject("brightness.Image");
-            brightness.Location = new Point(199, 30);
+            brightness.Location = new Point(209, 30);
             brightness.Margin = new Padding(15, 30, 0, 30);
             brightness.Name = "brightness";
             brightness.Size = new Size(47, 41);
@@ -3412,7 +3412,7 @@ namespace WinForms
             // 
             forward.Enabled = false;
             forward.Image = (Image)resources.GetObject("forward.Image");
-            forward.Location = new Point(137, 30);
+            forward.Location = new Point(147, 30);
             forward.Margin = new Padding(15, 30, 0, 30);
             forward.Name = "forward";
             forward.Size = new Size(47, 41);
@@ -3422,7 +3422,7 @@ namespace WinForms
             // 
             bookmark.Enabled = false;
             bookmark.Image = (Image)resources.GetObject("bookmark.Image");
-            bookmark.Location = new Point(75, 30);
+            bookmark.Location = new Point(85, 30);
             bookmark.Margin = new Padding(15, 30, 0, 30);
             bookmark.Name = "bookmark";
             bookmark.Size = new Size(47, 41);
@@ -4368,8 +4368,8 @@ namespace WinForms
             helloFlow3.ResumeLayout(false);
             helloFlow3.PerformLayout();
             recommentPanel.ResumeLayout(false);
-            recommendElement0.ResumeLayout(false);
-            recommendElement0.PerformLayout();
+            recommentElement0.ResumeLayout(false);
+            recommentElement0.PerformLayout();
             recommentTable0.ResumeLayout(false);
             recommentFlowPanel0.ResumeLayout(false);
             recommentFlowPanel0.PerformLayout();
@@ -4744,7 +4744,7 @@ namespace WinForms
         private Label helloAuthor2;
         private FlowLayoutPanel helloFlow3;
         private Label helloAuthor3;
-        private GradientPanel recommendElement0;
+        private GradientPanel recommentElement0;
         private TableLayoutPanel recommentTable0;
         private Label recommentImg0;
         private FlowLayoutPanel recommentFlowPanel0;
