@@ -250,7 +250,7 @@ namespace WinForms
         #endregion
 
         //
-        //MainForm only load went user login successfully
+        //MainForm only work went user login successfully
         //
         public MainForm(string username)
         {
@@ -259,6 +259,34 @@ namespace WinForms
             InitializeComponent();
             this.DoubleBuffered = true;
             this.SetStyle(ControlStyles.ResizeRedraw, true);
+        }
+        private const int cGrip = 16;      // Grip size
+        private const int cCaption = 32;   // Caption bar height;
+
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            Rectangle rc = new Rectangle(this.ClientSize.Width - cGrip, this.ClientSize.Height - cGrip, cGrip, cGrip);
+            ControlPaint.DrawSizeGrip(e.Graphics, this.BackColor, rc);
+        }
+
+        protected override void WndProc(ref Message m)
+        {
+            if (m.Msg == 0x84)
+            {  // Trap WM_NCHITTEST
+                Point pos = new Point(m.LParam.ToInt32());
+                pos = this.PointToClient(pos);
+                if (pos.Y < cCaption)
+                {
+                    m.Result = (IntPtr)2;  // HTCAPTION
+                    return;
+                }
+                if (pos.X >= this.ClientSize.Width - cGrip && pos.Y >= this.ClientSize.Height - cGrip)
+                {
+                    m.Result = (IntPtr)17; // HTBOTTOMRIGHT
+                    return;
+                }
+            }
+            base.WndProc(ref m);
         }
         //
         // MainForm on load event handler
@@ -348,7 +376,7 @@ namespace WinForms
             #endregion
         }
 
-        // repaint for content region
+        //unneccessary!
         private void contentContainer_Paint(object sender, PaintEventArgs e)
         {
             LinearGradientBrush lgb = new LinearGradientBrush(contentContainer.ClientRectangle, ColorTranslator.FromHtml("#300004"), contentContainer.BackColor, 90F);
@@ -713,5 +741,18 @@ namespace WinForms
             updateCurrentBook(bookPicking(recommentTitle3.Text));
         }
         #endregion
+        private int difH;
+        private int difW;
+        private void MainForm_Resize(object sender, EventArgs e)
+        {
+            mainFlowPanel.Height = this.Height - difH;
+            mainFlowPanel.Width = this.Width - difW;
+        }
+
+        private void MainForm_ResizeBegin(object sender, EventArgs e)
+        {
+            difH = this.Height - mainFlowPanel.Height;
+            difW = this.Width - mainFlowPanel.Width;
+        }
     }
 }

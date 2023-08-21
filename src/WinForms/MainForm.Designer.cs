@@ -64,7 +64,7 @@ namespace WinForms
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            //SingleTextView singleTextView1 = new TSkin.ST.SingleTextView();
+           // SingleTextView singleTextView2 = new TSkin.ST.SingleTextView();
             searchTabeLayout = new TableLayoutPanel();
             verticalMenuBar = new FlowLayoutPanel();
             userLabel = new Label();
@@ -535,8 +535,8 @@ namespace WinForms
             // 
             searchTabeLayout.BackColor = Color.Transparent;
             searchTabeLayout.ColumnCount = 3;
+            searchTabeLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 400F));
             searchTabeLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            searchTabeLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 750F));
             searchTabeLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 100F));
             searchTabeLayout.Controls.Add(verticalMenuBar, 2, 0);
             searchTabeLayout.Controls.Add(contentPanel, 0, 0);
@@ -545,13 +545,13 @@ namespace WinForms
             searchTabeLayout.Controls.Add(currentProperties, 1, 1);
             searchTabeLayout.Controls.Add(optionPanel, 0, 1);
             searchTabeLayout.Dock = DockStyle.Fill;
-            searchTabeLayout.Location = new Point(0, 0);
+            searchTabeLayout.Location = new Point(20, 20);
             searchTabeLayout.Margin = new Padding(0, 500, 0, 0);
             searchTabeLayout.Name = "searchTabeLayout";
             searchTabeLayout.RowCount = 2;
             searchTabeLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             searchTabeLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 100F));
-            searchTabeLayout.Size = new Size(1280, 846);
+            searchTabeLayout.Size = new Size(1240, 806);
             searchTabeLayout.TabIndex = 0;
             // 
             // verticalMenuBar
@@ -560,10 +560,10 @@ namespace WinForms
             verticalMenuBar.Controls.Add(verticalTableMenu);
             verticalMenuBar.Dock = DockStyle.Fill;
             verticalMenuBar.FlowDirection = FlowDirection.TopDown;
-            verticalMenuBar.Location = new Point(1180, 0);
+            verticalMenuBar.Location = new Point(1140, 0);
             verticalMenuBar.Margin = new Padding(0);
             verticalMenuBar.Name = "verticalMenuBar";
-            verticalMenuBar.Size = new Size(100, 746);
+            verticalMenuBar.Size = new Size(100, 706);
             verticalMenuBar.TabIndex = 1;
             verticalMenuBar.WrapContents = false;
             verticalMenuBar.Paint += verticalMenuBar_Paint;
@@ -781,7 +781,7 @@ namespace WinForms
             contentPanel.Dock = DockStyle.Fill;
             contentPanel.Location = new Point(3, 3);
             contentPanel.Name = "contentPanel";
-            contentPanel.Size = new Size(424, 740);
+            contentPanel.Size = new Size(384, 700);
             contentPanel.TabIndex = 3;
             // 
             // contentContainer
@@ -1005,10 +1005,10 @@ namespace WinForms
             mainFlowPanel.Controls.Add(categoriesPanel);
             mainFlowPanel.Controls.Add(historyPanel);
             mainFlowPanel.Dock = DockStyle.Fill;
-            mainFlowPanel.Location = new Point(430, 0);
+            mainFlowPanel.Location = new Point(390, 0);
             mainFlowPanel.Margin = new Padding(0);
             mainFlowPanel.Name = "mainFlowPanel";
-            mainFlowPanel.Size = new Size(750, 746);
+            mainFlowPanel.Size = new Size(750, 706);
             mainFlowPanel.TabIndex = 4;
             mainFlowPanel.Paint += mainFlowPanel_Paint;
             // 
@@ -1765,7 +1765,7 @@ namespace WinForms
             searchBox.Location = new Point(0, 0);
             searchBox.Margin = new Padding(0);
             searchBox.Name = "searchBox";
-            //searchBox.SetTextView = singleTextView1;
+            //searchBox.SetTextView = singleTextView2;
             searchBox.Size = new Size(560, 55);
             searchBox.TabIndex = 5;
             searchBox.Text = "What do you want to read?";
@@ -3184,7 +3184,7 @@ namespace WinForms
             currentPanel.BackColor = Color.Gainsboro;
             currentPanel.Controls.Add(currentLabel);
             currentPanel.Dock = DockStyle.Fill;
-            currentPanel.Location = new Point(1180, 746);
+            currentPanel.Location = new Point(1140, 706);
             currentPanel.Margin = new Padding(0);
             currentPanel.Name = "currentPanel";
             currentPanel.Size = new Size(100, 100);
@@ -3207,7 +3207,7 @@ namespace WinForms
             currentProperties.GradientAngle = 180F;
             currentProperties.GradientPrimaryColor = Color.FromArgb(0, 64, 0);
             currentProperties.GradientSecondaryColor = Color.Empty;
-            currentProperties.Location = new Point(430, 746);
+            currentProperties.Location = new Point(390, 706);
             currentProperties.Margin = new Padding(0);
             currentProperties.Name = "currentProperties";
             currentProperties.Size = new Size(750, 100);
@@ -3359,10 +3359,10 @@ namespace WinForms
             optionPanel.GradientAngle = 90F;
             optionPanel.GradientPrimaryColor = Color.Black;
             optionPanel.GradientSecondaryColor = Color.Empty;
-            optionPanel.Location = new Point(0, 746);
+            optionPanel.Location = new Point(0, 706);
             optionPanel.Margin = new Padding(0);
             optionPanel.Name = "optionPanel";
-            optionPanel.Size = new Size(430, 100);
+            optionPanel.Size = new Size(390, 100);
             optionPanel.TabIndex = 7;
             // 
             // optionsFlowPanel
@@ -3376,13 +3376,13 @@ namespace WinForms
             optionsFlowPanel.FlowDirection = FlowDirection.RightToLeft;
             optionsFlowPanel.Location = new Point(0, 0);
             optionsFlowPanel.Name = "optionsFlowPanel";
-            optionsFlowPanel.Size = new Size(430, 100);
+            optionsFlowPanel.Size = new Size(390, 100);
             optionsFlowPanel.TabIndex = 0;
             // 
             // heartOption
             // 
             heartOption.Image = (Image)resources.GetObject("heartOption.Image");
-            heartOption.Location = new Point(353, 30);
+            heartOption.Location = new Point(313, 30);
             heartOption.Margin = new Padding(10, 30, 30, 30);
             heartOption.Name = "heartOption";
             heartOption.Size = new Size(47, 41);
@@ -3392,7 +3392,7 @@ namespace WinForms
             // 
             textToSpeech.Enabled = false;
             textToSpeech.Image = (Image)resources.GetObject("textToSpeech.Image");
-            textToSpeech.Location = new Point(296, 30);
+            textToSpeech.Location = new Point(256, 30);
             textToSpeech.Margin = new Padding(10, 30, 0, 30);
             textToSpeech.Name = "textToSpeech";
             textToSpeech.Size = new Size(47, 41);
@@ -3402,7 +3402,7 @@ namespace WinForms
             // 
             brightness.Enabled = false;
             brightness.Image = (Image)resources.GetObject("brightness.Image");
-            brightness.Location = new Point(239, 30);
+            brightness.Location = new Point(199, 30);
             brightness.Margin = new Padding(15, 30, 0, 30);
             brightness.Name = "brightness";
             brightness.Size = new Size(47, 41);
@@ -3412,7 +3412,7 @@ namespace WinForms
             // 
             forward.Enabled = false;
             forward.Image = (Image)resources.GetObject("forward.Image");
-            forward.Location = new Point(177, 30);
+            forward.Location = new Point(137, 30);
             forward.Margin = new Padding(15, 30, 0, 30);
             forward.Name = "forward";
             forward.Size = new Size(47, 41);
@@ -3422,7 +3422,7 @@ namespace WinForms
             // 
             bookmark.Enabled = false;
             bookmark.Image = (Image)resources.GetObject("bookmark.Image");
-            bookmark.Location = new Point(115, 30);
+            bookmark.Location = new Point(75, 30);
             bookmark.Margin = new Padding(15, 30, 0, 30);
             bookmark.Name = "bookmark";
             bookmark.Size = new Size(47, 41);
@@ -4237,9 +4237,9 @@ namespace WinForms
             toolStrip1.Font = new Font("Exo ExtraBold", 9F, FontStyle.Bold, GraphicsUnit.Point);
             toolStrip1.ImageScalingSize = new Size(20, 20);
             toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripDropDownButton1, toolStripButton1, toolStripButton2, toolStripButton3 });
-            toolStrip1.Location = new Point(0, 0);
+            toolStrip1.Location = new Point(20, 20);
             toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new Size(1280, 27);
+            toolStrip1.Size = new Size(1240, 27);
             toolStrip1.TabIndex = 1;
             toolStrip1.Text = "toolStrip1";
             // 
@@ -4317,10 +4317,13 @@ namespace WinForms
             DoubleBuffered = true;
             FormBorderStyle = FormBorderStyle.None;
             Name = "MainForm";
+            Padding = new Padding(20);
             StartPosition = FormStartPosition.CenterScreen;
             Text = "MainForm";
             toolTip1.SetToolTip(this, "user");
             Load += MainForm_Load;
+            ResizeBegin += MainForm_ResizeBegin;
+            Resize += MainForm_Resize;
             searchTabeLayout.ResumeLayout(false);
             verticalMenuBar.ResumeLayout(false);
             verticalTableMenu.ResumeLayout(false);
