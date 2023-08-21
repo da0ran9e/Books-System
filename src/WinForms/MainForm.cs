@@ -250,14 +250,16 @@ namespace WinForms
         #endregion
 
         //
-        //MainForm only work went user login successfully
+        //MainForm only load went user login successfully
         //
         public MainForm(string username)
         {
             this.username = username;
+            this.FormBorderStyle = FormBorderStyle.None;
             InitializeComponent();
+            this.DoubleBuffered = true;
+            this.SetStyle(ControlStyles.ResizeRedraw, true);
         }
-
         //
         // MainForm on load event handler
         //
@@ -267,23 +269,11 @@ namespace WinForms
             SetDoubleBuffer(tableLayoutPanel1, true);
             SetDoubleBuffer(tableLayoutPanel39, true);
             SetDoubleBuffer(recommentTable3, true);
-            SetDoubleBuffer(tableLayoutPanel26, true);
-            SetDoubleBuffer(tableLayoutPanel27, true);
-            SetDoubleBuffer(tableLayoutPanel28, true);
-            SetDoubleBuffer(tableLayoutPanel29, true);
-            SetDoubleBuffer(tableLayoutPanel30, true);
-            SetDoubleBuffer(tableLayoutPanel31, true);
-            SetDoubleBuffer(tableLayoutPanel32, true);
-            SetDoubleBuffer(tableLayoutPanel33, true);
-            SetDoubleBuffer(tableLayoutPanel34, true);
-            SetDoubleBuffer(tableLayoutPanel35, true);
-            SetDoubleBuffer(tableLayoutPanel36, true);
-            SetDoubleBuffer(tableLayoutPanel37, true);
             SetDoubleBuffer(searchLayoutTable, true);
             SetDoubleBuffer(tableLayoutPanel45, true);
             #endregion
             //update userlabel
-            toolTip1.SetToolTip(userLabel, username);
+            toolTip1.SetToolTip(user, username);
 
             #region test application graphic by getting random index of books
             Random rand = new Random();
@@ -358,7 +348,7 @@ namespace WinForms
             #endregion
         }
 
-        //unneccessary!
+        // repaint for content region
         private void contentContainer_Paint(object sender, PaintEventArgs e)
         {
             LinearGradientBrush lgb = new LinearGradientBrush(contentContainer.ClientRectangle, ColorTranslator.FromHtml("#300004"), contentContainer.BackColor, 90F);
@@ -641,6 +631,12 @@ namespace WinForms
         }
         #endregion
 
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        #region handle events when user picking a book to read
         private Book bookPicking(string name)
         {
             Book book = new Book();
@@ -677,49 +673,45 @@ namespace WinForms
             currentProperties.Invalidate();
         }
 
-        private void toolStripButton1_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void helloFlow0_Click(object sender, EventArgs e)
+        private void helloElement0_Click(object sender, EventArgs e)
         {
             updateCurrentBook(bookPicking(helloElementTitle0.Text));
         }
 
-        private void flowLayoutPanel1_Click(object sender, EventArgs e)
+        private void helloElement1_Click(object sender, EventArgs e)
         {
             updateCurrentBook(bookPicking(helloElementTitle1.Text));
         }
 
-        private void helloFlow2_Click(object sender, EventArgs e)
+        private void helloElement2_Click(object sender, EventArgs e)
         {
             updateCurrentBook(bookPicking(helloElementTitle2.Text));
         }
 
-        private void helloFlow3_Click(object sender, EventArgs e)
+        private void helloElement3_Click(object sender, EventArgs e)
         {
             updateCurrentBook(bookPicking(helloElementTitle3.Text));
         }
 
-        private void recommentFlowPanel0_Click(object sender, EventArgs e)
+        private void recommentElement0_Click(object sender, EventArgs e)
         {
             updateCurrentBook(bookPicking(recommentTitle0.Text));
         }
 
-        private void recommentFlowPanel1_Click(object sender, EventArgs e)
+        private void recommentElement1_Click(object sender, EventArgs e)
         {
             updateCurrentBook(bookPicking(recommentTitle1.Text));
         }
 
-        private void recommentFlowLabel2_Click(object sender, EventArgs e)
+        private void recommentElement2_Click(object sender, EventArgs e)
         {
             updateCurrentBook(bookPicking(recommentTitle2.Text));
         }
 
-        private void recommentFlowLabel3_Click(object sender, EventArgs e)
+        private void recommentElement3_Click(object sender, EventArgs e)
         {
             updateCurrentBook(bookPicking(recommentTitle3.Text));
         }
+        #endregion
     }
 }

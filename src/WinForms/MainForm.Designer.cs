@@ -63,13 +63,15 @@ namespace WinForms
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            //SingleTextView singleTextView1 = new TSkin.ST.SingleTextView();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            //SingleTextView singleTextView1 = new TSkin.ST.SingleTextView();
             searchTabeLayout = new TableLayoutPanel();
             verticalMenuBar = new FlowLayoutPanel();
+            userLabel = new Label();
             verticalTableMenu = new TableLayoutPanel();
             bottomBlank = new GradientPanel();
             topBlank = new GradientPanel();
+            user = new Winforms.RJButton();
             homeGradientPanel = new GradientPanel();
             homeLabel = new Label();
             searchGradientPanel = new GradientPanel();
@@ -153,57 +155,6 @@ namespace WinForms
             recommentTitle3 = new Label();
             recommentAuthor3 = new Label();
             recentPanel = new FlowLayoutPanel();
-            recentReadPanel = new Label();
-            flowLayoutPanel28 = new FlowLayoutPanel();
-            tableLayoutPanel26 = new TableLayoutPanel();
-            label52 = new Label();
-            label53 = new Label();
-            flowLayoutPanel29 = new FlowLayoutPanel();
-            tableLayoutPanel27 = new TableLayoutPanel();
-            label54 = new Label();
-            label55 = new Label();
-            flowLayoutPanel30 = new FlowLayoutPanel();
-            tableLayoutPanel28 = new TableLayoutPanel();
-            label56 = new Label();
-            label57 = new Label();
-            flowLayoutPanel31 = new FlowLayoutPanel();
-            tableLayoutPanel29 = new TableLayoutPanel();
-            label58 = new Label();
-            label59 = new Label();
-            flowLayoutPanel32 = new FlowLayoutPanel();
-            tableLayoutPanel30 = new TableLayoutPanel();
-            label60 = new Label();
-            label61 = new Label();
-            flowLayoutPanel33 = new FlowLayoutPanel();
-            tableLayoutPanel31 = new TableLayoutPanel();
-            label62 = new Label();
-            label63 = new Label();
-            bestBookPanel = new FlowLayoutPanel();
-            bestBookLabel = new Label();
-            flowLayoutPanel34 = new FlowLayoutPanel();
-            tableLayoutPanel32 = new TableLayoutPanel();
-            label64 = new Label();
-            label65 = new Label();
-            flowLayoutPanel35 = new FlowLayoutPanel();
-            tableLayoutPanel33 = new TableLayoutPanel();
-            label66 = new Label();
-            label67 = new Label();
-            flowLayoutPanel36 = new FlowLayoutPanel();
-            tableLayoutPanel34 = new TableLayoutPanel();
-            label68 = new Label();
-            label69 = new Label();
-            flowLayoutPanel37 = new FlowLayoutPanel();
-            tableLayoutPanel35 = new TableLayoutPanel();
-            label70 = new Label();
-            label71 = new Label();
-            flowLayoutPanel38 = new FlowLayoutPanel();
-            tableLayoutPanel36 = new TableLayoutPanel();
-            label72 = new Label();
-            label73 = new Label();
-            flowLayoutPanel39 = new FlowLayoutPanel();
-            tableLayoutPanel37 = new TableLayoutPanel();
-            label74 = new Label();
-            label75 = new Label();
             searchFlowPanel = new FlowLayoutPanel();
             searchPanel = new FlowLayoutPanel();
             searchLayoutTable = new TableLayoutPanel();
@@ -432,8 +383,6 @@ namespace WinForms
             toolStripButton1 = new ToolStripButton();
             toolStripButton2 = new ToolStripButton();
             toolStripButton3 = new ToolStripButton();
-            user = new Winforms.RJButton();
-            userLabel = new Label();
             searchTabeLayout.SuspendLayout();
             verticalMenuBar.SuspendLayout();
             verticalTableMenu.SuspendLayout();
@@ -477,32 +426,6 @@ namespace WinForms
             recommentElement3.SuspendLayout();
             recommentTable3.SuspendLayout();
             recommentFlowLabel3.SuspendLayout();
-            recentPanel.SuspendLayout();
-            flowLayoutPanel28.SuspendLayout();
-            tableLayoutPanel26.SuspendLayout();
-            flowLayoutPanel29.SuspendLayout();
-            tableLayoutPanel27.SuspendLayout();
-            flowLayoutPanel30.SuspendLayout();
-            tableLayoutPanel28.SuspendLayout();
-            flowLayoutPanel31.SuspendLayout();
-            tableLayoutPanel29.SuspendLayout();
-            flowLayoutPanel32.SuspendLayout();
-            tableLayoutPanel30.SuspendLayout();
-            flowLayoutPanel33.SuspendLayout();
-            tableLayoutPanel31.SuspendLayout();
-            bestBookPanel.SuspendLayout();
-            flowLayoutPanel34.SuspendLayout();
-            tableLayoutPanel32.SuspendLayout();
-            flowLayoutPanel35.SuspendLayout();
-            tableLayoutPanel33.SuspendLayout();
-            flowLayoutPanel36.SuspendLayout();
-            tableLayoutPanel34.SuspendLayout();
-            flowLayoutPanel37.SuspendLayout();
-            tableLayoutPanel35.SuspendLayout();
-            flowLayoutPanel38.SuspendLayout();
-            tableLayoutPanel36.SuspendLayout();
-            flowLayoutPanel39.SuspendLayout();
-            tableLayoutPanel37.SuspendLayout();
             searchFlowPanel.SuspendLayout();
             searchPanel.SuspendLayout();
             searchLayoutTable.SuspendLayout();
@@ -645,6 +568,17 @@ namespace WinForms
             verticalMenuBar.WrapContents = false;
             verticalMenuBar.Paint += verticalMenuBar_Paint;
             // 
+            // userLabel
+            // 
+            userLabel.BackColor = Color.DimGray;
+            userLabel.Image = (Image)resources.GetObject("userLabel.Image");
+            userLabel.Location = new Point(0, 0);
+            userLabel.Margin = new Padding(0);
+            userLabel.Name = "userLabel";
+            userLabel.Size = new Size(100, 27);
+            userLabel.TabIndex = 0;
+            toolTip1.SetToolTip(userLabel, "user");
+            // 
             // verticalTableMenu
             // 
             verticalTableMenu.ColumnCount = 1;
@@ -695,6 +629,26 @@ namespace WinForms
             topBlank.Name = "topBlank";
             topBlank.Size = new Size(100, 150);
             topBlank.TabIndex = 7;
+            // 
+            // user
+            // 
+            user.BackColor = Color.DimGray;
+            user.BackgroundColor = Color.DimGray;
+            user.BackgroundImage = (Image)resources.GetObject("user.BackgroundImage");
+            user.BackgroundImageLayout = ImageLayout.Center;
+            user.BorderColor = Color.PaleVioletRed;
+            user.BorderRadius = 50;
+            user.BorderSize = 0;
+            user.Dock = DockStyle.Top;
+            user.FlatAppearance.BorderSize = 0;
+            user.FlatStyle = FlatStyle.Flat;
+            user.ForeColor = Color.White;
+            user.Location = new Point(0, 0);
+            user.Name = "user";
+            user.Size = new Size(100, 100);
+            user.TabIndex = 0;
+            user.TextColor = Color.White;
+            user.UseVisualStyleBackColor = false;
             // 
             // homeGradientPanel
             // 
@@ -1065,7 +1019,6 @@ namespace WinForms
             homeFlowPanel.Controls.Add(helloPanel);
             homeFlowPanel.Controls.Add(recommentPanel);
             homeFlowPanel.Controls.Add(recentPanel);
-            homeFlowPanel.Controls.Add(bestBookPanel);
             homeFlowPanel.Location = new Point(0, 0);
             homeFlowPanel.Margin = new Padding(0);
             homeFlowPanel.Name = "homeFlowPanel";
@@ -1136,7 +1089,7 @@ namespace WinForms
             helloElementImg0.Name = "helloElementImg0";
             helloElementImg0.Size = new Size(82, 88);
             helloElementImg0.TabIndex = 0;
-            helloElementImg0.Click += helloFlow0_Click;
+            helloElementImg0.Click += helloElement0_Click;
             // 
             // helloFlow0
             // 
@@ -1148,7 +1101,7 @@ namespace WinForms
             helloFlow0.Name = "helloFlow0";
             helloFlow0.Size = new Size(255, 82);
             helloFlow0.TabIndex = 1;
-            helloFlow0.Click += helloFlow0_Click;
+            helloFlow0.Click += helloElement0_Click;
             // 
             // helloElementTitle0
             // 
@@ -1162,7 +1115,7 @@ namespace WinForms
             helloElementTitle0.Size = new Size(50, 28);
             helloElementTitle0.TabIndex = 1;
             helloElementTitle0.Text = "title";
-            helloElementTitle0.Click += helloFlow0_Click;
+            helloElementTitle0.Click += helloElement0_Click;
             // 
             // helloAuthor0
             // 
@@ -1176,7 +1129,7 @@ namespace WinForms
             helloAuthor0.Size = new Size(50, 19);
             helloAuthor0.TabIndex = 2;
             helloAuthor0.Text = "author";
-            helloAuthor0.Click += helloFlow0_Click;
+            helloAuthor0.Click += helloElement0_Click;
             // 
             // helloElement1
             // 
@@ -1213,7 +1166,7 @@ namespace WinForms
             helloElementImg1.Name = "helloElementImg1";
             helloElementImg1.Size = new Size(82, 88);
             helloElementImg1.TabIndex = 0;
-            helloElementImg1.Click += flowLayoutPanel1_Click;
+            helloElementImg1.Click += helloElement1_Click;
             // 
             // helloFlow1
             // 
@@ -1224,7 +1177,7 @@ namespace WinForms
             helloFlow1.Name = "helloFlow1";
             helloFlow1.Size = new Size(255, 82);
             helloFlow1.TabIndex = 1;
-            helloFlow1.Click += flowLayoutPanel1_Click;
+            helloFlow1.Click += helloElement1_Click;
             // 
             // helloElementTitle1
             // 
@@ -1238,7 +1191,7 @@ namespace WinForms
             helloElementTitle1.Size = new Size(50, 28);
             helloElementTitle1.TabIndex = 1;
             helloElementTitle1.Text = "title";
-            helloElementTitle1.Click += flowLayoutPanel1_Click;
+            helloElementTitle1.Click += helloElement1_Click;
             // 
             // helloAuthor1
             // 
@@ -1252,7 +1205,7 @@ namespace WinForms
             helloAuthor1.Size = new Size(50, 19);
             helloAuthor1.TabIndex = 3;
             helloAuthor1.Text = "author";
-            helloAuthor1.Click += flowLayoutPanel1_Click;
+            helloAuthor1.Click += helloElement1_Click;
             // 
             // helloElement2
             // 
@@ -1289,7 +1242,7 @@ namespace WinForms
             helloElementImg2.Name = "helloElementImg2";
             helloElementImg2.Size = new Size(82, 88);
             helloElementImg2.TabIndex = 0;
-            helloElementImg2.Click += helloFlow2_Click;
+            helloElementImg2.Click += helloElement2_Click;
             // 
             // helloFlow2
             // 
@@ -1300,7 +1253,7 @@ namespace WinForms
             helloFlow2.Name = "helloFlow2";
             helloFlow2.Size = new Size(255, 82);
             helloFlow2.TabIndex = 1;
-            helloFlow2.Click += helloFlow2_Click;
+            helloFlow2.Click += helloElement2_Click;
             // 
             // helloElementTitle2
             // 
@@ -1314,7 +1267,7 @@ namespace WinForms
             helloElementTitle2.Size = new Size(50, 28);
             helloElementTitle2.TabIndex = 1;
             helloElementTitle2.Text = "title";
-            helloElementTitle2.Click += helloFlow2_Click;
+            helloElementTitle2.Click += helloElement2_Click;
             // 
             // helloAuthor2
             // 
@@ -1328,7 +1281,7 @@ namespace WinForms
             helloAuthor2.Size = new Size(50, 19);
             helloAuthor2.TabIndex = 4;
             helloAuthor2.Text = "author";
-            helloAuthor2.Click += helloFlow2_Click;
+            helloAuthor2.Click += helloElement2_Click;
             // 
             // helloElement3
             // 
@@ -1365,7 +1318,7 @@ namespace WinForms
             helloElementImg3.Name = "helloElementImg3";
             helloElementImg3.Size = new Size(82, 88);
             helloElementImg3.TabIndex = 0;
-            helloElementImg3.Click += helloFlow3_Click;
+            helloElementImg3.Click += helloElement3_Click;
             // 
             // helloFlow3
             // 
@@ -1376,7 +1329,7 @@ namespace WinForms
             helloFlow3.Name = "helloFlow3";
             helloFlow3.Size = new Size(255, 82);
             helloFlow3.TabIndex = 1;
-            helloFlow3.Click += helloFlow3_Click;
+            helloFlow3.Click += helloElement3_Click;
             // 
             // helloElementTitle3
             // 
@@ -1390,7 +1343,7 @@ namespace WinForms
             helloElementTitle3.Size = new Size(50, 28);
             helloElementTitle3.TabIndex = 1;
             helloElementTitle3.Text = "title";
-            helloElementTitle3.Click += helloFlow3_Click;
+            helloElementTitle3.Click += helloElement3_Click;
             // 
             // helloAuthor3
             // 
@@ -1404,7 +1357,7 @@ namespace WinForms
             helloAuthor3.Size = new Size(50, 19);
             helloAuthor3.TabIndex = 5;
             helloAuthor3.Text = "author";
-            helloAuthor3.Click += helloFlow3_Click;
+            helloAuthor3.Click += helloElement3_Click;
             // 
             // recommentPanel
             // 
@@ -1468,7 +1421,7 @@ namespace WinForms
             recommentImg0.Name = "recommentImg0";
             recommentImg0.Size = new Size(82, 88);
             recommentImg0.TabIndex = 0;
-            recommentImg0.Click += recommentFlowPanel0_Click;
+            recommentImg0.Click += recommentElement0_Click;
             // 
             // recommentFlowPanel0
             // 
@@ -1479,7 +1432,7 @@ namespace WinForms
             recommentFlowPanel0.Name = "recommentFlowPanel0";
             recommentFlowPanel0.Size = new Size(255, 82);
             recommentFlowPanel0.TabIndex = 1;
-            recommentFlowPanel0.Click += recommentFlowPanel0_Click;
+            recommentFlowPanel0.Click += recommentElement0_Click;
             // 
             // recommentTitle0
             // 
@@ -1493,7 +1446,7 @@ namespace WinForms
             recommentTitle0.Size = new Size(50, 28);
             recommentTitle0.TabIndex = 1;
             recommentTitle0.Text = "title";
-            recommentTitle0.Click += recommentFlowPanel0_Click;
+            recommentTitle0.Click += recommentElement0_Click;
             // 
             // recommentAuthor0
             // 
@@ -1507,7 +1460,7 @@ namespace WinForms
             recommentAuthor0.Size = new Size(50, 19);
             recommentAuthor0.TabIndex = 5;
             recommentAuthor0.Text = "author";
-            recommentAuthor0.Click += recommentFlowPanel0_Click;
+            recommentAuthor0.Click += recommentElement0_Click;
             // 
             // recommentElement1
             // 
@@ -1544,7 +1497,7 @@ namespace WinForms
             recommentImg1.Name = "recommentImg1";
             recommentImg1.Size = new Size(82, 88);
             recommentImg1.TabIndex = 0;
-            recommentImg1.Click += recommentFlowPanel1_Click;
+            recommentImg1.Click += recommentElement1_Click;
             // 
             // recommentFlowPanel1
             // 
@@ -1555,7 +1508,7 @@ namespace WinForms
             recommentFlowPanel1.Name = "recommentFlowPanel1";
             recommentFlowPanel1.Size = new Size(255, 82);
             recommentFlowPanel1.TabIndex = 1;
-            recommentFlowPanel1.Click += recommentFlowPanel1_Click;
+            recommentFlowPanel1.Click += recommentElement1_Click;
             // 
             // recommentTitle1
             // 
@@ -1569,7 +1522,7 @@ namespace WinForms
             recommentTitle1.Size = new Size(50, 28);
             recommentTitle1.TabIndex = 1;
             recommentTitle1.Text = "title";
-            recommentTitle1.Click += recommentFlowPanel1_Click;
+            recommentTitle1.Click += recommentElement1_Click;
             // 
             // recommentAuthor1
             // 
@@ -1583,7 +1536,7 @@ namespace WinForms
             recommentAuthor1.Size = new Size(50, 19);
             recommentAuthor1.TabIndex = 5;
             recommentAuthor1.Text = "author";
-            recommentAuthor1.Click += recommentFlowPanel1_Click;
+            recommentAuthor1.Click += recommentElement1_Click;
             // 
             // recommentElement2
             // 
@@ -1620,7 +1573,7 @@ namespace WinForms
             recommentImg2.Name = "recommentImg2";
             recommentImg2.Size = new Size(82, 88);
             recommentImg2.TabIndex = 0;
-            recommentImg2.Click += recommentFlowLabel2_Click;
+            recommentImg2.Click += recommentElement2_Click;
             // 
             // recommentFlowLabel2
             // 
@@ -1631,7 +1584,7 @@ namespace WinForms
             recommentFlowLabel2.Name = "recommentFlowLabel2";
             recommentFlowLabel2.Size = new Size(255, 82);
             recommentFlowLabel2.TabIndex = 1;
-            recommentFlowLabel2.Click += recommentFlowLabel2_Click;
+            recommentFlowLabel2.Click += recommentElement2_Click;
             // 
             // recommentTitle2
             // 
@@ -1658,7 +1611,7 @@ namespace WinForms
             recommentAuthor2.Size = new Size(50, 19);
             recommentAuthor2.TabIndex = 5;
             recommentAuthor2.Text = "author";
-            recommentAuthor2.Click += recommentFlowLabel2_Click;
+            recommentAuthor2.Click += recommentElement2_Click;
             // 
             // recommentElement3
             // 
@@ -1695,7 +1648,7 @@ namespace WinForms
             recommentImg3.Name = "recommentImg3";
             recommentImg3.Size = new Size(82, 88);
             recommentImg3.TabIndex = 0;
-            recommentImg3.Click += recommentFlowLabel3_Click;
+            recommentImg3.Click += recommentElement3_Click;
             // 
             // recommentFlowLabel3
             // 
@@ -1706,7 +1659,7 @@ namespace WinForms
             recommentFlowLabel3.Name = "recommentFlowLabel3";
             recommentFlowLabel3.Size = new Size(255, 82);
             recommentFlowLabel3.TabIndex = 1;
-            recommentFlowLabel3.Click += recommentFlowLabel3_Click;
+            recommentFlowLabel3.Click += recommentElement3_Click;
             // 
             // recommentTitle3
             // 
@@ -1720,7 +1673,7 @@ namespace WinForms
             recommentTitle3.Size = new Size(50, 28);
             recommentTitle3.TabIndex = 1;
             recommentTitle3.Text = "title";
-            recommentTitle3.Click += recommentFlowLabel3_Click;
+            recommentTitle3.Click += recommentElement3_Click;
             // 
             // recommentAuthor3
             // 
@@ -1734,581 +1687,18 @@ namespace WinForms
             recommentAuthor3.Size = new Size(50, 19);
             recommentAuthor3.TabIndex = 5;
             recommentAuthor3.Text = "author";
-            recommentAuthor3.Click += recommentFlowLabel3_Click;
+            recommentAuthor3.Click += recommentElement3_Click;
             // 
             // recentPanel
             // 
             recentPanel.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             recentPanel.AutoSize = true;
-            recentPanel.Controls.Add(recentReadPanel);
-            recentPanel.Controls.Add(flowLayoutPanel28);
-            recentPanel.Controls.Add(flowLayoutPanel30);
-            recentPanel.Controls.Add(flowLayoutPanel32);
             homeFlowPanel.SetFlowBreak(recentPanel, true);
             recentPanel.Location = new Point(3, 603);
             recentPanel.Margin = new Padding(3, 3, 3, 30);
             recentPanel.Name = "recentPanel";
-            recentPanel.Size = new Size(741, 270);
+            recentPanel.Size = new Size(0, 0);
             recentPanel.TabIndex = 2;
-            // 
-            // recentReadPanel
-            // 
-            recentPanel.SetFlowBreak(recentReadPanel, true);
-            recentReadPanel.Font = new Font("Exo ExtraBold", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point);
-            recentReadPanel.ForeColor = SystemColors.ControlLightLight;
-            recentReadPanel.Location = new Point(3, 0);
-            recentReadPanel.Name = "recentReadPanel";
-            recentReadPanel.Size = new Size(735, 82);
-            recentReadPanel.TabIndex = 0;
-            recentReadPanel.Text = "Recent read";
-            // 
-            // flowLayoutPanel28
-            // 
-            flowLayoutPanel28.Controls.Add(tableLayoutPanel26);
-            flowLayoutPanel28.Controls.Add(flowLayoutPanel29);
-            flowLayoutPanel28.Location = new Point(3, 85);
-            flowLayoutPanel28.Name = "flowLayoutPanel28";
-            flowLayoutPanel28.Size = new Size(352, 88);
-            flowLayoutPanel28.TabIndex = 1;
-            // 
-            // tableLayoutPanel26
-            // 
-            tableLayoutPanel26.AutoSize = true;
-            tableLayoutPanel26.ColumnCount = 2;
-            tableLayoutPanel26.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 88F));
-            tableLayoutPanel26.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel26.Controls.Add(label52, 1, 0);
-            tableLayoutPanel26.Controls.Add(label53, 0, 0);
-            tableLayoutPanel26.Location = new Point(3, 3);
-            tableLayoutPanel26.Name = "tableLayoutPanel26";
-            tableLayoutPanel26.RowCount = 1;
-            tableLayoutPanel26.RowStyles.Add(new RowStyle(SizeType.Absolute, 88F));
-            tableLayoutPanel26.Size = new Size(346, 88);
-            tableLayoutPanel26.TabIndex = 0;
-            // 
-            // label52
-            // 
-            label52.BackColor = Color.Gray;
-            label52.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label52.ForeColor = SystemColors.ControlLight;
-            label52.Location = new Point(91, 0);
-            label52.Name = "label52";
-            label52.Size = new Size(252, 88);
-            label52.TabIndex = 1;
-            label52.Text = "title";
-            // 
-            // label53
-            // 
-            label53.BackColor = Color.DimGray;
-            label53.Image = (Image)resources.GetObject("label53.Image");
-            label53.Location = new Point(3, 0);
-            label53.Name = "label53";
-            label53.Size = new Size(82, 88);
-            label53.TabIndex = 0;
-            // 
-            // flowLayoutPanel29
-            // 
-            flowLayoutPanel29.Controls.Add(tableLayoutPanel27);
-            flowLayoutPanel29.Location = new Point(3, 97);
-            flowLayoutPanel29.Name = "flowLayoutPanel29";
-            flowLayoutPanel29.Size = new Size(370, 88);
-            flowLayoutPanel29.TabIndex = 2;
-            // 
-            // tableLayoutPanel27
-            // 
-            tableLayoutPanel27.AutoSize = true;
-            tableLayoutPanel27.ColumnCount = 2;
-            tableLayoutPanel27.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 88F));
-            tableLayoutPanel27.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel27.Controls.Add(label54, 1, 0);
-            tableLayoutPanel27.Controls.Add(label55, 0, 0);
-            tableLayoutPanel27.Location = new Point(3, 3);
-            tableLayoutPanel27.Name = "tableLayoutPanel27";
-            tableLayoutPanel27.RowCount = 1;
-            tableLayoutPanel27.RowStyles.Add(new RowStyle(SizeType.Absolute, 88F));
-            tableLayoutPanel27.Size = new Size(362, 88);
-            tableLayoutPanel27.TabIndex = 0;
-            // 
-            // label54
-            // 
-            label54.BackColor = Color.Gray;
-            label54.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label54.ForeColor = SystemColors.ControlLight;
-            label54.Location = new Point(91, 0);
-            label54.Name = "label54";
-            label54.Size = new Size(268, 88);
-            label54.TabIndex = 1;
-            label54.Text = "label54";
-            // 
-            // label55
-            // 
-            label55.BackColor = Color.DimGray;
-            label55.Image = (Image)resources.GetObject("label55.Image");
-            label55.Location = new Point(3, 0);
-            label55.Name = "label55";
-            label55.Size = new Size(82, 88);
-            label55.TabIndex = 0;
-            // 
-            // flowLayoutPanel30
-            // 
-            flowLayoutPanel30.Controls.Add(tableLayoutPanel28);
-            flowLayoutPanel30.Controls.Add(flowLayoutPanel31);
-            flowLayoutPanel30.Location = new Point(361, 85);
-            flowLayoutPanel30.Name = "flowLayoutPanel30";
-            flowLayoutPanel30.Size = new Size(352, 88);
-            flowLayoutPanel30.TabIndex = 2;
-            // 
-            // tableLayoutPanel28
-            // 
-            tableLayoutPanel28.AutoSize = true;
-            tableLayoutPanel28.ColumnCount = 2;
-            tableLayoutPanel28.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 88F));
-            tableLayoutPanel28.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel28.Controls.Add(label56, 1, 0);
-            tableLayoutPanel28.Controls.Add(label57, 0, 0);
-            tableLayoutPanel28.Location = new Point(3, 3);
-            tableLayoutPanel28.Name = "tableLayoutPanel28";
-            tableLayoutPanel28.RowCount = 1;
-            tableLayoutPanel28.RowStyles.Add(new RowStyle(SizeType.Absolute, 88F));
-            tableLayoutPanel28.Size = new Size(346, 88);
-            tableLayoutPanel28.TabIndex = 0;
-            // 
-            // label56
-            // 
-            label56.BackColor = Color.Gray;
-            label56.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label56.ForeColor = SystemColors.ControlLight;
-            label56.Location = new Point(91, 0);
-            label56.Name = "label56";
-            label56.Size = new Size(252, 88);
-            label56.TabIndex = 1;
-            label56.Text = "title";
-            // 
-            // label57
-            // 
-            label57.BackColor = Color.DimGray;
-            label57.Image = (Image)resources.GetObject("label57.Image");
-            label57.Location = new Point(3, 0);
-            label57.Name = "label57";
-            label57.Size = new Size(82, 88);
-            label57.TabIndex = 0;
-            // 
-            // flowLayoutPanel31
-            // 
-            flowLayoutPanel31.Controls.Add(tableLayoutPanel29);
-            flowLayoutPanel31.Location = new Point(3, 97);
-            flowLayoutPanel31.Name = "flowLayoutPanel31";
-            flowLayoutPanel31.Size = new Size(370, 88);
-            flowLayoutPanel31.TabIndex = 2;
-            // 
-            // tableLayoutPanel29
-            // 
-            tableLayoutPanel29.AutoSize = true;
-            tableLayoutPanel29.ColumnCount = 2;
-            tableLayoutPanel29.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 88F));
-            tableLayoutPanel29.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel29.Controls.Add(label58, 1, 0);
-            tableLayoutPanel29.Controls.Add(label59, 0, 0);
-            tableLayoutPanel29.Location = new Point(3, 3);
-            tableLayoutPanel29.Name = "tableLayoutPanel29";
-            tableLayoutPanel29.RowCount = 1;
-            tableLayoutPanel29.RowStyles.Add(new RowStyle(SizeType.Absolute, 88F));
-            tableLayoutPanel29.Size = new Size(362, 88);
-            tableLayoutPanel29.TabIndex = 0;
-            // 
-            // label58
-            // 
-            label58.BackColor = Color.Gray;
-            label58.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label58.ForeColor = SystemColors.ControlLight;
-            label58.Location = new Point(91, 0);
-            label58.Name = "label58";
-            label58.Size = new Size(268, 88);
-            label58.TabIndex = 1;
-            label58.Text = "label58";
-            // 
-            // label59
-            // 
-            label59.BackColor = Color.DimGray;
-            label59.Image = (Image)resources.GetObject("label59.Image");
-            label59.Location = new Point(3, 0);
-            label59.Name = "label59";
-            label59.Size = new Size(82, 88);
-            label59.TabIndex = 0;
-            // 
-            // flowLayoutPanel32
-            // 
-            flowLayoutPanel32.Controls.Add(tableLayoutPanel30);
-            flowLayoutPanel32.Controls.Add(flowLayoutPanel33);
-            flowLayoutPanel32.Location = new Point(3, 179);
-            flowLayoutPanel32.Name = "flowLayoutPanel32";
-            flowLayoutPanel32.Size = new Size(352, 88);
-            flowLayoutPanel32.TabIndex = 3;
-            // 
-            // tableLayoutPanel30
-            // 
-            tableLayoutPanel30.AutoSize = true;
-            tableLayoutPanel30.ColumnCount = 2;
-            tableLayoutPanel30.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 88F));
-            tableLayoutPanel30.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel30.Controls.Add(label60, 1, 0);
-            tableLayoutPanel30.Controls.Add(label61, 0, 0);
-            tableLayoutPanel30.Location = new Point(3, 3);
-            tableLayoutPanel30.Name = "tableLayoutPanel30";
-            tableLayoutPanel30.RowCount = 1;
-            tableLayoutPanel30.RowStyles.Add(new RowStyle(SizeType.Absolute, 88F));
-            tableLayoutPanel30.Size = new Size(346, 88);
-            tableLayoutPanel30.TabIndex = 0;
-            // 
-            // label60
-            // 
-            label60.BackColor = Color.Gray;
-            label60.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label60.ForeColor = SystemColors.ControlLight;
-            label60.Location = new Point(91, 0);
-            label60.Name = "label60";
-            label60.Size = new Size(252, 88);
-            label60.TabIndex = 1;
-            label60.Text = "title";
-            // 
-            // label61
-            // 
-            label61.BackColor = Color.DimGray;
-            label61.Image = (Image)resources.GetObject("label61.Image");
-            label61.Location = new Point(3, 0);
-            label61.Name = "label61";
-            label61.Size = new Size(82, 88);
-            label61.TabIndex = 0;
-            // 
-            // flowLayoutPanel33
-            // 
-            flowLayoutPanel33.Controls.Add(tableLayoutPanel31);
-            flowLayoutPanel33.Location = new Point(3, 97);
-            flowLayoutPanel33.Name = "flowLayoutPanel33";
-            flowLayoutPanel33.Size = new Size(370, 88);
-            flowLayoutPanel33.TabIndex = 2;
-            // 
-            // tableLayoutPanel31
-            // 
-            tableLayoutPanel31.AutoSize = true;
-            tableLayoutPanel31.ColumnCount = 2;
-            tableLayoutPanel31.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 88F));
-            tableLayoutPanel31.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel31.Controls.Add(label62, 1, 0);
-            tableLayoutPanel31.Controls.Add(label63, 0, 0);
-            tableLayoutPanel31.Location = new Point(3, 3);
-            tableLayoutPanel31.Name = "tableLayoutPanel31";
-            tableLayoutPanel31.RowCount = 1;
-            tableLayoutPanel31.RowStyles.Add(new RowStyle(SizeType.Absolute, 88F));
-            tableLayoutPanel31.Size = new Size(362, 88);
-            tableLayoutPanel31.TabIndex = 0;
-            // 
-            // label62
-            // 
-            label62.BackColor = Color.Gray;
-            label62.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label62.ForeColor = SystemColors.ControlLight;
-            label62.Location = new Point(91, 0);
-            label62.Name = "label62";
-            label62.Size = new Size(268, 88);
-            label62.TabIndex = 1;
-            label62.Text = "label62";
-            // 
-            // label63
-            // 
-            label63.BackColor = Color.DimGray;
-            label63.Image = (Image)resources.GetObject("label63.Image");
-            label63.Location = new Point(3, 0);
-            label63.Name = "label63";
-            label63.Size = new Size(82, 88);
-            label63.TabIndex = 0;
-            // 
-            // bestBookPanel
-            // 
-            bestBookPanel.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            bestBookPanel.AutoSize = true;
-            bestBookPanel.Controls.Add(bestBookLabel);
-            bestBookPanel.Controls.Add(flowLayoutPanel34);
-            bestBookPanel.Controls.Add(flowLayoutPanel36);
-            bestBookPanel.Controls.Add(flowLayoutPanel38);
-            homeFlowPanel.SetFlowBreak(bestBookPanel, true);
-            bestBookPanel.Location = new Point(3, 906);
-            bestBookPanel.Margin = new Padding(3, 3, 3, 30);
-            bestBookPanel.Name = "bestBookPanel";
-            bestBookPanel.Size = new Size(741, 270);
-            bestBookPanel.TabIndex = 3;
-            // 
-            // bestBookLabel
-            // 
-            bestBookPanel.SetFlowBreak(bestBookLabel, true);
-            bestBookLabel.Font = new Font("Exo ExtraBold", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point);
-            bestBookLabel.ForeColor = SystemColors.ControlLightLight;
-            bestBookLabel.Location = new Point(3, 0);
-            bestBookLabel.Name = "bestBookLabel";
-            bestBookLabel.Size = new Size(735, 82);
-            bestBookLabel.TabIndex = 0;
-            bestBookLabel.Text = "Best book";
-            // 
-            // flowLayoutPanel34
-            // 
-            flowLayoutPanel34.Controls.Add(tableLayoutPanel32);
-            flowLayoutPanel34.Controls.Add(flowLayoutPanel35);
-            flowLayoutPanel34.Location = new Point(3, 85);
-            flowLayoutPanel34.Name = "flowLayoutPanel34";
-            flowLayoutPanel34.Size = new Size(352, 88);
-            flowLayoutPanel34.TabIndex = 1;
-            // 
-            // tableLayoutPanel32
-            // 
-            tableLayoutPanel32.AutoSize = true;
-            tableLayoutPanel32.ColumnCount = 2;
-            tableLayoutPanel32.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 88F));
-            tableLayoutPanel32.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel32.Controls.Add(label64, 1, 0);
-            tableLayoutPanel32.Controls.Add(label65, 0, 0);
-            tableLayoutPanel32.Location = new Point(3, 3);
-            tableLayoutPanel32.Name = "tableLayoutPanel32";
-            tableLayoutPanel32.RowCount = 1;
-            tableLayoutPanel32.RowStyles.Add(new RowStyle(SizeType.Absolute, 88F));
-            tableLayoutPanel32.Size = new Size(346, 88);
-            tableLayoutPanel32.TabIndex = 0;
-            // 
-            // label64
-            // 
-            label64.BackColor = Color.Gray;
-            label64.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label64.ForeColor = SystemColors.ControlLight;
-            label64.Location = new Point(91, 0);
-            label64.Name = "label64";
-            label64.Size = new Size(252, 88);
-            label64.TabIndex = 1;
-            label64.Text = "title";
-            // 
-            // label65
-            // 
-            label65.BackColor = Color.DimGray;
-            label65.Image = (Image)resources.GetObject("label65.Image");
-            label65.Location = new Point(3, 0);
-            label65.Name = "label65";
-            label65.Size = new Size(82, 88);
-            label65.TabIndex = 0;
-            // 
-            // flowLayoutPanel35
-            // 
-            flowLayoutPanel35.Controls.Add(tableLayoutPanel33);
-            flowLayoutPanel35.Location = new Point(3, 97);
-            flowLayoutPanel35.Name = "flowLayoutPanel35";
-            flowLayoutPanel35.Size = new Size(370, 88);
-            flowLayoutPanel35.TabIndex = 2;
-            // 
-            // tableLayoutPanel33
-            // 
-            tableLayoutPanel33.AutoSize = true;
-            tableLayoutPanel33.ColumnCount = 2;
-            tableLayoutPanel33.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 88F));
-            tableLayoutPanel33.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel33.Controls.Add(label66, 1, 0);
-            tableLayoutPanel33.Controls.Add(label67, 0, 0);
-            tableLayoutPanel33.Location = new Point(3, 3);
-            tableLayoutPanel33.Name = "tableLayoutPanel33";
-            tableLayoutPanel33.RowCount = 1;
-            tableLayoutPanel33.RowStyles.Add(new RowStyle(SizeType.Absolute, 88F));
-            tableLayoutPanel33.Size = new Size(362, 88);
-            tableLayoutPanel33.TabIndex = 0;
-            // 
-            // label66
-            // 
-            label66.BackColor = Color.Gray;
-            label66.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label66.ForeColor = SystemColors.ControlLight;
-            label66.Location = new Point(91, 0);
-            label66.Name = "label66";
-            label66.Size = new Size(268, 88);
-            label66.TabIndex = 1;
-            label66.Text = "label66";
-            // 
-            // label67
-            // 
-            label67.BackColor = Color.DimGray;
-            label67.Image = (Image)resources.GetObject("label67.Image");
-            label67.Location = new Point(3, 0);
-            label67.Name = "label67";
-            label67.Size = new Size(82, 88);
-            label67.TabIndex = 0;
-            // 
-            // flowLayoutPanel36
-            // 
-            flowLayoutPanel36.Controls.Add(tableLayoutPanel34);
-            flowLayoutPanel36.Controls.Add(flowLayoutPanel37);
-            flowLayoutPanel36.Location = new Point(361, 85);
-            flowLayoutPanel36.Name = "flowLayoutPanel36";
-            flowLayoutPanel36.Size = new Size(352, 88);
-            flowLayoutPanel36.TabIndex = 2;
-            // 
-            // tableLayoutPanel34
-            // 
-            tableLayoutPanel34.AutoSize = true;
-            tableLayoutPanel34.ColumnCount = 2;
-            tableLayoutPanel34.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 88F));
-            tableLayoutPanel34.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel34.Controls.Add(label68, 1, 0);
-            tableLayoutPanel34.Controls.Add(label69, 0, 0);
-            tableLayoutPanel34.Location = new Point(3, 3);
-            tableLayoutPanel34.Name = "tableLayoutPanel34";
-            tableLayoutPanel34.RowCount = 1;
-            tableLayoutPanel34.RowStyles.Add(new RowStyle(SizeType.Absolute, 88F));
-            tableLayoutPanel34.Size = new Size(346, 88);
-            tableLayoutPanel34.TabIndex = 0;
-            // 
-            // label68
-            // 
-            label68.BackColor = Color.Gray;
-            label68.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label68.ForeColor = SystemColors.ControlLight;
-            label68.Location = new Point(91, 0);
-            label68.Name = "label68";
-            label68.Size = new Size(252, 88);
-            label68.TabIndex = 1;
-            label68.Text = "title";
-            // 
-            // label69
-            // 
-            label69.BackColor = Color.DimGray;
-            label69.Image = (Image)resources.GetObject("label69.Image");
-            label69.Location = new Point(3, 0);
-            label69.Name = "label69";
-            label69.Size = new Size(82, 88);
-            label69.TabIndex = 0;
-            // 
-            // flowLayoutPanel37
-            // 
-            flowLayoutPanel37.Controls.Add(tableLayoutPanel35);
-            flowLayoutPanel37.Location = new Point(3, 97);
-            flowLayoutPanel37.Name = "flowLayoutPanel37";
-            flowLayoutPanel37.Size = new Size(370, 88);
-            flowLayoutPanel37.TabIndex = 2;
-            // 
-            // tableLayoutPanel35
-            // 
-            tableLayoutPanel35.AutoSize = true;
-            tableLayoutPanel35.ColumnCount = 2;
-            tableLayoutPanel35.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 88F));
-            tableLayoutPanel35.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel35.Controls.Add(label70, 1, 0);
-            tableLayoutPanel35.Controls.Add(label71, 0, 0);
-            tableLayoutPanel35.Location = new Point(3, 3);
-            tableLayoutPanel35.Name = "tableLayoutPanel35";
-            tableLayoutPanel35.RowCount = 1;
-            tableLayoutPanel35.RowStyles.Add(new RowStyle(SizeType.Absolute, 88F));
-            tableLayoutPanel35.Size = new Size(362, 88);
-            tableLayoutPanel35.TabIndex = 0;
-            // 
-            // label70
-            // 
-            label70.BackColor = Color.Gray;
-            label70.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label70.ForeColor = SystemColors.ControlLight;
-            label70.Location = new Point(91, 0);
-            label70.Name = "label70";
-            label70.Size = new Size(268, 88);
-            label70.TabIndex = 1;
-            label70.Text = "label70";
-            // 
-            // label71
-            // 
-            label71.BackColor = Color.DimGray;
-            label71.Image = (Image)resources.GetObject("label71.Image");
-            label71.Location = new Point(3, 0);
-            label71.Name = "label71";
-            label71.Size = new Size(82, 88);
-            label71.TabIndex = 0;
-            // 
-            // flowLayoutPanel38
-            // 
-            flowLayoutPanel38.Controls.Add(tableLayoutPanel36);
-            flowLayoutPanel38.Controls.Add(flowLayoutPanel39);
-            flowLayoutPanel38.Location = new Point(3, 179);
-            flowLayoutPanel38.Name = "flowLayoutPanel38";
-            flowLayoutPanel38.Size = new Size(352, 88);
-            flowLayoutPanel38.TabIndex = 3;
-            // 
-            // tableLayoutPanel36
-            // 
-            tableLayoutPanel36.AutoSize = true;
-            tableLayoutPanel36.ColumnCount = 2;
-            tableLayoutPanel36.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 88F));
-            tableLayoutPanel36.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel36.Controls.Add(label72, 1, 0);
-            tableLayoutPanel36.Controls.Add(label73, 0, 0);
-            tableLayoutPanel36.Location = new Point(3, 3);
-            tableLayoutPanel36.Name = "tableLayoutPanel36";
-            tableLayoutPanel36.RowCount = 1;
-            tableLayoutPanel36.RowStyles.Add(new RowStyle(SizeType.Absolute, 88F));
-            tableLayoutPanel36.Size = new Size(346, 88);
-            tableLayoutPanel36.TabIndex = 0;
-            // 
-            // label72
-            // 
-            label72.BackColor = Color.Gray;
-            label72.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label72.ForeColor = SystemColors.ControlLight;
-            label72.Location = new Point(91, 0);
-            label72.Name = "label72";
-            label72.Size = new Size(252, 88);
-            label72.TabIndex = 1;
-            label72.Text = "title";
-            // 
-            // label73
-            // 
-            label73.BackColor = Color.DimGray;
-            label73.Image = (Image)resources.GetObject("label73.Image");
-            label73.Location = new Point(3, 0);
-            label73.Name = "label73";
-            label73.Size = new Size(82, 88);
-            label73.TabIndex = 0;
-            // 
-            // flowLayoutPanel39
-            // 
-            flowLayoutPanel39.Controls.Add(tableLayoutPanel37);
-            flowLayoutPanel39.Location = new Point(3, 97);
-            flowLayoutPanel39.Name = "flowLayoutPanel39";
-            flowLayoutPanel39.Size = new Size(370, 88);
-            flowLayoutPanel39.TabIndex = 2;
-            // 
-            // tableLayoutPanel37
-            // 
-            tableLayoutPanel37.AutoSize = true;
-            tableLayoutPanel37.ColumnCount = 2;
-            tableLayoutPanel37.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 88F));
-            tableLayoutPanel37.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel37.Controls.Add(label74, 1, 0);
-            tableLayoutPanel37.Controls.Add(label75, 0, 0);
-            tableLayoutPanel37.Location = new Point(3, 3);
-            tableLayoutPanel37.Name = "tableLayoutPanel37";
-            tableLayoutPanel37.RowCount = 1;
-            tableLayoutPanel37.RowStyles.Add(new RowStyle(SizeType.Absolute, 88F));
-            tableLayoutPanel37.Size = new Size(362, 88);
-            tableLayoutPanel37.TabIndex = 0;
-            // 
-            // label74
-            // 
-            label74.BackColor = Color.Gray;
-            label74.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label74.ForeColor = SystemColors.ControlLight;
-            label74.Location = new Point(91, 0);
-            label74.Name = "label74";
-            label74.Size = new Size(268, 88);
-            label74.TabIndex = 1;
-            label74.Text = "label74";
-            // 
-            // label75
-            // 
-            label75.BackColor = Color.DimGray;
-            label75.Image = (Image)resources.GetObject("label75.Image");
-            label75.Location = new Point(3, 0);
-            label75.Name = "label75";
-            label75.Size = new Size(82, 88);
-            label75.TabIndex = 0;
             // 
             // searchFlowPanel
             // 
@@ -4914,37 +4304,6 @@ namespace WinForms
             toolStripButton3.Size = new Size(29, 24);
             toolStripButton3.Text = "toolStripButton3";
             // 
-            // user
-            // 
-            user.BackColor = Color.DimGray;
-            user.BackgroundColor = Color.DimGray;
-            user.BackgroundImage = (Image)resources.GetObject("user.BackgroundImage");
-            user.BackgroundImageLayout = ImageLayout.Center;
-            user.BorderColor = Color.PaleVioletRed;
-            user.BorderRadius = 50;
-            user.BorderSize = 0;
-            user.Dock = DockStyle.Top;
-            user.FlatAppearance.BorderSize = 0;
-            user.FlatStyle = FlatStyle.Flat;
-            user.ForeColor = Color.White;
-            user.Location = new Point(0, 0);
-            user.Name = "user";
-            user.Size = new Size(100, 100);
-            user.TabIndex = 0;
-            user.TextColor = Color.White;
-            user.UseVisualStyleBackColor = false;
-            // 
-            // userLabel
-            // 
-            userLabel.BackColor = Color.DimGray;
-            userLabel.Image = (Image)resources.GetObject("userLabel.Image");
-            userLabel.Location = new Point(0, 0);
-            userLabel.Margin = new Padding(0);
-            userLabel.Name = "userLabel";
-            userLabel.Size = new Size(100, 27);
-            userLabel.TabIndex = 0;
-            toolTip1.SetToolTip(userLabel, "user");
-            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -4956,6 +4315,7 @@ namespace WinForms
             Controls.Add(toolStrip1);
             Controls.Add(searchTabeLayout);
             DoubleBuffered = true;
+            FormBorderStyle = FormBorderStyle.None;
             Name = "MainForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "MainForm";
@@ -5025,44 +4385,6 @@ namespace WinForms
             recommentTable3.ResumeLayout(false);
             recommentFlowLabel3.ResumeLayout(false);
             recommentFlowLabel3.PerformLayout();
-            recentPanel.ResumeLayout(false);
-            flowLayoutPanel28.ResumeLayout(false);
-            flowLayoutPanel28.PerformLayout();
-            tableLayoutPanel26.ResumeLayout(false);
-            flowLayoutPanel29.ResumeLayout(false);
-            flowLayoutPanel29.PerformLayout();
-            tableLayoutPanel27.ResumeLayout(false);
-            flowLayoutPanel30.ResumeLayout(false);
-            flowLayoutPanel30.PerformLayout();
-            tableLayoutPanel28.ResumeLayout(false);
-            flowLayoutPanel31.ResumeLayout(false);
-            flowLayoutPanel31.PerformLayout();
-            tableLayoutPanel29.ResumeLayout(false);
-            flowLayoutPanel32.ResumeLayout(false);
-            flowLayoutPanel32.PerformLayout();
-            tableLayoutPanel30.ResumeLayout(false);
-            flowLayoutPanel33.ResumeLayout(false);
-            flowLayoutPanel33.PerformLayout();
-            tableLayoutPanel31.ResumeLayout(false);
-            bestBookPanel.ResumeLayout(false);
-            flowLayoutPanel34.ResumeLayout(false);
-            flowLayoutPanel34.PerformLayout();
-            tableLayoutPanel32.ResumeLayout(false);
-            flowLayoutPanel35.ResumeLayout(false);
-            flowLayoutPanel35.PerformLayout();
-            tableLayoutPanel33.ResumeLayout(false);
-            flowLayoutPanel36.ResumeLayout(false);
-            flowLayoutPanel36.PerformLayout();
-            tableLayoutPanel34.ResumeLayout(false);
-            flowLayoutPanel37.ResumeLayout(false);
-            flowLayoutPanel37.PerformLayout();
-            tableLayoutPanel35.ResumeLayout(false);
-            flowLayoutPanel38.ResumeLayout(false);
-            flowLayoutPanel38.PerformLayout();
-            tableLayoutPanel36.ResumeLayout(false);
-            flowLayoutPanel39.ResumeLayout(false);
-            flowLayoutPanel39.PerformLayout();
-            tableLayoutPanel37.ResumeLayout(false);
             searchFlowPanel.ResumeLayout(false);
             searchFlowPanel.PerformLayout();
             searchPanel.ResumeLayout(false);
@@ -5322,57 +4644,6 @@ namespace WinForms
         private Label label37;
         private Label label38;
         private FlowLayoutPanel recentPanel;
-        private Label recentReadPanel;
-        private FlowLayoutPanel flowLayoutPanel28;
-        private TableLayoutPanel tableLayoutPanel26;
-        private Label label52;
-        private Label label53;
-        private FlowLayoutPanel flowLayoutPanel29;
-        private TableLayoutPanel tableLayoutPanel27;
-        private Label label54;
-        private Label label55;
-        private FlowLayoutPanel flowLayoutPanel30;
-        private TableLayoutPanel tableLayoutPanel28;
-        private Label label56;
-        private Label label57;
-        private FlowLayoutPanel flowLayoutPanel31;
-        private TableLayoutPanel tableLayoutPanel29;
-        private Label label58;
-        private Label label59;
-        private FlowLayoutPanel flowLayoutPanel32;
-        private TableLayoutPanel tableLayoutPanel30;
-        private Label label60;
-        private Label label61;
-        private FlowLayoutPanel flowLayoutPanel33;
-        private TableLayoutPanel tableLayoutPanel31;
-        private Label label62;
-        private Label label63;
-        private FlowLayoutPanel bestBookPanel;
-        private Label bestBookLabel;
-        private FlowLayoutPanel flowLayoutPanel34;
-        private TableLayoutPanel tableLayoutPanel32;
-        private Label label64;
-        private Label label65;
-        private FlowLayoutPanel flowLayoutPanel35;
-        private TableLayoutPanel tableLayoutPanel33;
-        private Label label66;
-        private Label label67;
-        private FlowLayoutPanel flowLayoutPanel36;
-        private TableLayoutPanel tableLayoutPanel34;
-        private Label label68;
-        private Label label69;
-        private FlowLayoutPanel flowLayoutPanel37;
-        private TableLayoutPanel tableLayoutPanel35;
-        private Label label70;
-        private Label label71;
-        private FlowLayoutPanel flowLayoutPanel38;
-        private TableLayoutPanel tableLayoutPanel36;
-        private Label label72;
-        private Label label73;
-        private FlowLayoutPanel flowLayoutPanel39;
-        private TableLayoutPanel tableLayoutPanel37;
-        private Label label74;
-        private Label label75;
         private FlowLayoutPanel searchFlowPanel;
         private FlowLayoutPanel searchPanel;
         private TableLayoutPanel searchLayoutTable;
