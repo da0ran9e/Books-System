@@ -745,14 +745,20 @@ namespace WinForms
         private int difW;
         private void MainForm_Resize(object sender, EventArgs e)
         {
-            mainFlowPanel.Height = this.Height - difH;
-            mainFlowPanel.Width = this.Width - difW;
+            homeFlowPanel.Height = mainFlowPanel.Height + difH;
+            homeFlowPanel.Width = mainFlowPanel.Width + difW;
+            helloPanel.Width = homeFlowPanel.Width;
+            //helloPanel.Invalidate();
+            helloElement0.Width = (homeFlowPanel.Width) / 2 - 6;
+            helloElement1.Width = (homeFlowPanel.Width) / 2 - 6;
+            helloElement2.Width = (homeFlowPanel.Width) / 2 - 6;
+            helloElement3.Width = (homeFlowPanel.Width) / 2 - 6;
         }
 
         private void MainForm_ResizeBegin(object sender, EventArgs e)
         {
-            difH = this.Height - mainFlowPanel.Height;
-            difW = this.Width - mainFlowPanel.Width;
+            difH = homeFlowPanel.Height - mainFlowPanel.Height;
+            difW = homeFlowPanel.Width - mainFlowPanel.Width;
         }
     }
 }
