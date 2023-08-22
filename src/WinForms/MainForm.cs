@@ -914,7 +914,7 @@ namespace WinForms
             mainFlowPanel.Invalidate();
             verticalMenuBar.Invalidate();
 
-            searchFlowPanel.Controls.Add(bestBookPanel);
+            searchFlowPanel.Controls.Add(bestBookFlowPanel);
 
             homeFlowPanel.Visible = false;
             searchFlowPanel.Visible = true;
