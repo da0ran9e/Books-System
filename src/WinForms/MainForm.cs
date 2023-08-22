@@ -260,6 +260,7 @@ namespace WinForms
             this.DoubleBuffered = true;
             this.SetStyle(ControlStyles.ResizeRedraw, true);
         }
+        #region add resize angle
         private const int cGrip = 16;      // Grip size
         private const int cCaption = 32;   // Caption bar height;
 
@@ -288,6 +289,7 @@ namespace WinForms
             }
             base.WndProc(ref m);
         }
+        #endregion
         //
         // MainForm on load event handler
         //
@@ -401,8 +403,8 @@ namespace WinForms
             bestBookAuthor3.Text = bestBook3.author;
             #endregion
 
-            homeFlowPanel.Controls.Add(bestBookPanel);
-            //bestBookPanel.Visible = false;
+            homeFlowPanel.Controls.Add(bestBookFlowPanel);
+            bestBookFlowPanel.Visible = true;
 
         }
 
@@ -799,16 +801,16 @@ namespace WinForms
             homeFlowPanel.Width = mainFlowPanel.Width + difW;
 
             helloPanel.Width = homeFlowPanel.Width;
-            helloElement0.Width = (homeFlowPanel.Width) / 2 - 6;
-            helloElement1.Width = (homeFlowPanel.Width) / 2 - 6;
-            helloElement2.Width = (homeFlowPanel.Width) / 2 - 6;
-            helloElement3.Width = (homeFlowPanel.Width) / 2 - 6;
+            helloElement0.Width = (homeFlowPanel.Width) / 2 - 16;
+            helloElement1.Width = (homeFlowPanel.Width) / 2 - 16;
+            helloElement2.Width = (homeFlowPanel.Width) / 2 - 16;
+            helloElement3.Width = (homeFlowPanel.Width) / 2 - 16;
 
             recommentPanel.Width = homeFlowPanel.Width;
-            recommentElement0.Width = (homeFlowPanel.Width) / 2 - 6;
-            recommentElement1.Width = (homeFlowPanel.Width) / 2 - 6;
-            recommentElement2.Width = (homeFlowPanel.Width) / 2 - 6;
-            recommentElement3.Width = (homeFlowPanel.Width) / 2 - 6;
+            recommentElement0.Width = (homeFlowPanel.Width) / 2 - 16;
+            recommentElement1.Width = (homeFlowPanel.Width) / 2 - 16;
+            recommentElement2.Width = (homeFlowPanel.Width) / 2 - 16;
+            recommentElement3.Width = (homeFlowPanel.Width) / 2 - 16;
 
             //searchFlowPanel resize
             searchFlowPanel.Height = mainFlowPanel.Height + difH;
@@ -820,6 +822,15 @@ namespace WinForms
             bestMatchPanel.Width = searchFlowPanel.Width;
             topSearchPanel.Width = searchFlowPanel.Width / 2 - 6;
 
+            //bestBook resize
+            bestBookFlowPanel.Height = mainFlowPanel.Height + difH;
+            bestBookFlowPanel.Width = mainFlowPanel.Width + difW;
+
+            bestBookPanel.Width = mainFlowPanel.Width + difW;
+            bestBookElement0.Width = (mainFlowPanel.Width + difW) / 2 -16;
+            bestBookElement1.Width = (mainFlowPanel.Width + difW) / 2 - 16;
+            bestBookElement2.Width = (mainFlowPanel.Width + difW) / 2 - 16;
+            bestBookElement3.Width = (mainFlowPanel.Width + difW) / 2 - 16;
 
         }
 

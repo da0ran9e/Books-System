@@ -1765,7 +1765,7 @@ namespace WinForms
             searchBox.Location = new Point(0, 0);
             searchBox.Margin = new Padding(0);
             searchBox.Name = "searchBox";
-           // searchBox.SetTextView = singleTextView1;
+            //searchBox.SetTextView = singleTextView1;
             searchBox.Size = new Size(560, 55);
             searchBox.TabIndex = 5;
             searchBox.Text = "What do you want to read?";
@@ -2905,6 +2905,7 @@ namespace WinForms
             bestBookFlowPanel.Name = "bestBookFlowPanel";
             bestBookFlowPanel.Size = new Size(735, 270);
             bestBookFlowPanel.TabIndex = 0;
+            bestBookFlowPanel.Visible = false;
             // 
             // bestBookLabel
             // 
