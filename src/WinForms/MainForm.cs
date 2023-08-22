@@ -801,16 +801,16 @@ namespace WinForms
             homeFlowPanel.Width = mainFlowPanel.Width + difW;
 
             helloPanel.Width = homeFlowPanel.Width;
-            helloElement0.Width = (homeFlowPanel.Width) / 2 - 16;
-            helloElement1.Width = (homeFlowPanel.Width) / 2 - 16;
-            helloElement2.Width = (homeFlowPanel.Width) / 2 - 16;
-            helloElement3.Width = (homeFlowPanel.Width) / 2 - 16;
+            helloElement0.Width = (homeFlowPanel.Width) / 2 - 10;
+            helloElement1.Width = (homeFlowPanel.Width) / 2 - 10;
+            helloElement2.Width = (homeFlowPanel.Width) / 2 - 10;
+            helloElement3.Width = (homeFlowPanel.Width) / 2 - 10;
 
             recommentPanel.Width = homeFlowPanel.Width;
-            recommentElement0.Width = (homeFlowPanel.Width) / 2 - 16;
-            recommentElement1.Width = (homeFlowPanel.Width) / 2 - 16;
-            recommentElement2.Width = (homeFlowPanel.Width) / 2 - 16;
-            recommentElement3.Width = (homeFlowPanel.Width) / 2 - 16;
+            recommentElement0.Width = (homeFlowPanel.Width) / 2 - 10;
+            recommentElement1.Width = (homeFlowPanel.Width) / 2 - 10;
+            recommentElement2.Width = (homeFlowPanel.Width) / 2 - 10;
+            recommentElement3.Width = (homeFlowPanel.Width) / 2 - 10;
 
             //searchFlowPanel resize
             searchFlowPanel.Height = mainFlowPanel.Height + difH;
@@ -827,10 +827,10 @@ namespace WinForms
             bestBookFlowPanel.Width = mainFlowPanel.Width + difW;
 
             bestBookPanel.Width = mainFlowPanel.Width + difW;
-            bestBookElement0.Width = (mainFlowPanel.Width + difW) / 2 -16;
-            bestBookElement1.Width = (mainFlowPanel.Width + difW) / 2 - 16;
-            bestBookElement2.Width = (mainFlowPanel.Width + difW) / 2 - 16;
-            bestBookElement3.Width = (mainFlowPanel.Width + difW) / 2 - 16;
+            bestBookElement0.Width = (mainFlowPanel.Width + difW) / 2 - 10;
+            bestBookElement1.Width = (mainFlowPanel.Width + difW) / 2 - 10;
+            bestBookElement2.Width = (mainFlowPanel.Width + difW) / 2 - 10;
+            bestBookElement3.Width = (mainFlowPanel.Width + difW) / 2 - 10;
 
         }
 
@@ -848,11 +848,14 @@ namespace WinForms
             if (this.WindowState == FormWindowState.Normal)
             {
                 maximize.Image = Image.FromFile("../../../../../assets/icons/minimize.png");
+                this.TopMost = true;
+                this.Padding = new Padding(0);
                 this.WindowState = FormWindowState.Maximized;
             }
             else
             {
                 maximize.Image = Image.FromFile("../../../../../assets/icons/maximize.png");
+                this.Padding = new Padding(0, 0, 0, 20);
                 this.WindowState = FormWindowState.Normal;
             }
         }

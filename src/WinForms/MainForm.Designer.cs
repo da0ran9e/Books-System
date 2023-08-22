@@ -64,7 +64,7 @@ namespace WinForms
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            //SingleTextView singleTextView1 = new TSkin.ST.SingleTextView();
+           // SingleTextView singleTextView1 = new TSkin.ST.SingleTextView();
             searchTabeLayout = new TableLayoutPanel();
             verticalMenuBar = new FlowLayoutPanel();
             userLabel = new Label();
@@ -1042,7 +1042,7 @@ namespace WinForms
             helloPanel.Location = new Point(0, 27);
             helloPanel.Margin = new Padding(0, 27, 0, 0);
             helloPanel.Name = "helloPanel";
-            helloPanel.Size = new Size(741, 270);
+            helloPanel.Size = new Size(741, 258);
             helloPanel.TabIndex = 0;
             helloPanel.Paint += helloPanel_Paint;
             // 
@@ -1064,7 +1064,8 @@ namespace WinForms
             helloElement0.GradientAngle = 60F;
             helloElement0.GradientPrimaryColor = Color.Transparent;
             helloElement0.GradientSecondaryColor = Color.White;
-            helloElement0.Location = new Point(3, 85);
+            helloElement0.Location = new Point(0, 82);
+            helloElement0.Margin = new Padding(0);
             helloElement0.Name = "helloElement0";
             helloElement0.Size = new Size(349, 88);
             helloElement0.TabIndex = 4;
@@ -1141,7 +1142,8 @@ namespace WinForms
             helloElement1.GradientAngle = 60F;
             helloElement1.GradientPrimaryColor = Color.Transparent;
             helloElement1.GradientSecondaryColor = Color.White;
-            helloElement1.Location = new Point(358, 85);
+            helloElement1.Location = new Point(349, 82);
+            helloElement1.Margin = new Padding(0);
             helloElement1.Name = "helloElement1";
             helloElement1.Size = new Size(349, 88);
             helloElement1.TabIndex = 5;
@@ -1217,7 +1219,8 @@ namespace WinForms
             helloElement2.GradientAngle = 60F;
             helloElement2.GradientPrimaryColor = Color.Transparent;
             helloElement2.GradientSecondaryColor = Color.White;
-            helloElement2.Location = new Point(3, 179);
+            helloElement2.Location = new Point(0, 170);
+            helloElement2.Margin = new Padding(0);
             helloElement2.Name = "helloElement2";
             helloElement2.Size = new Size(349, 88);
             helloElement2.TabIndex = 6;
@@ -1293,7 +1296,8 @@ namespace WinForms
             helloElement3.GradientAngle = 60F;
             helloElement3.GradientPrimaryColor = Color.Transparent;
             helloElement3.GradientSecondaryColor = Color.White;
-            helloElement3.Location = new Point(358, 179);
+            helloElement3.Location = new Point(349, 170);
+            helloElement3.Margin = new Padding(0);
             helloElement3.Name = "helloElement3";
             helloElement3.Size = new Size(349, 88);
             helloElement3.TabIndex = 7;
@@ -1373,10 +1377,10 @@ namespace WinForms
             recommentPanel.Controls.Add(recommentElement2);
             recommentPanel.Controls.Add(recommentElement3);
             homeFlowPanel.SetFlowBreak(recommentPanel, true);
-            recommentPanel.Location = new Point(0, 297);
+            recommentPanel.Location = new Point(0, 285);
             recommentPanel.Margin = new Padding(0);
             recommentPanel.Name = "recommentPanel";
-            recommentPanel.Size = new Size(741, 270);
+            recommentPanel.Size = new Size(741, 258);
             recommentPanel.TabIndex = 1;
             // 
             // recommentLabel
@@ -1396,7 +1400,8 @@ namespace WinForms
             recommentElement0.GradientAngle = 60F;
             recommentElement0.GradientPrimaryColor = Color.Transparent;
             recommentElement0.GradientSecondaryColor = Color.White;
-            recommentElement0.Location = new Point(3, 85);
+            recommentElement0.Location = new Point(0, 82);
+            recommentElement0.Margin = new Padding(0);
             recommentElement0.Name = "recommentElement0";
             recommentElement0.Size = new Size(349, 88);
             recommentElement0.TabIndex = 8;
@@ -1472,7 +1477,8 @@ namespace WinForms
             recommentElement1.GradientAngle = 60F;
             recommentElement1.GradientPrimaryColor = Color.Transparent;
             recommentElement1.GradientSecondaryColor = Color.White;
-            recommentElement1.Location = new Point(358, 85);
+            recommentElement1.Location = new Point(349, 82);
+            recommentElement1.Margin = new Padding(0);
             recommentElement1.Name = "recommentElement1";
             recommentElement1.Size = new Size(349, 88);
             recommentElement1.TabIndex = 9;
@@ -1548,7 +1554,8 @@ namespace WinForms
             recommentElement2.GradientAngle = 60F;
             recommentElement2.GradientPrimaryColor = Color.Transparent;
             recommentElement2.GradientSecondaryColor = Color.White;
-            recommentElement2.Location = new Point(3, 179);
+            recommentElement2.Location = new Point(0, 170);
+            recommentElement2.Margin = new Padding(0);
             recommentElement2.Name = "recommentElement2";
             recommentElement2.Size = new Size(349, 88);
             recommentElement2.TabIndex = 10;
@@ -1623,7 +1630,8 @@ namespace WinForms
             recommentElement3.GradientAngle = 60F;
             recommentElement3.GradientPrimaryColor = Color.Transparent;
             recommentElement3.GradientSecondaryColor = Color.White;
-            recommentElement3.Location = new Point(358, 179);
+            recommentElement3.Location = new Point(349, 170);
+            recommentElement3.Margin = new Padding(0);
             recommentElement3.Name = "recommentElement3";
             recommentElement3.Size = new Size(349, 88);
             recommentElement3.TabIndex = 11;
@@ -1698,7 +1706,7 @@ namespace WinForms
             recentPanel.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             recentPanel.AutoSize = true;
             homeFlowPanel.SetFlowBreak(recentPanel, true);
-            recentPanel.Location = new Point(3, 570);
+            recentPanel.Location = new Point(3, 546);
             recentPanel.Margin = new Padding(3, 3, 3, 30);
             recentPanel.Name = "recentPanel";
             recentPanel.Size = new Size(0, 0);
@@ -2903,7 +2911,7 @@ namespace WinForms
             bestBookFlowPanel.Location = new Point(0, 0);
             bestBookFlowPanel.Margin = new Padding(0);
             bestBookFlowPanel.Name = "bestBookFlowPanel";
-            bestBookFlowPanel.Size = new Size(735, 270);
+            bestBookFlowPanel.Size = new Size(735, 258);
             bestBookFlowPanel.TabIndex = 0;
             bestBookFlowPanel.Visible = false;
             // 
@@ -2926,7 +2934,8 @@ namespace WinForms
             bestBookElement0.GradientAngle = 60F;
             bestBookElement0.GradientPrimaryColor = Color.Transparent;
             bestBookElement0.GradientSecondaryColor = Color.White;
-            bestBookElement0.Location = new Point(3, 85);
+            bestBookElement0.Location = new Point(0, 82);
+            bestBookElement0.Margin = new Padding(0);
             bestBookElement0.Name = "bestBookElement0";
             bestBookElement0.Size = new Size(349, 88);
             bestBookElement0.TabIndex = 4;
@@ -3003,7 +3012,8 @@ namespace WinForms
             bestBookElement1.GradientAngle = 60F;
             bestBookElement1.GradientPrimaryColor = Color.Transparent;
             bestBookElement1.GradientSecondaryColor = Color.White;
-            bestBookElement1.Location = new Point(358, 85);
+            bestBookElement1.Location = new Point(349, 82);
+            bestBookElement1.Margin = new Padding(0);
             bestBookElement1.Name = "bestBookElement1";
             bestBookElement1.Size = new Size(349, 88);
             bestBookElement1.TabIndex = 5;
@@ -3079,7 +3089,8 @@ namespace WinForms
             bestBookElement2.GradientAngle = 60F;
             bestBookElement2.GradientPrimaryColor = Color.Transparent;
             bestBookElement2.GradientSecondaryColor = Color.White;
-            bestBookElement2.Location = new Point(3, 179);
+            bestBookElement2.Location = new Point(0, 170);
+            bestBookElement2.Margin = new Padding(0);
             bestBookElement2.Name = "bestBookElement2";
             bestBookElement2.Size = new Size(349, 88);
             bestBookElement2.TabIndex = 6;
@@ -3155,7 +3166,8 @@ namespace WinForms
             bestBookElement3.GradientAngle = 60F;
             bestBookElement3.GradientPrimaryColor = Color.Transparent;
             bestBookElement3.GradientSecondaryColor = Color.White;
-            bestBookElement3.Location = new Point(358, 179);
+            bestBookElement3.Location = new Point(349, 170);
+            bestBookElement3.Margin = new Padding(0);
             bestBookElement3.Name = "bestBookElement3";
             bestBookElement3.Size = new Size(349, 88);
             bestBookElement3.TabIndex = 7;
