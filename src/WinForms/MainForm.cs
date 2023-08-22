@@ -328,6 +328,7 @@ namespace WinForms
             currentProperties.GradientPrimaryColor = borderColor;
             currentProperties.GradientSecondaryColor = Color.Transparent;
 
+            //helloPanel
             int randH0 = rand.Next(1, 1000);
             int randH1 = rand.Next(1, 1000);
             int randH2 = rand.Next(1, 1000);
@@ -351,6 +352,7 @@ namespace WinForms
             helloElementTitle3.Text = helloBook3.title;
             helloAuthor3.Text = helloBook3.author;
 
+            //recommentPanel 
             int randC0 = rand.Next(1, 1000);
             int randC1 = rand.Next(1, 1000);
             int randC2 = rand.Next(1, 1000);
@@ -373,6 +375,30 @@ namespace WinForms
             recommentAuthor2.Text = recommentBook2.author;
             recommentTitle3.Text = recommentBook3.title;
             recommentAuthor3.Text = recommentBook3.author;
+
+            //bestBook Panel
+            int randB0 = rand.Next(1, 1000);
+            int randB1 = rand.Next(1, 1000);
+            int randB2 = rand.Next(1, 1000);
+            int randB3 = rand.Next(1, 1000);
+            bestBookImg0.Image = SetHeight(GetBookImage(randB0), bestBookImg0.Height);
+            bestBookImg1.Image = SetHeight(GetBookImage(randB1), bestBookImg1.Height);
+            bestBookImg2.Image = SetHeight(GetBookImage(randB2), bestBookImg2.Height);
+            bestBookImg3.Image = SetHeight(GetBookImage(randB3), bestBookImg3.Height);
+
+            Book bestBook0 = GetBookInformation(randB0);
+            Book bestBook1 = GetBookInformation(randB1);
+            Book bestBook2 = GetBookInformation(randB2);
+            Book bestBook3 = GetBookInformation(randB3);
+
+            bestBookTitle0.Text = bestBook0.title;
+            bestBookAuthor0.Text = bestBook0.author;
+            bestBookTitle1.Text = bestBook1.title;
+            bestBookAuthor1.Text = bestBook1.author;
+            bestBookTitle2.Text = bestBook2.title;
+            bestBookAuthor2.Text = bestBook2.author;
+            bestBookTitle3.Text = bestBook3.title;
+            bestBookAuthor3.Text = bestBook3.author;
             #endregion
 
             homeFlowPanel.Controls.Add(bestBookPanel);
@@ -577,6 +603,8 @@ namespace WinForms
             mainFlowPanel.Invalidate();
             verticalMenuBar.Invalidate();
 
+            searchFlowPanel.Controls.Add(bestBookPanel);
+
             homeFlowPanel.Visible = false;
             searchFlowPanel.Visible = true;
             favoritePanel.Visible = false;
@@ -744,7 +772,29 @@ namespace WinForms
         {
             updateCurrentBook(bookPicking(recommentTitle3.Text));
         }
+
+        private void bestBookLabel0_Click(object sender, EventArgs e)
+        {
+            updateCurrentBook(bookPicking(bestBookTitle0.Text));
+        }
+
+        private void bestBookLabel1_Click(object sender, EventArgs e)
+        {
+            updateCurrentBook(bookPicking(bestBookTitle1.Text));
+        }
+
+        private void bestBookLabel2_Click(object sender, EventArgs e)
+        {
+            updateCurrentBook(bookPicking(bestBookTitle2.Text));
+        }
+
+        private void bestBookLabel3_Click(object sender, EventArgs e)
+        {
+            updateCurrentBook(bookPicking(bestBookTitle3.Text));
+        }
         #endregion
+
+        #region resize event handler
         private int difH;
         private int difW;
         private void MainForm_Resize(object sender, EventArgs e)
@@ -783,5 +833,6 @@ namespace WinForms
             difH = homeFlowPanel.Height - mainFlowPanel.Height;
             difW = homeFlowPanel.Width - mainFlowPanel.Width;
         }
+        #endregion
     }
 }
