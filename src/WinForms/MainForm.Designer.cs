@@ -64,7 +64,7 @@ namespace WinForms
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            //SingleTextView singleTextView3 = new TSkin.ST.SingleTextView();
+            //SingleTextView singleTextView1 = new TSkin.ST.SingleTextView();
             searchTabeLayout = new TableLayoutPanel();
             verticalMenuBar = new FlowLayoutPanel();
             userLabel = new Label();
@@ -548,13 +548,13 @@ namespace WinForms
             searchTabeLayout.Controls.Add(currentProperties, 1, 1);
             searchTabeLayout.Controls.Add(optionPanel, 0, 1);
             searchTabeLayout.Dock = DockStyle.Fill;
-            searchTabeLayout.Location = new Point(20, 20);
+            searchTabeLayout.Location = new Point(0, 0);
             searchTabeLayout.Margin = new Padding(0, 500, 0, 0);
             searchTabeLayout.Name = "searchTabeLayout";
             searchTabeLayout.RowCount = 2;
             searchTabeLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             searchTabeLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 100F));
-            searchTabeLayout.Size = new Size(1240, 806);
+            searchTabeLayout.Size = new Size(1280, 826);
             searchTabeLayout.TabIndex = 0;
             // 
             // verticalMenuBar
@@ -563,10 +563,10 @@ namespace WinForms
             verticalMenuBar.Controls.Add(verticalTableMenu);
             verticalMenuBar.Dock = DockStyle.Fill;
             verticalMenuBar.FlowDirection = FlowDirection.TopDown;
-            verticalMenuBar.Location = new Point(1140, 0);
+            verticalMenuBar.Location = new Point(1180, 0);
             verticalMenuBar.Margin = new Padding(0);
             verticalMenuBar.Name = "verticalMenuBar";
-            verticalMenuBar.Size = new Size(100, 706);
+            verticalMenuBar.Size = new Size(100, 726);
             verticalMenuBar.TabIndex = 1;
             verticalMenuBar.WrapContents = false;
             verticalMenuBar.Paint += verticalMenuBar_Paint;
@@ -784,7 +784,7 @@ namespace WinForms
             contentPanel.Dock = DockStyle.Fill;
             contentPanel.Location = new Point(3, 3);
             contentPanel.Name = "contentPanel";
-            contentPanel.Size = new Size(394, 700);
+            contentPanel.Size = new Size(394, 720);
             contentPanel.TabIndex = 3;
             // 
             // contentContainer
@@ -1012,7 +1012,7 @@ namespace WinForms
             mainFlowPanel.Location = new Point(400, 0);
             mainFlowPanel.Margin = new Padding(0);
             mainFlowPanel.Name = "mainFlowPanel";
-            mainFlowPanel.Size = new Size(740, 706);
+            mainFlowPanel.Size = new Size(780, 726);
             mainFlowPanel.TabIndex = 4;
             mainFlowPanel.Paint += mainFlowPanel_Paint;
             // 
@@ -1765,7 +1765,7 @@ namespace WinForms
             searchBox.Location = new Point(0, 0);
             searchBox.Margin = new Padding(0);
             searchBox.Name = "searchBox";
-            //searchBox.SetTextView = singleTextView3;
+           // searchBox.SetTextView = singleTextView1;
             searchBox.Size = new Size(560, 55);
             searchBox.TabIndex = 5;
             searchBox.Text = "What do you want to read?";
@@ -3229,7 +3229,7 @@ namespace WinForms
             currentPanel.BackColor = Color.Gainsboro;
             currentPanel.Controls.Add(currentLabel);
             currentPanel.Dock = DockStyle.Fill;
-            currentPanel.Location = new Point(1140, 706);
+            currentPanel.Location = new Point(1180, 726);
             currentPanel.Margin = new Padding(0);
             currentPanel.Name = "currentPanel";
             currentPanel.Size = new Size(100, 100);
@@ -3252,10 +3252,10 @@ namespace WinForms
             currentProperties.GradientAngle = 180F;
             currentProperties.GradientPrimaryColor = Color.FromArgb(0, 64, 0);
             currentProperties.GradientSecondaryColor = Color.Empty;
-            currentProperties.Location = new Point(400, 706);
+            currentProperties.Location = new Point(400, 726);
             currentProperties.Margin = new Padding(0);
             currentProperties.Name = "currentProperties";
-            currentProperties.Size = new Size(740, 100);
+            currentProperties.Size = new Size(780, 100);
             currentProperties.TabIndex = 6;
             // 
             // currentPropertiesTable
@@ -3273,7 +3273,7 @@ namespace WinForms
             currentPropertiesTable.Name = "currentPropertiesTable";
             currentPropertiesTable.RowCount = 1;
             currentPropertiesTable.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            currentPropertiesTable.Size = new Size(740, 100);
+            currentPropertiesTable.Size = new Size(780, 100);
             currentPropertiesTable.TabIndex = 0;
             // 
             // currentBookPanel
@@ -3283,10 +3283,10 @@ namespace WinForms
             currentBookPanel.Controls.Add(currentBookRate);
             currentBookPanel.Dock = DockStyle.Fill;
             currentBookPanel.FlowDirection = FlowDirection.RightToLeft;
-            currentBookPanel.Location = new Point(420, 0);
+            currentBookPanel.Location = new Point(440, 0);
             currentBookPanel.Margin = new Padding(0);
             currentBookPanel.Name = "currentBookPanel";
-            currentBookPanel.Size = new Size(320, 100);
+            currentBookPanel.Size = new Size(340, 100);
             currentBookPanel.TabIndex = 0;
             // 
             // currentBookTitle
@@ -3296,7 +3296,7 @@ namespace WinForms
             currentBookPanel.SetFlowBreak(currentBookTitle, true);
             currentBookTitle.Font = new Font("Exo ExtraBold", 10.1999989F, FontStyle.Bold, GraphicsUnit.Point);
             currentBookTitle.ForeColor = SystemColors.Menu;
-            currentBookTitle.Location = new Point(222, 10);
+            currentBookTitle.Location = new Point(242, 10);
             currentBookTitle.Margin = new Padding(3, 10, 10, 0);
             currentBookTitle.Name = "currentBookTitle";
             currentBookTitle.Size = new Size(88, 24);
@@ -3309,7 +3309,7 @@ namespace WinForms
             currentBookPanel.SetFlowBreak(currentBookAuthor, true);
             currentBookAuthor.Font = new Font("Exo ExtraBold", 7.799999F, FontStyle.Bold, GraphicsUnit.Point);
             currentBookAuthor.ForeColor = SystemColors.Menu;
-            currentBookAuthor.Location = new Point(226, 34);
+            currentBookAuthor.Location = new Point(246, 34);
             currentBookAuthor.Margin = new Padding(3, 0, 10, 0);
             currentBookAuthor.Name = "currentBookAuthor";
             currentBookAuthor.Size = new Size(84, 19);
@@ -3321,7 +3321,7 @@ namespace WinForms
             currentBookRate.Font = new Font("Exo ExtraBold", 9F, FontStyle.Bold, GraphicsUnit.Point);
             currentBookRate.ForeColor = SystemColors.Menu;
             currentBookRate.Image = (Image)resources.GetObject("currentBookRate.Image");
-            currentBookRate.Location = new Point(217, 59);
+            currentBookRate.Location = new Point(237, 59);
             currentBookRate.Name = "currentBookRate";
             currentBookRate.Size = new Size(100, 25);
             currentBookRate.TabIndex = 2;
@@ -3332,7 +3332,7 @@ namespace WinForms
             currentPagePanel.Controls.Add(totalPage);
             currentPagePanel.Controls.Add(currentPage);
             currentPagePanel.Dock = DockStyle.Fill;
-            currentPagePanel.Location = new Point(320, 0);
+            currentPagePanel.Location = new Point(340, 0);
             currentPagePanel.Margin = new Padding(0);
             currentPagePanel.Name = "currentPagePanel";
             currentPagePanel.Size = new Size(100, 100);
@@ -3367,7 +3367,7 @@ namespace WinForms
             currentPublisherPanel.Location = new Point(0, 0);
             currentPublisherPanel.Margin = new Padding(0);
             currentPublisherPanel.Name = "currentPublisherPanel";
-            currentPublisherPanel.Size = new Size(320, 100);
+            currentPublisherPanel.Size = new Size(340, 100);
             currentPublisherPanel.TabIndex = 2;
             // 
             // currentPublisher
@@ -3404,7 +3404,7 @@ namespace WinForms
             optionPanel.GradientAngle = 90F;
             optionPanel.GradientPrimaryColor = Color.Black;
             optionPanel.GradientSecondaryColor = Color.Empty;
-            optionPanel.Location = new Point(0, 706);
+            optionPanel.Location = new Point(0, 726);
             optionPanel.Margin = new Padding(0);
             optionPanel.Name = "optionPanel";
             optionPanel.Size = new Size(400, 100);
@@ -4282,9 +4282,9 @@ namespace WinForms
             toolStrip1.Font = new Font("Exo ExtraBold", 9F, FontStyle.Bold, GraphicsUnit.Point);
             toolStrip1.ImageScalingSize = new Size(20, 20);
             toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripDropDownButton1, close, maximize, minimize });
-            toolStrip1.Location = new Point(20, 20);
+            toolStrip1.Location = new Point(0, 0);
             toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new Size(1240, 27);
+            toolStrip1.Size = new Size(1280, 27);
             toolStrip1.TabIndex = 1;
             toolStrip1.Text = "toolStrip1";
             toolStrip1.MouseDown += toolStrip1_MouseDown;
@@ -4367,7 +4367,7 @@ namespace WinForms
             DoubleBuffered = true;
             FormBorderStyle = FormBorderStyle.None;
             Name = "MainForm";
-            Padding = new Padding(20);
+            Padding = new Padding(0, 0, 0, 20);
             StartPosition = FormStartPosition.CenterScreen;
             Text = "MainForm";
             toolTip1.SetToolTip(this, "user");
