@@ -838,7 +838,7 @@ namespace WinForms
             dragCursorPoint = Cursor.Position;
             dragFormPoint = this.Location;
         }
-        private void regisForm_MouseMove(object sender, MouseEventArgs e)
+        private void registForm_MouseMove(object sender, MouseEventArgs e)
         {
             if (dragging)
             {

@@ -691,11 +691,6 @@ namespace WinForms
         }
         #endregion
 
-        private void toolStripButton1_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
         #region handle events when user picking a book to read
         private Book bookPicking(string name)
         {
@@ -832,6 +827,58 @@ namespace WinForms
         {
             difH = homeFlowPanel.Height - mainFlowPanel.Height;
             difW = homeFlowPanel.Width - mainFlowPanel.Width;
+        }
+        #endregion
+
+        #region toolStrip handler
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Normal)
+            {
+                maximize.Image = Image.FromFile("../../../../../assets/icons/minimize.png");
+                this.WindowState = FormWindowState.Maximized;
+            }
+            else
+            {
+                maximize.Image = Image.FromFile("../../../../../assets/icons/maximize.png");
+                this.WindowState = FormWindowState.Normal;
+            }
+        }
+
+        private bool dragging = false;
+        private Point dragCursorPoint;
+        private Point dragFormPoint;
+        private void toolStrip1_MouseDown(object sender, MouseEventArgs e)
+        {
+            Cursor = Cursors.SizeAll;
+            dragging = true;
+            dragCursorPoint = Cursor.Position;
+            dragFormPoint = this.Location;
+        }
+        private void mainForm_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (dragging)
+            {
+                Point dif = Point.Subtract(Cursor.Position, new Size(dragCursorPoint));
+                this.Location = Point.Add(dragFormPoint, new Size(dif));
+            }
+        }
+
+        private void mainForm_MouseUp(object sender, MouseEventArgs e)
+        {
+            Cursor = Cursors.Default;
+            dragging = false;
+        }
+
+        private void toolStripButton3_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
         #endregion
     }

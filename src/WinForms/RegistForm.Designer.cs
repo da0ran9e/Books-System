@@ -991,7 +991,7 @@
             topBar.TabIndex = 7;
             topBar.Paint += panel2_Paint;
             topBar.MouseDown += topBar_MouseDown;
-            topBar.MouseMove += regisForm_MouseMove;
+            topBar.MouseMove += registForm_MouseMove;
             topBar.MouseUp += registForm_MouseUp;
             // 
             // panel2

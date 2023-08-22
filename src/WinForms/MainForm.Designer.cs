@@ -63,8 +63,8 @@ namespace WinForms
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            //SingleTextView singleTextView4 = new TSkin.ST.SingleTextView();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            //SingleTextView singleTextView3 = new TSkin.ST.SingleTextView();
             searchTabeLayout = new TableLayoutPanel();
             verticalMenuBar = new FlowLayoutPanel();
             userLabel = new Label();
@@ -382,9 +382,9 @@ namespace WinForms
             fileToolStripMenuItem1 = new ToolStripMenuItem();
             viewToolStripMenuItem1 = new ToolStripMenuItem();
             helpToolStripMenuItem1 = new ToolStripMenuItem();
-            toolStripButton1 = new ToolStripButton();
-            toolStripButton2 = new ToolStripButton();
-            toolStripButton3 = new ToolStripButton();
+            close = new ToolStripButton();
+            maximize = new ToolStripButton();
+            minimize = new ToolStripButton();
             searchTabeLayout.SuspendLayout();
             verticalMenuBar.SuspendLayout();
             verticalTableMenu.SuspendLayout();
@@ -1765,7 +1765,7 @@ namespace WinForms
             searchBox.Location = new Point(0, 0);
             searchBox.Margin = new Padding(0);
             searchBox.Name = "searchBox";
-           // searchBox.SetTextView = singleTextView4;
+            //searchBox.SetTextView = singleTextView3;
             searchBox.Size = new Size(560, 55);
             searchBox.TabIndex = 5;
             searchBox.Text = "What do you want to read?";
@@ -4281,12 +4281,15 @@ namespace WinForms
             toolStrip1.BackColor = Color.Transparent;
             toolStrip1.Font = new Font("Exo ExtraBold", 9F, FontStyle.Bold, GraphicsUnit.Point);
             toolStrip1.ImageScalingSize = new Size(20, 20);
-            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripDropDownButton1, toolStripButton1, toolStripButton2, toolStripButton3 });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { toolStripDropDownButton1, close, maximize, minimize });
             toolStrip1.Location = new Point(20, 20);
             toolStrip1.Name = "toolStrip1";
             toolStrip1.Size = new Size(1240, 27);
             toolStrip1.TabIndex = 1;
             toolStrip1.Text = "toolStrip1";
+            toolStrip1.MouseDown += toolStrip1_MouseDown;
+            toolStrip1.MouseMove += mainForm_MouseMove;
+            toolStrip1.MouseUp += mainForm_MouseUp;
             // 
             // toolStripDropDownButton1
             // 
@@ -4316,38 +4319,40 @@ namespace WinForms
             helpToolStripMenuItem1.Size = new Size(129, 26);
             helpToolStripMenuItem1.Text = "Help";
             // 
-            // toolStripButton1
+            // close
             // 
-            toolStripButton1.Alignment = ToolStripItemAlignment.Right;
-            toolStripButton1.BackColor = Color.Transparent;
-            toolStripButton1.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            toolStripButton1.Image = (Image)resources.GetObject("toolStripButton1.Image");
-            toolStripButton1.ImageTransparentColor = Color.Crimson;
-            toolStripButton1.Name = "toolStripButton1";
-            toolStripButton1.Size = new Size(29, 24);
-            toolStripButton1.Text = "toolStripButton1";
-            toolStripButton1.TextAlign = ContentAlignment.MiddleRight;
-            toolStripButton1.Click += toolStripButton1_Click;
+            close.Alignment = ToolStripItemAlignment.Right;
+            close.BackColor = Color.Transparent;
+            close.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            close.Image = (Image)resources.GetObject("close.Image");
+            close.ImageTransparentColor = Color.Crimson;
+            close.Name = "close";
+            close.Size = new Size(29, 24);
+            close.Text = "toolStripButton1";
+            close.TextAlign = ContentAlignment.MiddleRight;
+            close.Click += toolStripButton1_Click;
             // 
-            // toolStripButton2
+            // maximize
             // 
-            toolStripButton2.Alignment = ToolStripItemAlignment.Right;
-            toolStripButton2.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            toolStripButton2.Image = (Image)resources.GetObject("toolStripButton2.Image");
-            toolStripButton2.ImageTransparentColor = Color.Magenta;
-            toolStripButton2.Name = "toolStripButton2";
-            toolStripButton2.Size = new Size(29, 24);
-            toolStripButton2.Text = "toolStripButton2";
+            maximize.Alignment = ToolStripItemAlignment.Right;
+            maximize.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            maximize.Image = (Image)resources.GetObject("maximize.Image");
+            maximize.ImageTransparentColor = Color.Magenta;
+            maximize.Name = "maximize";
+            maximize.Size = new Size(29, 24);
+            maximize.Text = "toolStripButton2";
+            maximize.Click += toolStripButton2_Click;
             // 
-            // toolStripButton3
+            // minimize
             // 
-            toolStripButton3.Alignment = ToolStripItemAlignment.Right;
-            toolStripButton3.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            toolStripButton3.Image = (Image)resources.GetObject("toolStripButton3.Image");
-            toolStripButton3.ImageTransparentColor = Color.Magenta;
-            toolStripButton3.Name = "toolStripButton3";
-            toolStripButton3.Size = new Size(29, 24);
-            toolStripButton3.Text = "toolStripButton3";
+            minimize.Alignment = ToolStripItemAlignment.Right;
+            minimize.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            minimize.Image = (Image)resources.GetObject("minimize.Image");
+            minimize.ImageTransparentColor = Color.Magenta;
+            minimize.Name = "minimize";
+            minimize.Size = new Size(29, 24);
+            minimize.Text = "toolStripButton3";
+            minimize.Click += toolStripButton3_Click;
             // 
             // MainForm
             // 
@@ -4750,9 +4755,9 @@ namespace WinForms
         private ToolStripMenuItem fileToolStripMenuItem1;
         private ToolStripMenuItem viewToolStripMenuItem1;
         private ToolStripMenuItem helpToolStripMenuItem1;
-        private ToolStripButton toolStripButton1;
-        private ToolStripButton toolStripButton2;
-        private ToolStripButton toolStripButton3;
+        private ToolStripButton close;
+        private ToolStripButton maximize;
+        private ToolStripButton minimize;
         private TableLayoutPanel verticalTableMenu;
         private GradientPanel bottomBlank;
         private GradientPanel topBlank;
