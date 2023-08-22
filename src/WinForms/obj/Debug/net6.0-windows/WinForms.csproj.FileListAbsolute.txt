@@ -25,6 +25,6 @@ C:\Users\vuduc\OneDrive\Documents\GitHub\Books-System\src\WinForms\obj\Debug\net
 C:\Users\vuduc\OneDrive\Documents\GitHub\Books-System\src\WinForms\obj\Debug\net6.0-windows\WinForms.LoginForm.resources
 C:\Users\vuduc\OneDrive\Documents\GitHub\Books-System\src\WinForms\obj\Debug\net6.0-windows\WinForms.MainForm.resources
 C:\Users\vuduc\OneDrive\Documents\GitHub\Books-System\src\WinForms\obj\Debug\net6.0-windows\WinForms.RegistForm.resources
-C:\Users\vuduc\OneDrive\Documents\GitHub\Books-System\src\WinForms\obj\Debug\net6.0-windows\WinForms.AdFeedForm.resources
 C:\Users\vuduc\OneDrive\Documents\GitHub\Books-System\src\WinForms\bin\Debug\net6.0-windows\STTextBox.dll
 C:\Users\vuduc\OneDrive\Documents\GitHub\Books-System\src\WinForms\bin\Debug\net6.0-windows\STTextBox.pdb
+C:\Users\vuduc\OneDrive\Documents\GitHub\Books-System\src\WinForms\obj\Debug\net6.0-windows\WinForms.LoadingForm.resources

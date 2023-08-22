@@ -68,10 +68,12 @@ namespace WinForms
                     lb.Size = new Size(240, 30);
                     lb.ForeColor = Color.Green;
                     lb.Padding = new Padding(12, 0, 0, 0);
-                    loginNotification.Controls.Add(lb);
+                    loginNotification.Controls.Add(lb);                    
+                    
                     Form mainForm = new MainForm(usernameTextbox.Text);
                     this.Visible = false;
-                    mainForm.ShowDialog();
+                    new LoadingForm(() => /*Simulate long task*/ mainForm.ShowDialog()).ShowDialog();
+                    
                 }
                 else
                 {
