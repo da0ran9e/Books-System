@@ -64,7 +64,7 @@ namespace WinForms
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            SingleTextView singleTextView1 = new TSkin.ST.SingleTextView();
+            //SingleTextView singleTextView2 = new TSkin.ST.SingleTextView();
             searchTabeLayout = new TableLayoutPanel();
             verticalMenuBar = new FlowLayoutPanel();
             userLabel = new Label();
@@ -201,6 +201,14 @@ namespace WinForms
             otherTable7 = new TableLayoutPanel();
             otherTitle7 = new Label();
             otherImg7 = new Label();
+            otherResult8 = new GradientPanel();
+            otherTable8 = new TableLayoutPanel();
+            otherTitle8 = new Label();
+            otherImg8 = new Label();
+            otherResult9 = new GradientPanel();
+            otherTable9 = new TableLayoutPanel();
+            otherTitle9 = new Label();
+            otherImg9 = new Label();
             flowLayoutPanel61 = new FlowLayoutPanel();
             favoritePanel = new FlowLayoutPanel();
             flowLayoutPanel24 = new FlowLayoutPanel();
@@ -417,14 +425,6 @@ namespace WinForms
             close = new ToolStripButton();
             maximize = new ToolStripButton();
             minimize = new ToolStripButton();
-            otherResult8 = new GradientPanel();
-            otherTable8 = new TableLayoutPanel();
-            otherTitle8 = new Label();
-            otherImg8 = new Label();
-            otherResult9 = new GradientPanel();
-            otherTable9 = new TableLayoutPanel();
-            otherTitle9 = new Label();
-            otherImg9 = new Label();
             searchTabeLayout.SuspendLayout();
             verticalMenuBar.SuspendLayout();
             verticalTableMenu.SuspendLayout();
@@ -492,6 +492,10 @@ namespace WinForms
             otherTable6.SuspendLayout();
             otherResult7.SuspendLayout();
             otherTable7.SuspendLayout();
+            otherResult8.SuspendLayout();
+            otherTable8.SuspendLayout();
+            otherResult9.SuspendLayout();
+            otherTable9.SuspendLayout();
             favoritePanel.SuspendLayout();
             flowLayoutPanel24.SuspendLayout();
             gradientPanel8.SuspendLayout();
@@ -588,10 +592,6 @@ namespace WinForms
             tableLayoutPanel5.SuspendLayout();
             tableLayoutPanel40.SuspendLayout();
             toolStrip1.SuspendLayout();
-            otherResult8.SuspendLayout();
-            otherTable8.SuspendLayout();
-            otherResult9.SuspendLayout();
-            otherTable9.SuspendLayout();
             SuspendLayout();
             // 
             // searchTabeLayout
@@ -1833,7 +1833,7 @@ namespace WinForms
             searchBox.Location = new Point(0, 0);
             searchBox.Margin = new Padding(0);
             searchBox.Name = "searchBox";
-            searchBox.SetTextView = singleTextView1;
+            //searchBox.SetTextView = singleTextView2;
             searchBox.Size = new Size(560, 55);
             searchBox.TabIndex = 5;
             searchBox.Text = "What do you want to read?";
@@ -1994,11 +1994,12 @@ namespace WinForms
             // 
             otherTitle0.AutoSize = true;
             otherTitle0.BackColor = Color.Transparent;
+            otherTitle0.Dock = DockStyle.Fill;
             otherTitle0.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             otherTitle0.ForeColor = SystemColors.ControlLight;
             otherTitle0.Location = new Point(63, 0);
             otherTitle0.Name = "otherTitle0";
-            otherTitle0.Size = new Size(50, 28);
+            otherTitle0.Size = new Size(529, 88);
             otherTitle0.TabIndex = 2;
             otherTitle0.Text = "title";
             // 
@@ -2043,11 +2044,12 @@ namespace WinForms
             // 
             otherTitle1.AutoSize = true;
             otherTitle1.BackColor = Color.Transparent;
+            otherTitle1.Dock = DockStyle.Fill;
             otherTitle1.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             otherTitle1.ForeColor = SystemColors.ControlLight;
             otherTitle1.Location = new Point(63, 0);
             otherTitle1.Name = "otherTitle1";
-            otherTitle1.Size = new Size(50, 28);
+            otherTitle1.Size = new Size(529, 88);
             otherTitle1.TabIndex = 2;
             otherTitle1.Text = "title";
             // 
@@ -2092,11 +2094,12 @@ namespace WinForms
             // 
             otherTitle2.AutoSize = true;
             otherTitle2.BackColor = Color.Transparent;
+            otherTitle2.Dock = DockStyle.Fill;
             otherTitle2.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             otherTitle2.ForeColor = SystemColors.ControlLight;
             otherTitle2.Location = new Point(63, 0);
             otherTitle2.Name = "otherTitle2";
-            otherTitle2.Size = new Size(50, 28);
+            otherTitle2.Size = new Size(529, 88);
             otherTitle2.TabIndex = 2;
             otherTitle2.Text = "title";
             // 
@@ -2141,11 +2144,12 @@ namespace WinForms
             // 
             otherTitle3.AutoSize = true;
             otherTitle3.BackColor = Color.Transparent;
+            otherTitle3.Dock = DockStyle.Fill;
             otherTitle3.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             otherTitle3.ForeColor = SystemColors.ControlLight;
             otherTitle3.Location = new Point(63, 0);
             otherTitle3.Name = "otherTitle3";
-            otherTitle3.Size = new Size(50, 28);
+            otherTitle3.Size = new Size(529, 88);
             otherTitle3.TabIndex = 2;
             otherTitle3.Text = "title";
             // 
@@ -2190,11 +2194,12 @@ namespace WinForms
             // 
             otherTitle4.AutoSize = true;
             otherTitle4.BackColor = Color.Transparent;
+            otherTitle4.Dock = DockStyle.Fill;
             otherTitle4.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             otherTitle4.ForeColor = SystemColors.ControlLight;
             otherTitle4.Location = new Point(63, 0);
             otherTitle4.Name = "otherTitle4";
-            otherTitle4.Size = new Size(50, 28);
+            otherTitle4.Size = new Size(529, 88);
             otherTitle4.TabIndex = 2;
             otherTitle4.Text = "title";
             // 
@@ -2239,11 +2244,12 @@ namespace WinForms
             // 
             otherTitle5.AutoSize = true;
             otherTitle5.BackColor = Color.Transparent;
+            otherTitle5.Dock = DockStyle.Fill;
             otherTitle5.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             otherTitle5.ForeColor = SystemColors.ControlLight;
             otherTitle5.Location = new Point(63, 0);
             otherTitle5.Name = "otherTitle5";
-            otherTitle5.Size = new Size(50, 28);
+            otherTitle5.Size = new Size(529, 88);
             otherTitle5.TabIndex = 2;
             otherTitle5.Text = "title";
             // 
@@ -2288,11 +2294,12 @@ namespace WinForms
             // 
             otherTitle6.AutoSize = true;
             otherTitle6.BackColor = Color.Transparent;
+            otherTitle6.Dock = DockStyle.Fill;
             otherTitle6.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             otherTitle6.ForeColor = SystemColors.ControlLight;
             otherTitle6.Location = new Point(63, 0);
             otherTitle6.Name = "otherTitle6";
-            otherTitle6.Size = new Size(50, 28);
+            otherTitle6.Size = new Size(529, 88);
             otherTitle6.TabIndex = 2;
             otherTitle6.Text = "title";
             // 
@@ -2337,11 +2344,12 @@ namespace WinForms
             // 
             otherTitle7.AutoSize = true;
             otherTitle7.BackColor = Color.Transparent;
+            otherTitle7.Dock = DockStyle.Fill;
             otherTitle7.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             otherTitle7.ForeColor = SystemColors.ControlLight;
             otherTitle7.Location = new Point(63, 0);
             otherTitle7.Name = "otherTitle7";
-            otherTitle7.Size = new Size(50, 28);
+            otherTitle7.Size = new Size(529, 88);
             otherTitle7.TabIndex = 2;
             otherTitle7.Text = "title";
             // 
@@ -2353,6 +2361,104 @@ namespace WinForms
             otherImg7.Name = "otherImg7";
             otherImg7.Size = new Size(54, 50);
             otherImg7.TabIndex = 0;
+            // 
+            // otherResult8
+            // 
+            otherResult8.Controls.Add(otherTable8);
+            otherResult8.GradientAngle = 0F;
+            otherResult8.GradientPrimaryColor = Color.Transparent;
+            otherResult8.GradientSecondaryColor = Color.Transparent;
+            otherResult8.Location = new Point(3, 743);
+            otherResult8.Name = "otherResult8";
+            otherResult8.Size = new Size(595, 60);
+            otherResult8.TabIndex = 21;
+            otherResult8.Visible = false;
+            // 
+            // otherTable8
+            // 
+            otherTable8.AutoSize = true;
+            otherTable8.ColumnCount = 2;
+            otherTable8.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 60F));
+            otherTable8.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            otherTable8.Controls.Add(otherTitle8, 1, 0);
+            otherTable8.Controls.Add(otherImg8, 0, 0);
+            otherTable8.Dock = DockStyle.Fill;
+            otherTable8.Location = new Point(0, 0);
+            otherTable8.Name = "otherTable8";
+            otherTable8.RowCount = 1;
+            otherTable8.RowStyles.Add(new RowStyle(SizeType.Absolute, 88F));
+            otherTable8.Size = new Size(595, 60);
+            otherTable8.TabIndex = 0;
+            // 
+            // otherTitle8
+            // 
+            otherTitle8.AutoSize = true;
+            otherTitle8.BackColor = Color.Transparent;
+            otherTitle8.Dock = DockStyle.Fill;
+            otherTitle8.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            otherTitle8.ForeColor = SystemColors.ControlLight;
+            otherTitle8.Location = new Point(63, 0);
+            otherTitle8.Name = "otherTitle8";
+            otherTitle8.Size = new Size(529, 88);
+            otherTitle8.TabIndex = 2;
+            otherTitle8.Text = "title";
+            // 
+            // otherImg8
+            // 
+            otherImg8.BackColor = Color.Transparent;
+            otherImg8.Location = new Point(3, 0);
+            otherImg8.Name = "otherImg8";
+            otherImg8.Size = new Size(54, 50);
+            otherImg8.TabIndex = 0;
+            // 
+            // otherResult9
+            // 
+            otherResult9.Controls.Add(otherTable9);
+            otherResult9.GradientAngle = 0F;
+            otherResult9.GradientPrimaryColor = Color.Transparent;
+            otherResult9.GradientSecondaryColor = Color.Transparent;
+            otherResult9.Location = new Point(3, 809);
+            otherResult9.Name = "otherResult9";
+            otherResult9.Size = new Size(595, 60);
+            otherResult9.TabIndex = 22;
+            otherResult9.Visible = false;
+            // 
+            // otherTable9
+            // 
+            otherTable9.AutoSize = true;
+            otherTable9.ColumnCount = 2;
+            otherTable9.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 60F));
+            otherTable9.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            otherTable9.Controls.Add(otherTitle9, 1, 0);
+            otherTable9.Controls.Add(otherImg9, 0, 0);
+            otherTable9.Dock = DockStyle.Fill;
+            otherTable9.Location = new Point(0, 0);
+            otherTable9.Name = "otherTable9";
+            otherTable9.RowCount = 1;
+            otherTable9.RowStyles.Add(new RowStyle(SizeType.Absolute, 88F));
+            otherTable9.Size = new Size(595, 60);
+            otherTable9.TabIndex = 0;
+            // 
+            // otherTitle9
+            // 
+            otherTitle9.AutoSize = true;
+            otherTitle9.BackColor = Color.Transparent;
+            otherTitle9.Dock = DockStyle.Fill;
+            otherTitle9.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            otherTitle9.ForeColor = SystemColors.ControlLight;
+            otherTitle9.Location = new Point(63, 0);
+            otherTitle9.Name = "otherTitle9";
+            otherTitle9.Size = new Size(529, 88);
+            otherTitle9.TabIndex = 2;
+            otherTitle9.Text = "title";
+            // 
+            // otherImg9
+            // 
+            otherImg9.BackColor = Color.Transparent;
+            otherImg9.Location = new Point(3, 0);
+            otherImg9.Name = "otherImg9";
+            otherImg9.Size = new Size(54, 50);
+            otherImg9.TabIndex = 0;
             // 
             // flowLayoutPanel61
             // 
@@ -4832,104 +4938,6 @@ namespace WinForms
             minimize.Text = "toolStripButton3";
             minimize.Click += toolStripButton3_Click;
             // 
-            // otherResult8
-            // 
-            otherResult8.Controls.Add(otherTable8);
-            otherResult8.GradientAngle = 0F;
-            otherResult8.GradientPrimaryColor = Color.Transparent;
-            otherResult8.GradientSecondaryColor = Color.Transparent;
-            otherResult8.Location = new Point(3, 743);
-            otherResult8.Name = "otherResult8";
-            otherResult8.Size = new Size(595, 60);
-            otherResult8.TabIndex = 21;
-            otherResult8.Visible = false;
-            // 
-            // otherTable8
-            // 
-            otherTable8.AutoSize = true;
-            otherTable8.ColumnCount = 2;
-            otherTable8.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 60F));
-            otherTable8.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            otherTable8.Controls.Add(otherTitle8, 1, 0);
-            otherTable8.Controls.Add(otherImg8, 0, 0);
-            otherTable8.Dock = DockStyle.Fill;
-            otherTable8.Location = new Point(0, 0);
-            otherTable8.Name = "otherTable8";
-            otherTable8.RowCount = 1;
-            otherTable8.RowStyles.Add(new RowStyle(SizeType.Absolute, 88F));
-            otherTable8.Size = new Size(595, 60);
-            otherTable8.TabIndex = 0;
-            // 
-            // otherTitle8
-            // 
-            otherTitle8.AutoSize = true;
-            otherTitle8.BackColor = Color.Transparent;
-            otherTitle8.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            otherTitle8.ForeColor = SystemColors.ControlLight;
-            otherTitle8.Location = new Point(63, 0);
-            otherTitle8.Name = "otherTitle8";
-            otherTitle8.Size = new Size(50, 28);
-            otherTitle8.TabIndex = 2;
-            otherTitle8.Text = "title";
-            // 
-            // otherImg8
-            // 
-            otherImg8.BackColor = Color.Transparent;
-            otherImg8.Image = (Image)resources.GetObject("otherImg8.Image");
-            otherImg8.Location = new Point(3, 0);
-            otherImg8.Name = "otherImg8";
-            otherImg8.Size = new Size(54, 50);
-            otherImg8.TabIndex = 0;
-            // 
-            // otherResult9
-            // 
-            otherResult9.Controls.Add(otherTable9);
-            otherResult9.GradientAngle = 0F;
-            otherResult9.GradientPrimaryColor = Color.Transparent;
-            otherResult9.GradientSecondaryColor = Color.Transparent;
-            otherResult9.Location = new Point(3, 809);
-            otherResult9.Name = "otherResult9";
-            otherResult9.Size = new Size(595, 60);
-            otherResult9.TabIndex = 22;
-            otherResult9.Visible = false;
-            // 
-            // otherTable9
-            // 
-            otherTable9.AutoSize = true;
-            otherTable9.ColumnCount = 2;
-            otherTable9.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 60F));
-            otherTable9.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            otherTable9.Controls.Add(otherTitle9, 1, 0);
-            otherTable9.Controls.Add(otherImg9, 0, 0);
-            otherTable9.Dock = DockStyle.Fill;
-            otherTable9.Location = new Point(0, 0);
-            otherTable9.Name = "otherTable9";
-            otherTable9.RowCount = 1;
-            otherTable9.RowStyles.Add(new RowStyle(SizeType.Absolute, 88F));
-            otherTable9.Size = new Size(595, 60);
-            otherTable9.TabIndex = 0;
-            // 
-            // otherTitle9
-            // 
-            otherTitle9.AutoSize = true;
-            otherTitle9.BackColor = Color.Transparent;
-            otherTitle9.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            otherTitle9.ForeColor = SystemColors.ControlLight;
-            otherTitle9.Location = new Point(63, 0);
-            otherTitle9.Name = "otherTitle9";
-            otherTitle9.Size = new Size(50, 28);
-            otherTitle9.TabIndex = 2;
-            otherTitle9.Text = "title";
-            // 
-            // otherImg9
-            // 
-            otherImg9.BackColor = Color.Transparent;
-            otherImg9.Image = (Image)resources.GetObject("otherImg9.Image");
-            otherImg9.Location = new Point(3, 0);
-            otherImg9.Name = "otherImg9";
-            otherImg9.Size = new Size(54, 50);
-            otherImg9.TabIndex = 0;
-            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -5057,6 +5065,14 @@ namespace WinForms
             otherResult7.PerformLayout();
             otherTable7.ResumeLayout(false);
             otherTable7.PerformLayout();
+            otherResult8.ResumeLayout(false);
+            otherResult8.PerformLayout();
+            otherTable8.ResumeLayout(false);
+            otherTable8.PerformLayout();
+            otherResult9.ResumeLayout(false);
+            otherResult9.PerformLayout();
+            otherTable9.ResumeLayout(false);
+            otherTable9.PerformLayout();
             favoritePanel.ResumeLayout(false);
             favoritePanel.PerformLayout();
             flowLayoutPanel24.ResumeLayout(false);
@@ -5208,14 +5224,6 @@ namespace WinForms
             tableLayoutPanel40.ResumeLayout(false);
             toolStrip1.ResumeLayout(false);
             toolStrip1.PerformLayout();
-            otherResult8.ResumeLayout(false);
-            otherResult8.PerformLayout();
-            otherTable8.ResumeLayout(false);
-            otherTable8.PerformLayout();
-            otherResult9.ResumeLayout(false);
-            otherResult9.PerformLayout();
-            otherTable9.ResumeLayout(false);
-            otherTable9.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
