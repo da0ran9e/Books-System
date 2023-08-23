@@ -1525,7 +1525,7 @@ namespace WinForms
                     topSearchTitle.Text = books.ElementAt(0).title;
                     topSearchAuthor.Text = books.ElementAt(0).author;
                     topSearchPanel.Visible = true;
-                }               
+                }
                 if (books.Count >= 2)
                 {
                     otherImg0.Image = SetHeight(GetBookImage(books.ElementAt(1).index), otherImg0.Height);

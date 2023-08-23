@@ -64,7 +64,7 @@ namespace WinForms
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            //SingleTextView singleTextView11 = new TSkin.ST.SingleTextView();
+            //SingleTextView singleTextView1 = new TSkin.ST.SingleTextView();
             searchTabeLayout = new TableLayoutPanel();
             verticalMenuBar = new FlowLayoutPanel();
             userLabel = new Label();
@@ -1833,7 +1833,7 @@ namespace WinForms
             searchBox.Location = new Point(0, 0);
             searchBox.Margin = new Padding(0);
             searchBox.Name = "searchBox";
-            //searchBox.SetTextView = singleTextView11;
+            //searchBox.SetTextView = singleTextView1;
             searchBox.Size = new Size(560, 55);
             searchBox.TabIndex = 5;
             searchBox.Text = "What do you want to read?";
@@ -1891,6 +1891,7 @@ namespace WinForms
             // topSearchPanel
             // 
             topSearchPanel.Controls.Add(topSeachTable);
+            bestMatchPanel.SetFlowBreak(topSearchPanel, true);
             topSearchPanel.GradientAngle = 60F;
             topSearchPanel.GradientPrimaryColor = Color.Transparent;
             topSearchPanel.GradientSecondaryColor = Color.White;
@@ -1969,6 +1970,7 @@ namespace WinForms
             // otherResult0
             // 
             otherResult0.Controls.Add(otherTable0);
+            bestMatchPanel.SetFlowBreak(otherResult0, true);
             otherResult0.GradientAngle = 0F;
             otherResult0.GradientPrimaryColor = Color.Transparent;
             otherResult0.GradientSecondaryColor = Color.Transparent;
@@ -2021,6 +2023,7 @@ namespace WinForms
             // otherResult1
             // 
             otherResult1.Controls.Add(otherTable1);
+            bestMatchPanel.SetFlowBreak(otherResult1, true);
             otherResult1.GradientAngle = 0F;
             otherResult1.GradientPrimaryColor = Color.Transparent;
             otherResult1.GradientSecondaryColor = Color.Transparent;
@@ -2073,6 +2076,7 @@ namespace WinForms
             // otherResult2
             // 
             otherResult2.Controls.Add(otherTable2);
+            bestMatchPanel.SetFlowBreak(otherResult2, true);
             otherResult2.GradientAngle = 0F;
             otherResult2.GradientPrimaryColor = Color.Transparent;
             otherResult2.GradientSecondaryColor = Color.Transparent;
@@ -2115,7 +2119,6 @@ namespace WinForms
             // otherImg2
             // 
             otherImg2.BackColor = Color.Transparent;
-            otherImg2.Image = (Image)resources.GetObject("otherImg2.Image");
             otherImg2.Location = new Point(3, 0);
             otherImg2.Name = "otherImg2";
             otherImg2.Size = new Size(54, 50);
@@ -2125,6 +2128,7 @@ namespace WinForms
             // otherResult3
             // 
             otherResult3.Controls.Add(otherTable3);
+            bestMatchPanel.SetFlowBreak(otherResult3, true);
             otherResult3.GradientAngle = 0F;
             otherResult3.GradientPrimaryColor = Color.Transparent;
             otherResult3.GradientSecondaryColor = Color.Transparent;
@@ -2167,7 +2171,6 @@ namespace WinForms
             // otherImg3
             // 
             otherImg3.BackColor = Color.Transparent;
-            otherImg3.Image = (Image)resources.GetObject("otherImg3.Image");
             otherImg3.Location = new Point(3, 0);
             otherImg3.Name = "otherImg3";
             otherImg3.Size = new Size(54, 50);
@@ -2177,6 +2180,7 @@ namespace WinForms
             // otherResult4
             // 
             otherResult4.Controls.Add(otherTable4);
+            bestMatchPanel.SetFlowBreak(otherResult4, true);
             otherResult4.GradientAngle = 0F;
             otherResult4.GradientPrimaryColor = Color.Transparent;
             otherResult4.GradientSecondaryColor = Color.Transparent;
@@ -2219,7 +2223,6 @@ namespace WinForms
             // otherImg4
             // 
             otherImg4.BackColor = Color.Transparent;
-            otherImg4.Image = (Image)resources.GetObject("otherImg4.Image");
             otherImg4.Location = new Point(3, 0);
             otherImg4.Name = "otherImg4";
             otherImg4.Size = new Size(54, 50);
@@ -2229,6 +2232,7 @@ namespace WinForms
             // otherResult5
             // 
             otherResult5.Controls.Add(otherTable5);
+            bestMatchPanel.SetFlowBreak(otherResult5, true);
             otherResult5.GradientAngle = 0F;
             otherResult5.GradientPrimaryColor = Color.Transparent;
             otherResult5.GradientSecondaryColor = Color.Transparent;
@@ -2271,7 +2275,6 @@ namespace WinForms
             // otherImg5
             // 
             otherImg5.BackColor = Color.Transparent;
-            otherImg5.Image = (Image)resources.GetObject("otherImg5.Image");
             otherImg5.Location = new Point(3, 0);
             otherImg5.Name = "otherImg5";
             otherImg5.Size = new Size(54, 50);
@@ -2281,6 +2284,7 @@ namespace WinForms
             // otherResult6
             // 
             otherResult6.Controls.Add(otherTable6);
+            bestMatchPanel.SetFlowBreak(otherResult6, true);
             otherResult6.GradientAngle = 0F;
             otherResult6.GradientPrimaryColor = Color.Transparent;
             otherResult6.GradientSecondaryColor = Color.Transparent;
@@ -2323,7 +2327,6 @@ namespace WinForms
             // otherImg6
             // 
             otherImg6.BackColor = Color.Transparent;
-            otherImg6.Image = (Image)resources.GetObject("otherImg6.Image");
             otherImg6.Location = new Point(3, 0);
             otherImg6.Name = "otherImg6";
             otherImg6.Size = new Size(54, 50);
@@ -2333,6 +2336,7 @@ namespace WinForms
             // otherResult7
             // 
             otherResult7.Controls.Add(otherTable7);
+            bestMatchPanel.SetFlowBreak(otherResult7, true);
             otherResult7.GradientAngle = 0F;
             otherResult7.GradientPrimaryColor = Color.Transparent;
             otherResult7.GradientSecondaryColor = Color.Transparent;
@@ -2375,7 +2379,6 @@ namespace WinForms
             // otherImg7
             // 
             otherImg7.BackColor = Color.Transparent;
-            otherImg7.Image = (Image)resources.GetObject("otherImg7.Image");
             otherImg7.Location = new Point(3, 0);
             otherImg7.Name = "otherImg7";
             otherImg7.Size = new Size(54, 50);
@@ -2385,6 +2388,7 @@ namespace WinForms
             // otherResult8
             // 
             otherResult8.Controls.Add(otherTable8);
+            bestMatchPanel.SetFlowBreak(otherResult8, true);
             otherResult8.GradientAngle = 0F;
             otherResult8.GradientPrimaryColor = Color.Transparent;
             otherResult8.GradientSecondaryColor = Color.Transparent;
@@ -2436,6 +2440,7 @@ namespace WinForms
             // otherResult9
             // 
             otherResult9.Controls.Add(otherTable9);
+            bestMatchPanel.SetFlowBreak(otherResult9, true);
             otherResult9.GradientAngle = 0F;
             otherResult9.GradientPrimaryColor = Color.Transparent;
             otherResult9.GradientSecondaryColor = Color.Transparent;
