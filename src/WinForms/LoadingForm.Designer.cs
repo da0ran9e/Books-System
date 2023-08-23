@@ -98,13 +98,12 @@ namespace WinForms
             // 
             // progressBar1
             // 
-            progressBar1.BackColor = Color.Lime;
             progressBar1.Dock = DockStyle.Bottom;
-            progressBar1.ForeColor = Color.Transparent;
-            progressBar1.Location = new Point(0, 440);
+            progressBar1.ForeColor = Color.Lime;
+            progressBar1.Location = new Point(0, 445);
             progressBar1.Name = "progressBar1";
-            progressBar1.Size = new Size(700, 10);
-            progressBar1.TabIndex = 1;
+            progressBar1.Size = new Size(700, 5);
+            progressBar1.TabIndex = 0;
             // 
             // LoadingForm
             // 
@@ -116,7 +115,7 @@ namespace WinForms
             Name = "LoadingForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "AdFeedForm";
-            Load += LoadingForm_Load;
+            Load += LoadingForm_LoadAsync;
             tableLayoutPanel1.ResumeLayout(false);
             grad0.ResumeLayout(false);
             ResumeLayout(false);

@@ -12,11 +12,11 @@ namespace WinForms
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
 
-            Application.Run(new LoginForm());
+            //Application.Run(new LoginForm());
             //Application.Run(new RegistForm());
             //Application.Run(new AdFeedForm());
             //Application.Run(new MainForm("username"));
-            //Application.Run(new LoadingForm());
+            Application.Run(new LoadingForm());
 
         }
     }

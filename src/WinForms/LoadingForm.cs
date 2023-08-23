@@ -19,11 +19,9 @@ namespace WinForms
         SqlCommand cmd = new SqlCommand();
         SqlDataReader dr;
 
-        private readonly MethodInvoker method;
-        public LoadingForm(MethodInvoker action)
+        public LoadingForm()
         {
             InitializeComponent();
-            method = action;
         }
 
         static void SetDoubleBuffer(Control ctl, bool DoubleBuffered)
@@ -105,23 +103,9 @@ namespace WinForms
 
         private void LoadingForm_Load(object sender, EventArgs e)
         {
-            new Thread(() =>
-            {
-                method.Invoke();
-                InvokeAction(this, Dispose);
-            }).Start();
+            this.BackColor = System.Drawing.ColorTranslator.FromHtml("#010000");
+            EnableBlur();
         }
 
-        public static void InvokeAction(Control control, MethodInvoker action)
-        {
-            if (control.InvokeRequired)
-            {
-                control.BeginInvoke(action);
-            }
-            else
-            {
-                action();
-            }
-        }
     }
 }
