@@ -247,6 +247,71 @@ namespace WinForms
             return book;
         }
 
+        private List<Book> SearchBookInformation(string searchKey)
+        {
+            List<Book> books = new List<Book>();
+            Book book = new Book();
+            try
+            {
+                cmd = new SqlCommand("select * from books where [isbn] = '" + searchKey.ToString()+"'", con);
+                con.Open();
+                dr = cmd.ExecuteReader();
+                dr.Read();
+
+                if (dr.HasRows)
+                {
+                    book.index = dr.GetFieldValue<int>(0);
+                    book.isbn = dr.GetFieldValue<string>(1);
+                    book.title = dr.GetFieldValue<string>(2);
+                    book.author = dr.GetFieldValue<string>(3);
+                    book.year = dr.GetFieldValue<int>(4);
+                    book.publisher = dr.GetFieldValue<string>(5);
+                    book.sURL = dr.GetFieldValue<string>(6);
+                    book.mURL = dr.GetFieldValue<string>(7);
+                    book.lURL = dr.GetFieldValue<string>(8);
+
+                    bookList.Add(book);
+                    books.Add(book);
+                }
+                else if (!dr.HasRows)
+                {
+                    dr.Close();
+                    cmd = new SqlCommand("select * from books where [bookTitle] like N'%" + searchKey +"%'", con);
+                    dr = cmd.ExecuteReader();
+
+                    while (dr.Read())
+                    {
+                        book.index = dr.GetFieldValue<int>(0);
+                        book.isbn = dr.GetFieldValue<string>(1);
+                        book.title = dr.GetFieldValue<string>(2);
+                        book.author = dr.GetFieldValue<string>(3);
+                        book.year = dr.GetFieldValue<int>(4);
+                        book.publisher = dr.GetFieldValue<string>(5);
+                        book.sURL = dr.GetFieldValue<string>(6);
+                        book.mURL = dr.GetFieldValue<string>(7);
+                        book.lURL = dr.GetFieldValue<string>(8);
+
+                        bookList.Add(book);
+                        books.Add(book);
+                    }                             
+                }
+                else
+                {
+                    dr.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                if (dr != null) dr.Close();
+                if (con != null) con.Close();
+            }
+            return books;
+        }
+
         #endregion
 
         //
@@ -1207,5 +1272,14 @@ namespace WinForms
             Application.Exit();
         }
         #endregion
+
+        private void searchBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                List<Book> books = SearchBookInformation(searchBox.Text.ToString());
+            }
+
+        }
     }
 }

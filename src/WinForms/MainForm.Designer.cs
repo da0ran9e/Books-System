@@ -64,7 +64,7 @@ namespace WinForms
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-           // SingleTextView singleTextView1 = new TSkin.ST.SingleTextView();
+            //SingleTextView singleTextView1 = new TSkin.ST.SingleTextView();
             searchTabeLayout = new TableLayoutPanel();
             verticalMenuBar = new FlowLayoutPanel();
             userLabel = new Label();
@@ -385,6 +385,10 @@ namespace WinForms
             close = new ToolStripButton();
             maximize = new ToolStripButton();
             minimize = new ToolStripButton();
+            otherResult0 = new GradientPanel();
+            otherTable0 = new TableLayoutPanel();
+            otherImg0 = new Label();
+            otherTitle0 = new Label();
             searchTabeLayout.SuspendLayout();
             verticalMenuBar.SuspendLayout();
             verticalTableMenu.SuspendLayout();
@@ -532,6 +536,8 @@ namespace WinForms
             tableLayoutPanel5.SuspendLayout();
             tableLayoutPanel40.SuspendLayout();
             toolStrip1.SuspendLayout();
+            otherResult0.SuspendLayout();
+            otherTable0.SuspendLayout();
             SuspendLayout();
             // 
             // searchTabeLayout
@@ -1778,6 +1784,7 @@ namespace WinForms
             searchBox.TabIndex = 5;
             searchBox.Text = "What do you want to read?";
             searchBox.GotFocus += SearchBox_GotFocus;
+            searchBox.KeyDown += searchBox_KeyDown;
             searchBox.LostFocus += SearchBox_LostFocus;
             searchBox.MouseLeave += SearchBox_MouseLeave;
             searchBox.MouseHover += SearchBox_Hover;
@@ -1798,11 +1805,12 @@ namespace WinForms
             bestMatchPanel.AutoSize = true;
             bestMatchPanel.Controls.Add(bestMatchLabel);
             bestMatchPanel.Controls.Add(topSearchPanel);
+            bestMatchPanel.Controls.Add(otherResult0);
             searchFlowPanel.SetFlowBreak(bestMatchPanel, true);
             bestMatchPanel.Location = new Point(3, 124);
             bestMatchPanel.Margin = new Padding(3, 3, 3, 30);
             bestMatchPanel.Name = "bestMatchPanel";
-            bestMatchPanel.Size = new Size(741, 176);
+            bestMatchPanel.Size = new Size(741, 278);
             bestMatchPanel.TabIndex = 1;
             bestMatchPanel.Visible = false;
             // 
@@ -1825,14 +1833,15 @@ namespace WinForms
             topSearchPanel.GradientSecondaryColor = Color.White;
             topSearchPanel.Location = new Point(3, 85);
             topSearchPanel.Name = "topSearchPanel";
-            topSearchPanel.Size = new Size(349, 88);
+            topSearchPanel.Size = new Size(385, 124);
             topSearchPanel.TabIndex = 12;
+            topSearchPanel.Visible = false;
             // 
             // topSeachTable
             // 
             topSeachTable.AutoSize = true;
             topSeachTable.ColumnCount = 2;
-            topSeachTable.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 88F));
+            topSeachTable.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 124F));
             topSeachTable.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             topSeachTable.Controls.Add(topSearchImg, 0, 0);
             topSeachTable.Controls.Add(topSearchFlowPanel, 1, 0);
@@ -1840,17 +1849,18 @@ namespace WinForms
             topSeachTable.Location = new Point(0, 0);
             topSeachTable.Name = "topSeachTable";
             topSeachTable.RowCount = 1;
-            topSeachTable.RowStyles.Add(new RowStyle(SizeType.Absolute, 88F));
-            topSeachTable.Size = new Size(349, 88);
+            topSeachTable.RowStyles.Add(new RowStyle(SizeType.Absolute, 124F));
+            topSeachTable.Size = new Size(385, 124);
             topSeachTable.TabIndex = 0;
             // 
             // topSearchImg
             // 
             topSearchImg.BackColor = Color.Transparent;
+            topSearchImg.Dock = DockStyle.Fill;
             topSearchImg.Image = (Image)resources.GetObject("topSearchImg.Image");
             topSearchImg.Location = new Point(3, 0);
             topSearchImg.Name = "topSearchImg";
-            topSearchImg.Size = new Size(82, 88);
+            topSearchImg.Size = new Size(85, 124);
             topSearchImg.TabIndex = 0;
             // 
             // topSearchFlowPanel
@@ -1860,7 +1870,7 @@ namespace WinForms
             topSearchFlowPanel.Dock = DockStyle.Fill;
             topSearchFlowPanel.Location = new Point(91, 3);
             topSearchFlowPanel.Name = "topSearchFlowPanel";
-            topSearchFlowPanel.Size = new Size(255, 82);
+            topSearchFlowPanel.Size = new Size(291, 118);
             topSearchFlowPanel.TabIndex = 1;
             // 
             // topSearchTitle
@@ -1894,7 +1904,7 @@ namespace WinForms
             flowLayoutPanel61.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             flowLayoutPanel61.AutoSize = true;
             searchFlowPanel.SetFlowBreak(flowLayoutPanel61, true);
-            flowLayoutPanel61.Location = new Point(3, 333);
+            flowLayoutPanel61.Location = new Point(3, 435);
             flowLayoutPanel61.Margin = new Padding(3, 3, 3, 30);
             flowLayoutPanel61.Name = "flowLayoutPanel61";
             flowLayoutPanel61.Size = new Size(0, 0);
@@ -4367,6 +4377,55 @@ namespace WinForms
             minimize.Text = "toolStripButton3";
             minimize.Click += toolStripButton3_Click;
             // 
+            // otherResult0
+            // 
+            otherResult0.Controls.Add(otherTable0);
+            otherResult0.GradientAngle = 0F;
+            otherResult0.GradientPrimaryColor = Color.Transparent;
+            otherResult0.GradientSecondaryColor = Color.Transparent;
+            otherResult0.Location = new Point(3, 215);
+            otherResult0.Name = "otherResult0";
+            otherResult0.Size = new Size(595, 60);
+            otherResult0.TabIndex = 13;
+            otherResult0.Visible = false;
+            // 
+            // otherTable0
+            // 
+            otherTable0.AutoSize = true;
+            otherTable0.ColumnCount = 2;
+            otherTable0.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 60F));
+            otherTable0.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            otherTable0.Controls.Add(otherTitle0, 1, 0);
+            otherTable0.Controls.Add(otherImg0, 0, 0);
+            otherTable0.Dock = DockStyle.Fill;
+            otherTable0.Location = new Point(0, 0);
+            otherTable0.Name = "otherTable0";
+            otherTable0.RowCount = 1;
+            otherTable0.RowStyles.Add(new RowStyle(SizeType.Absolute, 88F));
+            otherTable0.Size = new Size(595, 60);
+            otherTable0.TabIndex = 0;
+            // 
+            // otherImg0
+            // 
+            otherImg0.BackColor = Color.Transparent;
+            otherImg0.Image = (Image)resources.GetObject("otherImg0.Image");
+            otherImg0.Location = new Point(3, 0);
+            otherImg0.Name = "otherImg0";
+            otherImg0.Size = new Size(54, 50);
+            otherImg0.TabIndex = 0;
+            // 
+            // otherTitle0
+            // 
+            otherTitle0.AutoSize = true;
+            otherTitle0.BackColor = Color.Transparent;
+            otherTitle0.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            otherTitle0.ForeColor = SystemColors.ControlLight;
+            otherTitle0.Location = new Point(63, 0);
+            otherTitle0.Name = "otherTitle0";
+            otherTitle0.Size = new Size(50, 28);
+            otherTitle0.TabIndex = 2;
+            otherTitle0.Text = "title";
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -4613,6 +4672,10 @@ namespace WinForms
             tableLayoutPanel40.ResumeLayout(false);
             toolStrip1.ResumeLayout(false);
             toolStrip1.PerformLayout();
+            otherResult0.ResumeLayout(false);
+            otherResult0.PerformLayout();
+            otherTable0.ResumeLayout(false);
+            otherTable0.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -4952,5 +5015,9 @@ namespace WinForms
         private FlowLayoutPanel bestBookLabel3;
         private Label bestBookTitle3;
         private Label bestBookAuthor3;
+        private GradientPanel otherResult0;
+        private TableLayoutPanel otherTable0;
+        private Label otherImg0;
+        private Label otherTitle0;
     }
 }
