@@ -1423,6 +1423,16 @@ namespace WinForms
             bestMatchPanel.Width = searchFlowPanel.Width;
             topSearchPanel.Width = searchFlowPanel.Width / 2 - 6;
 
+            otherResult0.Width = searchFlowPanel.Width;
+            otherResult1.Width = searchFlowPanel.Width;
+            otherResult2.Width = searchFlowPanel.Width;
+            otherResult3.Width = searchFlowPanel.Width;
+            otherResult4.Width = searchFlowPanel.Width;
+            otherResult5.Width = searchFlowPanel.Width;
+            otherResult6.Width = searchFlowPanel.Width;
+            otherResult7.Width = searchFlowPanel.Width;
+            otherResult8.Width = searchFlowPanel.Width;
+            otherResult9.Width = searchFlowPanel.Width;
             //bestBook resize
             bestBookFlowPanel.Height = mainFlowPanel.Height + difH;
             bestBookFlowPanel.Width = mainFlowPanel.Width + difW;
@@ -1497,6 +1507,7 @@ namespace WinForms
         }
         #endregion
 
+        #region searching handler
         private void searchBox_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -1589,7 +1600,7 @@ namespace WinForms
                 bestMatchPanel.Visible = true;
             }
         }
-
+        #endregion
 
     }
 }

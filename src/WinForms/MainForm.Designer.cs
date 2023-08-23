@@ -64,7 +64,7 @@ namespace WinForms
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            //SingleTextView singleTextView1 = new TSkin.ST.SingleTextView();
+            SingleTextView singleTextView1 = new TSkin.ST.SingleTextView();
             searchTabeLayout = new TableLayoutPanel();
             verticalMenuBar = new FlowLayoutPanel();
             userLabel = new Label();
@@ -92,14 +92,6 @@ namespace WinForms
             aboutAuthor = new Label();
             authorDesLabel = new Label();
             categoryLabel = new Label();
-            category0 = new FlowLayoutPanel();
-            tableLayoutPanel1 = new TableLayoutPanel();
-            label39 = new Label();
-            label76 = new Label();
-            flowLayoutPanel40 = new FlowLayoutPanel();
-            tableLayoutPanel39 = new TableLayoutPanel();
-            label77 = new Label();
-            label78 = new Label();
             mainFlowPanel = new FlowLayoutPanel();
             homeFlowPanel = new FlowLayoutPanel();
             helloPanel = new FlowLayoutPanel();
@@ -425,6 +417,12 @@ namespace WinForms
             close = new ToolStripButton();
             maximize = new ToolStripButton();
             minimize = new ToolStripButton();
+            category0 = new GradientPanel();
+            categoryTable0 = new TableLayoutPanel();
+            categoryImg0 = new Label();
+            categoryFlowPanel0 = new FlowLayoutPanel();
+            categoryTitle0 = new Label();
+            categoryAuthor0 = new Label();
             searchTabeLayout.SuspendLayout();
             verticalMenuBar.SuspendLayout();
             verticalTableMenu.SuspendLayout();
@@ -436,10 +434,6 @@ namespace WinForms
             recentGradientPanel.SuspendLayout();
             contentPanel.SuspendLayout();
             contentContainer.SuspendLayout();
-            category0.SuspendLayout();
-            tableLayoutPanel1.SuspendLayout();
-            flowLayoutPanel40.SuspendLayout();
-            tableLayoutPanel39.SuspendLayout();
             mainFlowPanel.SuspendLayout();
             homeFlowPanel.SuspendLayout();
             helloPanel.SuspendLayout();
@@ -592,6 +586,9 @@ namespace WinForms
             tableLayoutPanel5.SuspendLayout();
             tableLayoutPanel40.SuspendLayout();
             toolStrip1.SuspendLayout();
+            category0.SuspendLayout();
+            categoryTable0.SuspendLayout();
+            categoryFlowPanel0.SuspendLayout();
             SuspendLayout();
             // 
             // searchTabeLayout
@@ -862,7 +859,7 @@ namespace WinForms
             contentContainer.Location = new Point(0, 0);
             contentContainer.Margin = new Padding(0);
             contentContainer.Name = "contentContainer";
-            contentContainer.Size = new Size(450, 762);
+            contentContainer.Size = new Size(400, 749);
             contentContainer.TabIndex = 0;
             contentContainer.Paint += contentContainer_Paint;
             // 
@@ -965,99 +962,11 @@ namespace WinForms
             contentContainer.SetFlowBreak(categoryLabel, true);
             categoryLabel.Font = new Font("Exo ExtraBold", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
             categoryLabel.ForeColor = SystemColors.ControlLight;
-            categoryLabel.Location = new Point(3, 700);
+            categoryLabel.Location = new Point(3, 688);
             categoryLabel.Name = "categoryLabel";
             categoryLabel.Size = new Size(285, 40);
             categoryLabel.TabIndex = 6;
             categoryLabel.Text = "Publisher's category";
-            // 
-            // category0
-            // 
-            category0.Controls.Add(tableLayoutPanel1);
-            category0.Controls.Add(flowLayoutPanel40);
-            category0.Location = new Point(3, 743);
-            category0.Margin = new Padding(3, 3, 3, 15);
-            category0.Name = "category0";
-            category0.Size = new Size(352, 88);
-            category0.TabIndex = 7;
-            // 
-            // tableLayoutPanel1
-            // 
-            tableLayoutPanel1.AutoSize = true;
-            tableLayoutPanel1.ColumnCount = 2;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 88F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Controls.Add(label39, 1, 0);
-            tableLayoutPanel1.Controls.Add(label76, 0, 0);
-            tableLayoutPanel1.Location = new Point(3, 3);
-            tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 1;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 88F));
-            tableLayoutPanel1.Size = new Size(346, 88);
-            tableLayoutPanel1.TabIndex = 0;
-            // 
-            // label39
-            // 
-            label39.BackColor = Color.Gray;
-            label39.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label39.ForeColor = SystemColors.ControlLight;
-            label39.Location = new Point(91, 0);
-            label39.Name = "label39";
-            label39.Size = new Size(252, 88);
-            label39.TabIndex = 1;
-            label39.Text = "title";
-            // 
-            // label76
-            // 
-            label76.BackColor = Color.DimGray;
-            label76.Image = (Image)resources.GetObject("label76.Image");
-            label76.Location = new Point(3, 0);
-            label76.Name = "label76";
-            label76.Size = new Size(82, 88);
-            label76.TabIndex = 0;
-            // 
-            // flowLayoutPanel40
-            // 
-            flowLayoutPanel40.Controls.Add(tableLayoutPanel39);
-            flowLayoutPanel40.Location = new Point(3, 97);
-            flowLayoutPanel40.Name = "flowLayoutPanel40";
-            flowLayoutPanel40.Size = new Size(370, 88);
-            flowLayoutPanel40.TabIndex = 2;
-            // 
-            // tableLayoutPanel39
-            // 
-            tableLayoutPanel39.AutoSize = true;
-            tableLayoutPanel39.ColumnCount = 2;
-            tableLayoutPanel39.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 88F));
-            tableLayoutPanel39.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel39.Controls.Add(label77, 1, 0);
-            tableLayoutPanel39.Controls.Add(label78, 0, 0);
-            tableLayoutPanel39.Location = new Point(3, 3);
-            tableLayoutPanel39.Name = "tableLayoutPanel39";
-            tableLayoutPanel39.RowCount = 1;
-            tableLayoutPanel39.RowStyles.Add(new RowStyle(SizeType.Absolute, 88F));
-            tableLayoutPanel39.Size = new Size(362, 88);
-            tableLayoutPanel39.TabIndex = 0;
-            // 
-            // label77
-            // 
-            label77.BackColor = Color.Gray;
-            label77.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label77.ForeColor = SystemColors.ControlLight;
-            label77.Location = new Point(91, 0);
-            label77.Name = "label77";
-            label77.Size = new Size(268, 88);
-            label77.TabIndex = 1;
-            label77.Text = "label77";
-            // 
-            // label78
-            // 
-            label78.BackColor = Color.DimGray;
-            label78.Image = (Image)resources.GetObject("label78.Image");
-            label78.Location = new Point(3, 0);
-            label78.Name = "label78";
-            label78.Size = new Size(82, 88);
-            label78.TabIndex = 0;
             // 
             // mainFlowPanel
             // 
@@ -1833,7 +1742,7 @@ namespace WinForms
             searchBox.Location = new Point(0, 0);
             searchBox.Margin = new Padding(0);
             searchBox.Name = "searchBox";
-            //searchBox.SetTextView = singleTextView1;
+            searchBox.SetTextView = singleTextView1;
             searchBox.Size = new Size(560, 55);
             searchBox.TabIndex = 5;
             searchBox.Text = "What do you want to read?";
@@ -4967,6 +4876,79 @@ namespace WinForms
             minimize.Text = "toolStripButton3";
             minimize.Click += toolStripButton3_Click;
             // 
+            // category0
+            // 
+            category0.Controls.Add(categoryTable0);
+            category0.GradientAngle = 60F;
+            category0.GradientPrimaryColor = Color.Transparent;
+            category0.GradientSecondaryColor = Color.White;
+            category0.Location = new Point(0, 728);
+            category0.Margin = new Padding(0, 0, 0, 50);
+            category0.Name = "category0";
+            category0.Size = new Size(349, 88);
+            category0.TabIndex = 12;
+            // 
+            // categoryTable0
+            // 
+            categoryTable0.AutoSize = true;
+            categoryTable0.ColumnCount = 2;
+            categoryTable0.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 88F));
+            categoryTable0.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            categoryTable0.Controls.Add(categoryImg0, 0, 0);
+            categoryTable0.Controls.Add(categoryFlowPanel0, 1, 0);
+            categoryTable0.Dock = DockStyle.Fill;
+            categoryTable0.Location = new Point(0, 0);
+            categoryTable0.Name = "categoryTable0";
+            categoryTable0.RowCount = 1;
+            categoryTable0.RowStyles.Add(new RowStyle(SizeType.Absolute, 88F));
+            categoryTable0.Size = new Size(349, 88);
+            categoryTable0.TabIndex = 0;
+            // 
+            // categoryImg0
+            // 
+            categoryImg0.BackColor = Color.Transparent;
+            categoryImg0.Image = (Image)resources.GetObject("categoryImg0.Image");
+            categoryImg0.Location = new Point(3, 0);
+            categoryImg0.Name = "categoryImg0";
+            categoryImg0.Size = new Size(82, 88);
+            categoryImg0.TabIndex = 0;
+            // 
+            // categoryFlowPanel0
+            // 
+            categoryFlowPanel0.Controls.Add(categoryTitle0);
+            categoryFlowPanel0.Controls.Add(categoryAuthor0);
+            categoryFlowPanel0.Dock = DockStyle.Fill;
+            categoryFlowPanel0.Location = new Point(91, 3);
+            categoryFlowPanel0.Name = "categoryFlowPanel0";
+            categoryFlowPanel0.Size = new Size(255, 82);
+            categoryFlowPanel0.TabIndex = 1;
+            // 
+            // categoryTitle0
+            // 
+            categoryTitle0.AutoSize = true;
+            categoryTitle0.BackColor = Color.Transparent;
+            categoryFlowPanel0.SetFlowBreak(categoryTitle0, true);
+            categoryTitle0.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            categoryTitle0.ForeColor = SystemColors.ControlLight;
+            categoryTitle0.Location = new Point(3, 0);
+            categoryTitle0.Name = "categoryTitle0";
+            categoryTitle0.Size = new Size(50, 28);
+            categoryTitle0.TabIndex = 1;
+            categoryTitle0.Text = "title";
+            // 
+            // categoryAuthor0
+            // 
+            categoryAuthor0.AutoSize = true;
+            categoryAuthor0.BackColor = Color.Transparent;
+            categoryFlowPanel0.SetFlowBreak(categoryAuthor0, true);
+            categoryAuthor0.Font = new Font("Exo ExtraBold", 7.799999F, FontStyle.Bold, GraphicsUnit.Point);
+            categoryAuthor0.ForeColor = SystemColors.ControlLight;
+            categoryAuthor0.Location = new Point(3, 28);
+            categoryAuthor0.Name = "categoryAuthor0";
+            categoryAuthor0.Size = new Size(50, 19);
+            categoryAuthor0.TabIndex = 5;
+            categoryAuthor0.Text = "author";
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -4999,12 +4981,6 @@ namespace WinForms
             contentPanel.ResumeLayout(false);
             contentContainer.ResumeLayout(false);
             contentContainer.PerformLayout();
-            category0.ResumeLayout(false);
-            category0.PerformLayout();
-            tableLayoutPanel1.ResumeLayout(false);
-            flowLayoutPanel40.ResumeLayout(false);
-            flowLayoutPanel40.PerformLayout();
-            tableLayoutPanel39.ResumeLayout(false);
             mainFlowPanel.ResumeLayout(false);
             homeFlowPanel.ResumeLayout(false);
             homeFlowPanel.PerformLayout();
@@ -5253,6 +5229,11 @@ namespace WinForms
             tableLayoutPanel40.ResumeLayout(false);
             toolStrip1.ResumeLayout(false);
             toolStrip1.PerformLayout();
+            category0.ResumeLayout(false);
+            category0.PerformLayout();
+            categoryTable0.ResumeLayout(false);
+            categoryFlowPanel0.ResumeLayout(false);
+            categoryFlowPanel0.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -5369,14 +5350,6 @@ namespace WinForms
         private Label aboutAuthor;
         private Label authorDesLabel;
         private Label categoryLabel;
-        private FlowLayoutPanel category0;
-        private TableLayoutPanel tableLayoutPanel1;
-        private Label label39;
-        private Label label76;
-        private FlowLayoutPanel flowLayoutPanel40;
-        private TableLayoutPanel tableLayoutPanel39;
-        private Label label77;
-        private Label label78;
         private ToolTip toolTip1;
         private GradientPanel helloElement1;
         private GradientPanel helloElement0;
@@ -5632,5 +5605,11 @@ namespace WinForms
         private TableLayoutPanel otherTable9;
         private Label otherTitle9;
         private Label otherImg9;
+        private GradientPanel category0;
+        private TableLayoutPanel categoryTable0;
+        private Label categoryImg0;
+        private FlowLayoutPanel categoryFlowPanel0;
+        private Label categoryTitle0;
+        private Label categoryAuthor0;
     }
 }
