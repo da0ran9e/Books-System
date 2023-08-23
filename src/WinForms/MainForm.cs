@@ -315,6 +315,45 @@ namespace WinForms
 
         #endregion
 
+        #region Publisher information
+        private List<Book> GetBookInCategory(string name)
+        {
+            List<Book> books = new List<Book>();
+            Book book = new Book();
+            try
+            {
+                cmd = new SqlCommand("select * from books where [publisher] = '" + name + "'", con);
+                con.Open();
+                dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    book.index = dr.GetFieldValue<int>(0);
+                    book.isbn = dr.GetFieldValue<string>(1);
+                    book.title = dr.GetFieldValue<string>(2);
+                    book.author = dr.GetFieldValue<string>(3);
+                    book.year = dr.GetFieldValue<int>(4);
+                    book.publisher = dr.GetFieldValue<string>(5);
+                    book.sURL = dr.GetFieldValue<string>(6);
+                    book.mURL = dr.GetFieldValue<string>(7);
+                    book.lURL = dr.GetFieldValue<string>(8);
+
+                    bookList.Add(book);
+                    books.Add(book);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                if (dr != null) dr.Close();
+                if (con != null) con.Close();
+            }
+            return books;
+        }
+        #endregion
         //
         //MainForm only work went user login successfully
         //
@@ -364,8 +403,6 @@ namespace WinForms
             LoadingForm loading = new LoadingForm(100);
             loading.Show();
             #region Set tables double buffered 
-            SetDoubleBuffer(tableLayoutPanel1, true);
-            SetDoubleBuffer(tableLayoutPanel39, true);
             SetDoubleBuffer(recommentTable3, true);
             SetDoubleBuffer(searchLayoutTable, true);
             SetDoubleBuffer(tableLayoutPanel45, true);
@@ -398,13 +435,6 @@ namespace WinForms
             SetDoubleBuffer(authorDesLabel, true);
             SetDoubleBuffer(categoryLabel, true);
             SetDoubleBuffer(category0, true);
-            SetDoubleBuffer(tableLayoutPanel1, true);
-            SetDoubleBuffer(label39, true);
-            SetDoubleBuffer(label76, true);
-            SetDoubleBuffer(flowLayoutPanel40, true);
-            SetDoubleBuffer(tableLayoutPanel39, true);
-            SetDoubleBuffer(label77, true);
-            SetDoubleBuffer(label78, true);
             SetDoubleBuffer(mainFlowPanel, true);
             SetDoubleBuffer(homeFlowPanel, true);
             SetDoubleBuffer(helloPanel, true);
@@ -691,9 +721,6 @@ namespace WinForms
             SetDoubleBuffer(contentPanel, true);
             SetDoubleBuffer(contentContainer, true);
             SetDoubleBuffer(category0, true);
-            SetDoubleBuffer(tableLayoutPanel1, true);
-            SetDoubleBuffer(flowLayoutPanel40, true);
-            SetDoubleBuffer(tableLayoutPanel39, true);
             SetDoubleBuffer(mainFlowPanel, true);
             SetDoubleBuffer(homeFlowPanel, true);
             SetDoubleBuffer(helloPanel, true);
@@ -1255,6 +1282,7 @@ namespace WinForms
         {
             string imgPath = "../../../../../assets/LImgs/temp" + book.index + ".jpg";
             Image currentImg = Image.FromFile(imgPath);
+            List<Book> categoryBooks = GetBookInCategory(book.publisher);
 
             contentImg.Image = SetHeight(currentImg, contentImg.Height);
             currentLabel.Image = SetHeight(currentImg, currentLabel.Height);
@@ -1268,6 +1296,15 @@ namespace WinForms
             currentBookAuthor.Text = book.author;
             currentPublisher.Text = book.publisher;
             yearOfPublication.Text = book.year.ToString();
+
+            Book book1 = categoryBooks.ElementAt(0);
+            if(book.Equals(book1)&&categoryBooks.Count>1) book1 = categoryBooks.ElementAt(1);
+            
+            string imgPath1 = "../../../../../assets/LImgs/temp" + book1.index + ".jpg";
+            if(!File.Exists(imgPath1)) GetBookImage(book1.index);
+            categoryImg0.Image = SetHeight(Image.FromFile(imgPath1), categoryImg0.Height);
+            categoryTitle0.Text = book1.title;
+            categoryAuthor0.Text = book1.author;
 
             Color borderColor = CalculateAverageColor(GetBorderColors(new Bitmap(currentImg), currentImg.Size));
 
