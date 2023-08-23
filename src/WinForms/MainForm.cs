@@ -295,6 +295,8 @@ namespace WinForms
         //
         private void MainForm_Load(object sender, EventArgs e)
         {
+            LoadingForm loading = new LoadingForm(100);
+            loading.Show();
             #region Set tables double buffered 
             SetDoubleBuffer(tableLayoutPanel1, true);
             SetDoubleBuffer(tableLayoutPanel39, true);
@@ -715,7 +717,7 @@ namespace WinForms
             homeFlowPanel.Controls.Add(bestBookFlowPanel);
             bestBookFlowPanel.Visible = true;
 
-            
+            loading.Visible = false;
         }
 
         //unneccessary!

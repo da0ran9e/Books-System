@@ -60,7 +60,8 @@ namespace WinForms
         {
             tableLayoutPanel1 = new TableLayoutPanel();
             grad0 = new GradientPanel();
-            progressBar1 = new ProgressBar();
+            progressBar = new ProgressBar();
+            loadingLabel = new Label();
             tableLayoutPanel1.SuspendLayout();
             grad0.SuspendLayout();
             SuspendLayout();
@@ -85,7 +86,8 @@ namespace WinForms
             // 
             // grad0
             // 
-            grad0.Controls.Add(progressBar1);
+            grad0.Controls.Add(loadingLabel);
+            grad0.Controls.Add(progressBar);
             grad0.Dock = DockStyle.Fill;
             grad0.GradientAngle = 30F;
             grad0.GradientPrimaryColor = Color.Red;
@@ -96,14 +98,26 @@ namespace WinForms
             grad0.Size = new Size(700, 450);
             grad0.TabIndex = 0;
             // 
-            // progressBar1
+            // progressBar
             // 
-            progressBar1.Dock = DockStyle.Bottom;
-            progressBar1.ForeColor = Color.Lime;
-            progressBar1.Location = new Point(0, 445);
-            progressBar1.Name = "progressBar1";
-            progressBar1.Size = new Size(700, 5);
-            progressBar1.TabIndex = 0;
+            progressBar.Dock = DockStyle.Bottom;
+            progressBar.ForeColor = Color.Lime;
+            progressBar.Location = new Point(0, 445);
+            progressBar.Margin = new Padding(0);
+            progressBar.Name = "progressBar";
+            progressBar.Size = new Size(700, 5);
+            progressBar.Style = ProgressBarStyle.Continuous;
+            progressBar.TabIndex = 0;
+            // 
+            // loadingLabel
+            // 
+            loadingLabel.AutoSize = true;
+            loadingLabel.Font = new Font("Exo ExtraBold", 22.1999989F, FontStyle.Bold, GraphicsUnit.Point);
+            loadingLabel.Location = new Point(252, 198);
+            loadingLabel.Name = "loadingLabel";
+            loadingLabel.Size = new Size(186, 52);
+            loadingLabel.TabIndex = 1;
+            loadingLabel.Text = "Loading...";
             // 
             // LoadingForm
             // 
@@ -118,6 +132,7 @@ namespace WinForms
             Load += LoadingForm_LoadAsync;
             tableLayoutPanel1.ResumeLayout(false);
             grad0.ResumeLayout(false);
+            grad0.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -125,6 +140,7 @@ namespace WinForms
 
         private TableLayoutPanel tableLayoutPanel1;
         private GradientPanel grad0;
-        private ProgressBar progressBar1;
+        private ProgressBar progressBar;
+        private Label loadingLabel;
     }
 }
