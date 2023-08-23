@@ -715,6 +715,7 @@ namespace WinForms
             homeFlowPanel.Controls.Add(bestBookFlowPanel);
             bestBookFlowPanel.Visible = true;
 
+            
         }
 
         //unneccessary!

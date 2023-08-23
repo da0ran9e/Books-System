@@ -25,7 +25,7 @@ namespace WinForms
             InitializeComponent();
             method = action;
         }
-        
+
         static void SetDoubleBuffer(Control ctl, bool DoubleBuffered)
         {
             try

@@ -60,7 +60,7 @@ namespace WinForms
         {
             tableLayoutPanel1 = new TableLayoutPanel();
             grad0 = new GradientPanel();
-            gradientPanel1 = new GradientPanel();
+            progressBar1 = new ProgressBar();
             tableLayoutPanel1.SuspendLayout();
             grad0.SuspendLayout();
             SuspendLayout();
@@ -85,7 +85,7 @@ namespace WinForms
             // 
             // grad0
             // 
-            grad0.Controls.Add(gradientPanel1);
+            grad0.Controls.Add(progressBar1);
             grad0.Dock = DockStyle.Fill;
             grad0.GradientAngle = 30F;
             grad0.GradientPrimaryColor = Color.Red;
@@ -96,16 +96,15 @@ namespace WinForms
             grad0.Size = new Size(700, 450);
             grad0.TabIndex = 0;
             // 
-            // gradientPanel1
+            // progressBar1
             // 
-            gradientPanel1.Dock = DockStyle.Bottom;
-            gradientPanel1.GradientAngle = 0F;
-            gradientPanel1.GradientPrimaryColor = Color.LawnGreen;
-            gradientPanel1.GradientSecondaryColor = Color.Lime;
-            gradientPanel1.Location = new Point(0, 440);
-            gradientPanel1.Name = "gradientPanel1";
-            gradientPanel1.Size = new Size(700, 10);
-            gradientPanel1.TabIndex = 0;
+            progressBar1.BackColor = Color.Lime;
+            progressBar1.Dock = DockStyle.Bottom;
+            progressBar1.ForeColor = Color.Transparent;
+            progressBar1.Location = new Point(0, 440);
+            progressBar1.Name = "progressBar1";
+            progressBar1.Size = new Size(700, 10);
+            progressBar1.TabIndex = 1;
             // 
             // LoadingForm
             // 
@@ -117,7 +116,6 @@ namespace WinForms
             Name = "LoadingForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "AdFeedForm";
-            Load += LoadingForm_LoadAsync;
             Load += LoadingForm_Load;
             tableLayoutPanel1.ResumeLayout(false);
             grad0.ResumeLayout(false);
@@ -128,6 +126,6 @@ namespace WinForms
 
         private TableLayoutPanel tableLayoutPanel1;
         private GradientPanel grad0;
-        private GradientPanel gradientPanel1;
+        private ProgressBar progressBar1;
     }
 }

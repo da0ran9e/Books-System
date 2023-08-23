@@ -72,8 +72,10 @@ namespace WinForms
                     
                     Form mainForm = new MainForm(usernameTextbox.Text);
                     this.Visible = false;
-                    new LoadingForm(() => /*Simulate long task*/ mainForm.ShowDialog()).ShowDialog();
-                    
+                    //new LoadingForm(() => /*Show loading form while mainform in progress*/ mainForm.ShowDialog()).ShowDialog();
+                    _ = mainForm.ShowDialog();
+
+
                 }
                 else
                 {
