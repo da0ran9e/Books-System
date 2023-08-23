@@ -253,7 +253,7 @@ namespace WinForms
             Book book = new Book();
             try
             {
-                cmd = new SqlCommand("select * from books where [isbn] = '" + searchKey.ToString()+"'", con);
+                cmd = new SqlCommand("select * from books where [isbn] = '" + searchKey.ToString() + "'", con);
                 con.Open();
                 dr = cmd.ExecuteReader();
                 dr.Read();
@@ -272,11 +272,12 @@ namespace WinForms
 
                     bookList.Add(book);
                     books.Add(book);
+                    return books;
                 }
                 else if (!dr.HasRows)
                 {
                     dr.Close();
-                    cmd = new SqlCommand("select * from books where [bookTitle] like N'%" + searchKey +"%'", con);
+                    cmd = new SqlCommand("select * from books where [bookTitle] like N'%" + searchKey + "%'", con);
                     dr = cmd.ExecuteReader();
 
                     while (dr.Read())
@@ -293,7 +294,7 @@ namespace WinForms
 
                         bookList.Add(book);
                         books.Add(book);
-                    }                             
+                    }
                 }
                 else
                 {
@@ -1277,7 +1278,16 @@ namespace WinForms
         {
             if (e.KeyCode == Keys.Enter)
             {
-                List<Book> books = SearchBookInformation(searchBox.Text.ToString());
+                List<Book> books = SearchBookInformation(searchBox.Text.ToString()); ;
+
+                topSearchImg.Image = SetHeight(GetBookImage(books.ElementAt(0).index), topSearchImg.Height);
+
+                topSearchTitle.Text = books.ElementAt(0).title;
+                topSearchAuthor.Text = books.ElementAt(0).author;
+                for (int i = 1; i < books.Count; i++)
+                {
+
+                }
             }
 
         }

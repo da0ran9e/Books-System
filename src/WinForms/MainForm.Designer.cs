@@ -64,7 +64,7 @@ namespace WinForms
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            //SingleTextView singleTextView1 = new TSkin.ST.SingleTextView();
+            SingleTextView singleTextView1 = new TSkin.ST.SingleTextView();
             searchTabeLayout = new TableLayoutPanel();
             verticalMenuBar = new FlowLayoutPanel();
             userLabel = new Label();
@@ -169,6 +169,38 @@ namespace WinForms
             topSearchFlowPanel = new FlowLayoutPanel();
             topSearchTitle = new Label();
             topSearchAuthor = new Label();
+            otherResult0 = new GradientPanel();
+            otherTable0 = new TableLayoutPanel();
+            otherTitle0 = new Label();
+            otherImg0 = new Label();
+            otherResult1 = new GradientPanel();
+            otherTable1 = new TableLayoutPanel();
+            otherTitle1 = new Label();
+            otherImg1 = new Label();
+            otherResult2 = new GradientPanel();
+            otherTable2 = new TableLayoutPanel();
+            otherTitle2 = new Label();
+            otherImg2 = new Label();
+            otherResult3 = new GradientPanel();
+            otherTable3 = new TableLayoutPanel();
+            otherTitle3 = new Label();
+            otherImg3 = new Label();
+            otherResult4 = new GradientPanel();
+            otherTable4 = new TableLayoutPanel();
+            otherTitle4 = new Label();
+            otherImg4 = new Label();
+            otherResult5 = new GradientPanel();
+            otherTable5 = new TableLayoutPanel();
+            otherTitle5 = new Label();
+            otherImg5 = new Label();
+            otherResult6 = new GradientPanel();
+            otherTable6 = new TableLayoutPanel();
+            otherTitle6 = new Label();
+            otherImg6 = new Label();
+            otherResult7 = new GradientPanel();
+            otherTable7 = new TableLayoutPanel();
+            otherTitle7 = new Label();
+            otherImg7 = new Label();
             flowLayoutPanel61 = new FlowLayoutPanel();
             favoritePanel = new FlowLayoutPanel();
             flowLayoutPanel24 = new FlowLayoutPanel();
@@ -385,10 +417,14 @@ namespace WinForms
             close = new ToolStripButton();
             maximize = new ToolStripButton();
             minimize = new ToolStripButton();
-            otherResult0 = new GradientPanel();
-            otherTable0 = new TableLayoutPanel();
-            otherImg0 = new Label();
-            otherTitle0 = new Label();
+            otherResult8 = new GradientPanel();
+            otherTable8 = new TableLayoutPanel();
+            otherTitle8 = new Label();
+            otherImg8 = new Label();
+            otherResult9 = new GradientPanel();
+            otherTable9 = new TableLayoutPanel();
+            otherTitle9 = new Label();
+            otherImg9 = new Label();
             searchTabeLayout.SuspendLayout();
             verticalMenuBar.SuspendLayout();
             verticalTableMenu.SuspendLayout();
@@ -440,6 +476,22 @@ namespace WinForms
             topSearchPanel.SuspendLayout();
             topSeachTable.SuspendLayout();
             topSearchFlowPanel.SuspendLayout();
+            otherResult0.SuspendLayout();
+            otherTable0.SuspendLayout();
+            otherResult1.SuspendLayout();
+            otherTable1.SuspendLayout();
+            otherResult2.SuspendLayout();
+            otherTable2.SuspendLayout();
+            otherResult3.SuspendLayout();
+            otherTable3.SuspendLayout();
+            otherResult4.SuspendLayout();
+            otherTable4.SuspendLayout();
+            otherResult5.SuspendLayout();
+            otherTable5.SuspendLayout();
+            otherResult6.SuspendLayout();
+            otherTable6.SuspendLayout();
+            otherResult7.SuspendLayout();
+            otherTable7.SuspendLayout();
             favoritePanel.SuspendLayout();
             flowLayoutPanel24.SuspendLayout();
             gradientPanel8.SuspendLayout();
@@ -536,8 +588,10 @@ namespace WinForms
             tableLayoutPanel5.SuspendLayout();
             tableLayoutPanel40.SuspendLayout();
             toolStrip1.SuspendLayout();
-            otherResult0.SuspendLayout();
-            otherTable0.SuspendLayout();
+            otherResult8.SuspendLayout();
+            otherTable8.SuspendLayout();
+            otherResult9.SuspendLayout();
+            otherTable9.SuspendLayout();
             SuspendLayout();
             // 
             // searchTabeLayout
@@ -1779,7 +1833,7 @@ namespace WinForms
             searchBox.Location = new Point(0, 0);
             searchBox.Margin = new Padding(0);
             searchBox.Name = "searchBox";
-            //searchBox.SetTextView = singleTextView1;
+            searchBox.SetTextView = singleTextView1;
             searchBox.Size = new Size(560, 55);
             searchBox.TabIndex = 5;
             searchBox.Text = "What do you want to read?";
@@ -1806,11 +1860,20 @@ namespace WinForms
             bestMatchPanel.Controls.Add(bestMatchLabel);
             bestMatchPanel.Controls.Add(topSearchPanel);
             bestMatchPanel.Controls.Add(otherResult0);
+            bestMatchPanel.Controls.Add(otherResult1);
+            bestMatchPanel.Controls.Add(otherResult2);
+            bestMatchPanel.Controls.Add(otherResult3);
+            bestMatchPanel.Controls.Add(otherResult4);
+            bestMatchPanel.Controls.Add(otherResult5);
+            bestMatchPanel.Controls.Add(otherResult6);
+            bestMatchPanel.Controls.Add(otherResult7);
+            bestMatchPanel.Controls.Add(otherResult8);
+            bestMatchPanel.Controls.Add(otherResult9);
             searchFlowPanel.SetFlowBreak(bestMatchPanel, true);
             bestMatchPanel.Location = new Point(3, 124);
             bestMatchPanel.Margin = new Padding(3, 3, 3, 30);
             bestMatchPanel.Name = "bestMatchPanel";
-            bestMatchPanel.Size = new Size(741, 278);
+            bestMatchPanel.Size = new Size(741, 872);
             bestMatchPanel.TabIndex = 1;
             bestMatchPanel.Visible = false;
             // 
@@ -1860,7 +1923,7 @@ namespace WinForms
             topSearchImg.Image = (Image)resources.GetObject("topSearchImg.Image");
             topSearchImg.Location = new Point(3, 0);
             topSearchImg.Name = "topSearchImg";
-            topSearchImg.Size = new Size(85, 124);
+            topSearchImg.Size = new Size(118, 124);
             topSearchImg.TabIndex = 0;
             // 
             // topSearchFlowPanel
@@ -1868,9 +1931,9 @@ namespace WinForms
             topSearchFlowPanel.Controls.Add(topSearchTitle);
             topSearchFlowPanel.Controls.Add(topSearchAuthor);
             topSearchFlowPanel.Dock = DockStyle.Fill;
-            topSearchFlowPanel.Location = new Point(91, 3);
+            topSearchFlowPanel.Location = new Point(127, 3);
             topSearchFlowPanel.Name = "topSearchFlowPanel";
-            topSearchFlowPanel.Size = new Size(291, 118);
+            topSearchFlowPanel.Size = new Size(255, 118);
             topSearchFlowPanel.TabIndex = 1;
             // 
             // topSearchTitle
@@ -1899,12 +1962,404 @@ namespace WinForms
             topSearchAuthor.TabIndex = 5;
             topSearchAuthor.Text = "author";
             // 
+            // otherResult0
+            // 
+            otherResult0.Controls.Add(otherTable0);
+            otherResult0.GradientAngle = 0F;
+            otherResult0.GradientPrimaryColor = Color.Transparent;
+            otherResult0.GradientSecondaryColor = Color.Transparent;
+            otherResult0.Location = new Point(3, 215);
+            otherResult0.Name = "otherResult0";
+            otherResult0.Size = new Size(595, 60);
+            otherResult0.TabIndex = 13;
+            otherResult0.Visible = false;
+            // 
+            // otherTable0
+            // 
+            otherTable0.AutoSize = true;
+            otherTable0.ColumnCount = 2;
+            otherTable0.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 60F));
+            otherTable0.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            otherTable0.Controls.Add(otherTitle0, 1, 0);
+            otherTable0.Controls.Add(otherImg0, 0, 0);
+            otherTable0.Dock = DockStyle.Fill;
+            otherTable0.Location = new Point(0, 0);
+            otherTable0.Name = "otherTable0";
+            otherTable0.RowCount = 1;
+            otherTable0.RowStyles.Add(new RowStyle(SizeType.Absolute, 88F));
+            otherTable0.Size = new Size(595, 60);
+            otherTable0.TabIndex = 0;
+            // 
+            // otherTitle0
+            // 
+            otherTitle0.AutoSize = true;
+            otherTitle0.BackColor = Color.Transparent;
+            otherTitle0.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            otherTitle0.ForeColor = SystemColors.ControlLight;
+            otherTitle0.Location = new Point(63, 0);
+            otherTitle0.Name = "otherTitle0";
+            otherTitle0.Size = new Size(50, 28);
+            otherTitle0.TabIndex = 2;
+            otherTitle0.Text = "title";
+            // 
+            // otherImg0
+            // 
+            otherImg0.BackColor = Color.Transparent;
+            otherImg0.Image = (Image)resources.GetObject("otherImg0.Image");
+            otherImg0.Location = new Point(3, 0);
+            otherImg0.Name = "otherImg0";
+            otherImg0.Size = new Size(54, 50);
+            otherImg0.TabIndex = 0;
+            // 
+            // otherResult1
+            // 
+            otherResult1.Controls.Add(otherTable1);
+            otherResult1.GradientAngle = 0F;
+            otherResult1.GradientPrimaryColor = Color.Transparent;
+            otherResult1.GradientSecondaryColor = Color.Transparent;
+            otherResult1.Location = new Point(3, 281);
+            otherResult1.Name = "otherResult1";
+            otherResult1.Size = new Size(595, 60);
+            otherResult1.TabIndex = 14;
+            otherResult1.Visible = false;
+            // 
+            // otherTable1
+            // 
+            otherTable1.AutoSize = true;
+            otherTable1.ColumnCount = 2;
+            otherTable1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 60F));
+            otherTable1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            otherTable1.Controls.Add(otherTitle1, 1, 0);
+            otherTable1.Controls.Add(otherImg1, 0, 0);
+            otherTable1.Dock = DockStyle.Fill;
+            otherTable1.Location = new Point(0, 0);
+            otherTable1.Name = "otherTable1";
+            otherTable1.RowCount = 1;
+            otherTable1.RowStyles.Add(new RowStyle(SizeType.Absolute, 88F));
+            otherTable1.Size = new Size(595, 60);
+            otherTable1.TabIndex = 0;
+            // 
+            // otherTitle1
+            // 
+            otherTitle1.AutoSize = true;
+            otherTitle1.BackColor = Color.Transparent;
+            otherTitle1.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            otherTitle1.ForeColor = SystemColors.ControlLight;
+            otherTitle1.Location = new Point(63, 0);
+            otherTitle1.Name = "otherTitle1";
+            otherTitle1.Size = new Size(50, 28);
+            otherTitle1.TabIndex = 2;
+            otherTitle1.Text = "title";
+            // 
+            // otherImg1
+            // 
+            otherImg1.BackColor = Color.Transparent;
+            otherImg1.Image = (Image)resources.GetObject("otherImg1.Image");
+            otherImg1.Location = new Point(3, 0);
+            otherImg1.Name = "otherImg1";
+            otherImg1.Size = new Size(54, 50);
+            otherImg1.TabIndex = 0;
+            // 
+            // otherResult2
+            // 
+            otherResult2.Controls.Add(otherTable2);
+            otherResult2.GradientAngle = 0F;
+            otherResult2.GradientPrimaryColor = Color.Transparent;
+            otherResult2.GradientSecondaryColor = Color.Transparent;
+            otherResult2.Location = new Point(3, 347);
+            otherResult2.Name = "otherResult2";
+            otherResult2.Size = new Size(595, 60);
+            otherResult2.TabIndex = 15;
+            otherResult2.Visible = false;
+            // 
+            // otherTable2
+            // 
+            otherTable2.AutoSize = true;
+            otherTable2.ColumnCount = 2;
+            otherTable2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 60F));
+            otherTable2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            otherTable2.Controls.Add(otherTitle2, 1, 0);
+            otherTable2.Controls.Add(otherImg2, 0, 0);
+            otherTable2.Dock = DockStyle.Fill;
+            otherTable2.Location = new Point(0, 0);
+            otherTable2.Name = "otherTable2";
+            otherTable2.RowCount = 1;
+            otherTable2.RowStyles.Add(new RowStyle(SizeType.Absolute, 88F));
+            otherTable2.Size = new Size(595, 60);
+            otherTable2.TabIndex = 0;
+            // 
+            // otherTitle2
+            // 
+            otherTitle2.AutoSize = true;
+            otherTitle2.BackColor = Color.Transparent;
+            otherTitle2.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            otherTitle2.ForeColor = SystemColors.ControlLight;
+            otherTitle2.Location = new Point(63, 0);
+            otherTitle2.Name = "otherTitle2";
+            otherTitle2.Size = new Size(50, 28);
+            otherTitle2.TabIndex = 2;
+            otherTitle2.Text = "title";
+            // 
+            // otherImg2
+            // 
+            otherImg2.BackColor = Color.Transparent;
+            otherImg2.Image = (Image)resources.GetObject("otherImg2.Image");
+            otherImg2.Location = new Point(3, 0);
+            otherImg2.Name = "otherImg2";
+            otherImg2.Size = new Size(54, 50);
+            otherImg2.TabIndex = 0;
+            // 
+            // otherResult3
+            // 
+            otherResult3.Controls.Add(otherTable3);
+            otherResult3.GradientAngle = 0F;
+            otherResult3.GradientPrimaryColor = Color.Transparent;
+            otherResult3.GradientSecondaryColor = Color.Transparent;
+            otherResult3.Location = new Point(3, 413);
+            otherResult3.Name = "otherResult3";
+            otherResult3.Size = new Size(595, 60);
+            otherResult3.TabIndex = 16;
+            otherResult3.Visible = false;
+            // 
+            // otherTable3
+            // 
+            otherTable3.AutoSize = true;
+            otherTable3.ColumnCount = 2;
+            otherTable3.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 60F));
+            otherTable3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            otherTable3.Controls.Add(otherTitle3, 1, 0);
+            otherTable3.Controls.Add(otherImg3, 0, 0);
+            otherTable3.Dock = DockStyle.Fill;
+            otherTable3.Location = new Point(0, 0);
+            otherTable3.Name = "otherTable3";
+            otherTable3.RowCount = 1;
+            otherTable3.RowStyles.Add(new RowStyle(SizeType.Absolute, 88F));
+            otherTable3.Size = new Size(595, 60);
+            otherTable3.TabIndex = 0;
+            // 
+            // otherTitle3
+            // 
+            otherTitle3.AutoSize = true;
+            otherTitle3.BackColor = Color.Transparent;
+            otherTitle3.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            otherTitle3.ForeColor = SystemColors.ControlLight;
+            otherTitle3.Location = new Point(63, 0);
+            otherTitle3.Name = "otherTitle3";
+            otherTitle3.Size = new Size(50, 28);
+            otherTitle3.TabIndex = 2;
+            otherTitle3.Text = "title";
+            // 
+            // otherImg3
+            // 
+            otherImg3.BackColor = Color.Transparent;
+            otherImg3.Image = (Image)resources.GetObject("otherImg3.Image");
+            otherImg3.Location = new Point(3, 0);
+            otherImg3.Name = "otherImg3";
+            otherImg3.Size = new Size(54, 50);
+            otherImg3.TabIndex = 0;
+            // 
+            // otherResult4
+            // 
+            otherResult4.Controls.Add(otherTable4);
+            otherResult4.GradientAngle = 0F;
+            otherResult4.GradientPrimaryColor = Color.Transparent;
+            otherResult4.GradientSecondaryColor = Color.Transparent;
+            otherResult4.Location = new Point(3, 479);
+            otherResult4.Name = "otherResult4";
+            otherResult4.Size = new Size(595, 60);
+            otherResult4.TabIndex = 17;
+            otherResult4.Visible = false;
+            // 
+            // otherTable4
+            // 
+            otherTable4.AutoSize = true;
+            otherTable4.ColumnCount = 2;
+            otherTable4.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 60F));
+            otherTable4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            otherTable4.Controls.Add(otherTitle4, 1, 0);
+            otherTable4.Controls.Add(otherImg4, 0, 0);
+            otherTable4.Dock = DockStyle.Fill;
+            otherTable4.Location = new Point(0, 0);
+            otherTable4.Name = "otherTable4";
+            otherTable4.RowCount = 1;
+            otherTable4.RowStyles.Add(new RowStyle(SizeType.Absolute, 88F));
+            otherTable4.Size = new Size(595, 60);
+            otherTable4.TabIndex = 0;
+            // 
+            // otherTitle4
+            // 
+            otherTitle4.AutoSize = true;
+            otherTitle4.BackColor = Color.Transparent;
+            otherTitle4.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            otherTitle4.ForeColor = SystemColors.ControlLight;
+            otherTitle4.Location = new Point(63, 0);
+            otherTitle4.Name = "otherTitle4";
+            otherTitle4.Size = new Size(50, 28);
+            otherTitle4.TabIndex = 2;
+            otherTitle4.Text = "title";
+            // 
+            // otherImg4
+            // 
+            otherImg4.BackColor = Color.Transparent;
+            otherImg4.Image = (Image)resources.GetObject("otherImg4.Image");
+            otherImg4.Location = new Point(3, 0);
+            otherImg4.Name = "otherImg4";
+            otherImg4.Size = new Size(54, 50);
+            otherImg4.TabIndex = 0;
+            // 
+            // otherResult5
+            // 
+            otherResult5.Controls.Add(otherTable5);
+            otherResult5.GradientAngle = 0F;
+            otherResult5.GradientPrimaryColor = Color.Transparent;
+            otherResult5.GradientSecondaryColor = Color.Transparent;
+            otherResult5.Location = new Point(3, 545);
+            otherResult5.Name = "otherResult5";
+            otherResult5.Size = new Size(595, 60);
+            otherResult5.TabIndex = 18;
+            otherResult5.Visible = false;
+            // 
+            // otherTable5
+            // 
+            otherTable5.AutoSize = true;
+            otherTable5.ColumnCount = 2;
+            otherTable5.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 60F));
+            otherTable5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            otherTable5.Controls.Add(otherTitle5, 1, 0);
+            otherTable5.Controls.Add(otherImg5, 0, 0);
+            otherTable5.Dock = DockStyle.Fill;
+            otherTable5.Location = new Point(0, 0);
+            otherTable5.Name = "otherTable5";
+            otherTable5.RowCount = 1;
+            otherTable5.RowStyles.Add(new RowStyle(SizeType.Absolute, 88F));
+            otherTable5.Size = new Size(595, 60);
+            otherTable5.TabIndex = 0;
+            // 
+            // otherTitle5
+            // 
+            otherTitle5.AutoSize = true;
+            otherTitle5.BackColor = Color.Transparent;
+            otherTitle5.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            otherTitle5.ForeColor = SystemColors.ControlLight;
+            otherTitle5.Location = new Point(63, 0);
+            otherTitle5.Name = "otherTitle5";
+            otherTitle5.Size = new Size(50, 28);
+            otherTitle5.TabIndex = 2;
+            otherTitle5.Text = "title";
+            // 
+            // otherImg5
+            // 
+            otherImg5.BackColor = Color.Transparent;
+            otherImg5.Image = (Image)resources.GetObject("otherImg5.Image");
+            otherImg5.Location = new Point(3, 0);
+            otherImg5.Name = "otherImg5";
+            otherImg5.Size = new Size(54, 50);
+            otherImg5.TabIndex = 0;
+            // 
+            // otherResult6
+            // 
+            otherResult6.Controls.Add(otherTable6);
+            otherResult6.GradientAngle = 0F;
+            otherResult6.GradientPrimaryColor = Color.Transparent;
+            otherResult6.GradientSecondaryColor = Color.Transparent;
+            otherResult6.Location = new Point(3, 611);
+            otherResult6.Name = "otherResult6";
+            otherResult6.Size = new Size(595, 60);
+            otherResult6.TabIndex = 19;
+            otherResult6.Visible = false;
+            // 
+            // otherTable6
+            // 
+            otherTable6.AutoSize = true;
+            otherTable6.ColumnCount = 2;
+            otherTable6.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 60F));
+            otherTable6.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            otherTable6.Controls.Add(otherTitle6, 1, 0);
+            otherTable6.Controls.Add(otherImg6, 0, 0);
+            otherTable6.Dock = DockStyle.Fill;
+            otherTable6.Location = new Point(0, 0);
+            otherTable6.Name = "otherTable6";
+            otherTable6.RowCount = 1;
+            otherTable6.RowStyles.Add(new RowStyle(SizeType.Absolute, 88F));
+            otherTable6.Size = new Size(595, 60);
+            otherTable6.TabIndex = 0;
+            // 
+            // otherTitle6
+            // 
+            otherTitle6.AutoSize = true;
+            otherTitle6.BackColor = Color.Transparent;
+            otherTitle6.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            otherTitle6.ForeColor = SystemColors.ControlLight;
+            otherTitle6.Location = new Point(63, 0);
+            otherTitle6.Name = "otherTitle6";
+            otherTitle6.Size = new Size(50, 28);
+            otherTitle6.TabIndex = 2;
+            otherTitle6.Text = "title";
+            // 
+            // otherImg6
+            // 
+            otherImg6.BackColor = Color.Transparent;
+            otherImg6.Image = (Image)resources.GetObject("otherImg6.Image");
+            otherImg6.Location = new Point(3, 0);
+            otherImg6.Name = "otherImg6";
+            otherImg6.Size = new Size(54, 50);
+            otherImg6.TabIndex = 0;
+            // 
+            // otherResult7
+            // 
+            otherResult7.Controls.Add(otherTable7);
+            otherResult7.GradientAngle = 0F;
+            otherResult7.GradientPrimaryColor = Color.Transparent;
+            otherResult7.GradientSecondaryColor = Color.Transparent;
+            otherResult7.Location = new Point(3, 677);
+            otherResult7.Name = "otherResult7";
+            otherResult7.Size = new Size(595, 60);
+            otherResult7.TabIndex = 20;
+            otherResult7.Visible = false;
+            // 
+            // otherTable7
+            // 
+            otherTable7.AutoSize = true;
+            otherTable7.ColumnCount = 2;
+            otherTable7.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 60F));
+            otherTable7.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            otherTable7.Controls.Add(otherTitle7, 1, 0);
+            otherTable7.Controls.Add(otherImg7, 0, 0);
+            otherTable7.Dock = DockStyle.Fill;
+            otherTable7.Location = new Point(0, 0);
+            otherTable7.Name = "otherTable7";
+            otherTable7.RowCount = 1;
+            otherTable7.RowStyles.Add(new RowStyle(SizeType.Absolute, 88F));
+            otherTable7.Size = new Size(595, 60);
+            otherTable7.TabIndex = 0;
+            // 
+            // otherTitle7
+            // 
+            otherTitle7.AutoSize = true;
+            otherTitle7.BackColor = Color.Transparent;
+            otherTitle7.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            otherTitle7.ForeColor = SystemColors.ControlLight;
+            otherTitle7.Location = new Point(63, 0);
+            otherTitle7.Name = "otherTitle7";
+            otherTitle7.Size = new Size(50, 28);
+            otherTitle7.TabIndex = 2;
+            otherTitle7.Text = "title";
+            // 
+            // otherImg7
+            // 
+            otherImg7.BackColor = Color.Transparent;
+            otherImg7.Image = (Image)resources.GetObject("otherImg7.Image");
+            otherImg7.Location = new Point(3, 0);
+            otherImg7.Name = "otherImg7";
+            otherImg7.Size = new Size(54, 50);
+            otherImg7.TabIndex = 0;
+            // 
             // flowLayoutPanel61
             // 
             flowLayoutPanel61.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             flowLayoutPanel61.AutoSize = true;
             searchFlowPanel.SetFlowBreak(flowLayoutPanel61, true);
-            flowLayoutPanel61.Location = new Point(3, 435);
+            flowLayoutPanel61.Location = new Point(3, 1029);
             flowLayoutPanel61.Margin = new Padding(3, 3, 3, 30);
             flowLayoutPanel61.Name = "flowLayoutPanel61";
             flowLayoutPanel61.Size = new Size(0, 0);
@@ -3525,7 +3980,7 @@ namespace WinForms
             label3.Name = "label3";
             label3.Size = new Size(106, 88);
             label3.TabIndex = 1;
-            label3.Text = "label1";
+            label3.Text = "otherTitle1";
             // 
             // label4
             // 
@@ -3568,7 +4023,7 @@ namespace WinForms
             label9.Name = "label9";
             label9.Size = new Size(100, 88);
             label9.TabIndex = 1;
-            label9.Text = "label1";
+            label9.Text = "otherTitle1";
             // 
             // label10
             // 
@@ -4377,54 +4832,103 @@ namespace WinForms
             minimize.Text = "toolStripButton3";
             minimize.Click += toolStripButton3_Click;
             // 
-            // otherResult0
+            // otherResult8
             // 
-            otherResult0.Controls.Add(otherTable0);
-            otherResult0.GradientAngle = 0F;
-            otherResult0.GradientPrimaryColor = Color.Transparent;
-            otherResult0.GradientSecondaryColor = Color.Transparent;
-            otherResult0.Location = new Point(3, 215);
-            otherResult0.Name = "otherResult0";
-            otherResult0.Size = new Size(595, 60);
-            otherResult0.TabIndex = 13;
-            otherResult0.Visible = false;
+            otherResult8.Controls.Add(otherTable8);
+            otherResult8.GradientAngle = 0F;
+            otherResult8.GradientPrimaryColor = Color.Transparent;
+            otherResult8.GradientSecondaryColor = Color.Transparent;
+            otherResult8.Location = new Point(3, 743);
+            otherResult8.Name = "otherResult8";
+            otherResult8.Size = new Size(595, 60);
+            otherResult8.TabIndex = 21;
+            otherResult8.Visible = false;
             // 
-            // otherTable0
+            // otherTable8
             // 
-            otherTable0.AutoSize = true;
-            otherTable0.ColumnCount = 2;
-            otherTable0.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 60F));
-            otherTable0.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            otherTable0.Controls.Add(otherTitle0, 1, 0);
-            otherTable0.Controls.Add(otherImg0, 0, 0);
-            otherTable0.Dock = DockStyle.Fill;
-            otherTable0.Location = new Point(0, 0);
-            otherTable0.Name = "otherTable0";
-            otherTable0.RowCount = 1;
-            otherTable0.RowStyles.Add(new RowStyle(SizeType.Absolute, 88F));
-            otherTable0.Size = new Size(595, 60);
-            otherTable0.TabIndex = 0;
+            otherTable8.AutoSize = true;
+            otherTable8.ColumnCount = 2;
+            otherTable8.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 60F));
+            otherTable8.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            otherTable8.Controls.Add(otherTitle8, 1, 0);
+            otherTable8.Controls.Add(otherImg8, 0, 0);
+            otherTable8.Dock = DockStyle.Fill;
+            otherTable8.Location = new Point(0, 0);
+            otherTable8.Name = "otherTable8";
+            otherTable8.RowCount = 1;
+            otherTable8.RowStyles.Add(new RowStyle(SizeType.Absolute, 88F));
+            otherTable8.Size = new Size(595, 60);
+            otherTable8.TabIndex = 0;
             // 
-            // otherImg0
+            // otherTitle8
             // 
-            otherImg0.BackColor = Color.Transparent;
-            otherImg0.Image = (Image)resources.GetObject("otherImg0.Image");
-            otherImg0.Location = new Point(3, 0);
-            otherImg0.Name = "otherImg0";
-            otherImg0.Size = new Size(54, 50);
-            otherImg0.TabIndex = 0;
+            otherTitle8.AutoSize = true;
+            otherTitle8.BackColor = Color.Transparent;
+            otherTitle8.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            otherTitle8.ForeColor = SystemColors.ControlLight;
+            otherTitle8.Location = new Point(63, 0);
+            otherTitle8.Name = "otherTitle8";
+            otherTitle8.Size = new Size(50, 28);
+            otherTitle8.TabIndex = 2;
+            otherTitle8.Text = "title";
             // 
-            // otherTitle0
+            // otherImg8
             // 
-            otherTitle0.AutoSize = true;
-            otherTitle0.BackColor = Color.Transparent;
-            otherTitle0.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            otherTitle0.ForeColor = SystemColors.ControlLight;
-            otherTitle0.Location = new Point(63, 0);
-            otherTitle0.Name = "otherTitle0";
-            otherTitle0.Size = new Size(50, 28);
-            otherTitle0.TabIndex = 2;
-            otherTitle0.Text = "title";
+            otherImg8.BackColor = Color.Transparent;
+            otherImg8.Image = (Image)resources.GetObject("otherImg8.Image");
+            otherImg8.Location = new Point(3, 0);
+            otherImg8.Name = "otherImg8";
+            otherImg8.Size = new Size(54, 50);
+            otherImg8.TabIndex = 0;
+            // 
+            // otherResult9
+            // 
+            otherResult9.Controls.Add(otherTable9);
+            otherResult9.GradientAngle = 0F;
+            otherResult9.GradientPrimaryColor = Color.Transparent;
+            otherResult9.GradientSecondaryColor = Color.Transparent;
+            otherResult9.Location = new Point(3, 809);
+            otherResult9.Name = "otherResult9";
+            otherResult9.Size = new Size(595, 60);
+            otherResult9.TabIndex = 22;
+            otherResult9.Visible = false;
+            // 
+            // otherTable9
+            // 
+            otherTable9.AutoSize = true;
+            otherTable9.ColumnCount = 2;
+            otherTable9.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 60F));
+            otherTable9.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            otherTable9.Controls.Add(otherTitle9, 1, 0);
+            otherTable9.Controls.Add(otherImg9, 0, 0);
+            otherTable9.Dock = DockStyle.Fill;
+            otherTable9.Location = new Point(0, 0);
+            otherTable9.Name = "otherTable9";
+            otherTable9.RowCount = 1;
+            otherTable9.RowStyles.Add(new RowStyle(SizeType.Absolute, 88F));
+            otherTable9.Size = new Size(595, 60);
+            otherTable9.TabIndex = 0;
+            // 
+            // otherTitle9
+            // 
+            otherTitle9.AutoSize = true;
+            otherTitle9.BackColor = Color.Transparent;
+            otherTitle9.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            otherTitle9.ForeColor = SystemColors.ControlLight;
+            otherTitle9.Location = new Point(63, 0);
+            otherTitle9.Name = "otherTitle9";
+            otherTitle9.Size = new Size(50, 28);
+            otherTitle9.TabIndex = 2;
+            otherTitle9.Text = "title";
+            // 
+            // otherImg9
+            // 
+            otherImg9.BackColor = Color.Transparent;
+            otherImg9.Image = (Image)resources.GetObject("otherImg9.Image");
+            otherImg9.Location = new Point(3, 0);
+            otherImg9.Name = "otherImg9";
+            otherImg9.Size = new Size(54, 50);
+            otherImg9.TabIndex = 0;
             // 
             // MainForm
             // 
@@ -4521,6 +5025,38 @@ namespace WinForms
             topSeachTable.ResumeLayout(false);
             topSearchFlowPanel.ResumeLayout(false);
             topSearchFlowPanel.PerformLayout();
+            otherResult0.ResumeLayout(false);
+            otherResult0.PerformLayout();
+            otherTable0.ResumeLayout(false);
+            otherTable0.PerformLayout();
+            otherResult1.ResumeLayout(false);
+            otherResult1.PerformLayout();
+            otherTable1.ResumeLayout(false);
+            otherTable1.PerformLayout();
+            otherResult2.ResumeLayout(false);
+            otherResult2.PerformLayout();
+            otherTable2.ResumeLayout(false);
+            otherTable2.PerformLayout();
+            otherResult3.ResumeLayout(false);
+            otherResult3.PerformLayout();
+            otherTable3.ResumeLayout(false);
+            otherTable3.PerformLayout();
+            otherResult4.ResumeLayout(false);
+            otherResult4.PerformLayout();
+            otherTable4.ResumeLayout(false);
+            otherTable4.PerformLayout();
+            otherResult5.ResumeLayout(false);
+            otherResult5.PerformLayout();
+            otherTable5.ResumeLayout(false);
+            otherTable5.PerformLayout();
+            otherResult6.ResumeLayout(false);
+            otherResult6.PerformLayout();
+            otherTable6.ResumeLayout(false);
+            otherTable6.PerformLayout();
+            otherResult7.ResumeLayout(false);
+            otherResult7.PerformLayout();
+            otherTable7.ResumeLayout(false);
+            otherTable7.PerformLayout();
             favoritePanel.ResumeLayout(false);
             favoritePanel.PerformLayout();
             flowLayoutPanel24.ResumeLayout(false);
@@ -4672,10 +5208,14 @@ namespace WinForms
             tableLayoutPanel40.ResumeLayout(false);
             toolStrip1.ResumeLayout(false);
             toolStrip1.PerformLayout();
-            otherResult0.ResumeLayout(false);
-            otherResult0.PerformLayout();
-            otherTable0.ResumeLayout(false);
-            otherTable0.PerformLayout();
+            otherResult8.ResumeLayout(false);
+            otherResult8.PerformLayout();
+            otherTable8.ResumeLayout(false);
+            otherTable8.PerformLayout();
+            otherResult9.ResumeLayout(false);
+            otherResult9.PerformLayout();
+            otherTable9.ResumeLayout(false);
+            otherTable9.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -5019,5 +5559,41 @@ namespace WinForms
         private TableLayoutPanel otherTable0;
         private Label otherImg0;
         private Label otherTitle0;
+        private GradientPanel otherResult1;
+        private TableLayoutPanel otherTable1;
+        private Label otherTitle1;
+        private Label otherImg1;
+        private GradientPanel otherResult2;
+        private TableLayoutPanel otherTable2;
+        private Label otherTitle2;
+        private Label otherImg2;
+        private GradientPanel otherResult3;
+        private TableLayoutPanel otherTable3;
+        private Label otherTitle3;
+        private Label otherImg3;
+        private GradientPanel otherResult4;
+        private TableLayoutPanel otherTable4;
+        private Label otherTitle4;
+        private Label otherImg4;
+        private GradientPanel otherResult5;
+        private TableLayoutPanel otherTable5;
+        private Label otherTitle5;
+        private Label otherImg5;
+        private GradientPanel otherResult6;
+        private TableLayoutPanel otherTable6;
+        private Label otherTitle6;
+        private Label otherImg6;
+        private GradientPanel otherResult7;
+        private TableLayoutPanel otherTable7;
+        private Label otherTitle7;
+        private Label otherImg7;
+        private GradientPanel otherResult8;
+        private TableLayoutPanel otherTable8;
+        private Label otherTitle8;
+        private Label otherImg8;
+        private GradientPanel otherResult9;
+        private TableLayoutPanel otherTable9;
+        private Label otherTitle9;
+        private Label otherImg9;
     }
 }

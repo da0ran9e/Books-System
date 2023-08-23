@@ -201,7 +201,7 @@
             Close.TextAlign = ContentAlignment.TopRight;
             Close.Click += Close_Click;
             // 
-            // tableLayoutPanel2
+            // otherTable1
             // 
             tableLayoutPanel2.ColumnCount = 3;
             tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 60F));
@@ -212,7 +212,7 @@
             tableLayoutPanel2.Controls.Add(panel1, 1, 2);
             tableLayoutPanel2.Dock = DockStyle.Fill;
             tableLayoutPanel2.Location = new Point(36, 30);
-            tableLayoutPanel2.Name = "tableLayoutPanel2";
+            tableLayoutPanel2.Name = "otherTable1";
             tableLayoutPanel2.RowCount = 3;
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 50F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
@@ -496,14 +496,14 @@
             phonePanel.TabIndex = 4;
             phonePanel.Visible = false;
             // 
-            // label1
+            // otherTitle1
             // 
             label1.AutoSize = true;
             label1.Dock = DockStyle.Left;
             label1.Font = new Font("Arial Narrow", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
             label1.ForeColor = SystemColors.ActiveCaptionText;
             label1.Location = new Point(3, 0);
-            label1.Name = "label1";
+            label1.Name = "otherTitle1";
             label1.Size = new Size(119, 40);
             label1.TabIndex = 0;
             label1.Text = "Phone Number:";
@@ -931,12 +931,12 @@
             panel1.Size = new Size(775, 27);
             panel1.TabIndex = 2;
             // 
-            // label2
+            // otherTitle2
             // 
             label2.Cursor = Cursors.Hand;
-            label2.Image = (Image)resources.GetObject("label2.Image");
+            label2.Image = (Image)resources.GetObject("otherTitle2.Image");
             label2.Location = new Point(372, 0);
-            label2.Name = "label2";
+            label2.Name = "otherTitle2";
             label2.Size = new Size(62, 25);
             label2.TabIndex = 3;
             label2.Click += label2_Click;
