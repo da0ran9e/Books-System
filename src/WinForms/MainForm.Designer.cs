@@ -64,7 +64,7 @@ namespace WinForms
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            //SingleTextView singleTextView2 = new TSkin.ST.SingleTextView();
+            //SingleTextView singleTextView11 = new TSkin.ST.SingleTextView();
             searchTabeLayout = new TableLayoutPanel();
             verticalMenuBar = new FlowLayoutPanel();
             userLabel = new Label();
@@ -1833,7 +1833,7 @@ namespace WinForms
             searchBox.Location = new Point(0, 0);
             searchBox.Margin = new Padding(0);
             searchBox.Name = "searchBox";
-            //searchBox.SetTextView = singleTextView2;
+            //searchBox.SetTextView = singleTextView11;
             searchBox.Size = new Size(560, 55);
             searchBox.TabIndex = 5;
             searchBox.Text = "What do you want to read?";
@@ -1925,6 +1925,7 @@ namespace WinForms
             topSearchImg.Name = "topSearchImg";
             topSearchImg.Size = new Size(118, 124);
             topSearchImg.TabIndex = 0;
+            topSearchImg.Click += topSearchFlowPanel_Click;
             // 
             // topSearchFlowPanel
             // 
@@ -1935,6 +1936,7 @@ namespace WinForms
             topSearchFlowPanel.Name = "topSearchFlowPanel";
             topSearchFlowPanel.Size = new Size(255, 118);
             topSearchFlowPanel.TabIndex = 1;
+            topSearchFlowPanel.Click += topSearchFlowPanel_Click;
             // 
             // topSearchTitle
             // 
@@ -1948,6 +1950,7 @@ namespace WinForms
             topSearchTitle.Size = new Size(50, 28);
             topSearchTitle.TabIndex = 1;
             topSearchTitle.Text = "title";
+            topSearchTitle.Click += topSearchFlowPanel_Click;
             // 
             // topSearchAuthor
             // 
@@ -1961,6 +1964,7 @@ namespace WinForms
             topSearchAuthor.Size = new Size(50, 19);
             topSearchAuthor.TabIndex = 5;
             topSearchAuthor.Text = "author";
+            topSearchAuthor.Click += topSearchFlowPanel_Click;
             // 
             // otherResult0
             // 
@@ -2002,6 +2006,7 @@ namespace WinForms
             otherTitle0.Size = new Size(529, 88);
             otherTitle0.TabIndex = 2;
             otherTitle0.Text = "title";
+            otherTitle0.Click += otherTitle0_Click;
             // 
             // otherImg0
             // 
@@ -2011,6 +2016,7 @@ namespace WinForms
             otherImg0.Name = "otherImg0";
             otherImg0.Size = new Size(54, 50);
             otherImg0.TabIndex = 0;
+            otherImg0.Click += otherTitle0_Click;
             // 
             // otherResult1
             // 
@@ -2052,6 +2058,7 @@ namespace WinForms
             otherTitle1.Size = new Size(529, 88);
             otherTitle1.TabIndex = 2;
             otherTitle1.Text = "title";
+            otherTitle1.Click += otherTitle1_Click;
             // 
             // otherImg1
             // 
@@ -2061,6 +2068,7 @@ namespace WinForms
             otherImg1.Name = "otherImg1";
             otherImg1.Size = new Size(54, 50);
             otherImg1.TabIndex = 0;
+            otherImg1.Click += otherTitle1_Click;
             // 
             // otherResult2
             // 
@@ -2102,6 +2110,7 @@ namespace WinForms
             otherTitle2.Size = new Size(529, 88);
             otherTitle2.TabIndex = 2;
             otherTitle2.Text = "title";
+            otherTitle2.Click += otherTitle2_Click;
             // 
             // otherImg2
             // 
@@ -2111,6 +2120,7 @@ namespace WinForms
             otherImg2.Name = "otherImg2";
             otherImg2.Size = new Size(54, 50);
             otherImg2.TabIndex = 0;
+            otherImg2.Click += otherTitle2_Click;
             // 
             // otherResult3
             // 
@@ -2152,6 +2162,7 @@ namespace WinForms
             otherTitle3.Size = new Size(529, 88);
             otherTitle3.TabIndex = 2;
             otherTitle3.Text = "title";
+            otherTitle3.Click += otherTitle3_Click;
             // 
             // otherImg3
             // 
@@ -2161,6 +2172,7 @@ namespace WinForms
             otherImg3.Name = "otherImg3";
             otherImg3.Size = new Size(54, 50);
             otherImg3.TabIndex = 0;
+            otherImg3.Click += otherTitle3_Click;
             // 
             // otherResult4
             // 
@@ -2202,6 +2214,7 @@ namespace WinForms
             otherTitle4.Size = new Size(529, 88);
             otherTitle4.TabIndex = 2;
             otherTitle4.Text = "title";
+            otherTitle4.Click += otherTitle4_Click;
             // 
             // otherImg4
             // 
@@ -2211,6 +2224,7 @@ namespace WinForms
             otherImg4.Name = "otherImg4";
             otherImg4.Size = new Size(54, 50);
             otherImg4.TabIndex = 0;
+            otherImg4.Click += otherTitle4_Click;
             // 
             // otherResult5
             // 
@@ -2252,6 +2266,7 @@ namespace WinForms
             otherTitle5.Size = new Size(529, 88);
             otherTitle5.TabIndex = 2;
             otherTitle5.Text = "title";
+            otherTitle5.Click += otherTitle5_Click;
             // 
             // otherImg5
             // 
@@ -2261,6 +2276,7 @@ namespace WinForms
             otherImg5.Name = "otherImg5";
             otherImg5.Size = new Size(54, 50);
             otherImg5.TabIndex = 0;
+            otherImg5.Click += otherTitle5_Click;
             // 
             // otherResult6
             // 
@@ -2302,6 +2318,7 @@ namespace WinForms
             otherTitle6.Size = new Size(529, 88);
             otherTitle6.TabIndex = 2;
             otherTitle6.Text = "title";
+            otherTitle6.Click += otherTitle6_Click;
             // 
             // otherImg6
             // 
@@ -2311,6 +2328,7 @@ namespace WinForms
             otherImg6.Name = "otherImg6";
             otherImg6.Size = new Size(54, 50);
             otherImg6.TabIndex = 0;
+            otherImg6.Click += otherTitle6_Click;
             // 
             // otherResult7
             // 
@@ -2352,6 +2370,7 @@ namespace WinForms
             otherTitle7.Size = new Size(529, 88);
             otherTitle7.TabIndex = 2;
             otherTitle7.Text = "title";
+            otherTitle7.Click += otherTitle7_Click;
             // 
             // otherImg7
             // 
@@ -2361,6 +2380,7 @@ namespace WinForms
             otherImg7.Name = "otherImg7";
             otherImg7.Size = new Size(54, 50);
             otherImg7.TabIndex = 0;
+            otherImg7.Click += otherTitle7_Click;
             // 
             // otherResult8
             // 
@@ -2402,6 +2422,7 @@ namespace WinForms
             otherTitle8.Size = new Size(529, 88);
             otherTitle8.TabIndex = 2;
             otherTitle8.Text = "title";
+            otherTitle8.Click += otherTitle8_Click;
             // 
             // otherImg8
             // 
@@ -2410,6 +2431,7 @@ namespace WinForms
             otherImg8.Name = "otherImg8";
             otherImg8.Size = new Size(54, 50);
             otherImg8.TabIndex = 0;
+            otherImg8.Click += otherTitle8_Click;
             // 
             // otherResult9
             // 
@@ -2451,6 +2473,7 @@ namespace WinForms
             otherTitle9.Size = new Size(529, 88);
             otherTitle9.TabIndex = 2;
             otherTitle9.Text = "title";
+            otherTitle9.Click += otherTitle9_Click;
             // 
             // otherImg9
             // 
@@ -2459,6 +2482,7 @@ namespace WinForms
             otherImg9.Name = "otherImg9";
             otherImg9.Size = new Size(54, 50);
             otherImg9.TabIndex = 0;
+            otherImg9.Click += otherTitle9_Click;
             // 
             // flowLayoutPanel61
             // 

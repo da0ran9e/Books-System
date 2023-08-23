@@ -678,6 +678,175 @@ namespace WinForms
             SetDoubleBuffer(label79, true);
             SetDoubleBuffer(label80, true);
             SetDoubleBuffer(toolStrip1, true);
+
+            SetDoubleBuffer(searchTabeLayout, true);
+            SetDoubleBuffer(verticalMenuBar, true);
+            SetDoubleBuffer(verticalTableMenu, true);
+            SetDoubleBuffer(topBlank, true);
+            SetDoubleBuffer(homeGradientPanel, true);
+            SetDoubleBuffer(searchGradientPanel, true);
+            SetDoubleBuffer(heartGradientPanel, true);
+            SetDoubleBuffer(libraryGradientPanel, true);
+            SetDoubleBuffer(recentGradientPanel, true);
+            SetDoubleBuffer(contentPanel, true);
+            SetDoubleBuffer(contentContainer, true);
+            SetDoubleBuffer(category0, true);
+            SetDoubleBuffer(tableLayoutPanel1, true);
+            SetDoubleBuffer(flowLayoutPanel40, true);
+            SetDoubleBuffer(tableLayoutPanel39, true);
+            SetDoubleBuffer(mainFlowPanel, true);
+            SetDoubleBuffer(homeFlowPanel, true);
+            SetDoubleBuffer(helloPanel, true);
+            SetDoubleBuffer(helloElement0, true);
+            SetDoubleBuffer(helloElementTable0, true);
+            SetDoubleBuffer(helloFlow0, true);
+            SetDoubleBuffer(helloElement1, true);
+            SetDoubleBuffer(helloElementTable1, true);
+            SetDoubleBuffer(helloFlow1, true);
+            SetDoubleBuffer(helloElement2, true);
+            SetDoubleBuffer(helloElementTable2, true);
+            SetDoubleBuffer(helloFlow2, true);
+            SetDoubleBuffer(helloElement3, true);
+            SetDoubleBuffer(helloElementTable3, true);
+            SetDoubleBuffer(helloFlow3, true);
+            SetDoubleBuffer(recommentPanel, true);
+            SetDoubleBuffer(recommentElement0, true);
+            SetDoubleBuffer(recommentTable0, true);
+            SetDoubleBuffer(recommentFlowPanel0, true);
+            SetDoubleBuffer(recommentElement1, true);
+            SetDoubleBuffer(tableLayoutPanel8, true);
+            SetDoubleBuffer(recommentFlowPanel1, true);
+            SetDoubleBuffer(recommentElement2, true);
+            SetDoubleBuffer(recommentTable2, true);
+            SetDoubleBuffer(recommentFlowLabel2, true);
+            SetDoubleBuffer(recommentElement3, true);
+            SetDoubleBuffer(recommentTable3, true);
+            SetDoubleBuffer(recommentFlowLabel3, true);
+            SetDoubleBuffer(searchFlowPanel, true);
+            SetDoubleBuffer(searchPanel, true);
+            SetDoubleBuffer(searchLayoutTable, true);
+            SetDoubleBuffer(searchBoxContainer, true);
+            SetDoubleBuffer(bestMatchPanel, true);
+            SetDoubleBuffer(topSearchPanel, true);
+            SetDoubleBuffer(topSeachTable, true);
+            SetDoubleBuffer(topSearchFlowPanel, true);
+            SetDoubleBuffer(otherResult0, true);
+            SetDoubleBuffer(otherTable0, true);
+            SetDoubleBuffer(otherResult1, true);
+            SetDoubleBuffer(otherTable1, true);
+            SetDoubleBuffer(otherResult2, true);
+            SetDoubleBuffer(otherTable2, true);
+            SetDoubleBuffer(otherResult3, true);
+            SetDoubleBuffer(otherTable3, true);
+            SetDoubleBuffer(otherResult4, true);
+            SetDoubleBuffer(otherTable4, true);
+            SetDoubleBuffer(otherResult5, true);
+            SetDoubleBuffer(otherTable5, true);
+            SetDoubleBuffer(otherResult6, true);
+            SetDoubleBuffer(otherTable6, true);
+            SetDoubleBuffer(otherResult7, true);
+            SetDoubleBuffer(otherTable7, true);
+            SetDoubleBuffer(otherResult8, true);
+            SetDoubleBuffer(otherTable8, true);
+            SetDoubleBuffer(otherResult9, true);
+            SetDoubleBuffer(otherTable9, true);
+            SetDoubleBuffer(favoritePanel, true);
+            SetDoubleBuffer(flowLayoutPanel24, true);
+            SetDoubleBuffer(gradientPanel8, true);
+            SetDoubleBuffer(tableLayoutPanel24, true);
+            SetDoubleBuffer(flowLayoutPanel25, true);
+            SetDoubleBuffer(gradientPanel9, true);
+            SetDoubleBuffer(tableLayoutPanel25, true);
+            SetDoubleBuffer(flowLayoutPanel26, true);
+            SetDoubleBuffer(gradientPanel10, true);
+            SetDoubleBuffer(tableLayoutPanel38, true);
+            SetDoubleBuffer(flowLayoutPanel27, true);
+            SetDoubleBuffer(gradientPanel11, true);
+            SetDoubleBuffer(tableLayoutPanel41, true);
+            SetDoubleBuffer(flowLayoutPanel41, true);
+            SetDoubleBuffer(categoriesPanel, true);
+            SetDoubleBuffer(flowLayoutPanel42, true);
+            SetDoubleBuffer(gradientPanel12, true);
+            SetDoubleBuffer(tableLayoutPanel42, true);
+            SetDoubleBuffer(flowLayoutPanel43, true);
+            SetDoubleBuffer(gradientPanel13, true);
+            SetDoubleBuffer(tableLayoutPanel43, true);
+            SetDoubleBuffer(flowLayoutPanel44, true);
+            SetDoubleBuffer(gradientPanel14, true);
+            SetDoubleBuffer(tableLayoutPanel44, true);
+            SetDoubleBuffer(flowLayoutPanel45, true);
+            SetDoubleBuffer(gradientPanel15, true);
+            SetDoubleBuffer(tableLayoutPanel45, true);
+            SetDoubleBuffer(flowLayoutPanel46, true);
+            SetDoubleBuffer(historyPanel, true);
+            SetDoubleBuffer(flowLayoutPanel47, true);
+            SetDoubleBuffer(gradientPanel16, true);
+            SetDoubleBuffer(tableLayoutPanel46, true);
+            SetDoubleBuffer(flowLayoutPanel48, true);
+            SetDoubleBuffer(gradientPanel17, true);
+            SetDoubleBuffer(tableLayoutPanel47, true);
+            SetDoubleBuffer(flowLayoutPanel49, true);
+            SetDoubleBuffer(gradientPanel18, true);
+            SetDoubleBuffer(tableLayoutPanel48, true);
+            SetDoubleBuffer(flowLayoutPanel50, true);
+            SetDoubleBuffer(gradientPanel19, true);
+            SetDoubleBuffer(tableLayoutPanel49, true);
+            SetDoubleBuffer(flowLayoutPanel51, true);
+            SetDoubleBuffer(bestBookPanel, true);
+            SetDoubleBuffer(bestBookFlowPanel, true);
+            SetDoubleBuffer(bestBookElement0, true);
+            SetDoubleBuffer(bestBookTable0, true);
+            SetDoubleBuffer(bestBookLabel0, true);
+            SetDoubleBuffer(bestBookElement1, true);
+            SetDoubleBuffer(bestBookTable1, true);
+            SetDoubleBuffer(bestBookLabel1, true);
+            SetDoubleBuffer(bestBookElement2, true);
+            SetDoubleBuffer(bestBookTable2, true);
+            SetDoubleBuffer(bestBookLabel2, true);
+            SetDoubleBuffer(bestBookElement3, true);
+            SetDoubleBuffer(bestBookTable3, true);
+            SetDoubleBuffer(bestBookLabel3, true);
+            SetDoubleBuffer(currentPanel, true);
+            SetDoubleBuffer(currentProperties, true);
+            SetDoubleBuffer(currentPropertiesTable, true);
+            SetDoubleBuffer(currentBookPanel, true);
+            SetDoubleBuffer(currentPagePanel, true);
+            SetDoubleBuffer(currentPublisherPanel, true);
+            SetDoubleBuffer(optionPanel, true);
+            SetDoubleBuffer(optionsFlowPanel, true);
+            SetDoubleBuffer(tableLayoutPanel3, true);
+            SetDoubleBuffer(flowLayoutPanel5, true);
+            SetDoubleBuffer(tableLayoutPanel6, true);
+            SetDoubleBuffer(tableLayoutPanel7, true);
+            SetDoubleBuffer(flowLayoutPanel3, true);
+            SetDoubleBuffer(flowLayoutPanel8, true);
+            SetDoubleBuffer(tableLayoutPanel4, true);
+            SetDoubleBuffer(flowLayoutPanel9, true);
+            SetDoubleBuffer(tableLayoutPanel9, true);
+            SetDoubleBuffer(flowLayoutPanel10, true);
+            SetDoubleBuffer(tableLayoutPanel10, true);
+            SetDoubleBuffer(flowLayoutPanel11, true);
+            SetDoubleBuffer(tableLayoutPanel11, true);
+            SetDoubleBuffer(flowLayoutPanel12, true);
+            SetDoubleBuffer(tableLayoutPanel12, true);
+            SetDoubleBuffer(tableLayoutPanel13, true);
+            SetDoubleBuffer(flowLayoutPanel14, true);
+            SetDoubleBuffer(flowLayoutPanel15, true);
+            SetDoubleBuffer(tableLayoutPanel14, true);
+            SetDoubleBuffer(flowLayoutPanel16, true);
+            SetDoubleBuffer(tableLayoutPanel15, true);
+            SetDoubleBuffer(flowLayoutPanel17, true);
+            SetDoubleBuffer(tableLayoutPanel16, true);
+            SetDoubleBuffer(flowLayoutPanel18, true);
+            SetDoubleBuffer(tableLayoutPanel17, true);
+            SetDoubleBuffer(flowLayoutPanel19, true);
+            SetDoubleBuffer(tableLayoutPanel18, true);
+            SetDoubleBuffer(tableLayoutPanel19, true);
+            SetDoubleBuffer(contextMenuStrip1, true);
+            SetDoubleBuffer(tableLayoutPanel5, true);
+            SetDoubleBuffer(tableLayoutPanel40, true);
+            SetDoubleBuffer(toolStrip1, true);
+
             #endregion
             //update userlabel
             toolTip1.SetToolTip(user, username);
@@ -1167,6 +1336,60 @@ namespace WinForms
         {
             updateCurrentBook(bookPicking(bestBookTitle3.Text));
         }
+        private void topSearchFlowPanel_Click(object sender, EventArgs e)
+        {
+            updateCurrentBook(bookPicking(topSearchTitle.Text));
+        }
+
+        private void otherTitle0_Click(object sender, EventArgs e)
+        {
+            updateCurrentBook(bookPicking(otherTitle0.Text));
+        }
+
+        private void otherTitle1_Click(object sender, EventArgs e)
+        {
+            updateCurrentBook(bookPicking(otherTitle1.Text));
+        }
+
+        private void otherTitle2_Click(object sender, EventArgs e)
+        {
+            updateCurrentBook(bookPicking(otherTitle2.Text));
+        }
+
+        private void otherTitle3_Click(object sender, EventArgs e)
+        {
+            updateCurrentBook(bookPicking(otherTitle3.Text));
+        }
+
+        private void otherTitle4_Click(object sender, EventArgs e)
+        {
+            updateCurrentBook(bookPicking(otherTitle4.Text));
+        }
+
+        private void otherTitle5_Click(object sender, EventArgs e)
+        {
+            updateCurrentBook(bookPicking(otherTitle5.Text));
+        }
+
+        private void otherTitle6_Click(object sender, EventArgs e)
+        {
+            updateCurrentBook(bookPicking(otherTitle6.Text));
+        }
+
+        private void otherTitle7_Click(object sender, EventArgs e)
+        {
+            updateCurrentBook(bookPicking(otherTitle7.Text));
+        }
+
+        private void otherTitle8_Click(object sender, EventArgs e)
+        {
+            updateCurrentBook(bookPicking(otherTitle8.Text));
+        }
+
+        private void otherTitle9_Click(object sender, EventArgs e)
+        {
+            updateCurrentBook(bookPicking(otherTitle9.Text));
+        }
         #endregion
 
         #region resize event handler
@@ -1278,18 +1501,95 @@ namespace WinForms
         {
             if (e.KeyCode == Keys.Enter)
             {
-                List<Book> books = SearchBookInformation(searchBox.Text.ToString()); ;
+                bestMatchLabel.Text = "Best match:";
+                topSearchPanel.Visible = false;
+                otherResult0.Visible = false;
+                otherResult1.Visible = false;
+                otherResult2.Visible = false;
+                otherResult3.Visible = false;
+                otherResult4.Visible = false;
+                otherResult5.Visible = false;
+                otherResult6.Visible = false;
+                otherResult7.Visible = false;
+                otherResult8.Visible = false;
+                otherResult9.Visible = false;
 
-                topSearchImg.Image = SetHeight(GetBookImage(books.ElementAt(0).index), topSearchImg.Height);
+                string searchKey = searchBox.Text.ToString();
+                if (searchKey.Length == 0) return;
 
-                topSearchTitle.Text = books.ElementAt(0).title;
-                topSearchAuthor.Text = books.ElementAt(0).author;
-                for (int i = 1; i < books.Count; i++)
+                List<Book> books = SearchBookInformation(searchKey);
+                if (books.Count == 0) bestMatchLabel.Text = "Not found!";
+                if (books.Count >= 1)
                 {
-
+                    topSearchImg.Image = SetHeight(GetBookImage(books.ElementAt(0).index), topSearchImg.Height);
+                    topSearchTitle.Text = books.ElementAt(0).title;
+                    topSearchAuthor.Text = books.ElementAt(0).author;
+                    topSearchPanel.Visible = true;
+                }               
+                if (books.Count >= 2)
+                {
+                    otherImg0.Image = SetHeight(GetBookImage(books.ElementAt(1).index), otherImg0.Height);
+                    otherTitle0.Text = books.ElementAt(1).title;
+                    otherResult0.Visible = true;
                 }
+                if (books.Count >= 3)
+                {
+                    otherImg1.Image = SetHeight(GetBookImage(books.ElementAt(2).index), otherImg1.Height);
+                    otherTitle1.Text = books.ElementAt(2).title;
+                    otherResult1.Visible = true;
+                }
+                if (books.Count >= 4)
+                {
+                    otherImg2.Image = SetHeight(GetBookImage(books.ElementAt(3).index), otherImg2.Height);
+                    otherTitle2.Text = books.ElementAt(3).title;
+                    otherResult2.Visible = true;
+                }
+                if (books.Count >= 5)
+                {
+                    otherImg3.Image = SetHeight(GetBookImage(books.ElementAt(4).index), otherImg3.Height);
+                    otherTitle3.Text = books.ElementAt(4).title;
+                    otherResult3.Visible = true;
+                }
+                if (books.Count >= 6)
+                {
+                    otherImg4.Image = SetHeight(GetBookImage(books.ElementAt(5).index), otherImg4.Height);
+                    otherTitle4.Text = books.ElementAt(5).title;
+                    otherResult4.Visible = true;
+                }
+                if (books.Count >= 7)
+                {
+                    otherImg5.Image = SetHeight(GetBookImage(books.ElementAt(6).index), otherImg5.Height);
+                    otherTitle5.Text = books.ElementAt(6).title;
+                    otherResult5.Visible = true;
+                }
+                if (books.Count >= 8)
+                {
+                    otherImg6.Image = SetHeight(GetBookImage(books.ElementAt(7).index), otherImg6.Height);
+                    otherTitle6.Text = books.ElementAt(7).title;
+                    otherResult6.Visible = true;
+                }
+                if (books.Count >= 9)
+                {
+                    otherImg7.Image = SetHeight(GetBookImage(books.ElementAt(8).index), otherImg7.Height);
+                    otherTitle7.Text = books.ElementAt(8).title;
+                    otherResult7.Visible = true;
+                }
+                if (books.Count >= 10)
+                {
+                    otherImg8.Image = SetHeight(GetBookImage(books.ElementAt(9).index), otherImg8.Height);
+                    otherTitle8.Text = books.ElementAt(9).title;
+                    otherResult8.Visible = true;
+                }
+                if (books.Count >= 11)
+                {
+                    otherImg9.Image = SetHeight(GetBookImage(books.ElementAt(10).index), otherImg9.Height);
+                    otherTitle9.Text = books.ElementAt(10).title;
+                    otherResult9.Visible = true;
+                }
+                bestMatchPanel.Visible = true;
             }
-
         }
+
+
     }
 }
