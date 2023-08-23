@@ -59,9 +59,9 @@ namespace WinForms
         private void InitializeComponent()
         {
             tableLayoutPanel1 = new TableLayoutPanel();
+            loadingLabel = new Label();
             grad0 = new GradientPanel();
             progressBar = new ProgressBar();
-            loadingLabel = new Label();
             tableLayoutPanel1.SuspendLayout();
             grad0.SuspendLayout();
             SuspendLayout();
@@ -83,6 +83,16 @@ namespace WinForms
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             tableLayoutPanel1.Size = new Size(1026, 569);
             tableLayoutPanel1.TabIndex = 0;
+            // 
+            // loadingLabel
+            // 
+            loadingLabel.AutoSize = true;
+            loadingLabel.Font = new Font("Exo ExtraBold", 22.1999989F, FontStyle.Bold, GraphicsUnit.Point);
+            loadingLabel.Location = new Point(270, 205);
+            loadingLabel.Name = "loadingLabel";
+            loadingLabel.Size = new Size(186, 52);
+            loadingLabel.TabIndex = 1;
+            loadingLabel.Text = "Loading...";
             // 
             // grad0
             // 
@@ -109,16 +119,6 @@ namespace WinForms
             progressBar.Style = ProgressBarStyle.Continuous;
             progressBar.TabIndex = 0;
             // 
-            // loadingLabel
-            // 
-            loadingLabel.AutoSize = true;
-            loadingLabel.Font = new Font("Exo ExtraBold", 22.1999989F, FontStyle.Bold, GraphicsUnit.Point);
-            loadingLabel.Location = new Point(252, 198);
-            loadingLabel.Name = "loadingLabel";
-            loadingLabel.Size = new Size(186, 52);
-            loadingLabel.TabIndex = 1;
-            loadingLabel.Text = "Loading...";
-            // 
             // LoadingForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -129,6 +129,7 @@ namespace WinForms
             Name = "LoadingForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "AdFeedForm";
+            WindowState = FormWindowState.Maximized;
             Load += LoadingForm_LoadAsync;
             tableLayoutPanel1.ResumeLayout(false);
             grad0.ResumeLayout(false);
