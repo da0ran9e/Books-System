@@ -642,7 +642,7 @@ namespace WinForms
             // 
             // newBookLabel3
             // 
-            newBookLabel3.Font = new Font("Exo ExtraBold", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
+            newBookLabel3.Font = new Font("Exo ExtraBold", bookIndex==1?16.2F : 11F, FontStyle.Bold, GraphicsUnit.Point);
             newBookLabel3.ForeColor = SystemColors.ButtonHighlight;
             newBookLabel3.Location = new Point(0, 0);
             newBookLabel3.Margin = new Padding(0);
