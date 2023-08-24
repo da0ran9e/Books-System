@@ -1298,10 +1298,10 @@ namespace WinForms
             yearOfPublication.Text = book.year.ToString();
 
             Book book1 = categoryBooks.ElementAt(0);
-            if(book.Equals(book1)&&categoryBooks.Count>1) book1 = categoryBooks.ElementAt(1);
-            
+            if (book.Equals(book1) && categoryBooks.Count > 1) book1 = categoryBooks.ElementAt(1);
+
             string imgPath1 = "../../../../../assets/LImgs/temp" + book1.index + ".jpg";
-            if(!File.Exists(imgPath1)) GetBookImage(book1.index);
+            if (!File.Exists(imgPath1)) GetBookImage(book1.index);
             categoryImg0.Image = SetHeight(Image.FromFile(imgPath1), categoryImg0.Height);
             categoryTitle0.Text = book1.title;
             categoryAuthor0.Text = book1.author;
@@ -1578,60 +1578,70 @@ namespace WinForms
                 {
                     otherImg0.Image = SetHeight(GetBookImage(books.ElementAt(1).index), otherImg0.Height);
                     otherTitle0.Text = books.ElementAt(1).title;
+                    toolTip1.SetToolTip(otherTitle0, "by "+books.ElementAt(1).author);
                     otherResult0.Visible = true;
                 }
                 if (books.Count >= 3)
                 {
                     otherImg1.Image = SetHeight(GetBookImage(books.ElementAt(2).index), otherImg1.Height);
                     otherTitle1.Text = books.ElementAt(2).title;
+                    toolTip1.SetToolTip(otherTitle1, "by "+books.ElementAt(2).author);
                     otherResult1.Visible = true;
                 }
                 if (books.Count >= 4)
                 {
                     otherImg2.Image = SetHeight(GetBookImage(books.ElementAt(3).index), otherImg2.Height);
                     otherTitle2.Text = books.ElementAt(3).title;
+                    toolTip1.SetToolTip(otherTitle2, "by "+books.ElementAt(3).author);
                     otherResult2.Visible = true;
                 }
                 if (books.Count >= 5)
                 {
                     otherImg3.Image = SetHeight(GetBookImage(books.ElementAt(4).index), otherImg3.Height);
                     otherTitle3.Text = books.ElementAt(4).title;
+                    toolTip1.SetToolTip(otherTitle3, "by "+books.ElementAt(4).author);
                     otherResult3.Visible = true;
                 }
                 if (books.Count >= 6)
                 {
                     otherImg4.Image = SetHeight(GetBookImage(books.ElementAt(5).index), otherImg4.Height);
                     otherTitle4.Text = books.ElementAt(5).title;
+                    toolTip1.SetToolTip(otherTitle4, "by "+books.ElementAt(5).author);
                     otherResult4.Visible = true;
                 }
                 if (books.Count >= 7)
                 {
                     otherImg5.Image = SetHeight(GetBookImage(books.ElementAt(6).index), otherImg5.Height);
                     otherTitle5.Text = books.ElementAt(6).title;
+                    toolTip1.SetToolTip(otherTitle5, "by "+books.ElementAt(6).author);
                     otherResult5.Visible = true;
                 }
                 if (books.Count >= 8)
                 {
                     otherImg6.Image = SetHeight(GetBookImage(books.ElementAt(7).index), otherImg6.Height);
                     otherTitle6.Text = books.ElementAt(7).title;
+                    toolTip1.SetToolTip(otherTitle6, "by "+books.ElementAt(7).author);
                     otherResult6.Visible = true;
                 }
                 if (books.Count >= 9)
                 {
                     otherImg7.Image = SetHeight(GetBookImage(books.ElementAt(8).index), otherImg7.Height);
                     otherTitle7.Text = books.ElementAt(8).title;
+                    toolTip1.SetToolTip(otherTitle7, "by "+books.ElementAt(8).author);
                     otherResult7.Visible = true;
                 }
                 if (books.Count >= 10)
                 {
                     otherImg8.Image = SetHeight(GetBookImage(books.ElementAt(9).index), otherImg8.Height);
                     otherTitle8.Text = books.ElementAt(9).title;
+                    toolTip1.SetToolTip(otherTitle8, "by "+books.ElementAt(9).author);
                     otherResult8.Visible = true;
                 }
                 if (books.Count >= 11)
                 {
                     otherImg9.Image = SetHeight(GetBookImage(books.ElementAt(10).index), otherImg9.Height);
                     otherTitle9.Text = books.ElementAt(10).title;
+                    toolTip1.SetToolTip(otherTitle9, "by "+books.ElementAt(10).author);
                     otherResult9.Visible = true;
                 }
                 bestMatchPanel.Visible = true;
