@@ -1785,7 +1785,7 @@ namespace WinForms
             searchBox.Location = new Point(0, 0);
             searchBox.Margin = new Padding(0);
             searchBox.Name = "searchBox";
-            //searchBox.SetTextView = singleTextView1;
+           // searchBox.SetTextView = singleTextView1;
             searchBox.Size = new Size(560, 55);
             searchBox.TabIndex = 5;
             searchBox.Text = "What do you want to read?";
@@ -2477,13 +2477,14 @@ namespace WinForms
             // favFlowPanel
             // 
             favFlowPanel.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            favFlowPanel.AutoSize = true;
             favFlowPanel.Controls.Add(favoriteLabel);
             favFlowPanel.Controls.Add(favTableHead);
             favoritePanel.SetFlowBreak(favFlowPanel, true);
             favFlowPanel.Location = new Point(0, 27);
             favFlowPanel.Margin = new Padding(0, 27, 0, 0);
             favFlowPanel.Name = "favFlowPanel";
-            favFlowPanel.Size = new Size(741, 361);
+            favFlowPanel.Size = new Size(741, 132);
             favFlowPanel.TabIndex = 0;
             favFlowPanel.Paint += flowLayoutPanel24_Paint;
             // 
@@ -4838,6 +4839,7 @@ namespace WinForms
             otherTable9.ResumeLayout(false);
             otherTable9.PerformLayout();
             favoritePanel.ResumeLayout(false);
+            favoritePanel.PerformLayout();
             favFlowPanel.ResumeLayout(false);
             favTableHead.ResumeLayout(false);
             favTableHead.PerformLayout();

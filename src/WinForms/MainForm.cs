@@ -16,6 +16,7 @@ using static WinForms.MainForm;
 using System.ComponentModel.DataAnnotations;
 using WinForms.Properties;
 using System.Resources;
+using System.Diagnostics.CodeAnalysis;
 
 namespace WinForms
 {
@@ -427,7 +428,7 @@ namespace WinForms
         //
         //Book object
         //
-        public struct UserRating
+        public struct UserRating : IComparable<UserRating>
         {
             public int userId { get; set; }
             public string isbn { get; set; }
@@ -453,6 +454,11 @@ namespace WinForms
                 this.userId = userId;
                 this.isbn = isbn;
                 this.rate = 0;
+            }
+
+            public int CompareTo(UserRating ur)
+            {
+                return -this.rate.CompareTo(ur.rate);
             }
         }
 
@@ -597,8 +603,23 @@ namespace WinForms
             FlowLayoutPanel newBookFlowPanel1 = new FlowLayoutPanel();
             FlowLayoutPanel newBookFlowPanel2 = new FlowLayoutPanel();
 
+            SetDoubleBuffer(newBookTable1, true);
+            SetDoubleBuffer(newBookTable2, true);
+            SetDoubleBuffer(newBookLabel1, true);
+            SetDoubleBuffer(newBookLabel2, true);
+            SetDoubleBuffer(newBookLabel3, true);
+            SetDoubleBuffer(newBookLabel4, true);
+            SetDoubleBuffer(newBookLabel5, true);
+            SetDoubleBuffer(newBookLabel6, true);
+            SetDoubleBuffer(newBookLabel7, true);
+            SetDoubleBuffer(newBookPanel1, true);
+            SetDoubleBuffer(newBookPanel2, true);
+            SetDoubleBuffer(newBookFlowPanel1, true);
+            SetDoubleBuffer(newBookFlowPanel2, true);
+
 
             favFlowPanel.Controls.Add(newBookTable1);
+            
             // 
             // newBookTable1
             // 
@@ -613,7 +634,7 @@ namespace WinForms
             newBookTable1.Controls.Add(newBookPanel2, 2, 0);
             newBookTable1.Location = new Point(0, 132);
             newBookTable1.Margin = new Padding(0);
-            newBookTable1.Name = "newBook"+newBook.isbn;
+            newBookTable1.Name = "newBook" + newBook.isbn;
             newBookTable1.RowCount = 1;
             newBookTable1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             newBookTable1.Size = new Size(732, 80);
@@ -625,7 +646,7 @@ namespace WinForms
             newBookLabel3.ForeColor = SystemColors.ButtonHighlight;
             newBookLabel3.Location = new Point(0, 0);
             newBookLabel3.Margin = new Padding(0);
-            newBookLabel3.Name = "newBookRank"+newBook.isbn;
+            newBookLabel3.Name = "newBookRank" + newBook.isbn;
             newBookLabel3.Size = new Size(50, 80);
             newBookLabel3.TabIndex = 11;
             newBookLabel3.Text = bookIndex.ToString();
@@ -637,7 +658,7 @@ namespace WinForms
             newBookLabel4.ForeColor = SystemColors.ButtonHighlight;
             newBookLabel4.Location = new Point(681, 0);
             newBookLabel4.Margin = new Padding(0);
-            newBookLabel4.Name = "newBookScore"+newBook.isbn;
+            newBookLabel4.Name = "newBookScore" + newBook.isbn;
             newBookLabel4.Size = new Size(50, 80);
             newBookLabel4.TabIndex = 14;
             newBookLabel4.Text = bookScore.ToString();
@@ -651,7 +672,7 @@ namespace WinForms
             newBookPanel1.GradientSecondaryColor = Color.White;
             newBookPanel1.Location = new Point(50, 0);
             newBookPanel1.Margin = new Padding(0);
-            newBookPanel1.Name = "newBookfavBook"+newBook.isbn;
+            newBookPanel1.Name = "newBookfavBook" + newBook.isbn;
             newBookPanel1.Size = new Size(379, 80);
             newBookPanel1.TabIndex = 12;
             // 
@@ -665,7 +686,7 @@ namespace WinForms
             newBookTable2.Controls.Add(newBookFlowPanel2, 1, 0);
             newBookTable2.Dock = DockStyle.Fill;
             newBookTable2.Location = new Point(0, 0);
-            newBookTable2.Name = "newBookfavBookTable"+newBook.isbn;
+            newBookTable2.Name = "newBookfavBookTable" + newBook.isbn;
             newBookTable2.RowCount = 1;
             newBookTable2.RowStyles.Add(new RowStyle(SizeType.Absolute, 88F));
             newBookTable2.Size = new Size(379, 80);
@@ -676,7 +697,7 @@ namespace WinForms
             newBookLabel5.BackColor = Color.Transparent;
             newBookLabel5.Image = SetHeight(GetBookImage(newBook.index), 82);
             newBookLabel5.Location = new Point(3, 0);
-            newBookLabel5.Name = "newBookImg"+newBook.isbn;
+            newBookLabel5.Name = "newBookImg" + newBook.isbn;
             newBookLabel5.Size = new Size(82, 88);
             newBookLabel5.TabIndex = 0;
             // 
@@ -686,7 +707,7 @@ namespace WinForms
             newBookFlowPanel2.Controls.Add(newBookLabel7);
             newBookFlowPanel2.Dock = DockStyle.Fill;
             newBookFlowPanel2.Location = new Point(91, 3);
-            newBookFlowPanel2.Name = "newBookTitlePanel"+newBook.isbn;
+            newBookFlowPanel2.Name = "newBookTitlePanel" + newBook.isbn;
             newBookFlowPanel2.Size = new Size(285, 82);
             newBookFlowPanel2.TabIndex = 1;
             // 
@@ -698,7 +719,7 @@ namespace WinForms
             newBookLabel6.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             newBookLabel6.ForeColor = SystemColors.ControlLight;
             newBookLabel6.Location = new Point(3, 0);
-            newBookLabel6.Name = "newBookTitle"+newBook.isbn;
+            newBookLabel6.Name = "newBookTitle" + newBook.isbn;
             newBookLabel6.Size = new Size(50, 28);
             newBookLabel6.TabIndex = 1;
             newBookLabel6.Text = newBook.title;
@@ -711,7 +732,7 @@ namespace WinForms
             newBookLabel7.Font = new Font("Exo ExtraBold", 7.799999F, FontStyle.Bold, GraphicsUnit.Point);
             newBookLabel7.ForeColor = SystemColors.ControlLight;
             newBookLabel7.Location = new Point(3, 28);
-            newBookLabel7.Name = "newBookAuthor"+newBook.isbn;
+            newBookLabel7.Name = "newBookAuthor" + newBook.isbn;
             newBookLabel7.Size = new Size(50, 19);
             newBookLabel7.TabIndex = 3;
             newBookLabel7.Text = "author";
@@ -725,7 +746,7 @@ namespace WinForms
             newBookPanel2.GradientSecondaryColor = Color.White;
             newBookPanel2.Location = new Point(429, 0);
             newBookPanel2.Margin = new Padding(0);
-            newBookPanel2.Name = "newBookCategoryPanel"+newBook.isbn;
+            newBookPanel2.Name = "newBookCategoryPanel" + newBook.isbn;
             newBookPanel2.Size = new Size(252, 80);
             newBookPanel2.TabIndex = 13;
             // 
@@ -736,7 +757,7 @@ namespace WinForms
             newBookFlowPanel1.Dock = DockStyle.Fill;
             newBookFlowPanel1.Location = new Point(0, 0);
             newBookFlowPanel1.Margin = new Padding(0);
-            newBookFlowPanel1.Name = "newBookCategoryFlowPanel"+newBook.isbn;
+            newBookFlowPanel1.Name = "newBookCategoryFlowPanel" + newBook.isbn;
             newBookFlowPanel1.Size = new Size(252, 80);
             newBookFlowPanel1.TabIndex = 2;
             // 
@@ -748,7 +769,7 @@ namespace WinForms
             newBookLabel1.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             newBookLabel1.ForeColor = SystemColors.ControlLight;
             newBookLabel1.Location = new Point(3, 0);
-            newBookLabel1.Name = "newBookPublisher"+newBook.isbn;
+            newBookLabel1.Name = "newBookPublisher" + newBook.isbn;
             newBookLabel1.Size = new Size(50, 28);
             newBookLabel1.TabIndex = 1;
             newBookLabel1.Text = newBook.publisher;
@@ -761,7 +782,7 @@ namespace WinForms
             newBookLabel2.Font = new Font("Exo ExtraBold", 7.799999F, FontStyle.Bold, GraphicsUnit.Point);
             newBookLabel2.ForeColor = SystemColors.ControlLight;
             newBookLabel2.Location = new Point(3, 28);
-            newBookLabel2.Name = "newBookYear"+newBook.isbn;
+            newBookLabel2.Name = "newBookYear" + newBook.isbn;
             newBookLabel2.Size = new Size(50, 19);
             newBookLabel2.TabIndex = 3;
             newBookLabel2.Text = newBook.year.ToString();
@@ -1360,9 +1381,12 @@ namespace WinForms
             List<UserRating> userHistory = GetUserHistory(currentUser.userId);
             //foreach (UserRating r in userHistory) GetBookInformation(r.isbn);
             #region update favorite list
-            for (int i = 0; i < userHistory.Count; i++)
+            List<UserRating> favList = userHistory;
+            favList.Sort();
+            for (int i = 0; i < favList.Count; i++)
             {
-                AddFavBook(GetBookInformation(userHistory.ElementAt(i).isbn), i + 1, userHistory.ElementAt(i).rate);
+                if (favList.ElementAt(i).rate != 0)
+                AddFavBook(GetBookInformation(favList.ElementAt(i).isbn), i + 1, favList.ElementAt(i).rate);
             }
 
             #endregion
