@@ -1200,6 +1200,9 @@ namespace WinForms
             currentUser = GetUserInformation(username);
             toolTip1.SetToolTip(user, currentUser.username + " #" + currentUser.userId);
             user.Image = SetWidth(Image.FromStream(LoaderFromURL(currentUser.profileImage) == null ? LoaderFromURL(bookList.ElementAt(0).lURL) : LoaderFromURL(currentUser.profileImage)), user.Width);
+            // get history list
+            List<UserRating> userHistory = GetUserHistory(currentUser.userId);
+            foreach (UserRating r in userHistory) GetBookInformation(r.isbn);
 
             homeFlowPanel.Controls.Add(bestBookFlowPanel);
             bestBookFlowPanel.Visible = true;
