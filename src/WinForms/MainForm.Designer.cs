@@ -64,7 +64,7 @@ namespace WinForms
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            //SingleTextView singleTextView2 = new TSkin.ST.SingleTextView();
+            //SingleTextView singleTextView1 = new TSkin.ST.SingleTextView();
             searchTabeLayout = new TableLayoutPanel();
             verticalMenuBar = new FlowLayoutPanel();
             userLabel = new Label();
@@ -209,8 +209,13 @@ namespace WinForms
             otherImg9 = new Label();
             flowLayoutPanel61 = new FlowLayoutPanel();
             favoritePanel = new FlowLayoutPanel();
-            flowLayoutPanel24 = new FlowLayoutPanel();
+            favFlowPanel = new FlowLayoutPanel();
             favoriteLabel = new Label();
+            favTableHead = new TableLayoutPanel();
+            favBookLabel = new Label();
+            favRankLabel = new Label();
+            scoreLabel = new Label();
+            favPublisherLabel = new Label();
             categoriesPanel = new FlowLayoutPanel();
             flowLayoutPanel42 = new FlowLayoutPanel();
             label93 = new Label();
@@ -399,23 +404,6 @@ namespace WinForms
             close = new ToolStripButton();
             maximize = new ToolStripButton();
             minimize = new ToolStripButton();
-            favTableHead = new TableLayoutPanel();
-            scoreLabel = new Label();
-            favPublisherLabel = new Label();
-            favRankLabel = new Label();
-            favBookLabel = new Label();
-            label13 = new Label();
-            gradientPanel9 = new GradientPanel();
-            tableLayoutPanel25 = new TableLayoutPanel();
-            label84 = new Label();
-            flowLayoutPanel26 = new FlowLayoutPanel();
-            label85 = new Label();
-            label86 = new Label();
-            gradientPanel1 = new GradientPanel();
-            flowLayoutPanel1 = new FlowLayoutPanel();
-            label1 = new Label();
-            label2 = new Label();
-            label14 = new Label();
             searchTabeLayout.SuspendLayout();
             verticalMenuBar.SuspendLayout();
             verticalTableMenu.SuspendLayout();
@@ -487,7 +475,8 @@ namespace WinForms
             otherResult9.SuspendLayout();
             otherTable9.SuspendLayout();
             favoritePanel.SuspendLayout();
-            flowLayoutPanel24.SuspendLayout();
+            favFlowPanel.SuspendLayout();
+            favTableHead.SuspendLayout();
             categoriesPanel.SuspendLayout();
             flowLayoutPanel42.SuspendLayout();
             gradientPanel12.SuspendLayout();
@@ -570,12 +559,6 @@ namespace WinForms
             tableLayoutPanel5.SuspendLayout();
             tableLayoutPanel40.SuspendLayout();
             toolStrip1.SuspendLayout();
-            favTableHead.SuspendLayout();
-            gradientPanel9.SuspendLayout();
-            tableLayoutPanel25.SuspendLayout();
-            flowLayoutPanel26.SuspendLayout();
-            gradientPanel1.SuspendLayout();
-            flowLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
             // searchTabeLayout
@@ -1802,7 +1785,7 @@ namespace WinForms
             searchBox.Location = new Point(0, 0);
             searchBox.Margin = new Padding(0);
             searchBox.Name = "searchBox";
-            //searchBox.SetTextView = singleTextView2;
+            //searchBox.SetTextView = singleTextView1;
             searchBox.Size = new Size(560, 55);
             searchBox.TabIndex = 5;
             searchBox.Text = "What do you want to read?";
@@ -2483,7 +2466,7 @@ namespace WinForms
             // 
             favoritePanel.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             favoritePanel.AutoScroll = true;
-            favoritePanel.Controls.Add(flowLayoutPanel24);
+            favoritePanel.Controls.Add(favFlowPanel);
             favoritePanel.Location = new Point(0, 1557);
             favoritePanel.Margin = new Padding(0);
             favoritePanel.Name = "favoritePanel";
@@ -2491,25 +2474,22 @@ namespace WinForms
             favoritePanel.TabIndex = 2;
             favoritePanel.Visible = false;
             // 
-            // flowLayoutPanel24
+            // favFlowPanel
             // 
-            flowLayoutPanel24.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            flowLayoutPanel24.Controls.Add(favoriteLabel);
-            flowLayoutPanel24.Controls.Add(favTableHead);
-            flowLayoutPanel24.Controls.Add(label13);
-            flowLayoutPanel24.Controls.Add(gradientPanel9);
-            flowLayoutPanel24.Controls.Add(gradientPanel1);
-            flowLayoutPanel24.Controls.Add(label14);
-            favoritePanel.SetFlowBreak(flowLayoutPanel24, true);
-            flowLayoutPanel24.Location = new Point(0, 27);
-            flowLayoutPanel24.Margin = new Padding(0, 27, 0, 0);
-            flowLayoutPanel24.Name = "flowLayoutPanel24";
-            flowLayoutPanel24.Size = new Size(741, 361);
-            flowLayoutPanel24.TabIndex = 0;
+            favFlowPanel.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            favFlowPanel.Controls.Add(favoriteLabel);
+            favFlowPanel.Controls.Add(favTableHead);
+            favoritePanel.SetFlowBreak(favFlowPanel, true);
+            favFlowPanel.Location = new Point(0, 27);
+            favFlowPanel.Margin = new Padding(0, 27, 0, 0);
+            favFlowPanel.Name = "favFlowPanel";
+            favFlowPanel.Size = new Size(741, 361);
+            favFlowPanel.TabIndex = 0;
+            favFlowPanel.Paint += flowLayoutPanel24_Paint;
             // 
             // favoriteLabel
             // 
-            flowLayoutPanel24.SetFlowBreak(favoriteLabel, true);
+            favFlowPanel.SetFlowBreak(favoriteLabel, true);
             favoriteLabel.Font = new Font("Exo ExtraBold", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point);
             favoriteLabel.ForeColor = SystemColors.ControlLightLight;
             favoriteLabel.Location = new Point(3, 0);
@@ -2517,6 +2497,73 @@ namespace WinForms
             favoriteLabel.Size = new Size(735, 82);
             favoriteLabel.TabIndex = 0;
             favoriteLabel.Text = "Favorite";
+            // 
+            // favTableHead
+            // 
+            favTableHead.ColumnCount = 4;
+            favTableHead.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 50F));
+            favTableHead.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 60F));
+            favTableHead.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 40F));
+            favTableHead.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 50F));
+            favTableHead.Controls.Add(favBookLabel, 1, 0);
+            favTableHead.Controls.Add(favRankLabel, 0, 0);
+            favTableHead.Controls.Add(scoreLabel, 3, 0);
+            favTableHead.Controls.Add(favPublisherLabel, 2, 0);
+            favTableHead.Location = new Point(0, 82);
+            favTableHead.Margin = new Padding(0);
+            favTableHead.Name = "favTableHead";
+            favTableHead.RowCount = 1;
+            favTableHead.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            favTableHead.Size = new Size(732, 50);
+            favTableHead.TabIndex = 8;
+            // 
+            // favBookLabel
+            // 
+            favBookLabel.AutoSize = true;
+            favBookLabel.Dock = DockStyle.Fill;
+            favBookLabel.Font = new Font("Exo ExtraBold", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
+            favBookLabel.ForeColor = SystemColors.ButtonHighlight;
+            favBookLabel.Location = new Point(53, 0);
+            favBookLabel.Name = "favBookLabel";
+            favBookLabel.Size = new Size(373, 50);
+            favBookLabel.TabIndex = 4;
+            favBookLabel.Text = "Book Title";
+            // 
+            // favRankLabel
+            // 
+            favRankLabel.AutoSize = true;
+            favRankLabel.Dock = DockStyle.Fill;
+            favRankLabel.Font = new Font("Exo ExtraBold", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
+            favRankLabel.ForeColor = SystemColors.ButtonHighlight;
+            favRankLabel.Location = new Point(0, 0);
+            favRankLabel.Margin = new Padding(0);
+            favRankLabel.Name = "favRankLabel";
+            favRankLabel.Size = new Size(50, 50);
+            favRankLabel.TabIndex = 3;
+            favRankLabel.Text = "#";
+            favRankLabel.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // scoreLabel
+            // 
+            scoreLabel.BackColor = Color.Transparent;
+            scoreLabel.Image = (Image)resources.GetObject("scoreLabel.Image");
+            scoreLabel.Location = new Point(681, 0);
+            scoreLabel.Margin = new Padding(0);
+            scoreLabel.Name = "scoreLabel";
+            scoreLabel.Size = new Size(51, 50);
+            scoreLabel.TabIndex = 1;
+            // 
+            // favPublisherLabel
+            // 
+            favPublisherLabel.AutoSize = true;
+            favPublisherLabel.Dock = DockStyle.Fill;
+            favPublisherLabel.Font = new Font("Exo ExtraBold", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
+            favPublisherLabel.ForeColor = SystemColors.ButtonHighlight;
+            favPublisherLabel.Location = new Point(432, 0);
+            favPublisherLabel.Name = "favPublisherLabel";
+            favPublisherLabel.Size = new Size(246, 50);
+            favPublisherLabel.TabIndex = 2;
+            favPublisherLabel.Text = "Category";
             // 
             // categoriesPanel
             // 
@@ -4656,219 +4703,6 @@ namespace WinForms
             minimize.Text = "toolStripButton3";
             minimize.Click += toolStripButton3_Click;
             // 
-            // favTableHead
-            // 
-            favTableHead.ColumnCount = 4;
-            favTableHead.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 50F));
-            favTableHead.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 60F));
-            favTableHead.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 40F));
-            favTableHead.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 50F));
-            favTableHead.Controls.Add(favBookLabel, 1, 0);
-            favTableHead.Controls.Add(favRankLabel, 0, 0);
-            favTableHead.Controls.Add(scoreLabel, 3, 0);
-            favTableHead.Controls.Add(favPublisherLabel, 2, 0);
-            favTableHead.Location = new Point(0, 82);
-            favTableHead.Margin = new Padding(0);
-            favTableHead.Name = "favTableHead";
-            favTableHead.RowCount = 1;
-            favTableHead.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            favTableHead.Size = new Size(732, 50);
-            favTableHead.TabIndex = 8;
-            // 
-            // scoreLabel
-            // 
-            scoreLabel.BackColor = Color.Transparent;
-            scoreLabel.Image = (Image)resources.GetObject("scoreLabel.Image");
-            scoreLabel.Location = new Point(681, 0);
-            scoreLabel.Margin = new Padding(0);
-            scoreLabel.Name = "scoreLabel";
-            scoreLabel.Size = new Size(51, 50);
-            scoreLabel.TabIndex = 1;
-            // 
-            // favPublisherLabel
-            // 
-            favPublisherLabel.AutoSize = true;
-            favPublisherLabel.Dock = DockStyle.Fill;
-            favPublisherLabel.Font = new Font("Exo ExtraBold", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
-            favPublisherLabel.ForeColor = SystemColors.ButtonHighlight;
-            favPublisherLabel.Location = new Point(432, 0);
-            favPublisherLabel.Name = "favPublisherLabel";
-            favPublisherLabel.Size = new Size(246, 50);
-            favPublisherLabel.TabIndex = 2;
-            favPublisherLabel.Text = "Category";
-            // 
-            // favRankLabel
-            // 
-            favRankLabel.AutoSize = true;
-            favRankLabel.Dock = DockStyle.Fill;
-            favRankLabel.Font = new Font("Exo ExtraBold", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
-            favRankLabel.ForeColor = SystemColors.ButtonHighlight;
-            favRankLabel.Location = new Point(0, 0);
-            favRankLabel.Margin = new Padding(0);
-            favRankLabel.Name = "favRankLabel";
-            favRankLabel.Size = new Size(50, 50);
-            favRankLabel.TabIndex = 3;
-            favRankLabel.Text = "#";
-            favRankLabel.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // favBookLabel
-            // 
-            favBookLabel.AutoSize = true;
-            favBookLabel.Dock = DockStyle.Fill;
-            favBookLabel.Font = new Font("Exo ExtraBold", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
-            favBookLabel.ForeColor = SystemColors.ButtonHighlight;
-            favBookLabel.Location = new Point(53, 0);
-            favBookLabel.Name = "favBookLabel";
-            favBookLabel.Size = new Size(373, 50);
-            favBookLabel.TabIndex = 4;
-            favBookLabel.Text = "Book Title";
-            // 
-            // label13
-            // 
-            label13.Font = new Font("Exo ExtraBold", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
-            label13.ForeColor = SystemColors.ButtonHighlight;
-            label13.Location = new Point(0, 132);
-            label13.Margin = new Padding(0);
-            label13.Name = "label13";
-            label13.Size = new Size(50, 80);
-            label13.TabIndex = 11;
-            label13.Text = "#";
-            label13.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // gradientPanel9
-            // 
-            gradientPanel9.Controls.Add(tableLayoutPanel25);
-            gradientPanel9.GradientAngle = 60F;
-            gradientPanel9.GradientPrimaryColor = Color.Transparent;
-            gradientPanel9.GradientSecondaryColor = Color.White;
-            gradientPanel9.Location = new Point(50, 132);
-            gradientPanel9.Margin = new Padding(0);
-            gradientPanel9.Name = "gradientPanel9";
-            gradientPanel9.Size = new Size(384, 80);
-            gradientPanel9.TabIndex = 12;
-            // 
-            // tableLayoutPanel25
-            // 
-            tableLayoutPanel25.AutoSize = true;
-            tableLayoutPanel25.ColumnCount = 2;
-            tableLayoutPanel25.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 88F));
-            tableLayoutPanel25.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel25.Controls.Add(label84, 0, 0);
-            tableLayoutPanel25.Controls.Add(flowLayoutPanel26, 1, 0);
-            tableLayoutPanel25.Dock = DockStyle.Fill;
-            tableLayoutPanel25.Location = new Point(0, 0);
-            tableLayoutPanel25.Name = "tableLayoutPanel25";
-            tableLayoutPanel25.RowCount = 1;
-            tableLayoutPanel25.RowStyles.Add(new RowStyle(SizeType.Absolute, 88F));
-            tableLayoutPanel25.Size = new Size(384, 80);
-            tableLayoutPanel25.TabIndex = 0;
-            // 
-            // label84
-            // 
-            label84.BackColor = Color.Transparent;
-            label84.Image = (Image)resources.GetObject("label84.Image");
-            label84.Location = new Point(3, 0);
-            label84.Name = "label84";
-            label84.Size = new Size(82, 88);
-            label84.TabIndex = 0;
-            // 
-            // flowLayoutPanel26
-            // 
-            flowLayoutPanel26.Controls.Add(label85);
-            flowLayoutPanel26.Controls.Add(label86);
-            flowLayoutPanel26.Dock = DockStyle.Fill;
-            flowLayoutPanel26.Location = new Point(91, 3);
-            flowLayoutPanel26.Name = "flowLayoutPanel26";
-            flowLayoutPanel26.Size = new Size(290, 82);
-            flowLayoutPanel26.TabIndex = 1;
-            // 
-            // label85
-            // 
-            label85.AutoSize = true;
-            label85.BackColor = Color.Transparent;
-            flowLayoutPanel26.SetFlowBreak(label85, true);
-            label85.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label85.ForeColor = SystemColors.ControlLight;
-            label85.Location = new Point(3, 0);
-            label85.Name = "label85";
-            label85.Size = new Size(50, 28);
-            label85.TabIndex = 1;
-            label85.Text = "title";
-            // 
-            // label86
-            // 
-            label86.AutoSize = true;
-            label86.BackColor = Color.Transparent;
-            flowLayoutPanel26.SetFlowBreak(label86, true);
-            label86.Font = new Font("Exo ExtraBold", 7.799999F, FontStyle.Bold, GraphicsUnit.Point);
-            label86.ForeColor = SystemColors.ControlLight;
-            label86.Location = new Point(3, 28);
-            label86.Name = "label86";
-            label86.Size = new Size(50, 19);
-            label86.TabIndex = 3;
-            label86.Text = "author";
-            // 
-            // gradientPanel1
-            // 
-            gradientPanel1.Controls.Add(flowLayoutPanel1);
-            gradientPanel1.GradientAngle = 60F;
-            gradientPanel1.GradientPrimaryColor = Color.Transparent;
-            gradientPanel1.GradientSecondaryColor = Color.White;
-            gradientPanel1.Location = new Point(434, 132);
-            gradientPanel1.Margin = new Padding(0);
-            gradientPanel1.Name = "gradientPanel1";
-            gradientPanel1.Size = new Size(256, 80);
-            gradientPanel1.TabIndex = 13;
-            // 
-            // flowLayoutPanel1
-            // 
-            flowLayoutPanel1.Controls.Add(label1);
-            flowLayoutPanel1.Controls.Add(label2);
-            flowLayoutPanel1.Dock = DockStyle.Fill;
-            flowLayoutPanel1.Location = new Point(0, 0);
-            flowLayoutPanel1.Margin = new Padding(0);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(256, 80);
-            flowLayoutPanel1.TabIndex = 2;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.BackColor = Color.Transparent;
-            flowLayoutPanel1.SetFlowBreak(label1, true);
-            label1.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.ForeColor = SystemColors.ControlLight;
-            label1.Location = new Point(3, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(50, 28);
-            label1.TabIndex = 1;
-            label1.Text = "title";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.BackColor = Color.Transparent;
-            flowLayoutPanel1.SetFlowBreak(label2, true);
-            label2.Font = new Font("Exo ExtraBold", 7.799999F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.ForeColor = SystemColors.ControlLight;
-            label2.Location = new Point(3, 28);
-            label2.Name = "label2";
-            label2.Size = new Size(50, 19);
-            label2.TabIndex = 3;
-            label2.Text = "author";
-            // 
-            // label14
-            // 
-            label14.Font = new Font("Exo ExtraBold", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
-            label14.ForeColor = SystemColors.ButtonHighlight;
-            label14.Location = new Point(690, 132);
-            label14.Margin = new Padding(0);
-            label14.Name = "label14";
-            label14.Size = new Size(50, 80);
-            label14.TabIndex = 14;
-            label14.Text = "#";
-            label14.TextAlign = ContentAlignment.MiddleCenter;
-            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -5004,7 +4838,9 @@ namespace WinForms
             otherTable9.ResumeLayout(false);
             otherTable9.PerformLayout();
             favoritePanel.ResumeLayout(false);
-            flowLayoutPanel24.ResumeLayout(false);
+            favFlowPanel.ResumeLayout(false);
+            favTableHead.ResumeLayout(false);
+            favTableHead.PerformLayout();
             categoriesPanel.ResumeLayout(false);
             categoriesPanel.PerformLayout();
             flowLayoutPanel42.ResumeLayout(false);
@@ -5132,16 +4968,6 @@ namespace WinForms
             tableLayoutPanel40.ResumeLayout(false);
             toolStrip1.ResumeLayout(false);
             toolStrip1.PerformLayout();
-            favTableHead.ResumeLayout(false);
-            favTableHead.PerformLayout();
-            gradientPanel9.ResumeLayout(false);
-            gradientPanel9.PerformLayout();
-            tableLayoutPanel25.ResumeLayout(false);
-            flowLayoutPanel26.ResumeLayout(false);
-            flowLayoutPanel26.PerformLayout();
-            gradientPanel1.ResumeLayout(false);
-            flowLayoutPanel1.ResumeLayout(false);
-            flowLayoutPanel1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -5362,7 +5188,7 @@ namespace WinForms
         private Label topSearchTitle;
         private Label topSearchAuthor;
         private FlowLayoutPanel favoritePanel;
-        private FlowLayoutPanel flowLayoutPanel24;
+        private FlowLayoutPanel favFlowPanel;
         private Label favoriteLabel;
         private FlowLayoutPanel categoriesPanel;
         private FlowLayoutPanel flowLayoutPanel42;
@@ -5500,17 +5326,5 @@ namespace WinForms
         private Label favRankLabel;
         private Label scoreLabel;
         private Label favPublisherLabel;
-        private Label label13;
-        private GradientPanel gradientPanel9;
-        private TableLayoutPanel tableLayoutPanel25;
-        private Label label84;
-        private FlowLayoutPanel flowLayoutPanel26;
-        private Label label85;
-        private Label label86;
-        private GradientPanel gradientPanel1;
-        private FlowLayoutPanel flowLayoutPanel1;
-        private Label label1;
-        private Label label2;
-        private Label label14;
     }
 }

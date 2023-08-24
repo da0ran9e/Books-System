@@ -14,6 +14,8 @@ using System.Reflection.Emit;
 using System.Security.Policy;
 using static WinForms.MainForm;
 using System.ComponentModel.DataAnnotations;
+using WinForms.Properties;
+using System.Resources;
 
 namespace WinForms
 {
@@ -271,7 +273,7 @@ namespace WinForms
 
             try
             {
-                cmd = new SqlCommand("select * from books where [isbn] = " + isbn, con);
+                cmd = new SqlCommand("select * from books where [isbn] = '" + isbn + "'", con);
                 con.Open();
                 dr = cmd.ExecuteReader();
                 dr.Read();
@@ -577,6 +579,194 @@ namespace WinForms
             return user;
         }
         #endregion
+
+        #region update favorite list 
+        public void AddFavBook(Book newBook, int bookIndex, int bookScore)
+        {
+            TableLayoutPanel newBookTable1 = new TableLayoutPanel();
+            TableLayoutPanel newBookTable2 = new TableLayoutPanel();
+            System.Windows.Forms.Label newBookLabel1 = new System.Windows.Forms.Label();
+            System.Windows.Forms.Label newBookLabel2 = new System.Windows.Forms.Label();
+            System.Windows.Forms.Label newBookLabel3 = new System.Windows.Forms.Label();
+            System.Windows.Forms.Label newBookLabel4 = new System.Windows.Forms.Label();
+            System.Windows.Forms.Label newBookLabel5 = new System.Windows.Forms.Label();
+            System.Windows.Forms.Label newBookLabel6 = new System.Windows.Forms.Label();
+            System.Windows.Forms.Label newBookLabel7 = new System.Windows.Forms.Label();
+            GradientPanel newBookPanel1 = new GradientPanel();
+            GradientPanel newBookPanel2 = new GradientPanel();
+            FlowLayoutPanel newBookFlowPanel1 = new FlowLayoutPanel();
+            FlowLayoutPanel newBookFlowPanel2 = new FlowLayoutPanel();
+
+
+            favFlowPanel.Controls.Add(newBookTable1);
+            // 
+            // newBookTable1
+            // 
+            newBookTable1.ColumnCount = 4;
+            newBookTable1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 50F));
+            newBookTable1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 60F));
+            newBookTable1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 40F));
+            newBookTable1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 50F));
+            newBookTable1.Controls.Add(newBookLabel3, 0, 0);
+            newBookTable1.Controls.Add(newBookLabel4, 3, 0);
+            newBookTable1.Controls.Add(newBookPanel1, 1, 0);
+            newBookTable1.Controls.Add(newBookPanel2, 2, 0);
+            newBookTable1.Location = new Point(0, 132);
+            newBookTable1.Margin = new Padding(0);
+            newBookTable1.Name = "newBook"+newBook.isbn;
+            newBookTable1.RowCount = 1;
+            newBookTable1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            newBookTable1.Size = new Size(732, 80);
+            newBookTable1.TabIndex = 15;
+            // 
+            // newBookLabel3
+            // 
+            newBookLabel3.Font = new Font("Exo ExtraBold", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
+            newBookLabel3.ForeColor = SystemColors.ButtonHighlight;
+            newBookLabel3.Location = new Point(0, 0);
+            newBookLabel3.Margin = new Padding(0);
+            newBookLabel3.Name = "newBookRank"+newBook.isbn;
+            newBookLabel3.Size = new Size(50, 80);
+            newBookLabel3.TabIndex = 11;
+            newBookLabel3.Text = bookIndex.ToString();
+            newBookLabel3.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // newBookLabel4
+            // 
+            newBookLabel4.Font = new Font("Exo ExtraBold", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
+            newBookLabel4.ForeColor = SystemColors.ButtonHighlight;
+            newBookLabel4.Location = new Point(681, 0);
+            newBookLabel4.Margin = new Padding(0);
+            newBookLabel4.Name = "newBookScore"+newBook.isbn;
+            newBookLabel4.Size = new Size(50, 80);
+            newBookLabel4.TabIndex = 14;
+            newBookLabel4.Text = bookScore.ToString();
+            newBookLabel4.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // newBookPanel1
+            // 
+            newBookPanel1.Controls.Add(newBookTable2);
+            newBookPanel1.GradientAngle = 60F;
+            newBookPanel1.GradientPrimaryColor = Color.Transparent;
+            newBookPanel1.GradientSecondaryColor = Color.White;
+            newBookPanel1.Location = new Point(50, 0);
+            newBookPanel1.Margin = new Padding(0);
+            newBookPanel1.Name = "newBookfavBook"+newBook.isbn;
+            newBookPanel1.Size = new Size(379, 80);
+            newBookPanel1.TabIndex = 12;
+            // 
+            // newBookTable2
+            // 
+            newBookTable2.AutoSize = true;
+            newBookTable2.ColumnCount = 2;
+            newBookTable2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 88F));
+            newBookTable2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            newBookTable2.Controls.Add(newBookLabel5, 0, 0);
+            newBookTable2.Controls.Add(newBookFlowPanel2, 1, 0);
+            newBookTable2.Dock = DockStyle.Fill;
+            newBookTable2.Location = new Point(0, 0);
+            newBookTable2.Name = "newBookfavBookTable"+newBook.isbn;
+            newBookTable2.RowCount = 1;
+            newBookTable2.RowStyles.Add(new RowStyle(SizeType.Absolute, 88F));
+            newBookTable2.Size = new Size(379, 80);
+            newBookTable2.TabIndex = 0;
+            // 
+            // newBookLabel5
+            // 
+            newBookLabel5.BackColor = Color.Transparent;
+            newBookLabel5.Image = SetHeight(GetBookImage(newBook.index), 82);
+            newBookLabel5.Location = new Point(3, 0);
+            newBookLabel5.Name = "newBookImg"+newBook.isbn;
+            newBookLabel5.Size = new Size(82, 88);
+            newBookLabel5.TabIndex = 0;
+            // 
+            // newBookFlowPanel2
+            // 
+            newBookFlowPanel2.Controls.Add(newBookLabel6);
+            newBookFlowPanel2.Controls.Add(newBookLabel7);
+            newBookFlowPanel2.Dock = DockStyle.Fill;
+            newBookFlowPanel2.Location = new Point(91, 3);
+            newBookFlowPanel2.Name = "newBookTitlePanel"+newBook.isbn;
+            newBookFlowPanel2.Size = new Size(285, 82);
+            newBookFlowPanel2.TabIndex = 1;
+            // 
+            // newBookLabel6
+            // 
+            newBookLabel6.AutoSize = true;
+            newBookLabel6.BackColor = Color.Transparent;
+            newBookFlowPanel2.SetFlowBreak(newBookLabel6, true);
+            newBookLabel6.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            newBookLabel6.ForeColor = SystemColors.ControlLight;
+            newBookLabel6.Location = new Point(3, 0);
+            newBookLabel6.Name = "newBookTitle"+newBook.isbn;
+            newBookLabel6.Size = new Size(50, 28);
+            newBookLabel6.TabIndex = 1;
+            newBookLabel6.Text = newBook.title;
+            // 
+            // newBookLabel7
+            // 
+            newBookLabel7.AutoSize = true;
+            newBookLabel7.BackColor = Color.Transparent;
+            newBookFlowPanel2.SetFlowBreak(newBookLabel7, true);
+            newBookLabel7.Font = new Font("Exo ExtraBold", 7.799999F, FontStyle.Bold, GraphicsUnit.Point);
+            newBookLabel7.ForeColor = SystemColors.ControlLight;
+            newBookLabel7.Location = new Point(3, 28);
+            newBookLabel7.Name = "newBookAuthor"+newBook.isbn;
+            newBookLabel7.Size = new Size(50, 19);
+            newBookLabel7.TabIndex = 3;
+            newBookLabel7.Text = "author";
+            // 
+            // newBookPanel2
+            // 
+            newBookPanel2.Controls.Add(newBookFlowPanel1);
+            newBookPanel2.Dock = DockStyle.Fill;
+            newBookPanel2.GradientAngle = 60F;
+            newBookPanel2.GradientPrimaryColor = Color.Transparent;
+            newBookPanel2.GradientSecondaryColor = Color.White;
+            newBookPanel2.Location = new Point(429, 0);
+            newBookPanel2.Margin = new Padding(0);
+            newBookPanel2.Name = "newBookCategoryPanel"+newBook.isbn;
+            newBookPanel2.Size = new Size(252, 80);
+            newBookPanel2.TabIndex = 13;
+            // 
+            // newBookFlowPanel1
+            // 
+            newBookFlowPanel1.Controls.Add(newBookLabel1);
+            newBookFlowPanel1.Controls.Add(newBookLabel2);
+            newBookFlowPanel1.Dock = DockStyle.Fill;
+            newBookFlowPanel1.Location = new Point(0, 0);
+            newBookFlowPanel1.Margin = new Padding(0);
+            newBookFlowPanel1.Name = "newBookCategoryFlowPanel"+newBook.isbn;
+            newBookFlowPanel1.Size = new Size(252, 80);
+            newBookFlowPanel1.TabIndex = 2;
+            // 
+            // newBookLabel1
+            // 
+            newBookLabel1.AutoSize = true;
+            newBookLabel1.BackColor = Color.Transparent;
+            newBookFlowPanel1.SetFlowBreak(newBookLabel1, true);
+            newBookLabel1.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            newBookLabel1.ForeColor = SystemColors.ControlLight;
+            newBookLabel1.Location = new Point(3, 0);
+            newBookLabel1.Name = "newBookPublisher"+newBook.isbn;
+            newBookLabel1.Size = new Size(50, 28);
+            newBookLabel1.TabIndex = 1;
+            newBookLabel1.Text = newBook.publisher;
+            // 
+            // newBookLabel2
+            // 
+            newBookLabel2.AutoSize = true;
+            newBookLabel2.BackColor = Color.Transparent;
+            newBookFlowPanel1.SetFlowBreak(newBookLabel2, true);
+            newBookLabel2.Font = new Font("Exo ExtraBold", 7.799999F, FontStyle.Bold, GraphicsUnit.Point);
+            newBookLabel2.ForeColor = SystemColors.ControlLight;
+            newBookLabel2.Location = new Point(3, 28);
+            newBookLabel2.Name = "newBookYear"+newBook.isbn;
+            newBookLabel2.Size = new Size(50, 19);
+            newBookLabel2.TabIndex = 3;
+            newBookLabel2.Text = newBook.year.ToString();
+        }
+        #endregion
         //
         //MainForm only work went user login successfully
         //
@@ -625,6 +815,7 @@ namespace WinForms
         {
             LoadingForm loading = new LoadingForm(100);
             loading.Show();
+
             #region Set tables double buffered 
             SetDoubleBuffer(recommentTable3, true);
             SetDoubleBuffer(searchLayoutTable, true);
@@ -729,14 +920,8 @@ namespace WinForms
             SetDoubleBuffer(topSearchAuthor, true);
             SetDoubleBuffer(flowLayoutPanel61, true);
             SetDoubleBuffer(favoritePanel, true);
-            SetDoubleBuffer(flowLayoutPanel24, true);
+            SetDoubleBuffer(favFlowPanel, true);
             SetDoubleBuffer(favoriteLabel, true);
-            SetDoubleBuffer(gradientPanel9, true);
-            SetDoubleBuffer(tableLayoutPanel25, true);
-            SetDoubleBuffer(label84, true);
-            SetDoubleBuffer(flowLayoutPanel26, true);
-            SetDoubleBuffer(label85, true);
-            SetDoubleBuffer(label86, true);
             SetDoubleBuffer(categoriesPanel, true);
             SetDoubleBuffer(flowLayoutPanel42, true);
             SetDoubleBuffer(label93, true);
@@ -983,10 +1168,7 @@ namespace WinForms
             SetDoubleBuffer(otherResult9, true);
             SetDoubleBuffer(otherTable9, true);
             SetDoubleBuffer(favoritePanel, true);
-            SetDoubleBuffer(flowLayoutPanel24, true);
-            SetDoubleBuffer(gradientPanel9, true);
-            SetDoubleBuffer(tableLayoutPanel25, true);
-            SetDoubleBuffer(flowLayoutPanel26, true);
+            SetDoubleBuffer(favFlowPanel, true);
             SetDoubleBuffer(categoriesPanel, true);
             SetDoubleBuffer(flowLayoutPanel42, true);
             SetDoubleBuffer(gradientPanel12, true);
@@ -1176,8 +1358,14 @@ namespace WinForms
             user.Image = SetWidth(Image.FromStream(LoaderFromURL(currentUser.profileImage) == null ? LoaderFromURL(bookList.ElementAt(0).lURL) : LoaderFromURL(currentUser.profileImage)), user.Width);
             // get history list
             List<UserRating> userHistory = GetUserHistory(currentUser.userId);
-            foreach (UserRating r in userHistory) GetBookInformation(r.isbn);
+            //foreach (UserRating r in userHistory) GetBookInformation(r.isbn);
+            #region update favorite list
+            for (int i = 0; i < userHistory.Count; i++)
+            {
+                AddFavBook(GetBookInformation(userHistory.ElementAt(i).isbn), i + 1, userHistory.ElementAt(i).rate);
+            }
 
+            #endregion
             homeFlowPanel.Controls.Add(bestBookFlowPanel);
             bestBookFlowPanel.Visible = true;
 
@@ -1853,5 +2041,9 @@ namespace WinForms
         }
         #endregion
 
+        private void flowLayoutPanel24_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
