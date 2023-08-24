@@ -470,7 +470,7 @@ namespace WinForms
 
         public struct User
         {
-            public int userId { get; }
+            public int userId { get; set; }
             public string fname { get; set; }
             public string lname { get; set; }
             public string username { get; set; }
@@ -519,6 +519,43 @@ namespace WinForms
             }
         }
 
+        private User GetUserInformation(string username)
+        {
+            User user = new User();
+            try
+            {
+                cmd = new SqlCommand("select * from users where [username] = '" + username + "'", con);
+                con.Open();
+                dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    user.userId = dr.GetFieldValue<int>(0);
+                    user.fname = dr.GetFieldValue<string>(1);
+                    user.lname = dr.GetFieldValue<string>(2);
+                    user.username = dr.GetFieldValue<string>(3);
+                    user.password = dr.GetFieldValue<string>(4);
+                    user.email = dr.GetFieldValue<string>(5);
+                    user.phone = dr.GetFieldValue<string>(6);
+                    user.gender = dr.GetFieldValue<int>(7);
+                    user.date = dr.GetFieldValue<string>(8);
+                    user.profileImage = dr.GetFieldValue<string>(9);
+                    user.age = dr.GetFieldValue<int>(10);
+                    user.location = dr.GetFieldValue<string>(11);
+                    user.nation = dr.GetFieldValue<string>(12);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                if (dr != null) dr.Close();
+                if (con != null) con.Close();
+            }
+            return user;
+        }
         #endregion
         //
         //MainForm only work went user login successfully
