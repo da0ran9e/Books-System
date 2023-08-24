@@ -64,14 +64,29 @@ namespace WinForms
             return (Image)(new Bitmap(imgToResize, size));
         }
 
+        public static Image SetWidth(Image imgToResize, int width)
+        {
+            int w = imgToResize.Width;
+            int h = imgToResize.Height;
+            int height = (width * h / w);
+            Size size = new Size(width, height);
+            return (Image)(new Bitmap(imgToResize, size));
+        }
+
         private Stream LoaderFromURL(string url)
         {
-            HttpClient client = new HttpClient();
-            client.DefaultRequestHeaders.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.63 Safari/537.36");
-            HttpResponseMessage response = client.GetAsync(url).Result;
-            response.EnsureSuccessStatusCode();
+            try
+            {
+                HttpClient client = new HttpClient();
+                client.DefaultRequestHeaders.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.63 Safari/537.36");
+                HttpResponseMessage response = client.GetAsync(url).Result;
+                response.EnsureSuccessStatusCode();
 
-            return response.Content.ReadAsStreamAsync().Result;
+                return response.Content.ReadAsStreamAsync().Result;
+            }
+            catch {
+                return null;
+            }            
         }
 
         private Image GetBookImage(int index)
@@ -413,7 +428,7 @@ namespace WinForms
         {
             public int userId { get; set; }
             public string isbn { get; set; }
-            public int rate { get; set; }
+            public byte rate { get; set; }
 
 
             public UserRating()
@@ -423,7 +438,7 @@ namespace WinForms
                 this.rate = 0;
             }
 
-            public UserRating(int userId, string isbn, int rate)
+            public UserRating(int userId, string isbn, byte rate)
             {
                 this.userId = userId;
                 this.isbn = isbn;
@@ -452,7 +467,7 @@ namespace WinForms
                 {
                     rating.userId = dr.GetFieldValue<int>(0);
                     rating.isbn = dr.GetFieldValue<string>(1);
-                    rating.rate = dr.GetFieldValue<int>(2);
+                    rating.rate = dr.GetFieldValue<byte>(2);
 
                     userHistory.Add(rating);
                     ratings.Add(rating);
@@ -483,8 +498,8 @@ namespace WinForms
             public string password { get; set; }
             public string email { get; set; }
             public string phone { get; set; }
-            public int gender { get; set; }
-            public string date { get; set; }
+            public byte gender { get; set; }
+            public DateTime date { get; set; }
             public string profileImage { get; set; }
             public int age { get; set; }
             public string location { get; set; }
@@ -500,14 +515,14 @@ namespace WinForms
                 this.email = null;
                 this.phone = null;
                 this.gender = 0;
-                this.date = null;
+                this.date = new DateTime(1800, 01, 01);
                 this.profileImage = null;
                 this.age = 0;
                 this.location = null;
                 this.nation = null; 
             }
 
-            public User(int userId, string fname, string lname, string username, string password, string email, string phone, int gender, string date, string profileImage, int age, string location, string nation)
+            public User(int userId, string fname, string lname, string username, string password, string email, string phone, byte gender, DateTime date, string profileImage, int age, string location, string nation)
             {
                 this.userId = userId;
                 this.fname = fname;
@@ -541,13 +556,12 @@ namespace WinForms
                 user.password = dr.GetFieldValue<string>(4);
                 user.email = dr.IsDBNull("email") ? null : dr.GetFieldValue<string>("email");
                 user.phone = dr.IsDBNull("phone") ? null : dr.GetFieldValue<string>("phone");
-                user.gender = dr.GetFieldValue<int>(7);
-                user.date = dr.IsDBNull("date") ? null : dr.GetFieldValue<string>("date");
+                user.gender = dr.GetFieldValue<byte>(7);
+                user.date = dr.IsDBNull("birthDate") ? new DateTime(1800, 01, 01) : dr.GetFieldValue<DateTime>("birthDate");
                 user.profileImage = dr.IsDBNull("profileImage") ? null : dr.GetFieldValue<string>("profileImage");
                 user.age = dr.IsDBNull("age") ? 0 : dr.GetFieldValue<int>("age");
                 user.location = dr.IsDBNull("location") ? null : dr.GetFieldValue<string>("location");
                 user.nation = dr.IsDBNull("nation") ? null : dr.GetFieldValue<string>("nation");
-
             }
             catch (Exception ex)
             {
@@ -1082,11 +1096,8 @@ namespace WinForms
             SetDoubleBuffer(tableLayoutPanel40, true);
             SetDoubleBuffer(toolStrip1, true);
 
-            #endregion
-            //update userlabel
-            currentUser = GetUserInformation(username);
-            toolTip1.SetToolTip(user,currentUser.username +" #"+ currentUser.userId);
-
+            #endregion          
+            
             #region test application graphic by getting random index of books
             Random rand = new Random();
             int randC = rand.Next(1, 1000);
@@ -1184,6 +1195,11 @@ namespace WinForms
             bestBookTitle3.Text = bestBook3.title;
             bestBookAuthor3.Text = bestBook3.author;
             #endregion
+
+            //update userlabel
+            currentUser = GetUserInformation(username);
+            toolTip1.SetToolTip(user, currentUser.username + " #" + currentUser.userId);
+            user.Image = SetWidth(Image.FromStream(LoaderFromURL(currentUser.profileImage) == null ? LoaderFromURL(bookList.ElementAt(0).lURL) : LoaderFromURL(currentUser.profileImage)), user.Width);
 
             homeFlowPanel.Controls.Add(bestBookFlowPanel);
             bestBookFlowPanel.Visible = true;
