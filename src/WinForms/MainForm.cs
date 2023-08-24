@@ -37,6 +37,7 @@ namespace WinForms
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+                Console.WriteLine(ex.StackTrace);
             }
         }
         #endregion
@@ -239,6 +240,7 @@ namespace WinForms
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+                Console.WriteLine(ex.StackTrace);
             }
             finally
             {
@@ -282,6 +284,7 @@ namespace WinForms
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+                Console.WriteLine(ex.StackTrace);
             }
             finally
             {
@@ -348,6 +351,7 @@ namespace WinForms
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+                Console.WriteLine(ex.StackTrace);
             }
             finally
             {
@@ -389,6 +393,7 @@ namespace WinForms
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+                Console.WriteLine(ex.StackTrace);
             }
             finally
             {
@@ -456,6 +461,7 @@ namespace WinForms
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+                Console.WriteLine(ex.StackTrace);
             }
             finally
             {
@@ -518,7 +524,7 @@ namespace WinForms
                 this.nation = nation;
             }
         }
-
+        User currentUser = new User();
         private User GetUserInformation(string username)
         {
             User user = new User();
@@ -527,27 +533,26 @@ namespace WinForms
                 cmd = new SqlCommand("select * from users where [username] = '" + username + "'", con);
                 con.Open();
                 dr = cmd.ExecuteReader();
+                dr.Read();
+                user.userId = dr.GetFieldValue<int>(0);
+                user.fname = dr.IsDBNull("firstName") ? null : dr.GetFieldValue<string>("firstName");
+                user.lname = dr.IsDBNull("lastName") ? null : dr.GetFieldValue<string>("lastName");
+                user.username = dr.GetFieldValue<string>("username");
+                user.password = dr.GetFieldValue<string>(4);
+                user.email = dr.IsDBNull("email") ? null : dr.GetFieldValue<string>("email");
+                user.phone = dr.IsDBNull("phone") ? null : dr.GetFieldValue<string>("phone");
+                user.gender = dr.GetFieldValue<int>(7);
+                user.date = dr.IsDBNull("date") ? null : dr.GetFieldValue<string>("date");
+                user.profileImage = dr.IsDBNull("profileImage") ? null : dr.GetFieldValue<string>("profileImage");
+                user.age = dr.IsDBNull("age") ? 0 : dr.GetFieldValue<int>("age");
+                user.location = dr.IsDBNull("location") ? null : dr.GetFieldValue<string>("location");
+                user.nation = dr.IsDBNull("nation") ? null : dr.GetFieldValue<string>("nation");
 
-                while (dr.Read())
-                {
-                    user.userId = dr.GetFieldValue<int>(0);
-                    user.fname = dr.GetFieldValue<string>(1);
-                    user.lname = dr.GetFieldValue<string>(2);
-                    user.username = dr.GetFieldValue<string>(3);
-                    user.password = dr.GetFieldValue<string>(4);
-                    user.email = dr.GetFieldValue<string>(5);
-                    user.phone = dr.GetFieldValue<string>(6);
-                    user.gender = dr.GetFieldValue<int>(7);
-                    user.date = dr.GetFieldValue<string>(8);
-                    user.profileImage = dr.GetFieldValue<string>(9);
-                    user.age = dr.GetFieldValue<int>(10);
-                    user.location = dr.GetFieldValue<string>(11);
-                    user.nation = dr.GetFieldValue<string>(12);
-                }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+                Console.WriteLine(ex.StackTrace);
             }
             finally
             {
@@ -1079,7 +1084,8 @@ namespace WinForms
 
             #endregion
             //update userlabel
-            toolTip1.SetToolTip(user, username);
+            currentUser = GetUserInformation(username);
+            toolTip1.SetToolTip(user,currentUser.username +" #"+ currentUser.userId);
 
             #region test application graphic by getting random index of books
             Random rand = new Random();
