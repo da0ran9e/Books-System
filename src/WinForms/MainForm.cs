@@ -13,6 +13,7 @@ using System.Reflection;
 using System.Reflection.Emit;
 using System.Security.Policy;
 using static WinForms.MainForm;
+using System.ComponentModel.DataAnnotations;
 
 namespace WinForms
 {
@@ -246,6 +247,49 @@ namespace WinForms
             }
             return book;
         }
+        private Book GetBookInformation(string isbn)
+        {
+            Book book = new Book();
+
+            try
+            {
+                cmd = new SqlCommand("select * from books where [isbn] = " + isbn, con);
+                con.Open();
+                dr = cmd.ExecuteReader();
+                dr.Read();
+
+                if (dr.HasRows)
+                {
+                    book.index = dr.GetFieldValue<int>(0);
+                    book.isbn = dr.GetFieldValue<string>(1);
+                    book.title = dr.GetFieldValue<string>(2);
+                    book.author = dr.GetFieldValue<string>(3);
+                    book.year = dr.GetFieldValue<int>(4);
+                    book.publisher = dr.GetFieldValue<string>(5);
+                    book.sURL = dr.GetFieldValue<string>(6);
+                    book.mURL = dr.GetFieldValue<string>(7);
+                    book.lURL = dr.GetFieldValue<string>(8);
+
+                    bookList.Add(book);
+                    return book;
+                }
+                else
+                {
+                    dr.Close();
+                    con.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                if (dr != null) dr.Close();
+                if (con != null) con.Close();
+            }
+            return book;
+        }
 
         private List<Book> SearchBookInformation(string searchKey)
         {
@@ -353,6 +397,128 @@ namespace WinForms
             }
             return books;
         }
+        #endregion
+
+        #region user reading information
+        private List<UserRating> userHistory = new List<UserRating>();
+        //
+        //Book object
+        //
+        public struct UserRating
+        {
+            public int userId { get; set; }
+            public string isbn { get; set; }
+            public int rate { get; set; }
+
+
+            public UserRating()
+            {
+                this.userId = -1;
+                this.isbn = null;
+                this.rate = 0;
+            }
+
+            public UserRating(int userId, string isbn, int rate)
+            {
+                this.userId = userId;
+                this.isbn = isbn;
+                this.rate = rate;
+            }
+
+            public UserRating(int userId, string isbn)
+            {
+                this.userId = userId;
+                this.isbn = isbn;
+                this.rate = 0;
+            }
+        }
+
+        private List<UserRating> GetUserHistory(int userId)
+        {
+            List<UserRating> ratings = new List<UserRating>();
+            UserRating rating = new UserRating();
+            try
+            {
+                cmd = new SqlCommand("select * from ratings where [userId] = " + userId, con);
+                con.Open();
+                dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    rating.userId = dr.GetFieldValue<int>(0);
+                    rating.isbn = dr.GetFieldValue<string>(1);
+                    rating.rate = dr.GetFieldValue<int>(2);
+
+                    userHistory.Add(rating);
+                    ratings.Add(rating);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                if (dr != null) dr.Close();
+                if (con != null) con.Close();
+            }
+            return ratings;
+        }
+        #endregion
+
+        #region user information
+
+        public struct User
+        {
+            public int userId { get; }
+            public string fname { get; set; }
+            public string lname { get; set; }
+            public string username { get; set; }
+            public string password { get; set; }
+            public string email { get; set; }
+            public string phone { get; set; }
+            public int gender { get; set; }
+            public string date { get; set; }
+            public string profileImage { get; set; }
+            public int age { get; set; }
+            public string location { get; set; }
+            public string nation { get; set; }
+
+            public User()
+            {
+                this.userId = -1;
+                this.fname = null;
+                this.lname = null;
+                this.username = null;
+                this.password = null;
+                this.email = null;
+                this.phone = null;
+                this.gender = 0;
+                this.date = null;
+                this.profileImage = null;
+                this.age = 0;
+                this.location = null;
+                this.nation = null; 
+            }
+
+            public User(int userId, string fname, string lname, string username, string password, string email, string phone, int gender, string date, string profileImage, int age, string location, string nation)
+            {
+                this.userId = userId;
+                this.fname = fname;
+                this.lname = lname;
+                this.username = username;
+                this.password = password;
+                this.email = email;
+                this.phone = phone;
+                this.gender = gender;
+                this.date = date;
+                this.profileImage = profileImage;
+                this.age = age;
+                this.location = location;
+                this.nation = nation;
+            }
+        }
+
         #endregion
         //
         //MainForm only work went user login successfully
