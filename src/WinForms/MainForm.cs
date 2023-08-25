@@ -1156,6 +1156,10 @@ namespace WinForms
             FlowLayoutPanel otherCategoryNameFlowPanel = new FlowLayoutPanel();
             System.Windows.Forms.Label otherCategoryName = new System.Windows.Forms.Label();
 
+            SetDoubleBuffer(otherCategory, true);
+            SetDoubleBuffer(otherCategoryNamePanel, true);
+            SetDoubleBuffer(otherCategoryNameFlowPanel, true);
+            SetDoubleBuffer(otherCategoryName, true);
 
             otherCategoriesPanel.Controls.Add(otherCategory);
             // 
@@ -1172,9 +1176,12 @@ namespace WinForms
             // 
             // otherCategory
             // 
-            otherCategory.AccessibleName = "name";
+            otherCategory.AccessibleName = newBook.publisher;
+            otherCategory.AccessibleDescription = newBook.title;
+            otherCategory.Click += OtherCategory_Click;
+            otherCategory.Click += CategoryBook_Click;
             otherCategory.BackColor = Color.Transparent;
-            otherCategory.BackgroundImage = SetHeight(GetBookImage(newBook.index), 82);
+            otherCategory.BackgroundImage = SetWidth(GetBookImage(newBook.index), 349);
             otherCategory.BackgroundImageLayout = ImageLayout.Stretch;
             otherCategory.Controls.Add(otherCategoryNamePanel);
             otherCategory.GradientAngle = 60F;
@@ -1200,7 +1207,10 @@ namespace WinForms
             // 
             // otherCategoryNameFlowPanel
             // 
-            otherCategoryNameFlowPanel.AccessibleName = "name";
+            otherCategoryNameFlowPanel.AccessibleName = newBook.publisher;
+            otherCategoryNameFlowPanel.AccessibleDescription = newBook.title;
+            otherCategoryNameFlowPanel.Click += OtherCategory_Click;
+            otherCategoryNameFlowPanel.Click += CategoryBook_Click;
             otherCategoryNameFlowPanel.Controls.Add(otherCategoryName);
             otherCategoryNameFlowPanel.Dock = DockStyle.Fill;
             otherCategoryNameFlowPanel.FlowDirection = FlowDirection.BottomUp;
@@ -1212,7 +1222,10 @@ namespace WinForms
             // 
             // otherCategoryName
             // 
-            otherCategoryName.AccessibleName = "name";
+            otherCategoryName.AccessibleName = newBook.publisher;
+            otherCategoryName.AccessibleDescription = newBook.title;
+            otherCategoryName.Click += OtherCategory_Click;
+            otherCategoryName.Click += CategoryBook_Click;
             otherCategoryName.AutoSize = true;
             otherCategoryNameFlowPanel.SetFlowBreak(otherCategoryName, true);
             otherCategoryName.Font = new Font("Exo ExtraBold", 18F, FontStyle.Bold, GraphicsUnit.Point);
@@ -1221,7 +1234,19 @@ namespace WinForms
             otherCategoryName.Name = "otherCategoryName";
             otherCategoryName.Size = new Size(231, 42);
             otherCategoryName.TabIndex = 1;
-            otherCategoryName.Text = "Other category";
+            otherCategoryName.Text = newBook.publisher;
+        }
+
+        public void OtherCategory_Click(object sender, EventArgs e)
+        {
+            Control a = sender as Control;
+            //updateCurrentBook(bookPicking(a.AccessibleName));
+        }
+
+        public void CategoryBook_Click(object sender, EventArgs e)
+        {
+            Control a = sender as Control;
+            updateCurrentBook(bookPicking(a.AccessibleDescription));
         }
         #endregion
 
@@ -1762,6 +1787,23 @@ namespace WinForms
             user.Image = SetWidth(Image.FromStream(LoaderFromURL(currentUser.profileImage) == null ? LoaderFromURL(bookList.ElementAt(0).lURL) : LoaderFromURL(currentUser.profileImage)), user.Width);
             // get history list
             List<UserRating> userHistory = GetUserHistory(currentUser.userId);
+
+            #region update category list
+            List<string> publisherList = new List<string>();
+            for (int i=0;  i<userHistory.Count; i++)
+            {
+                Book catBook = GetBookInformation(userHistory.ElementAt(i).isbn);
+                if(catBook.title != null)
+                {
+                    if (!publisherList.Contains(catBook.publisher))
+                    {
+                        publisherList.Add(catBook.publisher);
+                        AddOtherCategoryBook(catBook);
+                    }
+                    
+                }
+            }
+            #endregion
 
             #region update favorite list
             List<UserRating> favList = userHistory;
