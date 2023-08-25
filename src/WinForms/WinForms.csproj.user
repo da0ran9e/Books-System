@@ -22,5 +22,8 @@
     <Compile Update="TransparentTextbox.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Update="UserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 </Project>

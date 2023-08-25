@@ -1851,7 +1851,6 @@ namespace WinForms
             g.FillRectangle(lgb, contentContainer.ClientRectangle);
         }
 
-
         #region Update welcome panel by real time detector and change color
         private void helloPanel_Paint(object sender, PaintEventArgs e)
         {
@@ -2317,7 +2316,7 @@ namespace WinForms
         private void MainForm_Resize(object sender, EventArgs e)
         {
             //content resize
-            contentContainer.Height = mainFlowPanel.Height + difH;
+            contentContainer.Height = mainFlowPanel.Height + difH+15;
             //homeFlowPanel resize
             homeFlowPanel.Height = mainFlowPanel.Height + difH;
             homeFlowPanel.Width = mainFlowPanel.Width + difW;
