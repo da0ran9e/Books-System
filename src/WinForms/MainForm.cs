@@ -620,8 +620,8 @@ namespace WinForms
 
 
             favFlowPanel.Controls.Add(newBookTable1);
-            
-            
+
+
             // 
             // newBookTable1
             // 
@@ -893,7 +893,7 @@ namespace WinForms
             #region Set tables double buffered 
             SetDoubleBuffer(recommentTable3, true);
             SetDoubleBuffer(searchLayoutTable, true);
-            SetDoubleBuffer(tableLayoutPanel45, true);
+
 
             SetDoubleBuffer(searchTabeLayout, true);
             SetDoubleBuffer(verticalMenuBar, true);
@@ -998,31 +998,13 @@ namespace WinForms
             SetDoubleBuffer(favoriteLabel, true);
             SetDoubleBuffer(categoriesPanel, true);
             SetDoubleBuffer(flowLayoutPanel42, true);
-            SetDoubleBuffer(label93, true);
+            SetDoubleBuffer(categoryMainLabel, true);
             SetDoubleBuffer(gradientPanel12, true);
             SetDoubleBuffer(tableLayoutPanel42, true);
             SetDoubleBuffer(label94, true);
             SetDoubleBuffer(flowLayoutPanel43, true);
             SetDoubleBuffer(label95, true);
             SetDoubleBuffer(label96, true);
-            SetDoubleBuffer(gradientPanel13, true);
-            SetDoubleBuffer(tableLayoutPanel43, true);
-            SetDoubleBuffer(label97, true);
-            SetDoubleBuffer(flowLayoutPanel44, true);
-            SetDoubleBuffer(label98, true);
-            SetDoubleBuffer(label99, true);
-            SetDoubleBuffer(gradientPanel14, true);
-            SetDoubleBuffer(tableLayoutPanel44, true);
-            SetDoubleBuffer(label100, true);
-            SetDoubleBuffer(flowLayoutPanel45, true);
-            SetDoubleBuffer(label101, true);
-            SetDoubleBuffer(label102, true);
-            SetDoubleBuffer(gradientPanel15, true);
-            SetDoubleBuffer(tableLayoutPanel45, true);
-            SetDoubleBuffer(label103, true);
-            SetDoubleBuffer(flowLayoutPanel46, true);
-            SetDoubleBuffer(label104, true);
-            SetDoubleBuffer(label105, true);
             SetDoubleBuffer(historyPanel, true);
             SetDoubleBuffer(flowLayoutPanel47, true);
             SetDoubleBuffer(label106, true);
@@ -1248,15 +1230,6 @@ namespace WinForms
             SetDoubleBuffer(gradientPanel12, true);
             SetDoubleBuffer(tableLayoutPanel42, true);
             SetDoubleBuffer(flowLayoutPanel43, true);
-            SetDoubleBuffer(gradientPanel13, true);
-            SetDoubleBuffer(tableLayoutPanel43, true);
-            SetDoubleBuffer(flowLayoutPanel44, true);
-            SetDoubleBuffer(gradientPanel14, true);
-            SetDoubleBuffer(tableLayoutPanel44, true);
-            SetDoubleBuffer(flowLayoutPanel45, true);
-            SetDoubleBuffer(gradientPanel15, true);
-            SetDoubleBuffer(tableLayoutPanel45, true);
-            SetDoubleBuffer(flowLayoutPanel46, true);
             SetDoubleBuffer(historyPanel, true);
             SetDoubleBuffer(flowLayoutPanel47, true);
             SetDoubleBuffer(gradientPanel16, true);
@@ -1442,12 +1415,12 @@ namespace WinForms
                 if (favList.ElementAt(i).rate != 0)
                 {
                     Book favBook = GetBookInformation(favList.ElementAt(i).isbn);
-                    if(favBook.title  != null)
+                    if (favBook.title != null)
                     {
                         AddFavBook(favBook, bRank++, favList.ElementAt(i).rate);
                     }
                 }
-                
+
             }
 
             #endregion
