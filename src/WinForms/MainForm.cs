@@ -883,7 +883,21 @@ namespace WinForms
         }
         #endregion
 
+        #region clear list
+        public void ClearList(Control parentControl, string elemKey)
+        {
+            foreach (Control elem in parentControl.Controls.OfType<Control>().ToList())
+            {
+                if (elem.Name == elemKey)
+                {
+                    parentControl.Controls.Remove(elem);
+                }
+            }
+        }
+        #endregion
+
         #region update category list
+
         public void AddCategryBook(Book newBook, string categoryName)
         {
             GradientPanel newCategoryBook = new GradientPanel();
@@ -911,7 +925,7 @@ namespace WinForms
             categoryMainLabel.Name = "categoryMainLabel";
             categoryMainLabel.Size = new Size(categoriesPanel.Width, 82);
             categoryMainLabel.TabIndex = 0;
-            categoryMainLabel.Text = categoryName + "'s Books";
+            categoryMainLabel.Text = "Category of "+categoryName;
             // 
             // newCategoryBook
             // 
@@ -2074,6 +2088,9 @@ namespace WinForms
 
         private void updateCurrentBook(Book book)
         {
+            ClearList(mainCategoryPanel, "newCategoryBook");
+            ClearList(authormainFlowPanel, "authorBook");
+
             string imgPath = "../../../../../assets/LImgs/temp" + book.index + ".jpg";
             Image currentImg = Image.FromFile(imgPath);
             List<Book> categoryBooks = GetBookInCategory(book.publisher);
@@ -2093,6 +2110,7 @@ namespace WinForms
             yearOfPublication.Text = book.year.ToString();
 
             Book book1 = categoryBooks.ElementAt(0);
+
             if (book.Equals(book1) && categoryBooks.Count > 1) book1 = categoryBooks.ElementAt(1);
             if (categoryBooks.Count > 1)
             {
