@@ -896,6 +896,19 @@ namespace WinForms
         }
         #endregion
 
+        #region resize list
+        public void ResizeList(Control parentControl, string elemKey)
+        {
+            foreach (Control elem in parentControl.Controls.OfType<Control>().ToList())
+            {
+                if (elem.Name == elemKey)
+                {
+                    elem.Size = new Size((mainCategoryPanel.Width) / 2 - 10, 88);
+                }
+            }
+        }
+        #endregion
+
         #region update category list
 
         public void AddCategryBook(Book newBook, string categoryName)
@@ -1298,7 +1311,7 @@ namespace WinForms
             LoadingForm loading = new LoadingForm(100);
             loading.Show();
 
-            #region Set tables double buffered 
+            #region Set controls double buffered 
             SetDoubleBuffer(recommentTable3, true);
             SetDoubleBuffer(searchLayoutTable, true);
 
@@ -2348,7 +2361,14 @@ namespace WinForms
             bestBookElement1.Width = (mainFlowPanel.Width + difW) / 2 - 10;
             bestBookElement2.Width = (mainFlowPanel.Width + difW) / 2 - 10;
             bestBookElement3.Width = (mainFlowPanel.Width + difW) / 2 - 10;
-
+            //favorite resize
+            favoritePanel.Width = mainFlowPanel.Width + difW;
+            favoritePanel.Height = mainFlowPanel.Height + difW;
+            //category resize
+            categoriesPanel.Width = mainFlowPanel.Width + difW;
+            categoriesPanel.Height = mainFlowPanel.Height + difW;
+            ResizeList(mainCategoryPanel, "newCategoryBook");
+            ResizeList(authormainFlowPanel, "authorBook");
         }
 
         private void MainForm_ResizeBegin(object sender, EventArgs e)
