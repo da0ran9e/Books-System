@@ -944,6 +944,9 @@ namespace WinForms
             newCategoryBookAuthor.TabIndex = 2;
             newCategoryBookAuthor.Text = "author";
         }
+        #endregion
+
+        #region update author book list
 
         public void AddAuthorBook(Book newBook)
         {
@@ -1048,9 +1051,82 @@ namespace WinForms
 
         }
 
-        public void AddOtherCategoryBook(Book book)
+        #endregion
+
+        #region update other categori List
+        public void AddOtherCategoryBook(Book newBook)
         {
+            GradientPanel otherCategory = new GradientPanel();
+            GradientPanel otherCategoryNamePanel = new GradientPanel();
+            FlowLayoutPanel otherCategoryNameFlowPanel = new FlowLayoutPanel();
+            System.Windows.Forms.Label otherCategoryName = new System.Windows.Forms.Label();
+
+
             otherCategoriesPanel.Controls.Add(otherCategory);
+            // 
+            // otherCategoryLabel
+            // 
+            otherCategoriesPanel.SetFlowBreak(otherCategoryLabel, true);
+            otherCategoryLabel.Font = new Font("Exo ExtraBold", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point);
+            otherCategoryLabel.ForeColor = SystemColors.ControlLightLight;
+            otherCategoryLabel.Location = new Point(3, 0);
+            otherCategoryLabel.Name = "otherCategoryLabel";
+            otherCategoryLabel.Size = new Size(735, 82);
+            otherCategoryLabel.TabIndex = 0;
+            otherCategoryLabel.Text = "Other categories";
+            // 
+            // otherCategory
+            // 
+            otherCategory.AccessibleName = "name";
+            otherCategory.BackColor = Color.Transparent;
+            otherCategory.BackgroundImage = SetHeight(GetBookImage(newBook.index), 82);
+            otherCategory.BackgroundImageLayout = ImageLayout.Stretch;
+            otherCategory.Controls.Add(otherCategoryNamePanel);
+            otherCategory.GradientAngle = 60F;
+            otherCategory.GradientPrimaryColor = Color.Transparent;
+            otherCategory.GradientSecondaryColor = Color.Transparent;
+            otherCategory.Location = new Point(3, 85);
+            otherCategory.Name = "otherCategory";
+            otherCategory.Size = new Size(349, 349);
+            otherCategory.TabIndex = 4;
+            // 
+            // otherCategoryNamePanel
+            // 
+            otherCategoryNamePanel.BackColor = Color.Transparent;
+            otherCategoryNamePanel.Controls.Add(otherCategoryNameFlowPanel);
+            otherCategoryNamePanel.Dock = DockStyle.Bottom;
+            otherCategoryNamePanel.GradientAngle = 90F;
+            otherCategoryNamePanel.GradientPrimaryColor = Color.Transparent;
+            otherCategoryNamePanel.GradientSecondaryColor = Color.Black;
+            otherCategoryNamePanel.Location = new Point(0, 173);
+            otherCategoryNamePanel.Name = "otherCategoryNamePanel";
+            otherCategoryNamePanel.Size = new Size(349, 176);
+            otherCategoryNamePanel.TabIndex = 5;
+            // 
+            // otherCategoryNameFlowPanel
+            // 
+            otherCategoryNameFlowPanel.AccessibleName = "name";
+            otherCategoryNameFlowPanel.Controls.Add(otherCategoryName);
+            otherCategoryNameFlowPanel.Dock = DockStyle.Fill;
+            otherCategoryNameFlowPanel.FlowDirection = FlowDirection.BottomUp;
+            otherCategoryNameFlowPanel.Font = new Font("Exo ExtraBold", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            otherCategoryNameFlowPanel.Location = new Point(0, 0);
+            otherCategoryNameFlowPanel.Name = "otherCategoryNameFlowPanel";
+            otherCategoryNameFlowPanel.Size = new Size(349, 176);
+            otherCategoryNameFlowPanel.TabIndex = 0;
+            // 
+            // otherCategoryName
+            // 
+            otherCategoryName.AccessibleName = "name";
+            otherCategoryName.AutoSize = true;
+            otherCategoryNameFlowPanel.SetFlowBreak(otherCategoryName, true);
+            otherCategoryName.Font = new Font("Exo ExtraBold", 18F, FontStyle.Bold, GraphicsUnit.Point);
+            otherCategoryName.ForeColor = SystemColors.ControlLightLight;
+            otherCategoryName.Location = new Point(3, 134);
+            otherCategoryName.Name = "otherCategoryName";
+            otherCategoryName.Size = new Size(231, 42);
+            otherCategoryName.TabIndex = 1;
+            otherCategoryName.Text = "Other category";
         }
         #endregion
 
