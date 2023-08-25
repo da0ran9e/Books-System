@@ -938,7 +938,7 @@ namespace WinForms
             categoryMainLabel.Name = "categoryMainLabel";
             categoryMainLabel.Size = new Size(categoriesPanel.Width, 82);
             categoryMainLabel.TabIndex = 0;
-            categoryMainLabel.Text = "Category of "+categoryName;
+            categoryMainLabel.Text = "Category of " + categoryName;
             // 
             // newCategoryBook
             // 
@@ -1028,7 +1028,7 @@ namespace WinForms
             newCategoryBookAuthor.Text = newBook.author;
         }
 
-        public void NewCategoryBook_Click (object sender, EventArgs e)
+        public void NewCategoryBook_Click(object sender, EventArgs e)
         {
             Control a = sender as Control;
             updateCurrentBook(bookPicking(a.AccessibleName));
@@ -1064,7 +1064,7 @@ namespace WinForms
             authorMainLabel.Name = "authorMainLabel";
             authorMainLabel.Size = new Size(categoriesPanel.Width, 82);
             authorMainLabel.TabIndex = 0;
-            authorMainLabel.Text = "Writen by "+newBook.author;
+            authorMainLabel.Text = "Writen by " + newBook.author;
             // 
             // authorBook
             // 
@@ -1803,17 +1803,17 @@ namespace WinForms
 
             #region update category list
             List<string> publisherList = new List<string>();
-            for (int i=0;  i<userHistory.Count; i++)
+            for (int i = 0; i < userHistory.Count; i++)
             {
                 Book catBook = GetBookInformation(userHistory.ElementAt(i).isbn);
-                if(catBook.title != null)
+                if (catBook.title != null)
                 {
                     if (!publisherList.Contains(catBook.publisher))
                     {
                         publisherList.Add(catBook.publisher);
                         AddOtherCategoryBook(catBook);
                     }
-                    
+
                 }
             }
             #endregion
@@ -1836,7 +1836,7 @@ namespace WinForms
             }
 
             #endregion
-                        
+
             homeFlowPanel.Controls.Add(bestBookFlowPanel);
             bestBookFlowPanel.Visible = true;
 
@@ -2169,14 +2169,14 @@ namespace WinForms
             if (book.Equals(book1) && categoryBooks.Count > 1) book1 = categoryBooks.ElementAt(1);
             if (categoryBooks.Count > 1)
             {
-                for(int i = 0; i < categoryBooks.Count; i++)
+                for (int i = 0; i < categoryBooks.Count; i++)
                 {
                     AddCategryBook(categoryBooks.ElementAt(i), book.publisher);
-                }                
+                }
             }
             if (authorBooks.Count > 1)
             {
-                for (int i = 0; i < authorBooks.Count;i++)
+                for (int i = 0; i < authorBooks.Count; i++)
                 {
                     AddAuthorBook(authorBooks.ElementAt(i));
                 }
@@ -2316,6 +2316,8 @@ namespace WinForms
         private int difW;
         private void MainForm_Resize(object sender, EventArgs e)
         {
+            //content resize
+            contentContainer.Height = mainFlowPanel.Height + difH;
             //homeFlowPanel resize
             homeFlowPanel.Height = mainFlowPanel.Height + difH;
             homeFlowPanel.Width = mainFlowPanel.Width + difW;

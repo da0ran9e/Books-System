@@ -799,7 +799,7 @@ namespace WinForms
             contentContainer.Location = new Point(0, 0);
             contentContainer.Margin = new Padding(0);
             contentContainer.Name = "contentContainer";
-            contentContainer.Size = new Size(400, 749);
+            contentContainer.Size = new Size(429, 749);
             contentContainer.TabIndex = 0;
             contentContainer.Paint += contentContainer_Paint;
             // 
