@@ -110,7 +110,7 @@
             minimize.TextAlign = ContentAlignment.BottomLeft;
             minimize.Click += label2_Click_1;
             // 
-            // flowLayoutPanel1
+            // otherCategoriesPanel
             // 
             flowLayoutPanel1.Controls.Add(panel3);
             flowLayoutPanel1.Controls.Add(loginNotification);
@@ -118,7 +118,7 @@
             flowLayoutPanel1.Controls.Add(panel1);
             flowLayoutPanel1.FlowDirection = FlowDirection.BottomUp;
             flowLayoutPanel1.Location = new Point(137, 153);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Name = "otherCategoriesPanel";
             flowLayoutPanel1.Size = new Size(246, 418);
             flowLayoutPanel1.TabIndex = 5;
             // 

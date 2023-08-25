@@ -1047,6 +1047,11 @@ namespace WinForms
             authorBookAuthor.Text = "author";
 
         }
+
+        public void AddOtherCategoryBook(Book book)
+        {
+            otherCategoriesPanel.Controls.Add(otherCategory);
+        }
         #endregion
 
         //MainForm only work went user login successfully

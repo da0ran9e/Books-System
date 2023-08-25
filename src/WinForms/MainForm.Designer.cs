@@ -64,7 +64,7 @@ namespace WinForms
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            SingleTextView singleTextView1 = new TSkin.ST.SingleTextView();
+            //SingleTextView singleTextView1 = new TSkin.ST.SingleTextView();
             searchTabeLayout = new TableLayoutPanel();
             verticalMenuBar = new FlowLayoutPanel();
             userLabel = new Label();
@@ -221,7 +221,7 @@ namespace WinForms
             categoryMainLabel = new Label();
             authormainFlowPanel = new FlowLayoutPanel();
             authorMainLabel = new Label();
-            flowLayoutPanel1 = new FlowLayoutPanel();
+            otherCategoriesPanel = new FlowLayoutPanel();
             otherCategoryLabel = new Label();
             otherCategory = new GradientPanel();
             otherCategoryNamePanel = new GradientPanel();
@@ -464,7 +464,7 @@ namespace WinForms
             categoriesPanel.SuspendLayout();
             mainCategoryPanel.SuspendLayout();
             authormainFlowPanel.SuspendLayout();
-            flowLayoutPanel1.SuspendLayout();
+            otherCategoriesPanel.SuspendLayout();
             otherCategory.SuspendLayout();
             otherCategoryNamePanel.SuspendLayout();
             otherCategoryNameFlowPanel.SuspendLayout();
@@ -1762,7 +1762,7 @@ namespace WinForms
             searchBox.Location = new Point(0, 0);
             searchBox.Margin = new Padding(0);
             searchBox.Name = "searchBox";
-            searchBox.SetTextView = singleTextView1;
+           // searchBox.SetTextView = singleTextView1;
             searchBox.Size = new Size(560, 55);
             searchBox.TabIndex = 5;
             searchBox.Text = "What do you want to read?";
@@ -2549,7 +2549,7 @@ namespace WinForms
             categoriesPanel.AutoScroll = true;
             categoriesPanel.Controls.Add(mainCategoryPanel);
             categoriesPanel.Controls.Add(authormainFlowPanel);
-            categoriesPanel.Controls.Add(flowLayoutPanel1);
+            categoriesPanel.Controls.Add(otherCategoriesPanel);
             categoriesPanel.Location = new Point(0, 2322);
             categoriesPanel.Margin = new Padding(0);
             categoriesPanel.Name = "categoriesPanel";
@@ -2605,22 +2605,22 @@ namespace WinForms
             authorMainLabel.TabIndex = 0;
             authorMainLabel.Text = "Author";
             // 
-            // flowLayoutPanel1
+            // otherCategoriesPanel
             // 
-            flowLayoutPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            flowLayoutPanel1.AutoSize = true;
-            flowLayoutPanel1.Controls.Add(otherCategoryLabel);
-            flowLayoutPanel1.Controls.Add(otherCategory);
-            categoriesPanel.SetFlowBreak(flowLayoutPanel1, true);
-            flowLayoutPanel1.Location = new Point(0, 245);
-            flowLayoutPanel1.Margin = new Padding(0, 27, 0, 150);
-            flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(741, 437);
-            flowLayoutPanel1.TabIndex = 4;
+            otherCategoriesPanel.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            otherCategoriesPanel.AutoSize = true;
+            otherCategoriesPanel.Controls.Add(otherCategoryLabel);
+            otherCategoriesPanel.Controls.Add(otherCategory);
+            categoriesPanel.SetFlowBreak(otherCategoriesPanel, true);
+            otherCategoriesPanel.Location = new Point(0, 245);
+            otherCategoriesPanel.Margin = new Padding(0, 27, 0, 150);
+            otherCategoriesPanel.Name = "otherCategoriesPanel";
+            otherCategoriesPanel.Size = new Size(741, 437);
+            otherCategoriesPanel.TabIndex = 4;
             // 
             // otherCategoryLabel
             // 
-            flowLayoutPanel1.SetFlowBreak(otherCategoryLabel, true);
+            otherCategoriesPanel.SetFlowBreak(otherCategoryLabel, true);
             otherCategoryLabel.Font = new Font("Exo ExtraBold", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point);
             otherCategoryLabel.ForeColor = SystemColors.ControlLightLight;
             otherCategoryLabel.Location = new Point(3, 0);
@@ -4634,7 +4634,7 @@ namespace WinForms
             categoriesPanel.PerformLayout();
             mainCategoryPanel.ResumeLayout(false);
             authormainFlowPanel.ResumeLayout(false);
-            flowLayoutPanel1.ResumeLayout(false);
+            otherCategoriesPanel.ResumeLayout(false);
             otherCategory.ResumeLayout(false);
             otherCategoryNamePanel.ResumeLayout(false);
             otherCategoryNameFlowPanel.ResumeLayout(false);
@@ -5078,7 +5078,7 @@ namespace WinForms
         private Label favPublisherLabel;
         private FlowLayoutPanel authormainFlowPanel;
         private Label authorMainLabel;
-        private FlowLayoutPanel flowLayoutPanel1;
+        private FlowLayoutPanel otherCategoriesPanel;
         private Label otherCategoryLabel;
         private GradientPanel otherCategory;
         private GradientPanel otherCategoryNamePanel;
