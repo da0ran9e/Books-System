@@ -2482,7 +2482,7 @@ namespace WinForms
             favFlowPanel.Controls.Add(favTableHead);
             favoritePanel.SetFlowBreak(favFlowPanel, true);
             favFlowPanel.Location = new Point(0, 27);
-            favFlowPanel.Margin = new Padding(0, 27, 0, 0);
+            favFlowPanel.Margin = new Padding(0, 27, 0, 150);
             favFlowPanel.Name = "favFlowPanel";
             favFlowPanel.Size = new Size(741, 132);
             favFlowPanel.TabIndex = 0;

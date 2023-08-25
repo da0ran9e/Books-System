@@ -603,6 +603,7 @@ namespace WinForms
             FlowLayoutPanel newBookFlowPanel1 = new FlowLayoutPanel();
             FlowLayoutPanel newBookFlowPanel2 = new FlowLayoutPanel();
 
+            SetDoubleBuffer(favFlowPanel, true);
             SetDoubleBuffer(newBookTable1, true);
             SetDoubleBuffer(newBookTable2, true);
             SetDoubleBuffer(newBookLabel1, true);
@@ -619,6 +620,7 @@ namespace WinForms
 
 
             favFlowPanel.Controls.Add(newBookTable1);
+            
             
             // 
             // newBookTable1
@@ -1414,10 +1416,18 @@ namespace WinForms
             #region update favorite list
             List<UserRating> favList = userHistory;
             favList.Sort();
+            int bRank = 1;
             for (int i = 0; i < favList.Count; i++)
             {
                 if (favList.ElementAt(i).rate != 0)
-                AddFavBook(GetBookInformation(favList.ElementAt(i).isbn), i + 1, favList.ElementAt(i).rate);
+                {
+                    Book favBook = GetBookInformation(favList.ElementAt(i).isbn);
+                    if(favBook.title  != null)
+                    {
+                        AddFavBook(favBook, bRank++, favList.ElementAt(i).rate);
+                    }
+                }
+                
             }
 
             #endregion
