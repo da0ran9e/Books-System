@@ -64,7 +64,7 @@ namespace WinForms
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            //SingleTextView singleTextView1 = new TSkin.ST.SingleTextView();
+            SingleTextView singleTextView1 = new TSkin.ST.SingleTextView();
             searchTabeLayout = new TableLayoutPanel();
             verticalMenuBar = new FlowLayoutPanel();
             userLabel = new Label();
@@ -221,12 +221,6 @@ namespace WinForms
             categoryMainLabel = new Label();
             authormainFlowPanel = new FlowLayoutPanel();
             authorMainLabel = new Label();
-            gradientPanel3 = new GradientPanel();
-            tableLayoutPanel2 = new TableLayoutPanel();
-            label40 = new Label();
-            flowLayoutPanel22 = new FlowLayoutPanel();
-            label41 = new Label();
-            label42 = new Label();
             flowLayoutPanel1 = new FlowLayoutPanel();
             otherCategoryLabel = new Label();
             otherCategory = new GradientPanel();
@@ -470,9 +464,6 @@ namespace WinForms
             categoriesPanel.SuspendLayout();
             mainCategoryPanel.SuspendLayout();
             authormainFlowPanel.SuspendLayout();
-            gradientPanel3.SuspendLayout();
-            tableLayoutPanel2.SuspendLayout();
-            flowLayoutPanel22.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
             otherCategory.SuspendLayout();
             otherCategoryNamePanel.SuspendLayout();
@@ -1771,7 +1762,7 @@ namespace WinForms
             searchBox.Location = new Point(0, 0);
             searchBox.Margin = new Padding(0);
             searchBox.Name = "searchBox";
-           // searchBox.SetTextView = singleTextView1;
+            searchBox.SetTextView = singleTextView1;
             searchBox.Size = new Size(560, 55);
             searchBox.TabIndex = 5;
             searchBox.Text = "What do you want to read?";
@@ -2596,12 +2587,11 @@ namespace WinForms
             authormainFlowPanel.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             authormainFlowPanel.AutoSize = true;
             authormainFlowPanel.Controls.Add(authorMainLabel);
-            authormainFlowPanel.Controls.Add(gradientPanel3);
             categoriesPanel.SetFlowBreak(authormainFlowPanel, true);
             authormainFlowPanel.Location = new Point(0, 136);
             authormainFlowPanel.Margin = new Padding(0, 27, 0, 0);
             authormainFlowPanel.Name = "authormainFlowPanel";
-            authormainFlowPanel.Size = new Size(741, 176);
+            authormainFlowPanel.Size = new Size(741, 82);
             authormainFlowPanel.TabIndex = 3;
             // 
             // authorMainLabel
@@ -2615,84 +2605,6 @@ namespace WinForms
             authorMainLabel.TabIndex = 0;
             authorMainLabel.Text = "Author";
             // 
-            // gradientPanel3
-            // 
-            gradientPanel3.AccessibleName = "title";
-            gradientPanel3.BackColor = Color.Transparent;
-            gradientPanel3.Controls.Add(tableLayoutPanel2);
-            gradientPanel3.GradientAngle = 60F;
-            gradientPanel3.GradientPrimaryColor = Color.Transparent;
-            gradientPanel3.GradientSecondaryColor = Color.White;
-            gradientPanel3.Location = new Point(3, 85);
-            gradientPanel3.Name = "gradientPanel3";
-            gradientPanel3.Size = new Size(349, 88);
-            gradientPanel3.TabIndex = 4;
-            // 
-            // tableLayoutPanel2
-            // 
-            tableLayoutPanel2.AccessibleName = "title";
-            tableLayoutPanel2.AutoSize = true;
-            tableLayoutPanel2.ColumnCount = 2;
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 88F));
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel2.Controls.Add(label40, 0, 0);
-            tableLayoutPanel2.Controls.Add(flowLayoutPanel22, 1, 0);
-            tableLayoutPanel2.Dock = DockStyle.Fill;
-            tableLayoutPanel2.Location = new Point(0, 0);
-            tableLayoutPanel2.Name = "tableLayoutPanel2";
-            tableLayoutPanel2.RowCount = 1;
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 88F));
-            tableLayoutPanel2.Size = new Size(349, 88);
-            tableLayoutPanel2.TabIndex = 0;
-            // 
-            // label40
-            // 
-            label40.AccessibleName = "title";
-            label40.BackColor = Color.Transparent;
-            label40.Location = new Point(3, 0);
-            label40.Name = "label40";
-            label40.Size = new Size(82, 88);
-            label40.TabIndex = 0;
-            // 
-            // flowLayoutPanel22
-            // 
-            flowLayoutPanel22.AutoSize = true;
-            flowLayoutPanel22.Controls.Add(label41);
-            flowLayoutPanel22.Controls.Add(label42);
-            flowLayoutPanel22.Dock = DockStyle.Fill;
-            flowLayoutPanel22.Location = new Point(91, 3);
-            flowLayoutPanel22.Name = "flowLayoutPanel22";
-            flowLayoutPanel22.Size = new Size(255, 82);
-            flowLayoutPanel22.TabIndex = 1;
-            // 
-            // label41
-            // 
-            label41.AccessibleName = "title";
-            label41.AutoSize = true;
-            label41.BackColor = Color.Transparent;
-            flowLayoutPanel22.SetFlowBreak(label41, true);
-            label41.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label41.ForeColor = SystemColors.ControlLight;
-            label41.Location = new Point(3, 0);
-            label41.Name = "label41";
-            label41.Size = new Size(50, 28);
-            label41.TabIndex = 1;
-            label41.Text = "title";
-            // 
-            // label42
-            // 
-            label42.AccessibleName = "title";
-            label42.AutoSize = true;
-            label42.BackColor = Color.Transparent;
-            flowLayoutPanel22.SetFlowBreak(label42, true);
-            label42.Font = new Font("Exo ExtraBold", 7.799999F, FontStyle.Bold, GraphicsUnit.Point);
-            label42.ForeColor = SystemColors.ControlLight;
-            label42.Location = new Point(3, 28);
-            label42.Name = "label42";
-            label42.Size = new Size(50, 19);
-            label42.TabIndex = 2;
-            label42.Text = "author";
-            // 
             // flowLayoutPanel1
             // 
             flowLayoutPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
@@ -2700,7 +2612,7 @@ namespace WinForms
             flowLayoutPanel1.Controls.Add(otherCategoryLabel);
             flowLayoutPanel1.Controls.Add(otherCategory);
             categoriesPanel.SetFlowBreak(flowLayoutPanel1, true);
-            flowLayoutPanel1.Location = new Point(0, 339);
+            flowLayoutPanel1.Location = new Point(0, 245);
             flowLayoutPanel1.Margin = new Padding(0, 27, 0, 150);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.Size = new Size(741, 437);
@@ -4722,12 +4634,6 @@ namespace WinForms
             categoriesPanel.PerformLayout();
             mainCategoryPanel.ResumeLayout(false);
             authormainFlowPanel.ResumeLayout(false);
-            gradientPanel3.ResumeLayout(false);
-            gradientPanel3.PerformLayout();
-            tableLayoutPanel2.ResumeLayout(false);
-            tableLayoutPanel2.PerformLayout();
-            flowLayoutPanel22.ResumeLayout(false);
-            flowLayoutPanel22.PerformLayout();
             flowLayoutPanel1.ResumeLayout(false);
             otherCategory.ResumeLayout(false);
             otherCategoryNamePanel.ResumeLayout(false);
@@ -5172,12 +5078,6 @@ namespace WinForms
         private Label favPublisherLabel;
         private FlowLayoutPanel authormainFlowPanel;
         private Label authorMainLabel;
-        private GradientPanel gradientPanel3;
-        private TableLayoutPanel tableLayoutPanel2;
-        private Label label40;
-        private FlowLayoutPanel flowLayoutPanel22;
-        private Label label41;
-        private Label label42;
         private FlowLayoutPanel flowLayoutPanel1;
         private Label otherCategoryLabel;
         private GradientPanel otherCategory;

@@ -842,112 +842,215 @@ namespace WinForms
         }
         #endregion
 
-        //#region update category list
-        //public void AddCategryBook(Book newBook)
-        //{
+        #region update category list
+        public void AddCategryBook(Book newBook)
+        {
+            GradientPanel newCategoryBook = new GradientPanel();
+            TableLayoutPanel newCategoryBookTable = new TableLayoutPanel();
+            System.Windows.Forms.Label newCategoryBookImg = new System.Windows.Forms.Label();
+            System.Windows.Forms.Label newCategoryBookTitle = new System.Windows.Forms.Label();
+            System.Windows.Forms.Label newCategoryBookAuthor = new System.Windows.Forms.Label();
+            FlowLayoutPanel newCategoryBookTitlePanel = new FlowLayoutPanel();
 
-        //    mainCategoryPanel.Controls.Add(newCategoryBook);
-        //    // 
-        //    // categoryMainLabel
-        //    // 
-        //    mainCategoryPanel.SetFlowBreak(categoryMainLabel, true);
-        //    categoryMainLabel.Font = new Font("Exo ExtraBold", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point);
-        //    categoryMainLabel.ForeColor = SystemColors.ControlLightLight;
-        //    categoryMainLabel.Location = new Point(3, 0);
-        //    categoryMainLabel.Name = "categoryMainLabel";
-        //    categoryMainLabel.Size = new Size(735, 82);
-        //    categoryMainLabel.TabIndex = 0;
-        //    categoryMainLabel.Text = "Category";
-        //    // 
-        //    // newCategoryBook
-        //    // 
-        //    newCategoryBook.AccessibleName = "title";
-        //    newCategoryBook.BackColor = Color.Transparent;
-        //    newCategoryBook.Controls.Add(newCategoryBookTable);
-        //    newCategoryBook.GradientAngle = 60F;
-        //    newCategoryBook.GradientPrimaryColor = Color.Transparent;
-        //    newCategoryBook.GradientSecondaryColor = Color.White;
-        //    newCategoryBook.Location = new Point(3, 85);
-        //    newCategoryBook.Name = "newCategoryBook";
-        //    newCategoryBook.Size = new Size(349, 88);
-        //    newCategoryBook.TabIndex = 4;
-        //    // 
-        //    // newCategoryBookTable
-        //    // 
-        //    newCategoryBookTable.AccessibleName = "title";
-        //    newCategoryBookTable.AutoSize = true;
-        //    newCategoryBookTable.ColumnCount = 2;
-        //    newCategoryBookTable.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 88F));
-        //    newCategoryBookTable.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-        //    newCategoryBookTable.Controls.Add(newCategoryBookImg, 0, 0);
-        //    newCategoryBookTable.Controls.Add(flowLayoutPanel43, 1, 0);
-        //    newCategoryBookTable.Dock = DockStyle.Fill;
-        //    newCategoryBookTable.Location = new Point(0, 0);
-        //    newCategoryBookTable.Name = "newCategoryBookTable";
-        //    newCategoryBookTable.RowCount = 1;
-        //    newCategoryBookTable.RowStyles.Add(new RowStyle(SizeType.Absolute, 88F));
-        //    newCategoryBookTable.Size = new Size(349, 88);
-        //    newCategoryBookTable.TabIndex = 0;
-        //    // 
-        //    // newCategoryBookImg
-        //    // 
-        //    newCategoryBookImg.AccessibleName = "title";
-        //    newCategoryBookImg.BackColor = Color.Transparent;
-        //    newCategoryBookImg.Image = SetHeight(GetBookImage(newBook.index), 82);
-        //    newCategoryBookImg.Location = new Point(3, 0);
-        //    newCategoryBookImg.Name = "newCategoryBookImg";
-        //    newCategoryBookImg.Size = new Size(82, 88);
-        //    newCategoryBookImg.TabIndex = 0;
-        //    // 
-        //    // flowLayoutPanel43
-        //    // 
-        //    flowLayoutPanel43.AutoSize = true;
-        //    flowLayoutPanel43.Controls.Add(newCategoryBookTitle);
-        //    flowLayoutPanel43.Controls.Add(newCategoryBookAuthor);
-        //    flowLayoutPanel43.Dock = DockStyle.Fill;
-        //    flowLayoutPanel43.Location = new Point(91, 3);
-        //    flowLayoutPanel43.Name = "flowLayoutPanel43";
-        //    flowLayoutPanel43.Size = new Size(255, 82);
-        //    flowLayoutPanel43.TabIndex = 1;
-        //    // 
-        //    // newCategoryBookTitle
-        //    // 
-        //    newCategoryBookTitle.AccessibleName = "title";
-        //    newCategoryBookTitle.AutoSize = true;
-        //    newCategoryBookTitle.BackColor = Color.Transparent;
-        //    flowLayoutPanel43.SetFlowBreak(newCategoryBookTitle, true);
-        //    newCategoryBookTitle.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-        //    newCategoryBookTitle.ForeColor = SystemColors.ControlLight;
-        //    newCategoryBookTitle.Location = new Point(3, 0);
-        //    newCategoryBookTitle.Name = "newCategoryBookTitle";
-        //    newCategoryBookTitle.Size = new Size(50, 28);
-        //    newCategoryBookTitle.TabIndex = 1;
-        //    newCategoryBookTitle.Text = "title";
-        //    // 
-        //    // newCategoryBookAuthor
-        //    // 
-        //    newCategoryBookAuthor.AccessibleName = "title";
-        //    newCategoryBookAuthor.AutoSize = true;
-        //    newCategoryBookAuthor.BackColor = Color.Transparent;
-        //    flowLayoutPanel43.SetFlowBreak(newCategoryBookAuthor, true);
-        //    newCategoryBookAuthor.Font = new Font("Exo ExtraBold", 7.799999F, FontStyle.Bold, GraphicsUnit.Point);
-        //    newCategoryBookAuthor.ForeColor = SystemColors.ControlLight;
-        //    newCategoryBookAuthor.Location = new Point(3, 28);
-        //    newCategoryBookAuthor.Name = "newCategoryBookAuthor";
-        //    newCategoryBookAuthor.Size = new Size(50, 19);
-        //    newCategoryBookAuthor.TabIndex = 2;
-        //    newCategoryBookAuthor.Text = "author";
-        //}
+            mainCategoryPanel.Controls.Add(newCategoryBook);
+            // 
+            // categoryMainLabel
+            // 
+            mainCategoryPanel.SetFlowBreak(categoryMainLabel, true);
+            categoryMainLabel.Font = new Font("Exo ExtraBold", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point);
+            categoryMainLabel.ForeColor = SystemColors.ControlLightLight;
+            categoryMainLabel.Location = new Point(3, 0);
+            categoryMainLabel.Name = "categoryMainLabel";
+            categoryMainLabel.Size = new Size(735, 82);
+            categoryMainLabel.TabIndex = 0;
+            categoryMainLabel.Text = "Category";
+            // 
+            // newCategoryBook
+            // 
+            newCategoryBook.AccessibleName = "title";
+            newCategoryBook.BackColor = Color.Transparent;
+            newCategoryBook.Controls.Add(newCategoryBookTable);
+            newCategoryBook.GradientAngle = 60F;
+            newCategoryBook.GradientPrimaryColor = Color.Transparent;
+            newCategoryBook.GradientSecondaryColor = Color.White;
+            newCategoryBook.Location = new Point(3, 85);
+            newCategoryBook.Name = "newCategoryBook";
+            newCategoryBook.Size = new Size(349, 88);
+            newCategoryBook.TabIndex = 4;
+            // 
+            // newCategoryBookTable
+            // 
+            newCategoryBookTable.AccessibleName = "title";
+            newCategoryBookTable.AutoSize = true;
+            newCategoryBookTable.ColumnCount = 2;
+            newCategoryBookTable.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 88F));
+            newCategoryBookTable.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            newCategoryBookTable.Controls.Add(newCategoryBookImg, 0, 0);
+            newCategoryBookTable.Controls.Add(newCategoryBookTitlePanel, 1, 0);
+            newCategoryBookTable.Dock = DockStyle.Fill;
+            newCategoryBookTable.Location = new Point(0, 0);
+            newCategoryBookTable.Name = "newCategoryBookTable";
+            newCategoryBookTable.RowCount = 1;
+            newCategoryBookTable.RowStyles.Add(new RowStyle(SizeType.Absolute, 88F));
+            newCategoryBookTable.Size = new Size(349, 88);
+            newCategoryBookTable.TabIndex = 0;
+            // 
+            // newCategoryBookImg
+            // 
+            newCategoryBookImg.AccessibleName = "title";
+            newCategoryBookImg.BackColor = Color.Transparent;
+            newCategoryBookImg.Image = SetHeight(GetBookImage(newBook.index), 82);
+            newCategoryBookImg.Location = new Point(3, 0);
+            newCategoryBookImg.Name = "newCategoryBookImg";
+            newCategoryBookImg.Size = new Size(82, 88);
+            newCategoryBookImg.TabIndex = 0;
+            // 
+            // newCategoryBookTitlePanel
+            // 
+            newCategoryBookTitlePanel.AutoSize = true;
+            newCategoryBookTitlePanel.Controls.Add(newCategoryBookTitle);
+            newCategoryBookTitlePanel.Controls.Add(newCategoryBookAuthor);
+            newCategoryBookTitlePanel.Dock = DockStyle.Fill;
+            newCategoryBookTitlePanel.Location = new Point(91, 3);
+            newCategoryBookTitlePanel.Name = "newCategoryBookTitlePanel";
+            newCategoryBookTitlePanel.Size = new Size(255, 82);
+            newCategoryBookTitlePanel.TabIndex = 1;
+            // 
+            // newCategoryBookTitle
+            // 
+            newCategoryBookTitle.AccessibleName = "title";
+            newCategoryBookTitle.AutoSize = true;
+            newCategoryBookTitle.BackColor = Color.Transparent;
+            newCategoryBookTitlePanel.SetFlowBreak(newCategoryBookTitle, true);
+            newCategoryBookTitle.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            newCategoryBookTitle.ForeColor = SystemColors.ControlLight;
+            newCategoryBookTitle.Location = new Point(3, 0);
+            newCategoryBookTitle.Name = "newCategoryBookTitle";
+            newCategoryBookTitle.Size = new Size(50, 28);
+            newCategoryBookTitle.TabIndex = 1;
+            newCategoryBookTitle.Text = "title";
+            // 
+            // newCategoryBookAuthor
+            // 
+            newCategoryBookAuthor.AccessibleName = "title";
+            newCategoryBookAuthor.AutoSize = true;
+            newCategoryBookAuthor.BackColor = Color.Transparent;
+            newCategoryBookTitlePanel.SetFlowBreak(newCategoryBookAuthor, true);
+            newCategoryBookAuthor.Font = new Font("Exo ExtraBold", 7.799999F, FontStyle.Bold, GraphicsUnit.Point);
+            newCategoryBookAuthor.ForeColor = SystemColors.ControlLight;
+            newCategoryBookAuthor.Location = new Point(3, 28);
+            newCategoryBookAuthor.Name = "newCategoryBookAuthor";
+            newCategoryBookAuthor.Size = new Size(50, 19);
+            newCategoryBookAuthor.TabIndex = 2;
+            newCategoryBookAuthor.Text = "author";
+        }
 
-        //public void AddAuthorBook(Book newBook)
-        //{
-        //    authormainFlowPanel.Controls.Add(gradientPanel3);
+        public void AddAuthorBook(Book newBook)
+        {
+            GradientPanel authorBook = new GradientPanel();
+            TableLayoutPanel authorBookTable = new TableLayoutPanel();
+            System.Windows.Forms.Label authorBookImg = new System.Windows.Forms.Label();
+            System.Windows.Forms.Label authorBookTitle = new System.Windows.Forms.Label();
+            System.Windows.Forms.Label authorBookAuthor = new System.Windows.Forms.Label();
+            FlowLayoutPanel authorBookTitlePanel = new FlowLayoutPanel();
 
-        //}
-        //#endregion
-        //
+            authormainFlowPanel.Controls.Add(authorBook);
+            // 
+            // authorMainLabel
+            // 
+            authormainFlowPanel.SetFlowBreak(authorMainLabel, true);
+            authorMainLabel.Font = new Font("Exo ExtraBold", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point);
+            authorMainLabel.ForeColor = SystemColors.ControlLightLight;
+            authorMainLabel.Location = new Point(3, 0);
+            authorMainLabel.Name = "authorMainLabel";
+            authorMainLabel.Size = new Size(735, 82);
+            authorMainLabel.TabIndex = 0;
+            authorMainLabel.Text = "Author";
+            // 
+            // authorBook
+            // 
+            authorBook.AccessibleName = "title";
+            authorBook.BackColor = Color.Transparent;
+            authorBook.Controls.Add(authorBookTable);
+            authorBook.GradientAngle = 60F;
+            authorBook.GradientPrimaryColor = Color.Transparent;
+            authorBook.GradientSecondaryColor = Color.White;
+            authorBook.Location = new Point(3, 85);
+            authorBook.Name = "authorBook";
+            authorBook.Size = new Size(349, 88);
+            authorBook.TabIndex = 4;
+            // 
+            // authorBookTable
+            // 
+            authorBookTable.AccessibleName = "title";
+            authorBookTable.AutoSize = true;
+            authorBookTable.ColumnCount = 2;
+            authorBookTable.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 88F));
+            authorBookTable.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            authorBookTable.Controls.Add(authorBookImg, 0, 0);
+            authorBookTable.Controls.Add(authorBookTitlePanel, 1, 0);
+            authorBookTable.Dock = DockStyle.Fill;
+            authorBookTable.Location = new Point(0, 0);
+            authorBookTable.Name = "authorBookTable";
+            authorBookTable.RowCount = 1;
+            authorBookTable.RowStyles.Add(new RowStyle(SizeType.Absolute, 88F));
+            authorBookTable.Size = new Size(349, 88);
+            authorBookTable.TabIndex = 0;
+            // 
+            // authorBookImg
+            // 
+            authorBookImg.AccessibleName = "title";
+            authorBookImg.BackColor = Color.Transparent;
+            authorBookImg.Location = new Point(3, 0);
+            authorBookImg.Image = SetHeight(GetBookImage(newBook.index), 82);
+            authorBookImg.Name = "authorBookImg";
+            authorBookImg.Size = new Size(82, 88);
+            authorBookImg.TabIndex = 0;
+            // 
+            // authorBookTitlePanel
+            // 
+            authorBookTitlePanel.AutoSize = true;
+            authorBookTitlePanel.Controls.Add(authorBookTitle);
+            authorBookTitlePanel.Controls.Add(authorBookAuthor);
+            authorBookTitlePanel.Dock = DockStyle.Fill;
+            authorBookTitlePanel.Location = new Point(91, 3);
+            authorBookTitlePanel.Name = "authorBookTitlePanel";
+            authorBookTitlePanel.Size = new Size(255, 82);
+            authorBookTitlePanel.TabIndex = 1;
+            // 
+            // authorBookTitle
+            // 
+            authorBookTitle.AccessibleName = "title";
+            authorBookTitle.AutoSize = true;
+            authorBookTitle.BackColor = Color.Transparent;
+            authorBookTitlePanel.SetFlowBreak(authorBookTitle, true);
+            authorBookTitle.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            authorBookTitle.ForeColor = SystemColors.ControlLight;
+            authorBookTitle.Location = new Point(3, 0);
+            authorBookTitle.Name = "authorBookTitle";
+            authorBookTitle.Size = new Size(50, 28);
+            authorBookTitle.TabIndex = 1;
+            authorBookTitle.Text = "title";
+            // 
+            // authorBookAuthor
+            // 
+            authorBookAuthor.AccessibleName = "title";
+            authorBookAuthor.AutoSize = true;
+            authorBookAuthor.BackColor = Color.Transparent;
+            authorBookTitlePanel.SetFlowBreak(authorBookAuthor, true);
+            authorBookAuthor.Font = new Font("Exo ExtraBold", 7.799999F, FontStyle.Bold, GraphicsUnit.Point);
+            authorBookAuthor.ForeColor = SystemColors.ControlLight;
+            authorBookAuthor.Location = new Point(3, 28);
+            authorBookAuthor.Name = "authorBookAuthor";
+            authorBookAuthor.Size = new Size(50, 19);
+            authorBookAuthor.TabIndex = 2;
+            authorBookAuthor.Text = "author";
+
+        }
+        #endregion
+
         //MainForm only work went user login successfully
-        //
+
         public MainForm(string username)
         {
             this.username = username;
