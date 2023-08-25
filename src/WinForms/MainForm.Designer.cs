@@ -64,7 +64,7 @@ namespace WinForms
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            SingleTextView singleTextView1 = new TSkin.ST.SingleTextView();
+            //SingleTextView singleTextView1 = new TSkin.ST.SingleTextView();
             searchTabeLayout = new TableLayoutPanel();
             verticalMenuBar = new FlowLayoutPanel();
             userLabel = new Label();
@@ -1755,7 +1755,7 @@ namespace WinForms
             searchBox.Location = new Point(0, 0);
             searchBox.Margin = new Padding(0);
             searchBox.Name = "searchBox";
-            searchBox.SetTextView = singleTextView1;
+            //searchBox.SetTextView = singleTextView1;
             searchBox.Size = new Size(560, 55);
             searchBox.TabIndex = 5;
             searchBox.Text = "What do you want to read?";
@@ -2456,7 +2456,6 @@ namespace WinForms
             favFlowPanel.Name = "favFlowPanel";
             favFlowPanel.Size = new Size(741, 132);
             favFlowPanel.TabIndex = 0;
-            favFlowPanel.Paint += flowLayoutPanel24_Paint;
             // 
             // favoriteLabel
             // 
@@ -2549,7 +2548,6 @@ namespace WinForms
             categoriesPanel.Size = new Size(767, 765);
             categoriesPanel.TabIndex = 3;
             categoriesPanel.Visible = false;
-            categoriesPanel.Paint += categoriesPanel_Paint;
             // 
             // mainCategoryPanel
             // 
@@ -2562,7 +2560,6 @@ namespace WinForms
             mainCategoryPanel.Name = "mainCategoryPanel";
             mainCategoryPanel.Size = new Size(741, 82);
             mainCategoryPanel.TabIndex = 0;
-            mainCategoryPanel.Paint += mainCategoryPanel_Paint;
             // 
             // categoryMainLabel
             // 
