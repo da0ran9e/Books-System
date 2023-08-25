@@ -635,14 +635,16 @@ namespace WinForms
             newBookTable1.Location = new Point(0, 132);
             newBookTable1.Margin = new Padding(0);
             newBookTable1.Name = "newBook" + newBook.isbn;
+            newBookTable1.AccessibleName = newBook.title;
             newBookTable1.RowCount = 1;
             newBookTable1.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             newBookTable1.Size = new Size(732, 80);
             newBookTable1.TabIndex = 15;
+            newBookTable1.Click += NewBook_Click;
             // 
             // newBookLabel3
             // 
-            newBookLabel3.Font = new Font("Exo ExtraBold", bookIndex==1?16.2F : 11F, FontStyle.Bold, GraphicsUnit.Point);
+            newBookLabel3.Font = new Font("Exo ExtraBold", bookIndex == 1 ? 16.2F : 11F, FontStyle.Bold, GraphicsUnit.Point);
             newBookLabel3.ForeColor = SystemColors.ButtonHighlight;
             newBookLabel3.Location = new Point(0, 0);
             newBookLabel3.Margin = new Padding(0);
@@ -650,7 +652,9 @@ namespace WinForms
             newBookLabel3.Size = new Size(50, 80);
             newBookLabel3.TabIndex = 11;
             newBookLabel3.Text = bookIndex.ToString();
+            newBookLabel3.AccessibleName = newBook.title;
             newBookLabel3.TextAlign = ContentAlignment.MiddleCenter;
+            newBookLabel3.Click += NewBook_Click;
             // 
             // newBookLabel4
             // 
@@ -663,6 +667,8 @@ namespace WinForms
             newBookLabel4.TabIndex = 14;
             newBookLabel4.Text = bookScore.ToString();
             newBookLabel4.TextAlign = ContentAlignment.MiddleCenter;
+            newBookLabel4.AccessibleName = newBook.title;
+            newBookLabel4.Click += NewBook_Click;
             // 
             // newBookPanel1
             // 
@@ -675,6 +681,8 @@ namespace WinForms
             newBookPanel1.Name = "newBookfavBook" + newBook.isbn;
             newBookPanel1.Size = new Size(379, 80);
             newBookPanel1.TabIndex = 12;
+            newBookPanel1.AccessibleName = newBook.title;
+            newBookPanel1.Click += NewBook_Click;
             // 
             // newBookTable2
             // 
@@ -691,6 +699,8 @@ namespace WinForms
             newBookTable2.RowStyles.Add(new RowStyle(SizeType.Absolute, 88F));
             newBookTable2.Size = new Size(379, 80);
             newBookTable2.TabIndex = 0;
+            newBookTable2.AccessibleName = newBook.title;
+            newBookTable2.Click += NewBook_Click;
             // 
             // newBookLabel5
             // 
@@ -700,6 +710,8 @@ namespace WinForms
             newBookLabel5.Name = "newBookImg" + newBook.isbn;
             newBookLabel5.Size = new Size(82, 88);
             newBookLabel5.TabIndex = 0;
+            newBookLabel5.AccessibleName = newBook.title;
+            newBookLabel5.Click += NewBook_Click;
             // 
             // newBookFlowPanel2
             // 
@@ -710,6 +722,8 @@ namespace WinForms
             newBookFlowPanel2.Name = "newBookTitlePanel" + newBook.isbn;
             newBookFlowPanel2.Size = new Size(285, 82);
             newBookFlowPanel2.TabIndex = 1;
+            newBookFlowPanel2.AccessibleName = newBook.title;
+            newBookFlowPanel2.Click += NewBook_Click;
             // 
             // newBookLabel6
             // 
@@ -723,6 +737,8 @@ namespace WinForms
             newBookLabel6.Size = new Size(50, 28);
             newBookLabel6.TabIndex = 1;
             newBookLabel6.Text = newBook.title;
+            newBookLabel6.AccessibleName = newBook.title;
+            newBookLabel6.Click += NewBook_Click;
             // 
             // newBookLabel7
             // 
@@ -736,6 +752,8 @@ namespace WinForms
             newBookLabel7.Size = new Size(50, 19);
             newBookLabel7.TabIndex = 3;
             newBookLabel7.Text = "author";
+            newBookLabel7.AccessibleName = newBook.title;
+            newBookLabel7.Click += NewBook_Click;
             // 
             // newBookPanel2
             // 
@@ -749,6 +767,8 @@ namespace WinForms
             newBookPanel2.Name = "newBookCategoryPanel" + newBook.isbn;
             newBookPanel2.Size = new Size(252, 80);
             newBookPanel2.TabIndex = 13;
+            newBookPanel2.AccessibleName = newBook.title;
+            newBookPanel2.Click += NewBook_Click;
             // 
             // newBookFlowPanel1
             // 
@@ -760,6 +780,8 @@ namespace WinForms
             newBookFlowPanel1.Name = "newBookCategoryFlowPanel" + newBook.isbn;
             newBookFlowPanel1.Size = new Size(252, 80);
             newBookFlowPanel1.TabIndex = 2;
+            newBookFlowPanel1.AccessibleName = newBook.title;
+            newBookFlowPanel1.Click += NewBook_Click;
             // 
             // newBookLabel1
             // 
@@ -773,6 +795,8 @@ namespace WinForms
             newBookLabel1.Size = new Size(50, 28);
             newBookLabel1.TabIndex = 1;
             newBookLabel1.Text = newBook.publisher;
+            newBookLabel1.AccessibleName = newBook.title;
+            newBookLabel1.Click += NewBook_Click;
             // 
             // newBookLabel2
             // 
@@ -786,6 +810,13 @@ namespace WinForms
             newBookLabel2.Size = new Size(50, 19);
             newBookLabel2.TabIndex = 3;
             newBookLabel2.Text = newBook.year.ToString();
+            newBookLabel2.AccessibleName = newBook.title;
+            newBookLabel2.Click += NewBook_Click;
+        }
+        private void NewBook_Click(object sender, EventArgs e)
+        {
+            Control a = sender as Control;
+            updateCurrentBook(bookPicking(a.AccessibleName));
         }
         #endregion
         //
