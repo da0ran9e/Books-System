@@ -423,6 +423,47 @@ namespace WinForms
         }
         #endregion
 
+        #region Author information
+        private List<Book> GetBookInAuthorCategory(string name)
+        {
+            List<Book> books = new List<Book>();
+            Book book = new Book();
+            try
+            {
+                cmd = new SqlCommand("select * from books where [bookAuthor] = '" + name + "'", con);
+                con.Open();
+                dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    book.index = dr.GetFieldValue<int>(0);
+                    book.isbn = dr.GetFieldValue<string>(1);
+                    book.title = dr.GetFieldValue<string>(2);
+                    book.author = dr.GetFieldValue<string>(3);
+                    book.year = dr.GetFieldValue<int>(4);
+                    book.publisher = dr.GetFieldValue<string>(5);
+                    book.sURL = dr.GetFieldValue<string>(6);
+                    book.mURL = dr.GetFieldValue<string>(7);
+                    book.lURL = dr.GetFieldValue<string>(8);
+
+                    bookList.Add(book);
+                    books.Add(book);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                Console.WriteLine(ex.StackTrace);
+            }
+            finally
+            {
+                if (dr != null) dr.Close();
+                if (con != null) con.Close();
+            }
+            return books;
+        }
+        #endregion
+
         #region user reading information
         private List<UserRating> userHistory = new List<UserRating>();
         //
@@ -852,6 +893,13 @@ namespace WinForms
             System.Windows.Forms.Label newCategoryBookAuthor = new System.Windows.Forms.Label();
             FlowLayoutPanel newCategoryBookTitlePanel = new FlowLayoutPanel();
 
+            SetDoubleBuffer(newCategoryBook, true);
+            SetDoubleBuffer(newCategoryBookTable, true);
+            SetDoubleBuffer(newCategoryBookImg, true);
+            SetDoubleBuffer(newCategoryBookTitle, true);
+            SetDoubleBuffer(newCategoryBookAuthor, true);
+            SetDoubleBuffer(newCategoryBookTitlePanel, true);
+
             mainCategoryPanel.Controls.Add(newCategoryBook);
             // 
             // categoryMainLabel
@@ -971,6 +1019,13 @@ namespace WinForms
             System.Windows.Forms.Label authorBookAuthor = new System.Windows.Forms.Label();
             FlowLayoutPanel authorBookTitlePanel = new FlowLayoutPanel();
 
+            SetDoubleBuffer(authorBook, true);
+            SetDoubleBuffer(authorBookTable, true);
+            SetDoubleBuffer(authorBookImg, true);
+            SetDoubleBuffer(authorBookTitle, true);
+            SetDoubleBuffer(authorBookAuthor, true);
+            SetDoubleBuffer(authorBookTitlePanel, true);
+
             authormainFlowPanel.Controls.Add(authorBook);
             // 
             // authorMainLabel
@@ -980,26 +1035,29 @@ namespace WinForms
             authorMainLabel.ForeColor = SystemColors.ControlLightLight;
             authorMainLabel.Location = new Point(3, 0);
             authorMainLabel.Name = "authorMainLabel";
-            authorMainLabel.Size = new Size(735, 82);
+            authorMainLabel.Size = new Size(categoriesPanel.Width, 82);
             authorMainLabel.TabIndex = 0;
-            authorMainLabel.Text = "Author";
+            authorMainLabel.Text = "Writen by "+newBook.author;
             // 
             // authorBook
             // 
-            authorBook.AccessibleName = "title";
+            authorBook.AccessibleName = newBook.title;
+            authorBook.Click += AuthorBook_Click;
             authorBook.BackColor = Color.Transparent;
             authorBook.Controls.Add(authorBookTable);
             authorBook.GradientAngle = 60F;
             authorBook.GradientPrimaryColor = Color.Transparent;
             authorBook.GradientSecondaryColor = Color.White;
             authorBook.Location = new Point(3, 85);
+            authorBook.Margin = new Padding(0);
             authorBook.Name = "authorBook";
-            authorBook.Size = new Size(349, 88);
+            authorBook.Size = new Size((mainCategoryPanel.Width) / 2 - 10, 88);
             authorBook.TabIndex = 4;
             // 
             // authorBookTable
             // 
-            authorBookTable.AccessibleName = "title";
+            authorBookTable.AccessibleName = newBook.title;
+            authorBookTable.Click += AuthorBook_Click;
             authorBookTable.AutoSize = true;
             authorBookTable.ColumnCount = 2;
             authorBookTable.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 88F));
@@ -1016,7 +1074,8 @@ namespace WinForms
             // 
             // authorBookImg
             // 
-            authorBookImg.AccessibleName = "title";
+            authorBookImg.AccessibleName = newBook.title;
+            authorBookImg.Click += AuthorBook_Click;
             authorBookImg.BackColor = Color.Transparent;
             authorBookImg.Location = new Point(3, 0);
             authorBookImg.Image = SetHeight(GetBookImage(newBook.index), 82);
@@ -1037,7 +1096,8 @@ namespace WinForms
             // 
             // authorBookTitle
             // 
-            authorBookTitle.AccessibleName = "title";
+            authorBookTitle.AccessibleName = newBook.title;
+            authorBookTitle.Click += AuthorBook_Click;
             authorBookTitle.AutoSize = true;
             authorBookTitle.BackColor = Color.Transparent;
             authorBookTitlePanel.SetFlowBreak(authorBookTitle, true);
@@ -1047,11 +1107,12 @@ namespace WinForms
             authorBookTitle.Name = "authorBookTitle";
             authorBookTitle.Size = new Size(50, 28);
             authorBookTitle.TabIndex = 1;
-            authorBookTitle.Text = "title";
+            authorBookTitle.Text = newBook.title;
             // 
             // authorBookAuthor
             // 
-            authorBookAuthor.AccessibleName = "title";
+            authorBookAuthor.AccessibleName = newBook.title;
+            authorBookAuthor.Click += AuthorBook_Click;
             authorBookAuthor.AutoSize = true;
             authorBookAuthor.BackColor = Color.Transparent;
             authorBookTitlePanel.SetFlowBreak(authorBookAuthor, true);
@@ -1061,8 +1122,14 @@ namespace WinForms
             authorBookAuthor.Name = "authorBookAuthor";
             authorBookAuthor.Size = new Size(50, 19);
             authorBookAuthor.TabIndex = 2;
-            authorBookAuthor.Text = "author";
+            authorBookAuthor.Text = newBook.author;
 
+        }
+
+        public void AuthorBook_Click(object sender, EventArgs e)
+        {
+            Control a = sender as Control;
+            updateCurrentBook(bookPicking(a.AccessibleName));
         }
 
         #endregion
@@ -2010,6 +2077,7 @@ namespace WinForms
             string imgPath = "../../../../../assets/LImgs/temp" + book.index + ".jpg";
             Image currentImg = Image.FromFile(imgPath);
             List<Book> categoryBooks = GetBookInCategory(book.publisher);
+            List<Book> authorBooks = GetBookInAuthorCategory(book.author);
 
             contentImg.Image = SetHeight(currentImg, contentImg.Height);
             currentLabel.Image = SetHeight(currentImg, currentLabel.Height);
@@ -2032,6 +2100,13 @@ namespace WinForms
                 {
                     AddCategryBook(categoryBooks.ElementAt(i), book.publisher);
                 }                
+            }
+            if (authorBooks.Count > 1)
+            {
+                for (int i = 0; i < authorBooks.Count;i++)
+                {
+                    AddAuthorBook(authorBooks.ElementAt(i));
+                }
             }
 
             string imgPath1 = "../../../../../assets/LImgs/temp" + book1.index + ".jpg";
