@@ -841,6 +841,110 @@ namespace WinForms
             updateCurrentBook(bookPicking(a.AccessibleName));
         }
         #endregion
+
+        //#region update category list
+        //public void AddCategryBook(Book newBook)
+        //{
+
+        //    mainCategoryPanel.Controls.Add(newCategoryBook);
+        //    // 
+        //    // categoryMainLabel
+        //    // 
+        //    mainCategoryPanel.SetFlowBreak(categoryMainLabel, true);
+        //    categoryMainLabel.Font = new Font("Exo ExtraBold", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point);
+        //    categoryMainLabel.ForeColor = SystemColors.ControlLightLight;
+        //    categoryMainLabel.Location = new Point(3, 0);
+        //    categoryMainLabel.Name = "categoryMainLabel";
+        //    categoryMainLabel.Size = new Size(735, 82);
+        //    categoryMainLabel.TabIndex = 0;
+        //    categoryMainLabel.Text = "Category";
+        //    // 
+        //    // newCategoryBook
+        //    // 
+        //    newCategoryBook.AccessibleName = "title";
+        //    newCategoryBook.BackColor = Color.Transparent;
+        //    newCategoryBook.Controls.Add(newCategoryBookTable);
+        //    newCategoryBook.GradientAngle = 60F;
+        //    newCategoryBook.GradientPrimaryColor = Color.Transparent;
+        //    newCategoryBook.GradientSecondaryColor = Color.White;
+        //    newCategoryBook.Location = new Point(3, 85);
+        //    newCategoryBook.Name = "newCategoryBook";
+        //    newCategoryBook.Size = new Size(349, 88);
+        //    newCategoryBook.TabIndex = 4;
+        //    // 
+        //    // newCategoryBookTable
+        //    // 
+        //    newCategoryBookTable.AccessibleName = "title";
+        //    newCategoryBookTable.AutoSize = true;
+        //    newCategoryBookTable.ColumnCount = 2;
+        //    newCategoryBookTable.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 88F));
+        //    newCategoryBookTable.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+        //    newCategoryBookTable.Controls.Add(newCategoryBookImg, 0, 0);
+        //    newCategoryBookTable.Controls.Add(flowLayoutPanel43, 1, 0);
+        //    newCategoryBookTable.Dock = DockStyle.Fill;
+        //    newCategoryBookTable.Location = new Point(0, 0);
+        //    newCategoryBookTable.Name = "newCategoryBookTable";
+        //    newCategoryBookTable.RowCount = 1;
+        //    newCategoryBookTable.RowStyles.Add(new RowStyle(SizeType.Absolute, 88F));
+        //    newCategoryBookTable.Size = new Size(349, 88);
+        //    newCategoryBookTable.TabIndex = 0;
+        //    // 
+        //    // newCategoryBookImg
+        //    // 
+        //    newCategoryBookImg.AccessibleName = "title";
+        //    newCategoryBookImg.BackColor = Color.Transparent;
+        //    newCategoryBookImg.Image = SetHeight(GetBookImage(newBook.index), 82);
+        //    newCategoryBookImg.Location = new Point(3, 0);
+        //    newCategoryBookImg.Name = "newCategoryBookImg";
+        //    newCategoryBookImg.Size = new Size(82, 88);
+        //    newCategoryBookImg.TabIndex = 0;
+        //    // 
+        //    // flowLayoutPanel43
+        //    // 
+        //    flowLayoutPanel43.AutoSize = true;
+        //    flowLayoutPanel43.Controls.Add(newCategoryBookTitle);
+        //    flowLayoutPanel43.Controls.Add(newCategoryBookAuthor);
+        //    flowLayoutPanel43.Dock = DockStyle.Fill;
+        //    flowLayoutPanel43.Location = new Point(91, 3);
+        //    flowLayoutPanel43.Name = "flowLayoutPanel43";
+        //    flowLayoutPanel43.Size = new Size(255, 82);
+        //    flowLayoutPanel43.TabIndex = 1;
+        //    // 
+        //    // newCategoryBookTitle
+        //    // 
+        //    newCategoryBookTitle.AccessibleName = "title";
+        //    newCategoryBookTitle.AutoSize = true;
+        //    newCategoryBookTitle.BackColor = Color.Transparent;
+        //    flowLayoutPanel43.SetFlowBreak(newCategoryBookTitle, true);
+        //    newCategoryBookTitle.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+        //    newCategoryBookTitle.ForeColor = SystemColors.ControlLight;
+        //    newCategoryBookTitle.Location = new Point(3, 0);
+        //    newCategoryBookTitle.Name = "newCategoryBookTitle";
+        //    newCategoryBookTitle.Size = new Size(50, 28);
+        //    newCategoryBookTitle.TabIndex = 1;
+        //    newCategoryBookTitle.Text = "title";
+        //    // 
+        //    // newCategoryBookAuthor
+        //    // 
+        //    newCategoryBookAuthor.AccessibleName = "title";
+        //    newCategoryBookAuthor.AutoSize = true;
+        //    newCategoryBookAuthor.BackColor = Color.Transparent;
+        //    flowLayoutPanel43.SetFlowBreak(newCategoryBookAuthor, true);
+        //    newCategoryBookAuthor.Font = new Font("Exo ExtraBold", 7.799999F, FontStyle.Bold, GraphicsUnit.Point);
+        //    newCategoryBookAuthor.ForeColor = SystemColors.ControlLight;
+        //    newCategoryBookAuthor.Location = new Point(3, 28);
+        //    newCategoryBookAuthor.Name = "newCategoryBookAuthor";
+        //    newCategoryBookAuthor.Size = new Size(50, 19);
+        //    newCategoryBookAuthor.TabIndex = 2;
+        //    newCategoryBookAuthor.Text = "author";
+        //}
+
+        //public void AddAuthorBook(Book newBook)
+        //{
+        //    authormainFlowPanel.Controls.Add(gradientPanel3);
+
+        //}
+        //#endregion
         //
         //MainForm only work went user login successfully
         //
@@ -997,14 +1101,8 @@ namespace WinForms
             SetDoubleBuffer(favFlowPanel, true);
             SetDoubleBuffer(favoriteLabel, true);
             SetDoubleBuffer(categoriesPanel, true);
-            SetDoubleBuffer(flowLayoutPanel42, true);
+            SetDoubleBuffer(mainCategoryPanel, true);
             SetDoubleBuffer(categoryMainLabel, true);
-            SetDoubleBuffer(gradientPanel12, true);
-            SetDoubleBuffer(tableLayoutPanel42, true);
-            SetDoubleBuffer(label94, true);
-            SetDoubleBuffer(flowLayoutPanel43, true);
-            SetDoubleBuffer(label95, true);
-            SetDoubleBuffer(label96, true);
             SetDoubleBuffer(historyPanel, true);
             SetDoubleBuffer(flowLayoutPanel47, true);
             SetDoubleBuffer(label106, true);
@@ -1226,10 +1324,7 @@ namespace WinForms
             SetDoubleBuffer(favoritePanel, true);
             SetDoubleBuffer(favFlowPanel, true);
             SetDoubleBuffer(categoriesPanel, true);
-            SetDoubleBuffer(flowLayoutPanel42, true);
-            SetDoubleBuffer(gradientPanel12, true);
-            SetDoubleBuffer(tableLayoutPanel42, true);
-            SetDoubleBuffer(flowLayoutPanel43, true);
+            SetDoubleBuffer(mainCategoryPanel, true);
             SetDoubleBuffer(historyPanel, true);
             SetDoubleBuffer(flowLayoutPanel47, true);
             SetDoubleBuffer(gradientPanel16, true);
@@ -2100,6 +2195,16 @@ namespace WinForms
         #endregion
 
         private void flowLayoutPanel24_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void categoriesPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void mainCategoryPanel_Paint(object sender, PaintEventArgs e)
         {
 
         }
