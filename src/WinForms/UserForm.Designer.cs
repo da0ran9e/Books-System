@@ -1,7 +1,39 @@
-﻿namespace WinForms
+﻿using static WinForms.EffectBlur;
+using System.Runtime.InteropServices;
+
+namespace WinForms
 {
     partial class UserForm
     {
+
+        [DllImport("user32.dll")]
+        internal static extern int SetWindowCompositionAttribute(IntPtr hwnd, ref WindowCompositionAttributeData data);
+
+        private uint _blurOpacity;
+        public double BlurOpacity
+        {
+            get { return _blurOpacity; }
+            set { _blurOpacity = (uint)value; EnableBlur(); }
+        }
+
+        private uint _blurBackgroundColor = 0x990000;
+
+        internal void EnableBlur()
+        {
+            var accent = new AccentPolicy();
+            accent.AccentState = AccentState.ACCENT_ENABLE_ACRYLICBLURBEHIND;
+            accent.GradientColor = (_blurOpacity << 24) | (_blurBackgroundColor & 0xFFFFFF);
+            var accentStructSize = Marshal.SizeOf(accent);
+            var accentPtr = Marshal.AllocHGlobal(accentStructSize);
+            Marshal.StructureToPtr(accent, accentPtr, false);
+            var data = new WindowCompositionAttributeData();
+            data.Attribute = WindowCompositionAttribute.WCA_ACCENT_POLICY;
+            data.SizeOfData = accentStructSize;
+            data.Data = accentPtr;
+            SetWindowCompositionAttribute(this.Handle, ref data);
+            Marshal.FreeHGlobal(accentPtr);
+        }
+
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -29,13 +61,13 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserForm));
-            SingleTextView singleTextView1 = new TSkin.ST.SingleTextView();
-            SingleTextView singleTextView2 = new TSkin.ST.SingleTextView();
-            SingleTextView singleTextView3 = new TSkin.ST.SingleTextView();
-            SingleTextView singleTextView4 = new TSkin.ST.SingleTextView();
-            SingleTextView singleTextView5 = new TSkin.ST.SingleTextView();
-            SingleTextView singleTextView6 = new TSkin.ST.SingleTextView();
-            SingleTextView singleTextView7 = new TSkin.ST.SingleTextView();
+            //SingleTextView singleTextView1 = new TSkin.ST.SingleTextView();
+            //SingleTextView singleTextView2 = new TSkin.ST.SingleTextView();
+            //SingleTextView singleTextView3 = new TSkin.ST.SingleTextView();
+            //SingleTextView singleTextView4 = new TSkin.ST.SingleTextView();
+            //SingleTextView singleTextView5 = new TSkin.ST.SingleTextView();
+            //SingleTextView singleTextView6 = new TSkin.ST.SingleTextView();
+            //SingleTextView singleTextView7 = new TSkin.ST.SingleTextView();
             roundedProfilePicture = new Winforms.RJButton();
             profilePicturePanel = new Panel();
             bottomMaskProfilePicture = new GradientPanel();
@@ -50,18 +82,18 @@
             lastNameLabel = new Label();
             roundedLastName = new Winforms.RJButton();
             birthDateLabel = new Label();
-            rjButton1 = new Winforms.RJButton();
+            roundedBirthDate = new Winforms.RJButton();
             genderLabel = new Label();
             roundedGender = new Winforms.RJButton();
             genderComboBox = new ComboBox();
-            gender = new Label();
+            genderValue = new Label();
             label1 = new Label();
             birthDatePicker = new DateTimePicker();
             birthDay = new Label();
             locationTextBox = new TSkin.ST.STTextBox();
             locationLabel = new Label();
             roundedLocation = new Winforms.RJButton();
-            nation = new Label();
+            nationValue = new Label();
             nationComboBox = new ComboBox();
             nationLabel = new Label();
             roundedNation = new Winforms.RJButton();
@@ -178,7 +210,7 @@
             usernameTextBox.ForeColor = SystemColors.ButtonHighlight;
             usernameTextBox.Location = new Point(394, 63);
             usernameTextBox.Name = "usernameTextBox";
-            usernameTextBox.SetTextView = singleTextView1;
+            //usernameTextBox.SetTextView = singleTextView1;
             usernameTextBox.Size = new Size(314, 29);
             usernameTextBox.TabIndex = 4;
             usernameTextBox.Visible = false;
@@ -191,7 +223,7 @@
             firstNameTextBox.ForeColor = SystemColors.ButtonHighlight;
             firstNameTextBox.Location = new Point(394, 141);
             firstNameTextBox.Name = "firstNameTextBox";
-            firstNameTextBox.SetTextView = singleTextView2;
+            //firstNameTextBox.SetTextView = singleTextView2;
             firstNameTextBox.Size = new Size(140, 29);
             firstNameTextBox.TabIndex = 7;
             firstNameTextBox.Visible = false;
@@ -234,7 +266,7 @@
             lastNameTextbox.ForeColor = SystemColors.ButtonHighlight;
             lastNameTextbox.Location = new Point(650, 141);
             lastNameTextbox.Name = "lastNameTextbox";
-            lastNameTextbox.SetTextView = singleTextView3;
+            //lastNameTextbox.SetTextView = singleTextView3;
             lastNameTextbox.Size = new Size(140, 29);
             lastNameTextbox.TabIndex = 10;
             lastNameTextbox.Visible = false;
@@ -280,24 +312,24 @@
             birthDateLabel.TabIndex = 15;
             birthDateLabel.Text = "Birthday";
             // 
-            // rjButton1
+            // roundedBirthDate
             // 
-            rjButton1.BackColor = Color.Transparent;
-            rjButton1.BackgroundColor = Color.Transparent;
-            rjButton1.BorderColor = Color.DeepPink;
-            rjButton1.BorderRadius = 25;
-            rjButton1.BorderSize = 2;
-            rjButton1.FlatAppearance.BorderSize = 0;
-            rjButton1.FlatStyle = FlatStyle.Flat;
-            rjButton1.ForeColor = Color.IndianRed;
-            rjButton1.Location = new Point(592, 208);
-            rjButton1.Name = "rjButton1";
-            rjButton1.Size = new Size(52, 50);
-            rjButton1.TabIndex = 14;
-            rjButton1.Text = "  ❕";
-            rjButton1.TextAlign = ContentAlignment.MiddleLeft;
-            rjButton1.TextColor = Color.IndianRed;
-            rjButton1.UseVisualStyleBackColor = false;
+            roundedBirthDate.BackColor = Color.Transparent;
+            roundedBirthDate.BackgroundColor = Color.Transparent;
+            roundedBirthDate.BorderColor = Color.DeepPink;
+            roundedBirthDate.BorderRadius = 25;
+            roundedBirthDate.BorderSize = 2;
+            roundedBirthDate.FlatAppearance.BorderSize = 0;
+            roundedBirthDate.FlatStyle = FlatStyle.Flat;
+            roundedBirthDate.ForeColor = Color.IndianRed;
+            roundedBirthDate.Location = new Point(592, 208);
+            roundedBirthDate.Name = "roundedBirthDate";
+            roundedBirthDate.Size = new Size(52, 50);
+            roundedBirthDate.TabIndex = 14;
+            roundedBirthDate.Text = "  ❕";
+            roundedBirthDate.TextAlign = ContentAlignment.MiddleLeft;
+            roundedBirthDate.TextColor = Color.IndianRed;
+            roundedBirthDate.UseVisualStyleBackColor = false;
             // 
             // genderLabel
             // 
@@ -339,14 +371,15 @@
             genderComboBox.TabIndex = 17;
             genderComboBox.Visible = false;
             // 
-            // gender
+            // genderValue
             // 
-            gender.AutoSize = true;
-            gender.Font = new Font("Exo ExtraBold", 10.7999992F, FontStyle.Bold, GraphicsUnit.Point);
-            gender.Location = new Point(394, 222);
-            gender.Name = "gender";
-            gender.Size = new Size(0, 25);
-            gender.TabIndex = 18;
+            genderValue.AutoSize = true;
+            genderValue.Font = new Font("Exo ExtraBold", 10.7999992F, FontStyle.Bold, GraphicsUnit.Point);
+            genderValue.ForeColor = SystemColors.ButtonHighlight;
+            genderValue.Location = new Point(394, 222);
+            genderValue.Name = "genderValue";
+            genderValue.Size = new Size(0, 25);
+            genderValue.TabIndex = 18;
             // 
             // label1
             // 
@@ -389,8 +422,8 @@
             locationTextBox.ForeColor = SystemColors.ButtonHighlight;
             locationTextBox.Location = new Point(650, 306);
             locationTextBox.Name = "locationTextBox";
-            locationTextBox.SetTextView = singleTextView4;
-            locationTextBox.Size = new Size(178, 29);
+            //locationTextBox.SetTextView = singleTextView4;
+            locationTextBox.Size = new Size(157, 29);
             locationTextBox.TabIndex = 24;
             locationTextBox.Visible = false;
             // 
@@ -424,14 +457,15 @@
             roundedLocation.TextColor = Color.IndianRed;
             roundedLocation.UseVisualStyleBackColor = false;
             // 
-            // nation
+            // nationValue
             // 
-            nation.AutoSize = true;
-            nation.Font = new Font("Exo ExtraBold", 10.7999992F, FontStyle.Bold, GraphicsUnit.Point);
-            nation.Location = new Point(394, 305);
-            nation.Name = "nation";
-            nation.Size = new Size(0, 25);
-            nation.TabIndex = 28;
+            nationValue.AutoSize = true;
+            nationValue.Font = new Font("Exo ExtraBold", 10.7999992F, FontStyle.Bold, GraphicsUnit.Point);
+            nationValue.ForeColor = SystemColors.ButtonHighlight;
+            nationValue.Location = new Point(394, 305);
+            nationValue.Name = "nationValue";
+            nationValue.Size = new Size(0, 25);
+            nationValue.TabIndex = 28;
             // 
             // nationComboBox
             // 
@@ -492,7 +526,7 @@
             emailTextBox.ForeColor = SystemColors.ButtonHighlight;
             emailTextBox.Location = new Point(394, 384);
             emailTextBox.Name = "emailTextBox";
-            emailTextBox.SetTextView = singleTextView5;
+            //emailTextBox.SetTextView = singleTextView5;
             emailTextBox.Size = new Size(378, 29);
             emailTextBox.TabIndex = 32;
             emailTextBox.Visible = false;
@@ -535,7 +569,7 @@
             phoneTextBox.ForeColor = SystemColors.ButtonHighlight;
             phoneTextBox.Location = new Point(83, 384);
             phoneTextBox.Name = "phoneTextBox";
-            phoneTextBox.SetTextView = singleTextView6;
+            //phoneTextBox.SetTextView = singleTextView6;
             phoneTextBox.Size = new Size(215, 29);
             phoneTextBox.TabIndex = 35;
             phoneTextBox.Visible = false;
@@ -578,7 +612,7 @@
             profilePictureLinkTextBox.ForeColor = SystemColors.ButtonHighlight;
             profilePictureLinkTextBox.Location = new Point(83, 476);
             profilePictureLinkTextBox.Name = "profilePictureLinkTextBox";
-            profilePictureLinkTextBox.SetTextView = singleTextView7;
+            //profilePictureLinkTextBox.SetTextView = singleTextView7;
             profilePictureLinkTextBox.Size = new Size(378, 29);
             profilePictureLinkTextBox.TabIndex = 38;
             profilePictureLinkTextBox.Visible = false;
@@ -671,7 +705,7 @@
             Controls.Add(emailLabel);
             Controls.Add(roundedEmail);
             Controls.Add(userIdLabel);
-            Controls.Add(nation);
+            Controls.Add(nationValue);
             Controls.Add(nationComboBox);
             Controls.Add(nationLabel);
             Controls.Add(roundedNation);
@@ -681,10 +715,10 @@
             Controls.Add(birthDay);
             Controls.Add(birthDatePicker);
             Controls.Add(label1);
-            Controls.Add(gender);
+            Controls.Add(genderValue);
             Controls.Add(genderComboBox);
             Controls.Add(birthDateLabel);
-            Controls.Add(rjButton1);
+            Controls.Add(roundedBirthDate);
             Controls.Add(genderLabel);
             Controls.Add(roundedGender);
             Controls.Add(lastNameTextbox);
@@ -700,8 +734,9 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "UserForm";
             ShowIcon = false;
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "UserForm";
-            Load += UserForm_Load;
+            Load += UserForm_LoadAsync;
             profilePicturePanel.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
@@ -723,17 +758,17 @@
         private Label lastNameLabel;
         private Winforms.RJButton roundedLastName;
         private Label birthDateLabel;
-        private Winforms.RJButton rjButton1;
+        private Winforms.RJButton roundedBirthDate;
         private Label genderLabel;
         private Winforms.RJButton roundedGender;
         private ComboBox genderComboBox;
-        private Label gender;
+        private Label genderValue;
         private Label label1;
         private DateTimePicker birthDatePicker;
         private Label birthDay;
         private TSkin.ST.STTextBox locationTextBox;
         private Label locationLabel;
-        private Label nation;
+        private Label nationValue;
         private Winforms.RJButton roundedLocation;
         private Label label3;
         private ComboBox nationComboBox;

@@ -1,3 +1,7 @@
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+
 namespace WinForms
 {
     internal static class Program
@@ -16,7 +20,7 @@ namespace WinForms
             //Application.Run(new RegistForm());
             //Application.Run(new AdFeedForm());
             //Application.Run(new MainForm("smarnes71"));
-            Application.Run(new UserForm());
+            Application.Run(new UserForm(75, "Hughie", null, "hmacwilliam22", "f4Q,4O", "hmaccaddie22@macromedia.com", "418-655-2654", 1, new DateTime(1977,04,06), "http://dummyprofileImage.com/113x141.png/ff4444/ffffff", 46, "365 Annamark Alley", "Kiowa"));
 
         }
     }
