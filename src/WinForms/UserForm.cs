@@ -57,15 +57,7 @@ namespace WinForms
 
         private async void roundedUsername_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < 15; i++)
-            {
-                roundedUsername.Width += 20;
-                await Task.Delay(1);
-            }
-            usernameTextBox.Text = "";
-            usernameTextBox.Enabled = true;
-            usernameTextBox.Visible = true;
-            usernameTextBox.Focus();
+
         }
 
         private void exitButton_Click(object sender, EventArgs e)
@@ -251,6 +243,135 @@ namespace WinForms
                 profilePictureLinkTextBox.Enabled = true;
                 profilePictureLinkTextBox.Visible = true;
             }
+        }
+
+        private async void roundedFirstName_Click(object sender, EventArgs e)
+        {
+            if (firstNameTextBox.Visible == false)
+            {
+                for (int i = 0; i < 8; i++)
+                {
+                    roundedFirstName.Width += 20;
+                    await Task.Delay(1);
+                }
+                firstNameTextBox.Visible = true;                
+            }
+            firstNameTextBox.Focus();
+        }
+
+        private async void roundedLastName_Click(object sender, EventArgs e)
+        {
+            if (lastNameTextbox.Visible == false)
+            {
+                for (int i = 0; i < 8; i++)
+                {
+                    roundedLastName.Width += 20;
+                    await Task.Delay(1);
+                }
+                lastNameTextbox.Visible = true;
+            }
+            lastNameTextbox.Focus();
+        }
+
+        private async void roundedGender_Click(object sender, EventArgs e)
+        {
+            if (genderValue.Visible == false && genderComboBox.Visible == false)
+            {
+                for (int i = 0; i < 8; i++)
+                {
+                    roundedGender.Width += 20;
+                    await Task.Delay(1);
+                }
+                genderComboBox.Visible = true;
+            }
+            genderValue.Visible = false;
+            genderComboBox.Focus();
+        }
+
+        private async void roundedBirthDate_Click(object sender, EventArgs e)
+        {
+            if (birthDay.Visible == false && birthDatePicker.Visible == false)
+            {
+                for (int i = 0; i < 8; i++)
+                {
+                    roundedBirthDate.Width += 20;
+                    await Task.Delay(1);
+                }
+                birthDatePicker.Visible = true;
+            }
+            birthDay.Visible = false;
+            birthDatePicker.Focus();
+        }
+
+        private async void roundedNation_Click(object sender, EventArgs e)
+        {
+            if (nationValue.Visible == false && nationComboBox.Visible == false)
+            {
+                for (int i = 0; i < 8; i++)
+                {
+                    roundedNation.Width += 20;
+                    await Task.Delay(1);
+                }
+                nationComboBox.Visible = true;
+            }
+            nationValue.Visible = false;
+            nationComboBox.Focus();
+        }
+
+        private async void roundedLocation_Click(object sender, EventArgs e)
+        {
+            if (locationTextBox.Visible == false)
+            {
+                for (int i = 0; i < 8; i++)
+                {
+                    roundedLocation.Width += 20;
+                    await Task.Delay(1);
+                }
+                locationTextBox.Visible = true;
+            }
+            locationTextBox.Focus();
+        }
+
+        private async void roundedPhone_Click(object sender, EventArgs e)
+        {
+            if (phoneTextBox.Visible == false)
+            {
+                for (int i = 0; i < 8; i++)
+                {
+                    roundedPhone.Width += 20;
+                    await Task.Delay(1);
+                }
+                phoneTextBox.Visible = true;
+            }
+            phoneTextBox.Focus();
+        }
+
+        private async void roundedEmail_Click(object sender, EventArgs e)
+        {
+            if (emailTextBox.Visible == false)
+            {
+                for (int i = 0; i < 8; i++)
+                {
+                    roundedEmail.Width += 20;
+                    await Task.Delay(1);
+                }
+                emailTextBox.Visible = true;
+            }
+            emailTextBox.Focus();
+        }
+
+        private async void roundedProfilePictureLink_Click(object sender, EventArgs e)
+        {
+            if (profilePictureLinkTextBox.Visible == false)
+            {
+                for (int i = 0; i < 8; i++)
+                {
+                    roundedProfilePictureLink.Width += 20;
+                    await Task.Delay(1);
+                }
+                profilePictureLinkTextBox.Visible = true;
+            }
+            profilePictureLinkTextBox.Focus();
         }
     }
 }
