@@ -2316,7 +2316,7 @@ namespace WinForms
         private void MainForm_Resize(object sender, EventArgs e)
         {
             //content resize
-            contentContainer.Height = mainFlowPanel.Height + difH+15;
+            contentContainer.Height = mainFlowPanel.Height + difH + 15;
             //homeFlowPanel resize
             homeFlowPanel.Height = mainFlowPanel.Height + difH;
             homeFlowPanel.Width = mainFlowPanel.Width + difW;
@@ -2539,5 +2539,14 @@ namespace WinForms
         }
         #endregion
 
+        private void user_Click(object sender, EventArgs e)
+        {
+            using (UserForm userForm = new UserForm(currentUser.userId, currentUser.fname, currentUser.lname, currentUser.username,
+                currentUser.password, currentUser.email, currentUser.phone, currentUser.gender, currentUser.date, currentUser.profileImage, currentUser.age,
+                currentUser.location, currentUser.nation))
+            {
+                userForm.ShowDialog();
+            }
+        }
     }
 }

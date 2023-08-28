@@ -649,6 +649,7 @@ namespace WinForms
             user.TabIndex = 0;
             user.TextColor = Color.White;
             user.UseVisualStyleBackColor = false;
+            user.Click += user_Click;
             // 
             // homeGradientPanel
             // 
@@ -902,7 +903,7 @@ namespace WinForms
             contentContainer.SetFlowBreak(categoryLabel, true);
             categoryLabel.Font = new Font("Exo ExtraBold", 16.2F, FontStyle.Bold, GraphicsUnit.Point);
             categoryLabel.ForeColor = SystemColors.ControlLight;
-            categoryLabel.Location = new Point(3, 688);
+            categoryLabel.Location = new Point(3, 700);
             categoryLabel.Name = "categoryLabel";
             categoryLabel.Size = new Size(285, 40);
             categoryLabel.TabIndex = 6;
@@ -914,7 +915,7 @@ namespace WinForms
             category0.GradientAngle = 60F;
             category0.GradientPrimaryColor = Color.Transparent;
             category0.GradientSecondaryColor = Color.White;
-            category0.Location = new Point(0, 728);
+            category0.Location = new Point(0, 740);
             category0.Margin = new Padding(0, 0, 0, 50);
             category0.Name = "category0";
             category0.Size = new Size(349, 88);

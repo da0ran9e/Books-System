@@ -423,7 +423,7 @@ namespace WinForms
             locationTextBox.Location = new Point(650, 306);
             locationTextBox.Name = "locationTextBox";
             //locationTextBox.SetTextView = singleTextView4;
-            locationTextBox.Size = new Size(157, 29);
+            locationTextBox.Size = new Size(140, 29);
             locationTextBox.TabIndex = 24;
             locationTextBox.Visible = false;
             // 
@@ -570,7 +570,7 @@ namespace WinForms
             phoneTextBox.Location = new Point(83, 384);
             phoneTextBox.Name = "phoneTextBox";
             //phoneTextBox.SetTextView = singleTextView6;
-            phoneTextBox.Size = new Size(215, 29);
+            phoneTextBox.Size = new Size(179, 29);
             phoneTextBox.TabIndex = 35;
             phoneTextBox.Visible = false;
             // 
