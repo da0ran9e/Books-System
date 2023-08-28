@@ -65,6 +65,20 @@ namespace WinForms
             this.Close();
         }
 
+        public bool idSavable;
+        public bool firstnameSavable;
+        public bool lastnameSavable;
+        public bool usernameSavable;
+        public bool passwordSavable;
+        public bool emailSavable;
+        public bool phoneSavable;
+        public bool genderSavable;
+        public bool birthDateSavable;
+        public bool profileImageSavable;
+        public bool ageSavable;
+        public bool locationSavable;
+        public bool nationSavable;
+
         private async void UserForm_LoadAsync(object sender, EventArgs e)
         {
             this.BackColor = System.Drawing.ColorTranslator.FromHtml("#010000");
@@ -376,22 +390,26 @@ namespace WinForms
 
         private void firstNameTextBox_TextChanged(object sender, EventArgs e)
         {
+            saveButton.Visible = true;
             if (firstNameTextBox.Text.Any(char.IsDigit))
             {
                 roundedFirstName.BorderColor = Color.DeepPink;
                 roundedFirstName.Text = "  ✖️";
                 roundedFirstName.ForeColor = Color.IndianRed;
+                firstnameSavable = false;
             }
             else
             {
                 roundedFirstName.BorderColor = Color.Cyan;
                 roundedFirstName.Text = "  ✔️";
                 roundedFirstName.ForeColor = Color.Lime;
+                firstnameSavable = true;
             }
         }
 
         private void lastNameTextbox_TextChanged(object sender, EventArgs e)
         {
+            saveButton.Visible = true;
             if (lastNameTextbox.Text.Any(char.IsDigit))
             {
                 roundedLastName.BorderColor = Color.DeepPink;
@@ -408,6 +426,7 @@ namespace WinForms
 
         private void genderComboBox_TextChanged(object sender, EventArgs e)
         {
+            saveButton.Visible = true;
             roundedGender.BorderColor = Color.Cyan;
             roundedGender.Text = "  ✔️";
             roundedGender.ForeColor = Color.Lime;
@@ -415,6 +434,7 @@ namespace WinForms
 
         private void genderComboBox_LostFocus(object sender, EventArgs e)
         {
+            saveButton.Visible = true;
             genderValue.Text = genderComboBox.Text;
             genderValue.Visible = true;
             genderComboBox.Visible = false;
@@ -422,6 +442,7 @@ namespace WinForms
 
         private void birthDatePicker_ValueChanged(object sender, EventArgs e)
         {
+            saveButton.Visible = true;
             roundedBirthDate.BorderColor = Color.Cyan;
             roundedBirthDate.Text = "  ✔️";
             roundedBirthDate.ForeColor = Color.Lime;
@@ -429,6 +450,7 @@ namespace WinForms
 
         private void birthDatePicker_LostFocus(Object sender, EventArgs e)
         {
+            saveButton.Visible = true;
             birthDay.Text = birthDatePicker.Value.ToString("dd") + "/" + birthDatePicker.Value.ToString("MM") + "/" + birthDatePicker.Value.ToString("yyyy");
             birthDay.Visible = true;
             birthDatePicker.Visible = false;
@@ -436,6 +458,7 @@ namespace WinForms
 
         private void nationComboBox_TextChanged(object sender, EventArgs e)
         {
+            saveButton.Visible = true;
             roundedLastName.BorderColor = Color.Cyan;
             roundedLastName.Text = "  ✔️";
             roundedLastName.ForeColor = Color.Lime;
@@ -443,6 +466,7 @@ namespace WinForms
 
         private void nationComboBox_LostFocus(object sender, EventArgs e)
         {
+            saveButton.Visible = true;
             nationValue.Text = nationComboBox.Text;
             nationValue.Visible = true;
             nationComboBox.Visible = false;
@@ -450,6 +474,7 @@ namespace WinForms
 
         private void locationTextBox_TextChanged(object sender, EventArgs e)
         {
+            saveButton.Visible = true;
             roundedLocation.BorderColor = Color.Cyan;
             roundedLocation.Text = "  ✔️";
             roundedLocation.ForeColor = Color.Lime;
@@ -457,6 +482,7 @@ namespace WinForms
 
         private void phoneTextBox_TextChanged(object sender, EventArgs e)
         {
+            saveButton.Visible = true;
             if (phoneTextBox.Text.Any(c => !char.IsDigit(c)))
             {
                 roundedPhone.BorderColor = Color.DeepPink;
@@ -473,6 +499,7 @@ namespace WinForms
 
         private void emailTextBox_TextChanged(object sender, EventArgs e)
         {
+            saveButton.Visible = true;
             if (!emailTextBox.Text.Contains('@'))
             {
                 roundedEmail.BorderColor = Color.DeepPink;
@@ -489,6 +516,7 @@ namespace WinForms
 
         private void profilePictureLinkTextBox_TextChanged(object sender, EventArgs e)
         {
+            saveButton.Visible = true;
             if (!profilePictureLinkTextBox.Text.Contains("http"))
             {
                 roundedProfilePictureLink.BorderColor = Color.DeepPink;
