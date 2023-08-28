@@ -61,13 +61,13 @@ namespace WinForms
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserForm));
-            //SingleTextView singleTextView57 = new TSkin.ST.SingleTextView();
-            //SingleTextView singleTextView58 = new TSkin.ST.SingleTextView();
-            //SingleTextView singleTextView59 = new TSkin.ST.SingleTextView();
-            //SingleTextView singleTextView60 = new TSkin.ST.SingleTextView();
-            //SingleTextView singleTextView61 = new TSkin.ST.SingleTextView();
-            //SingleTextView singleTextView62 = new TSkin.ST.SingleTextView();
-            //SingleTextView singleTextView63 = new TSkin.ST.SingleTextView();
+            //SingleTextView singleTextView1 = new TSkin.ST.SingleTextView();
+            //SingleTextView singleTextView2 = new TSkin.ST.SingleTextView();
+            //SingleTextView singleTextView3 = new TSkin.ST.SingleTextView();
+            //SingleTextView singleTextView4 = new TSkin.ST.SingleTextView();
+            //SingleTextView singleTextView5 = new TSkin.ST.SingleTextView();
+            //SingleTextView singleTextView6 = new TSkin.ST.SingleTextView();
+            //SingleTextView singleTextView7 = new TSkin.ST.SingleTextView();
             roundedProfilePicture = new Winforms.RJButton();
             profilePicturePanel = new Panel();
             bottomMaskProfilePicture = new GradientPanel();
@@ -210,7 +210,7 @@ namespace WinForms
             usernameTextBox.ForeColor = SystemColors.ButtonHighlight;
             usernameTextBox.Location = new Point(394, 63);
             usernameTextBox.Name = "usernameTextBox";
-            //usernameTextBox.SetTextView = singleTextView57;
+            //usernameTextBox.SetTextView = singleTextView1;
             usernameTextBox.Size = new Size(314, 29);
             usernameTextBox.TabIndex = 4;
             usernameTextBox.Visible = false;
@@ -223,10 +223,11 @@ namespace WinForms
             firstNameTextBox.ForeColor = SystemColors.ButtonHighlight;
             firstNameTextBox.Location = new Point(394, 141);
             firstNameTextBox.Name = "firstNameTextBox";
-            //firstNameTextBox.SetTextView = singleTextView58;
+            //firstNameTextBox.SetTextView = singleTextView2;
             firstNameTextBox.Size = new Size(140, 29);
             firstNameTextBox.TabIndex = 7;
             firstNameTextBox.Visible = false;
+            firstNameTextBox.TextChanged += firstNameTextBox_TextChanged;
             // 
             // firstNameLabel
             // 
@@ -267,10 +268,11 @@ namespace WinForms
             lastNameTextbox.ForeColor = SystemColors.ButtonHighlight;
             lastNameTextbox.Location = new Point(650, 141);
             lastNameTextbox.Name = "lastNameTextbox";
-            //lastNameTextbox.SetTextView = singleTextView59;
+            //lastNameTextbox.SetTextView = singleTextView3;
             lastNameTextbox.Size = new Size(140, 29);
             lastNameTextbox.TabIndex = 10;
             lastNameTextbox.Visible = false;
+            lastNameTextbox.TextChanged += lastNameTextbox_TextChanged;
             // 
             // lastNameLabel
             // 
@@ -374,6 +376,8 @@ namespace WinForms
             genderComboBox.Size = new Size(95, 28);
             genderComboBox.TabIndex = 17;
             genderComboBox.Visible = false;
+            genderComboBox.TextChanged += genderComboBox_TextChanged;
+            genderComboBox.LostFocus += genderComboBox_LostFocus;
             // 
             // genderValue
             // 
@@ -406,6 +410,8 @@ namespace WinForms
             birthDatePicker.TabIndex = 20;
             birthDatePicker.Value = new DateTime(2020, 2, 25, 0, 0, 0, 0);
             birthDatePicker.Visible = false;
+            birthDatePicker.ValueChanged += birthDatePicker_ValueChanged;
+            birthDatePicker.LostFocus += birthDatePicker_LostFocus;
             // 
             // birthDay
             // 
@@ -426,10 +432,11 @@ namespace WinForms
             locationTextBox.ForeColor = SystemColors.ButtonHighlight;
             locationTextBox.Location = new Point(650, 306);
             locationTextBox.Name = "locationTextBox";
-            //locationTextBox.SetTextView = singleTextView60;
+            //locationTextBox.SetTextView = singleTextView4;
             locationTextBox.Size = new Size(140, 29);
             locationTextBox.TabIndex = 24;
             locationTextBox.Visible = false;
+            locationTextBox.TextChanged += locationTextBox_TextChanged;
             // 
             // locationLabel
             // 
@@ -481,6 +488,8 @@ namespace WinForms
             nationComboBox.Size = new Size(134, 28);
             nationComboBox.TabIndex = 27;
             nationComboBox.Visible = false;
+            nationComboBox.TextChanged += nationComboBox_TextChanged;
+            nationComboBox.LostFocus += nationComboBox_LostFocus;
             // 
             // nationLabel
             // 
@@ -532,10 +541,11 @@ namespace WinForms
             emailTextBox.ForeColor = SystemColors.ButtonHighlight;
             emailTextBox.Location = new Point(394, 384);
             emailTextBox.Name = "emailTextBox";
-            //emailTextBox.SetTextView = singleTextView61;
+            //emailTextBox.SetTextView = singleTextView5;
             emailTextBox.Size = new Size(378, 29);
             emailTextBox.TabIndex = 32;
             emailTextBox.Visible = false;
+            emailTextBox.TextChanged += emailTextBox_TextChanged;
             // 
             // emailLabel
             // 
@@ -576,10 +586,11 @@ namespace WinForms
             phoneTextBox.ForeColor = SystemColors.ButtonHighlight;
             phoneTextBox.Location = new Point(83, 384);
             phoneTextBox.Name = "phoneTextBox";
-            //phoneTextBox.SetTextView = singleTextView62;
+            //phoneTextBox.SetTextView = singleTextView6;
             phoneTextBox.Size = new Size(179, 29);
             phoneTextBox.TabIndex = 35;
             phoneTextBox.Visible = false;
+            phoneTextBox.TextChanged += phoneTextBox_TextChanged;
             // 
             // phoneLabel
             // 
@@ -620,10 +631,11 @@ namespace WinForms
             profilePictureLinkTextBox.ForeColor = SystemColors.ButtonHighlight;
             profilePictureLinkTextBox.Location = new Point(83, 476);
             profilePictureLinkTextBox.Name = "profilePictureLinkTextBox";
-            //profilePictureLinkTextBox.SetTextView = singleTextView63;
+            //profilePictureLinkTextBox.SetTextView = singleTextView7;
             profilePictureLinkTextBox.Size = new Size(378, 29);
             profilePictureLinkTextBox.TabIndex = 38;
             profilePictureLinkTextBox.Visible = false;
+            profilePictureLinkTextBox.TextChanged += profilePictureLinkTextBox_TextChanged;
             // 
             // profilePictureLinkLabel
             // 

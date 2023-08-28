@@ -254,7 +254,7 @@ namespace WinForms
                     roundedFirstName.Width += 20;
                     await Task.Delay(1);
                 }
-                firstNameTextBox.Visible = true;                
+                firstNameTextBox.Visible = true;
             }
             firstNameTextBox.Focus();
         }
@@ -372,6 +372,135 @@ namespace WinForms
                 profilePictureLinkTextBox.Visible = true;
             }
             profilePictureLinkTextBox.Focus();
+        }
+
+        private void firstNameTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (firstNameTextBox.Text.Any(char.IsDigit))
+            {
+                roundedFirstName.BorderColor = Color.DeepPink;
+                roundedFirstName.Text = "  ✖️";
+                roundedFirstName.ForeColor = Color.IndianRed;
+            }
+            else
+            {
+                roundedFirstName.BorderColor = Color.Cyan;
+                roundedFirstName.Text = "  ✔️";
+                roundedFirstName.ForeColor = Color.Lime;
+            }
+        }
+
+        private void lastNameTextbox_TextChanged(object sender, EventArgs e)
+        {
+            if (lastNameTextbox.Text.Any(char.IsDigit))
+            {
+                roundedLastName.BorderColor = Color.DeepPink;
+                roundedLastName.Text = "  ✖️";
+                roundedLastName.ForeColor = Color.IndianRed;
+            }
+            else
+            {
+                roundedLastName.BorderColor = Color.Cyan;
+                roundedLastName.Text = "  ✔️";
+                roundedLastName.ForeColor = Color.Lime;
+            }
+        }
+
+        private void genderComboBox_TextChanged(object sender, EventArgs e)
+        {
+            roundedGender.BorderColor = Color.Cyan;
+            roundedGender.Text = "  ✔️";
+            roundedGender.ForeColor = Color.Lime;
+        }
+
+        private void genderComboBox_LostFocus(object sender, EventArgs e)
+        {
+            genderValue.Text = genderComboBox.Text;
+            genderValue.Visible = true;
+            genderComboBox.Visible = false;
+        }
+
+        private void birthDatePicker_ValueChanged(object sender, EventArgs e)
+        {
+            roundedBirthDate.BorderColor = Color.Cyan;
+            roundedBirthDate.Text = "  ✔️";
+            roundedBirthDate.ForeColor = Color.Lime;
+        }
+
+        private void birthDatePicker_LostFocus(Object sender, EventArgs e)
+        {
+            birthDay.Text = birthDatePicker.Value.ToString("dd") + "/" + birthDatePicker.Value.ToString("MM") + "/" + birthDatePicker.Value.ToString("yyyy");
+            birthDay.Visible = true;
+            birthDatePicker.Visible = false;
+        }
+
+        private void nationComboBox_TextChanged(object sender, EventArgs e)
+        {
+            roundedLastName.BorderColor = Color.Cyan;
+            roundedLastName.Text = "  ✔️";
+            roundedLastName.ForeColor = Color.Lime;
+        }
+
+        private void nationComboBox_LostFocus(object sender, EventArgs e)
+        {
+            nationValue.Text = nationComboBox.Text;
+            nationValue.Visible = true;
+            nationComboBox.Visible = false;
+        }
+
+        private void locationTextBox_TextChanged(object sender, EventArgs e)
+        {
+            roundedLocation.BorderColor = Color.Cyan;
+            roundedLocation.Text = "  ✔️";
+            roundedLocation.ForeColor = Color.Lime;
+        }
+
+        private void phoneTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (phoneTextBox.Text.Any(c => !char.IsDigit(c)))
+            {
+                roundedPhone.BorderColor = Color.DeepPink;
+                roundedPhone.Text = "  ✖️";
+                roundedPhone.ForeColor = Color.IndianRed;
+            }
+            else
+            {
+                roundedPhone.BorderColor = Color.Cyan;
+                roundedPhone.Text = "  ✔️";
+                roundedPhone.ForeColor = Color.Lime;
+            }
+        }
+
+        private void emailTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (!emailTextBox.Text.Contains('@'))
+            {
+                roundedEmail.BorderColor = Color.DeepPink;
+                roundedEmail.Text = "  ✖️";
+                roundedEmail.ForeColor = Color.IndianRed;
+            }
+            else
+            {
+                roundedEmail.BorderColor = Color.Cyan;
+                roundedEmail.Text = "  ✔️";
+                roundedEmail.ForeColor = Color.Lime;
+            }
+        }
+
+        private void profilePictureLinkTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (!profilePictureLinkTextBox.Text.Contains("http"))
+            {
+                roundedProfilePictureLink.BorderColor = Color.DeepPink;
+                roundedProfilePictureLink.Text = "  ✖️";
+                roundedProfilePictureLink.ForeColor = Color.IndianRed;
+            }
+            else
+            {
+                roundedProfilePictureLink.BorderColor = Color.Cyan;
+                roundedProfilePictureLink.Text = "  ✔️";
+                roundedProfilePictureLink.ForeColor = Color.Lime;
+            }
         }
     }
 }
