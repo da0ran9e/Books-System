@@ -22,26 +22,31 @@ namespace WinForms
         public string password;
         public string email;
         public string phone;
-        public byte gender;
         public DateTime birthDate;
         public string profileImage;
         public int age;
         public string location;
-        public string nation;
         public UserForm()
         {
 
             InitializeComponent();
         }
 
-        private void UserForm_Load(object sender, EventArgs e)
+        public UserForm(int id, string firstname, string lastname, string username, string password, string email, string phone, DateTime birthDate, string profileImage, int age, string location)
         {
+            this.id = id;
+            this.firstname = firstname;
+            this.lastname = lastname;
+            this.username = username;
+            this.password = password;
+            this.email = email;
+            this.phone = phone;
+            this.birthDate = birthDate;
+            this.profileImage = profileImage;
+            this.age = age;
+            this.location = location;
 
-        }
-
-        private void rjButton1_Click(object sender, EventArgs e)
-        {
-
+            InitializeComponent();
         }
 
         private async void roundedUsername_Click(object sender, EventArgs e)
@@ -51,6 +56,20 @@ namespace WinForms
                 roundedUsername.Width += 20;
                 await Task.Delay(1);
             }
+            usernameTextBox.Text = "";
+            usernameTextBox.Enabled = true;
+            usernameTextBox.Visible = true;
+            usernameTextBox.Focus();
+        }
+
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void UserForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
