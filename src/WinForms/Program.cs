@@ -15,8 +15,8 @@ namespace WinForms
             //Application.Run(new LoginForm());
             //Application.Run(new RegistForm());
             //Application.Run(new AdFeedForm());
-            Application.Run(new MainForm("smarnes71"));
-            //Application.Run(new LoadingForm(100));
+            //Application.Run(new MainForm("smarnes71"));
+            Application.Run(new UserForm());
 
         }
     }

@@ -30,13 +30,27 @@ namespace WinForms
         public string nation;
         public UserForm()
         {
-            
+
             InitializeComponent();
         }
 
         private void UserForm_Load(object sender, EventArgs e)
         {
-            
+
+        }
+
+        private void rjButton1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private async void roundedUsername_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < 15; i++)
+            {
+                roundedUsername.Width += 20;
+                await Task.Delay(1);
+            }
         }
     }
 }
