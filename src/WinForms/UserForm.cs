@@ -440,6 +440,22 @@ namespace WinForms
             }
         }
 
+        private async void lastNameTextbox_LostFocus(object sender, EventArgs e)
+        {
+            if (lastNameTextbox.Text.Length < 1)
+            {
+                for (int i = 0; i < 8; i++)
+                {
+                    roundedLastName.Width -= 20;
+                    await Task.Delay(1);
+                }
+                lastNameTextbox.Visible = false;
+                roundedLastName.Text = "  ❕";
+                roundedLastName.ForeColor = Color.IndianRed;
+                roundedLastName.BorderColor = Color.DeepPink;
+            }
+        }
+
         private void genderComboBox_TextChanged(object sender, EventArgs e)
         {
             saveButton.Visible = true;
@@ -448,12 +464,26 @@ namespace WinForms
             roundedGender.ForeColor = Color.Lime;
         }
 
-        private void genderComboBox_LostFocus(object sender, EventArgs e)
+        private async void genderComboBox_LostFocus(object sender, EventArgs e)
         {
             saveButton.Visible = true;
             genderValue.Text = genderComboBox.Text;
             genderValue.Visible = true;
             genderComboBox.Visible = false;
+
+            if (genderComboBox.Text.Length < 1)
+            {
+                for (int i = 0; i < 8; i++)
+                {
+                    roundedGender.Width -= 20;
+                    await Task.Delay(1);
+                }
+                genderComboBox.Visible = false;
+                genderValue.Visible = false;
+                roundedGender.Text = "  ❕";
+                roundedGender.ForeColor = Color.IndianRed;
+                roundedGender.BorderColor = Color.DeepPink;
+            }
         }
 
         private void birthDatePicker_ValueChanged(object sender, EventArgs e)
@@ -464,12 +494,26 @@ namespace WinForms
             roundedBirthDate.ForeColor = Color.Lime;
         }
 
-        private void birthDatePicker_LostFocus(Object sender, EventArgs e)
+        private async void birthDatePicker_LostFocus(Object sender, EventArgs e)
         {
             saveButton.Visible = true;
             birthDay.Text = birthDatePicker.Value.ToString("dd") + "/" + birthDatePicker.Value.ToString("MM") + "/" + birthDatePicker.Value.ToString("yyyy");
             birthDay.Visible = true;
             birthDatePicker.Visible = false;
+
+            if (birthDatePicker.Equals(new DateTime(0001, 01, 01)))
+            {
+                for (int i = 0; i < 8; i++)
+                {
+                    roundedBirthDate.Width -= 20;
+                    await Task.Delay(1);
+                }
+                birthDatePicker.Visible = false;
+                birthDay.Visible = false;
+                roundedBirthDate.Text = "  ❕";
+                roundedBirthDate.ForeColor = Color.IndianRed;
+                roundedBirthDate.BorderColor = Color.DeepPink;
+            }
         }
 
         private void nationComboBox_TextChanged(object sender, EventArgs e)
@@ -480,12 +524,26 @@ namespace WinForms
             roundedLastName.ForeColor = Color.Lime;
         }
 
-        private void nationComboBox_LostFocus(object sender, EventArgs e)
+        private async void nationComboBox_LostFocus(object sender, EventArgs e)
         {
             saveButton.Visible = true;
             nationValue.Text = nationComboBox.Text;
             nationValue.Visible = true;
             nationComboBox.Visible = false;
+
+            if (nationComboBox.Text.Length < 1)
+            {
+                for (int i = 0; i < 8; i++)
+                {
+                    roundedNation.Width -= 20;
+                    await Task.Delay(1);
+                }
+                nationComboBox.Visible = false;
+                nationValue.Visible = false;
+                roundedNation.Text = "  ❕";
+                roundedNation.ForeColor = Color.IndianRed;
+                roundedNation.BorderColor = Color.DeepPink;
+            }
         }
 
         private void locationTextBox_TextChanged(object sender, EventArgs e)
@@ -494,6 +552,22 @@ namespace WinForms
             roundedLocation.BorderColor = Color.Cyan;
             roundedLocation.Text = "  ✔️";
             roundedLocation.ForeColor = Color.Lime;
+        }
+
+        private async void locationTextBox_LostFocus(object sender, EventArgs e)
+        {
+            if (locationTextBox.Text.Length < 1)
+            {
+                for (int i = 0; i < 8; i++)
+                {
+                    roundedLocation.Width -= 20;
+                    await Task.Delay(1);
+                }
+                locationTextBox.Visible = false;
+                roundedLocation.Text = "  ❕";
+                roundedLocation.ForeColor = Color.IndianRed;
+                roundedLocation.BorderColor = Color.DeepPink;
+            }
         }
 
         private void phoneTextBox_TextChanged(object sender, EventArgs e)
@@ -510,6 +584,22 @@ namespace WinForms
                 roundedPhone.BorderColor = Color.Cyan;
                 roundedPhone.Text = "  ✔️";
                 roundedPhone.ForeColor = Color.Lime;
+            }
+        }
+
+        private async void phoneTextBox_LostFocus(object sender, EventArgs e)
+        {
+            if (phoneTextBox.Text.Length < 1)
+            {
+                for (int i = 0; i < 10; i++)
+                {
+                    roundedPhone.Width -= 20;
+                    await Task.Delay(1);
+                }
+                phoneTextBox.Visible = false;
+                roundedPhone.Text = "  ❕";
+                roundedPhone.ForeColor = Color.IndianRed;
+                roundedPhone.BorderColor = Color.DeepPink;
             }
         }
 
@@ -530,6 +620,22 @@ namespace WinForms
             }
         }
 
+        private async void emailTextBox_LostFocus(object sender, EventArgs e)
+        {
+            if (emailTextBox.Text.Length < 1)
+            {
+                for (int i = 0; i < 21; i++)
+                {
+                    roundedEmail.Width -= 20;
+                    await Task.Delay(1);
+                }
+                emailTextBox.Visible = false;
+                roundedEmail.Text = "  ❕";
+                roundedEmail.ForeColor = Color.IndianRed;
+                roundedEmail.BorderColor = Color.DeepPink;
+            }
+        }
+
         private void profilePictureLinkTextBox_TextChanged(object sender, EventArgs e)
         {
             saveButton.Visible = true;
@@ -544,6 +650,22 @@ namespace WinForms
                 roundedProfilePictureLink.BorderColor = Color.Cyan;
                 roundedProfilePictureLink.Text = "  ✔️";
                 roundedProfilePictureLink.ForeColor = Color.Lime;
+            }
+        }
+
+        private async void profilePictureLinkTextBox_LostFocus(object sender, EventArgs e)
+        {
+            if (profilePictureLinkTextBox.Text.Length < 1)
+            {
+                for (int i = 0; i < 21; i++)
+                {
+                    roundedProfilePictureLink.Width -= 20;
+                    await Task.Delay(1);
+                }
+                profilePictureLinkTextBox.Visible = false;
+                roundedProfilePictureLink.Text = "  ❕";
+                roundedProfilePictureLink.ForeColor = Color.IndianRed;
+                roundedProfilePictureLink.BorderColor = Color.DeepPink;
             }
         }
     }

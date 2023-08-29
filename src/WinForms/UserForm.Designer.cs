@@ -274,6 +274,7 @@ namespace WinForms
             lastNameTextbox.TabIndex = 10;
             lastNameTextbox.Visible = false;
             lastNameTextbox.TextChanged += lastNameTextbox_TextChanged;
+            lastNameTextbox.LostFocus += lastNameTextbox_LostFocus;
             // 
             // lastNameLabel
             // 
@@ -438,6 +439,7 @@ namespace WinForms
             locationTextBox.TabIndex = 24;
             locationTextBox.Visible = false;
             locationTextBox.TextChanged += locationTextBox_TextChanged;
+            locationTextBox.LostFocus += locationTextBox_LostFocus;
             // 
             // locationLabel
             // 
@@ -547,6 +549,7 @@ namespace WinForms
             emailTextBox.TabIndex = 32;
             emailTextBox.Visible = false;
             emailTextBox.TextChanged += emailTextBox_TextChanged;
+            emailTextBox.LostFocus += emailTextBox_LostFocus;
             // 
             // emailLabel
             // 
@@ -592,6 +595,7 @@ namespace WinForms
             phoneTextBox.TabIndex = 35;
             phoneTextBox.Visible = false;
             phoneTextBox.TextChanged += phoneTextBox_TextChanged;
+            phoneTextBox.LostFocus += phoneTextBox_LostFocus;
             // 
             // phoneLabel
             // 
@@ -637,6 +641,7 @@ namespace WinForms
             profilePictureLinkTextBox.TabIndex = 38;
             profilePictureLinkTextBox.Visible = false;
             profilePictureLinkTextBox.TextChanged += profilePictureLinkTextBox_TextChanged;
+            profilePictureLinkTextBox.LostFocus += profilePictureLinkTextBox_LostFocus;
             // 
             // profilePictureLinkLabel
             // 
