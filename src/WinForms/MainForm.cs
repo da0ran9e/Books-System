@@ -1161,7 +1161,7 @@ namespace WinForms
 
         #endregion
 
-        #region update other categori List
+        #region update other category List
         public void AddOtherCategoryBook(Book newBook)
         {
             GradientPanel otherCategory = new GradientPanel();
@@ -1260,6 +1260,73 @@ namespace WinForms
         {
             Control a = sender as Control;
             updateCurrentBook(bookPicking(a.AccessibleDescription));
+        }
+        #endregion
+
+        #region update history list
+        public void AddHistoryNewBook(Book newBook)
+        {
+            Panel historyNewBook = new Panel();
+            GradientPanel historyNewBookGrad = new GradientPanel();
+            System.Windows.Forms.Label historyNewBookAuthor = new System.Windows.Forms.Label();
+            System.Windows.Forms.Label historyNewBookTitle = new System.Windows.Forms.Label();
+
+            historyFlowPanel.Controls.Add(historyNewBook);
+            // 
+            // historyNewBook
+            // 
+            historyNewBook.Controls.Add(historyNewBookGrad);
+            historyNewBook.Location = new Point(0, 82);
+            historyNewBook.Margin = new Padding(8);
+            historyNewBook.Name = "historyNewBook";
+            historyNewBook.Size = new Size(199, 240);
+            historyNewBook.BackgroundImage = SetHeight(GetBookImage(newBook.index), 240);
+            historyNewBook.BackgroundImageLayout = ImageLayout.Stretch;
+            historyNewBook.TabIndex = 6;
+            // 
+            // historyNewBookGrad
+            // 
+            historyNewBookGrad.BackColor = Color.Transparent;
+            historyNewBookGrad.Controls.Add(historyNewBookAuthor);
+            historyNewBookGrad.Controls.Add(historyNewBookTitle);
+            historyNewBookGrad.Dock = DockStyle.Bottom;
+            historyNewBookGrad.GradientAngle = 90F;
+            historyNewBookGrad.GradientPrimaryColor = Color.Transparent;
+            historyNewBookGrad.GradientSecondaryColor = Color.Black;
+            historyNewBookGrad.Location = new Point(0, 119);
+            historyNewBookGrad.Margin = new Padding(0);
+            historyNewBookGrad.Name = "historyNewBookGrad";
+            historyNewBookGrad.Size = new Size(199, 200);
+            historyNewBookGrad.TabIndex = 4;
+            // 
+            // historyNewBookAuthor
+            // 
+            historyNewBookAuthor.AutoSize = true;
+            historyNewBookAuthor.BackColor = Color.Transparent;
+            historyNewBookAuthor.Dock = DockStyle.Bottom;
+            historyNewBookAuthor.Font = new Font("Exo ExtraBold", 7.799999F, FontStyle.Bold, GraphicsUnit.Point);
+            historyNewBookAuthor.ForeColor = SystemColors.ControlLight;
+            historyNewBookAuthor.Location = new Point(0, 180);
+            historyNewBookAuthor.Margin = new Padding(0);
+            historyNewBookAuthor.Name = "historyNewBookAuthor";
+            historyNewBookAuthor.Size = new Size(50, 19);
+            historyNewBookAuthor.TabIndex = 3;
+            historyNewBookAuthor.Text = newBook.author;
+            // 
+            // historyNewBookTitle
+            // 
+            historyNewBookTitle.AutoSize = true;
+            historyNewBookTitle.AutoEllipsis = true;
+            historyNewBookTitle.BackColor = Color.Transparent;
+            //historyNewBookTitle.Dock = DockStyle.Top;
+            historyNewBookTitle.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            historyNewBookTitle.ForeColor = SystemColors.ControlLight;
+            historyNewBookTitle.Location = new Point(0, 152);
+            historyNewBookTitle.Margin = new Padding(0);
+            historyNewBookTitle.Name = "historyNewBookTitle";
+            historyNewBookTitle.Size = new Size(50, 28);
+            historyNewBookTitle.TabIndex = 2;
+            historyNewBookTitle.Text = newBook.title;
         }
         #endregion
 
@@ -1421,32 +1488,8 @@ namespace WinForms
             SetDoubleBuffer(mainCategoryPanel, true);
             SetDoubleBuffer(categoryMainLabel, true);
             SetDoubleBuffer(historyPanel, true);
-            SetDoubleBuffer(flowLayoutPanel47, true);
-            SetDoubleBuffer(label106, true);
-            SetDoubleBuffer(gradientPanel16, true);
-            SetDoubleBuffer(tableLayoutPanel46, true);
-            SetDoubleBuffer(label107, true);
-            SetDoubleBuffer(flowLayoutPanel48, true);
-            SetDoubleBuffer(label108, true);
-            SetDoubleBuffer(label109, true);
-            SetDoubleBuffer(gradientPanel17, true);
-            SetDoubleBuffer(tableLayoutPanel47, true);
-            SetDoubleBuffer(label110, true);
-            SetDoubleBuffer(flowLayoutPanel49, true);
-            SetDoubleBuffer(label111, true);
-            SetDoubleBuffer(label112, true);
-            SetDoubleBuffer(gradientPanel18, true);
-            SetDoubleBuffer(tableLayoutPanel48, true);
-            SetDoubleBuffer(label113, true);
-            SetDoubleBuffer(flowLayoutPanel50, true);
-            SetDoubleBuffer(label115, true);
-            SetDoubleBuffer(label116, true);
-            SetDoubleBuffer(gradientPanel19, true);
-            SetDoubleBuffer(tableLayoutPanel49, true);
-            SetDoubleBuffer(label117, true);
-            SetDoubleBuffer(flowLayoutPanel51, true);
-            SetDoubleBuffer(label118, true);
-            SetDoubleBuffer(label119, true);
+            SetDoubleBuffer(historyFlowPanel, true);
+            SetDoubleBuffer(historyLabel, true);
             SetDoubleBuffer(bestBookPanel, true);
             SetDoubleBuffer(bestBookFlowPanel, true);
             SetDoubleBuffer(bestBookLabel, true);
@@ -1643,19 +1686,7 @@ namespace WinForms
             SetDoubleBuffer(categoriesPanel, true);
             SetDoubleBuffer(mainCategoryPanel, true);
             SetDoubleBuffer(historyPanel, true);
-            SetDoubleBuffer(flowLayoutPanel47, true);
-            SetDoubleBuffer(gradientPanel16, true);
-            SetDoubleBuffer(tableLayoutPanel46, true);
-            SetDoubleBuffer(flowLayoutPanel48, true);
-            SetDoubleBuffer(gradientPanel17, true);
-            SetDoubleBuffer(tableLayoutPanel47, true);
-            SetDoubleBuffer(flowLayoutPanel49, true);
-            SetDoubleBuffer(gradientPanel18, true);
-            SetDoubleBuffer(tableLayoutPanel48, true);
-            SetDoubleBuffer(flowLayoutPanel50, true);
-            SetDoubleBuffer(gradientPanel19, true);
-            SetDoubleBuffer(tableLayoutPanel49, true);
-            SetDoubleBuffer(flowLayoutPanel51, true);
+            SetDoubleBuffer(historyFlowPanel, true);
             SetDoubleBuffer(bestBookPanel, true);
             SetDoubleBuffer(bestBookFlowPanel, true);
             SetDoubleBuffer(bestBookElement0, true);
@@ -1835,6 +1866,18 @@ namespace WinForms
 
             }
 
+            #endregion
+
+            #region update history list
+            for (int i = 0; i < userHistory.Count; i++)
+            {
+                Book histBook = GetBookInformation(userHistory.ElementAt(i).isbn);
+                if (histBook.title != null)
+                {
+                    AddHistoryNewBook(histBook);
+                }
+
+            }
             #endregion
 
             homeFlowPanel.Controls.Add(bestBookFlowPanel);
