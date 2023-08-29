@@ -65,7 +65,7 @@ namespace WinForms
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             //SingleTextView singleTextView1 = new TSkin.ST.SingleTextView();
-            searchTabeLayout = new TableLayoutPanel();
+            containerMainTableLayout = new TableLayoutPanel();
             verticalMenuBar = new FlowLayoutPanel();
             userLabel = new Label();
             verticalTableMenu = new TableLayoutPanel();
@@ -360,7 +360,7 @@ namespace WinForms
             close = new ToolStripButton();
             maximize = new ToolStripButton();
             minimize = new ToolStripButton();
-            searchTabeLayout.SuspendLayout();
+            containerMainTableLayout.SuspendLayout();
             verticalMenuBar.SuspendLayout();
             verticalTableMenu.SuspendLayout();
             topBlank.SuspendLayout();
@@ -495,28 +495,28 @@ namespace WinForms
             toolStrip1.SuspendLayout();
             SuspendLayout();
             // 
-            // searchTabeLayout
+            // containerMainTableLayout
             // 
-            searchTabeLayout.BackColor = Color.Transparent;
-            searchTabeLayout.ColumnCount = 3;
-            searchTabeLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 400F));
-            searchTabeLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            searchTabeLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 100F));
-            searchTabeLayout.Controls.Add(verticalMenuBar, 2, 0);
-            searchTabeLayout.Controls.Add(contentPanel, 0, 0);
-            searchTabeLayout.Controls.Add(mainFlowPanel, 1, 0);
-            searchTabeLayout.Controls.Add(currentPanel, 2, 1);
-            searchTabeLayout.Controls.Add(currentProperties, 1, 1);
-            searchTabeLayout.Controls.Add(optionPanel, 0, 1);
-            searchTabeLayout.Dock = DockStyle.Fill;
-            searchTabeLayout.Location = new Point(0, 0);
-            searchTabeLayout.Margin = new Padding(0, 500, 0, 0);
-            searchTabeLayout.Name = "searchTabeLayout";
-            searchTabeLayout.RowCount = 2;
-            searchTabeLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            searchTabeLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 100F));
-            searchTabeLayout.Size = new Size(1280, 826);
-            searchTabeLayout.TabIndex = 0;
+            containerMainTableLayout.BackColor = Color.Transparent;
+            containerMainTableLayout.ColumnCount = 3;
+            containerMainTableLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 400F));
+            containerMainTableLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            containerMainTableLayout.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 100F));
+            containerMainTableLayout.Controls.Add(verticalMenuBar, 2, 0);
+            containerMainTableLayout.Controls.Add(contentPanel, 0, 0);
+            containerMainTableLayout.Controls.Add(mainFlowPanel, 1, 0);
+            containerMainTableLayout.Controls.Add(currentPanel, 2, 1);
+            containerMainTableLayout.Controls.Add(currentProperties, 1, 1);
+            containerMainTableLayout.Controls.Add(optionPanel, 0, 1);
+            containerMainTableLayout.Dock = DockStyle.Fill;
+            containerMainTableLayout.Location = new Point(0, 0);
+            containerMainTableLayout.Margin = new Padding(0, 500, 0, 0);
+            containerMainTableLayout.Name = "containerMainTableLayout";
+            containerMainTableLayout.RowCount = 2;
+            containerMainTableLayout.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            containerMainTableLayout.RowStyles.Add(new RowStyle(SizeType.Absolute, 100F));
+            containerMainTableLayout.Size = new Size(1280, 826);
+            containerMainTableLayout.TabIndex = 0;
             // 
             // verticalMenuBar
             // 
@@ -948,7 +948,6 @@ namespace WinForms
             // 
             // mainFlowPanel
             // 
-            mainFlowPanel.AutoScroll = true;
             mainFlowPanel.Controls.Add(homeFlowPanel);
             mainFlowPanel.Controls.Add(searchFlowPanel);
             mainFlowPanel.Controls.Add(favoritePanel);
@@ -973,7 +972,7 @@ namespace WinForms
             homeFlowPanel.Location = new Point(0, 0);
             homeFlowPanel.Margin = new Padding(0);
             homeFlowPanel.Name = "homeFlowPanel";
-            homeFlowPanel.Size = new Size(767, 765);
+            homeFlowPanel.Size = new Size(822, 765);
             homeFlowPanel.TabIndex = 0;
             // 
             // helloPanel
@@ -2602,7 +2601,7 @@ namespace WinForms
             historyFlowPanel.Controls.Add(historyLabel);
             historyPanel.SetFlowBreak(historyFlowPanel, true);
             historyFlowPanel.Location = new Point(0, 27);
-            historyFlowPanel.Margin = new Padding(0, 27, 0, 0);
+            historyFlowPanel.Margin = new Padding(0, 27, 0, 50);
             historyFlowPanel.Name = "historyFlowPanel";
             historyFlowPanel.Size = new Size(741, 82);
             historyFlowPanel.TabIndex = 0;
@@ -4107,7 +4106,7 @@ namespace WinForms
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1280, 846);
             Controls.Add(toolStrip1);
-            Controls.Add(searchTabeLayout);
+            Controls.Add(containerMainTableLayout);
             DoubleBuffered = true;
             FormBorderStyle = FormBorderStyle.None;
             Name = "MainForm";
@@ -4118,7 +4117,7 @@ namespace WinForms
             Load += MainForm_Load;
             ResizeBegin += MainForm_ResizeBegin;
             Resize += MainForm_Resize;
-            searchTabeLayout.ResumeLayout(false);
+            containerMainTableLayout.ResumeLayout(false);
             verticalMenuBar.ResumeLayout(false);
             verticalTableMenu.ResumeLayout(false);
             topBlank.ResumeLayout(false);
@@ -4342,7 +4341,7 @@ namespace WinForms
         #endregion
 
 
-        private TableLayoutPanel searchTabeLayout;
+        private TableLayoutPanel containerMainTableLayout;
         private FlowLayoutPanel verticalMenuBar;
         private Label searchLabel;
         private Label heartLabel;

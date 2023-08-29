@@ -1379,11 +1379,8 @@ namespace WinForms
             loading.Show();
 
             #region Set controls double buffered 
-            SetDoubleBuffer(recommentTable3, true);
-            SetDoubleBuffer(searchLayoutTable, true);
 
-
-            SetDoubleBuffer(searchTabeLayout, true);
+            SetDoubleBuffer(containerMainTableLayout, true);
             SetDoubleBuffer(verticalMenuBar, true);
             SetDoubleBuffer(userLabel, true);
             SetDoubleBuffer(verticalTableMenu, true);
@@ -1411,6 +1408,11 @@ namespace WinForms
             SetDoubleBuffer(authorDesLabel, true);
             SetDoubleBuffer(categoryLabel, true);
             SetDoubleBuffer(category0, true);
+            SetDoubleBuffer(categoryTable0, true);
+            SetDoubleBuffer(categoryImg0, true);
+            SetDoubleBuffer(categoryFlowPanel0, true);
+            SetDoubleBuffer(categoryTitle0, true);
+            SetDoubleBuffer(categoryAuthor0, true);
             SetDoubleBuffer(mainFlowPanel, true);
             SetDoubleBuffer(homeFlowPanel, true);
             SetDoubleBuffer(helloPanel, true);
@@ -1480,13 +1482,62 @@ namespace WinForms
             SetDoubleBuffer(topSearchFlowPanel, true);
             SetDoubleBuffer(topSearchTitle, true);
             SetDoubleBuffer(topSearchAuthor, true);
+            SetDoubleBuffer(otherResult0, true);
+            SetDoubleBuffer(otherTable0, true);
+            SetDoubleBuffer(otherTitle0, true);
+            SetDoubleBuffer(otherImg0, true);
+            SetDoubleBuffer(otherResult1, true);
+            SetDoubleBuffer(otherTable1, true);
+            SetDoubleBuffer(otherTitle1, true);
+            SetDoubleBuffer(otherImg1, true);
+            SetDoubleBuffer(otherResult2, true);
+            SetDoubleBuffer(otherTable2, true);
+            SetDoubleBuffer(otherTitle2, true);
+            SetDoubleBuffer(otherImg2, true);
+            SetDoubleBuffer(otherResult3, true);
+            SetDoubleBuffer(otherTable3, true);
+            SetDoubleBuffer(otherTitle3, true);
+            SetDoubleBuffer(otherImg3, true);
+            SetDoubleBuffer(otherResult4, true);
+            SetDoubleBuffer(otherTable4, true);
+            SetDoubleBuffer(otherTitle4, true);
+            SetDoubleBuffer(otherImg4, true);
+            SetDoubleBuffer(otherResult5, true);
+            SetDoubleBuffer(otherTable5, true);
+            SetDoubleBuffer(otherTitle5, true);
+            SetDoubleBuffer(otherImg5, true);
+            SetDoubleBuffer(otherResult6, true);
+            SetDoubleBuffer(otherTable6, true);
+            SetDoubleBuffer(otherTitle6, true);
+            SetDoubleBuffer(otherImg6, true);
+            SetDoubleBuffer(otherResult7, true);
+            SetDoubleBuffer(otherTable7, true);
+            SetDoubleBuffer(otherTitle7, true);
+            SetDoubleBuffer(otherImg7, true);
+            SetDoubleBuffer(otherResult8, true);
+            SetDoubleBuffer(otherTable8, true);
+            SetDoubleBuffer(otherTitle8, true);
+            SetDoubleBuffer(otherImg8, true);
+            SetDoubleBuffer(otherResult9, true);
+            SetDoubleBuffer(otherTable9, true);
+            SetDoubleBuffer(otherTitle9, true);
+            SetDoubleBuffer(otherImg9, true);
             SetDoubleBuffer(flowLayoutPanel61, true);
             SetDoubleBuffer(favoritePanel, true);
             SetDoubleBuffer(favFlowPanel, true);
             SetDoubleBuffer(favoriteLabel, true);
+            SetDoubleBuffer(favTableHead, true);
+            SetDoubleBuffer(favBookLabel, true);
+            SetDoubleBuffer(favRankLabel, true);
+            SetDoubleBuffer(scoreLabel, true);
+            SetDoubleBuffer(favPublisherLabel, true);
             SetDoubleBuffer(categoriesPanel, true);
             SetDoubleBuffer(mainCategoryPanel, true);
             SetDoubleBuffer(categoryMainLabel, true);
+            SetDoubleBuffer(authormainFlowPanel, true);
+            SetDoubleBuffer(authorMainLabel, true);
+            SetDoubleBuffer(otherCategoriesPanel, true);
+            SetDoubleBuffer(otherCategoryLabel, true);
             SetDoubleBuffer(historyPanel, true);
             SetDoubleBuffer(historyFlowPanel, true);
             SetDoubleBuffer(historyLabel, true);
@@ -1611,135 +1662,6 @@ namespace WinForms
             SetDoubleBuffer(tableLayoutPanel40, true);
             SetDoubleBuffer(label79, true);
             SetDoubleBuffer(label80, true);
-            SetDoubleBuffer(toolStrip1, true);
-
-            SetDoubleBuffer(searchTabeLayout, true);
-            SetDoubleBuffer(verticalMenuBar, true);
-            SetDoubleBuffer(verticalTableMenu, true);
-            SetDoubleBuffer(topBlank, true);
-            SetDoubleBuffer(homeGradientPanel, true);
-            SetDoubleBuffer(searchGradientPanel, true);
-            SetDoubleBuffer(heartGradientPanel, true);
-            SetDoubleBuffer(libraryGradientPanel, true);
-            SetDoubleBuffer(recentGradientPanel, true);
-            SetDoubleBuffer(contentPanel, true);
-            SetDoubleBuffer(contentContainer, true);
-            SetDoubleBuffer(category0, true);
-            SetDoubleBuffer(mainFlowPanel, true);
-            SetDoubleBuffer(homeFlowPanel, true);
-            SetDoubleBuffer(helloPanel, true);
-            SetDoubleBuffer(helloElement0, true);
-            SetDoubleBuffer(helloElementTable0, true);
-            SetDoubleBuffer(helloFlow0, true);
-            SetDoubleBuffer(helloElement1, true);
-            SetDoubleBuffer(helloElementTable1, true);
-            SetDoubleBuffer(helloFlow1, true);
-            SetDoubleBuffer(helloElement2, true);
-            SetDoubleBuffer(helloElementTable2, true);
-            SetDoubleBuffer(helloFlow2, true);
-            SetDoubleBuffer(helloElement3, true);
-            SetDoubleBuffer(helloElementTable3, true);
-            SetDoubleBuffer(helloFlow3, true);
-            SetDoubleBuffer(recommentPanel, true);
-            SetDoubleBuffer(recommentElement0, true);
-            SetDoubleBuffer(recommentTable0, true);
-            SetDoubleBuffer(recommentFlowPanel0, true);
-            SetDoubleBuffer(recommentElement1, true);
-            SetDoubleBuffer(tableLayoutPanel8, true);
-            SetDoubleBuffer(recommentFlowPanel1, true);
-            SetDoubleBuffer(recommentElement2, true);
-            SetDoubleBuffer(recommentTable2, true);
-            SetDoubleBuffer(recommentFlowLabel2, true);
-            SetDoubleBuffer(recommentElement3, true);
-            SetDoubleBuffer(recommentTable3, true);
-            SetDoubleBuffer(recommentFlowLabel3, true);
-            SetDoubleBuffer(searchFlowPanel, true);
-            SetDoubleBuffer(searchPanel, true);
-            SetDoubleBuffer(searchLayoutTable, true);
-            SetDoubleBuffer(searchBoxContainer, true);
-            SetDoubleBuffer(bestMatchPanel, true);
-            SetDoubleBuffer(topSearchPanel, true);
-            SetDoubleBuffer(topSeachTable, true);
-            SetDoubleBuffer(topSearchFlowPanel, true);
-            SetDoubleBuffer(otherResult0, true);
-            SetDoubleBuffer(otherTable0, true);
-            SetDoubleBuffer(otherResult1, true);
-            SetDoubleBuffer(otherTable1, true);
-            SetDoubleBuffer(otherResult2, true);
-            SetDoubleBuffer(otherTable2, true);
-            SetDoubleBuffer(otherResult3, true);
-            SetDoubleBuffer(otherTable3, true);
-            SetDoubleBuffer(otherResult4, true);
-            SetDoubleBuffer(otherTable4, true);
-            SetDoubleBuffer(otherResult5, true);
-            SetDoubleBuffer(otherTable5, true);
-            SetDoubleBuffer(otherResult6, true);
-            SetDoubleBuffer(otherTable6, true);
-            SetDoubleBuffer(otherResult7, true);
-            SetDoubleBuffer(otherTable7, true);
-            SetDoubleBuffer(otherResult8, true);
-            SetDoubleBuffer(otherTable8, true);
-            SetDoubleBuffer(otherResult9, true);
-            SetDoubleBuffer(otherTable9, true);
-            SetDoubleBuffer(favoritePanel, true);
-            SetDoubleBuffer(favFlowPanel, true);
-            SetDoubleBuffer(categoriesPanel, true);
-            SetDoubleBuffer(mainCategoryPanel, true);
-            SetDoubleBuffer(historyPanel, true);
-            SetDoubleBuffer(historyFlowPanel, true);
-            SetDoubleBuffer(bestBookPanel, true);
-            SetDoubleBuffer(bestBookFlowPanel, true);
-            SetDoubleBuffer(bestBookElement0, true);
-            SetDoubleBuffer(bestBookTable0, true);
-            SetDoubleBuffer(bestBookLabel0, true);
-            SetDoubleBuffer(bestBookElement1, true);
-            SetDoubleBuffer(bestBookTable1, true);
-            SetDoubleBuffer(bestBookLabel1, true);
-            SetDoubleBuffer(bestBookElement2, true);
-            SetDoubleBuffer(bestBookTable2, true);
-            SetDoubleBuffer(bestBookLabel2, true);
-            SetDoubleBuffer(bestBookElement3, true);
-            SetDoubleBuffer(bestBookTable3, true);
-            SetDoubleBuffer(bestBookLabel3, true);
-            SetDoubleBuffer(currentPanel, true);
-            SetDoubleBuffer(currentProperties, true);
-            SetDoubleBuffer(currentPropertiesTable, true);
-            SetDoubleBuffer(currentBookPanel, true);
-            SetDoubleBuffer(currentPagePanel, true);
-            SetDoubleBuffer(currentPublisherPanel, true);
-            SetDoubleBuffer(optionPanel, true);
-            SetDoubleBuffer(optionsFlowPanel, true);
-            SetDoubleBuffer(tableLayoutPanel3, true);
-            SetDoubleBuffer(flowLayoutPanel5, true);
-            SetDoubleBuffer(tableLayoutPanel6, true);
-            SetDoubleBuffer(tableLayoutPanel7, true);
-            SetDoubleBuffer(flowLayoutPanel3, true);
-            SetDoubleBuffer(flowLayoutPanel8, true);
-            SetDoubleBuffer(tableLayoutPanel4, true);
-            SetDoubleBuffer(flowLayoutPanel9, true);
-            SetDoubleBuffer(tableLayoutPanel9, true);
-            SetDoubleBuffer(flowLayoutPanel10, true);
-            SetDoubleBuffer(tableLayoutPanel10, true);
-            SetDoubleBuffer(flowLayoutPanel11, true);
-            SetDoubleBuffer(tableLayoutPanel11, true);
-            SetDoubleBuffer(flowLayoutPanel12, true);
-            SetDoubleBuffer(tableLayoutPanel12, true);
-            SetDoubleBuffer(tableLayoutPanel13, true);
-            SetDoubleBuffer(flowLayoutPanel14, true);
-            SetDoubleBuffer(flowLayoutPanel15, true);
-            SetDoubleBuffer(tableLayoutPanel14, true);
-            SetDoubleBuffer(flowLayoutPanel16, true);
-            SetDoubleBuffer(tableLayoutPanel15, true);
-            SetDoubleBuffer(flowLayoutPanel17, true);
-            SetDoubleBuffer(tableLayoutPanel16, true);
-            SetDoubleBuffer(flowLayoutPanel18, true);
-            SetDoubleBuffer(tableLayoutPanel17, true);
-            SetDoubleBuffer(flowLayoutPanel19, true);
-            SetDoubleBuffer(tableLayoutPanel18, true);
-            SetDoubleBuffer(tableLayoutPanel19, true);
-            SetDoubleBuffer(contextMenuStrip1, true);
-            SetDoubleBuffer(tableLayoutPanel5, true);
-            SetDoubleBuffer(tableLayoutPanel40, true);
             SetDoubleBuffer(toolStrip1, true);
 
             #endregion
@@ -2361,8 +2283,8 @@ namespace WinForms
             //content resize
             contentContainer.Height = mainFlowPanel.Height + difH + 15;
             //homeFlowPanel resize
-            homeFlowPanel.Height = mainFlowPanel.Height + difH;
-            homeFlowPanel.Width = mainFlowPanel.Width + difW;
+            homeFlowPanel.Height = mainFlowPanel.Height + difH + 20;
+            homeFlowPanel.Width = mainFlowPanel.Width + difW + 20;
 
             helloPanel.Width = homeFlowPanel.Width;
             helloElement0.Width = (homeFlowPanel.Width) / 2 - 10;
@@ -2377,8 +2299,8 @@ namespace WinForms
             recommentElement3.Width = (homeFlowPanel.Width) / 2 - 10;
 
             //searchFlowPanel resize
-            searchFlowPanel.Height = mainFlowPanel.Height + difH;
-            searchFlowPanel.Width = mainFlowPanel.Width + difW;
+            searchFlowPanel.Height = mainFlowPanel.Height + difH + 20;
+            searchFlowPanel.Width = mainFlowPanel.Width + difW + 20;
 
             searchPanel.Width = mainFlowPanel.Width / 3 + 150;
             searchPanel.Margin = new Padding((searchFlowPanel.Width - searchPanel.Width) / 2, 30, 3, 30);
@@ -2397,8 +2319,8 @@ namespace WinForms
             otherResult8.Width = searchFlowPanel.Width;
             otherResult9.Width = searchFlowPanel.Width;
             //bestBook resize
-            bestBookFlowPanel.Height = mainFlowPanel.Height + difH;
-            bestBookFlowPanel.Width = mainFlowPanel.Width + difW;
+            bestBookFlowPanel.Height = mainFlowPanel.Height + difH + 20;
+            bestBookFlowPanel.Width = mainFlowPanel.Width + difW + 20;
 
             bestBookPanel.Width = mainFlowPanel.Width + difW;
             bestBookElement0.Width = (mainFlowPanel.Width + difW) / 2 - 10;
@@ -2406,13 +2328,16 @@ namespace WinForms
             bestBookElement2.Width = (mainFlowPanel.Width + difW) / 2 - 10;
             bestBookElement3.Width = (mainFlowPanel.Width + difW) / 2 - 10;
             //favorite resize
-            favoritePanel.Width = mainFlowPanel.Width + difW;
-            favoritePanel.Height = mainFlowPanel.Height + difW;
+            favoritePanel.Width = mainFlowPanel.Width + difW + 20;
+            favoritePanel.Height = mainFlowPanel.Height + difW + 20;
             //category resize
-            categoriesPanel.Width = mainFlowPanel.Width + difW;
-            categoriesPanel.Height = mainFlowPanel.Height + difW;
+            categoriesPanel.Width = mainFlowPanel.Width + difW + 20;
+            categoriesPanel.Height = mainFlowPanel.Height + difW + 20;
             ResizeList(mainCategoryPanel, "newCategoryBook");
             ResizeList(authormainFlowPanel, "authorBook");
+            //history resize 
+            historyPanel.Width = mainFlowPanel.Width + difW + 20;
+            historyPanel.Height = mainFlowPanel.Height + difW + 20;
         }
 
         private void MainForm_ResizeBegin(object sender, EventArgs e)
