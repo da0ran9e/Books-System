@@ -150,7 +150,6 @@
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 97F));
             tableLayoutPanel1.Size = new Size(1022, 491);
             tableLayoutPanel1.TabIndex = 0;
-            tableLayoutPanel1.Paint += tableLayoutPanel1_Paint;
             // 
             // otherCategoriesPanel
             // 
@@ -161,7 +160,6 @@
             flowLayoutPanel1.Name = "otherCategoriesPanel";
             flowLayoutPanel1.Size = new Size(76, 21);
             flowLayoutPanel1.TabIndex = 4;
-            flowLayoutPanel1.Paint += flowLayoutPanel1_Paint;
             // 
             // minimize
             // 
@@ -303,7 +301,6 @@
             mainBody.Size = new Size(694, 210);
             mainBody.TabIndex = 1;
             mainBody.Click += flowLayoutPanel2_Onclick;
-            mainBody.Paint += flowLayoutPanel2_Paint;
             // 
             // usernamePanel
             // 
@@ -835,7 +832,6 @@
             confirm.TabIndex = 1;
             confirm.TextAlign = HorizontalAlignment.Center;
             confirm.UseSystemPasswordChar = true;
-            confirm.TextChanged += confirm_TextChanged;
             confirm.KeyDown += confirm_TextChanged;
             // 
             // confirmNotification
@@ -916,7 +912,6 @@
             adPictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
             adPictureBox.TabIndex = 1;
             adPictureBox.TabStop = false;
-            adPictureBox.Click += adPictureBox_Click;
             // 
             // panel1
             // 
@@ -989,7 +984,6 @@
             topBar.Name = "topBar";
             topBar.Size = new Size(901, 21);
             topBar.TabIndex = 7;
-            topBar.Paint += panel2_Paint;
             topBar.MouseDown += topBar_MouseDown;
             topBar.MouseMove += registForm_MouseMove;
             topBar.MouseUp += registForm_MouseUp;
@@ -1025,7 +1019,6 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "RegistForm";
             Load += RegistForm_LoadAsync;
-            SizeChanged += RegistForm_SizeChanged;
             tableLayoutPanel1.ResumeLayout(false);
             flowLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel2.ResumeLayout(false);

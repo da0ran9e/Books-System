@@ -28,6 +28,16 @@ namespace WinForms
             InitializeComponent();
         }
 
+        #region image handler for banners
+        private int adIndexAutoGen()
+        {
+            int range = 1000;
+            Random rand = new Random();
+            int randIndex = rand.Next(1, range);
+            return randIndex;
+        }
+
+
         public static Image resizeImage(Image imgToResize, Size size)
         {
             return (Image)(new Bitmap(imgToResize, size));
@@ -39,26 +49,6 @@ namespace WinForms
             int width = (height * w / h);
             Size size = new Size(width, height);
             return (Image)(new Bitmap(imgToResize, size));
-        }
-
-        private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void Close_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void minimize_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
         }
 
         private void getAdImage(int index)
@@ -138,13 +128,17 @@ namespace WinForms
                 }
             }
         }
+        #endregion
 
-        private int adIndexAutoGen()
+        #region control buttons handler
+        private void Close_Click(object sender, EventArgs e)
         {
-            int range = 1000;
-            Random rand = new Random();
-            int randIndex = rand.Next(1, range);
-            return randIndex;
+            Application.Exit();
+        }
+
+        private void minimize_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
         }
 
         private async void maximize_Click(object sender, EventArgs e)
@@ -167,20 +161,39 @@ namespace WinForms
 
         }
 
+        private bool dragging = false;
+        private Point dragCursorPoint;
+        private Point dragFormPoint;
+        private void topBar_MouseDown(object sender, MouseEventArgs e)
+        {
+            Cursor = Cursors.SizeAll;
+            dragging = true;
+            dragCursorPoint = Cursor.Position;
+            dragFormPoint = this.Location;
+        }
+        private void registForm_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (dragging)
+            {
+                Point dif = Point.Subtract(Cursor.Position, new Size(dragCursorPoint));
+                this.Location = Point.Add(dragFormPoint, new Size(dif));
+            }
+        }
+
+        private void registForm_MouseUp(object sender, MouseEventArgs e)
+        {
+            Cursor = Cursors.Default;
+            dragging = false;
+        }
+
+        #endregion
+
+        #region handle events when user's data entried
         private void flowLayoutPanel2_Onclick(object sender, EventArgs e)
         {
             username.Enabled = true;
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void flowLayoutPanel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
         private string usernameV;
         private string passwordV;
         private string emailV = null;
@@ -272,20 +285,6 @@ namespace WinForms
             imageUrlPanel.Visible = false;
             passwordPanel.Visible = false;
             confirmPanel.Visible = false;
-            //mainBody.Controls.Add(usernamePanel);
-            //mainBody.Controls.Remove(firstNamePanel);
-            //mainBody.Controls.Remove(lastnamePanel);
-            //mainBody.Controls.Remove(emailPanel);
-            //mainBody.Controls.Remove(emailPanel);
-            //mainBody.Controls.Remove(phonePanel);
-            //mainBody.Controls.Remove(nationPanel);
-            //mainBody.Controls.Remove(birthDatePanel);
-            //mainBody.Controls.Remove(genderPanel);
-            //mainBody.Controls.Remove(locationPanel);
-            //mainBody.Controls.Remove(imageUrlPanel);
-            //mainBody.Controls.Remove(passwordPanel);
-            //mainBody.Controls.Remove(confirmPanel);
-
 
             stepLoc.X = 123;
             step.Text = "Next";
@@ -397,18 +396,6 @@ namespace WinForms
             imageUrlPanel.Visible = false;
             passwordPanel.Visible = true;
             confirmPanel.Visible = true;
-            //mainBody.Controls.Remove(usernamePanel);
-            //mainBody.Controls.Remove(firstNamePanel);
-            //mainBody.Controls.Remove(lastnamePanel);
-            //mainBody.Controls.Remove(emailPanel);
-            //mainBody.Controls.Remove(phonePanel);
-            //mainBody.Controls.Remove(nationPanel);
-            //mainBody.Controls.Remove(birthDatePanel);
-            //mainBody.Controls.Remove(genderPanel);
-            //mainBody.Controls.Remove(locationPanel);
-            //mainBody.Controls.Remove(imageUrlPanel);
-            //mainBody.Controls.Add(passwordPanel);
-            //mainBody.Controls.Add(confirmPanel);
 
             stepLoc.X = 372;
             step.Text = "Finish";
@@ -550,18 +537,6 @@ namespace WinForms
             imageUrlPanel.Visible = true;
             passwordPanel.Visible = false;
             confirmPanel.Visible = false;
-            //mainBody.Controls.Remove(usernamePanel);
-            //mainBody.Controls.Add(lastnamePanel);
-            //mainBody.Controls.Add(firstNamePanel);
-            //mainBody.Controls.Add(emailPanel);
-            //mainBody.Controls.Add(phonePanel);
-            //mainBody.Controls.Add(nationPanel);
-            //mainBody.Controls.Add(birthDatePanel);
-            //mainBody.Controls.Add(genderPanel);
-            //mainBody.Controls.Add(locationPanel);
-            //mainBody.Controls.Add(imageUrlPanel);
-            //mainBody.Controls.Remove(passwordPanel);
-            //mainBody.Controls.Remove(confirmPanel);
 
         }
 
@@ -655,19 +630,6 @@ namespace WinForms
                 imageUrlPanel.Visible = true;
                 passwordPanel.Visible = false;
                 confirmPanel.Visible = false;
-                //mainBody.Controls.Remove(usernamePanel);
-                //mainBody.Controls.Add(lastnamePanel);
-                //mainBody.Controls.Add(firstNamePanel);
-                //mainBody.Controls.Add(emailPanel);
-                //mainBody.Controls.Add(phonePanel);
-                //mainBody.Controls.Add(nationPanel);
-                //mainBody.Controls.Add(birthDatePanel);
-                //mainBody.Controls.Add(genderPanel);
-                //mainBody.Controls.Add(locationPanel);
-                //mainBody.Controls.Add(imageUrlPanel);
-                //mainBody.Controls.Remove(passwordPanel);
-                //mainBody.Controls.Remove(confirmPanel);
-
 
                 label2.Visible = false;
                 stepLoc.X = 256;
@@ -704,19 +666,6 @@ namespace WinForms
                 imageUrlPanel.Visible = false;
                 passwordPanel.Visible = true;
                 confirmPanel.Visible = true;
-                //mainBody.Controls.Remove(usernamePanel);
-                //mainBody.Controls.Remove(firstNamePanel);
-                //mainBody.Controls.Remove(lastnamePanel);
-                //mainBody.Controls.Remove(emailPanel);
-                //mainBody.Controls.Remove(phonePanel);
-                //mainBody.Controls.Remove(nationPanel);
-                //mainBody.Controls.Remove(birthDatePanel);
-                //mainBody.Controls.Remove(genderPanel);
-                //mainBody.Controls.Remove(locationPanel);
-                //mainBody.Controls.Remove(imageUrlPanel);
-                //mainBody.Controls.Add(passwordPanel);
-                //mainBody.Controls.Add(confirmPanel);
-
 
                 stepLoc.X = 372;
                 step.Text = "Finish";
@@ -828,36 +777,6 @@ namespace WinForms
             loginForm.ShowDialog();
         }
 
-        private bool dragging = false;
-        private Point dragCursorPoint;
-        private Point dragFormPoint;
-        private void topBar_MouseDown(object sender, MouseEventArgs e)
-        {
-            Cursor = Cursors.SizeAll;
-            dragging = true;
-            dragCursorPoint = Cursor.Position;
-            dragFormPoint = this.Location;
-        }
-        private void registForm_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (dragging)
-            {
-                Point dif = Point.Subtract(Cursor.Position, new Size(dragCursorPoint));
-                this.Location = Point.Add(dragFormPoint, new Size(dif));
-            }
-        }
-
-        private void registForm_MouseUp(object sender, MouseEventArgs e)
-        {
-            Cursor = Cursors.Default;
-            dragging = false;
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void username_TextChanged(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -935,12 +854,9 @@ namespace WinForms
             LoginForm loginForm = new LoginForm();
             loginForm.ShowDialog();
         }
+        #endregion
 
-        private void confirm_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
+        #region add picture to banner
         private async void RegistForm_LoadAsync(object sender, EventArgs e)
         {
             while (this.Visible)
@@ -948,20 +864,6 @@ namespace WinForms
                 getAdImage(adIndexAutoGen());
                 await Task.Delay(1500);
             }
-        }
-
-        private void RegistForm_SizeChanged(object sender, EventArgs e)
-        {
-            if (this.WindowState == FormWindowState.Maximized)
-            {
-
-            }
-
-        }
-
-        private void adPictureBox_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void adLabel_Click(object sender, EventArgs e)
@@ -973,5 +875,6 @@ namespace WinForms
             adLabel.Text = randIndex.ToString();
             getAdImage(randIndex);
         }
+        #endregion
     }
 }

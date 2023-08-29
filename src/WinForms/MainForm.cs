@@ -27,6 +27,37 @@ namespace WinForms
         SqlCommand cmd = new SqlCommand();
         SqlDataReader dr;
 
+        #region add resize angle
+        private const int cGrip = 16;      // Grip size
+        private const int cCaption = 32;   // Caption bar height;
+
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            Rectangle rc = new Rectangle(this.ClientSize.Width - cGrip, this.ClientSize.Height - cGrip, cGrip, cGrip);
+            ControlPaint.DrawSizeGrip(e.Graphics, this.BackColor, rc);
+        }
+
+        protected override void WndProc(ref Message m)
+        {
+            if (m.Msg == 0x84)
+            {  // Trap WM_NCHITTEST
+                Point pos = new Point(m.LParam.ToInt32());
+                pos = this.PointToClient(pos);
+                if (pos.Y < cCaption)
+                {
+                    m.Result = (IntPtr)2;  // HTCAPTION
+                    return;
+                }
+                if (pos.X >= this.ClientSize.Width - cGrip && pos.Y >= this.ClientSize.Height - cGrip)
+                {
+                    m.Result = (IntPtr)17; // HTBOTTOMRIGHT
+                    return;
+                }
+            }
+            base.WndProc(ref m);
+        }
+        #endregion
+
         #region  Set Control to be double buffered
         static void SetDoubleBuffer(Control ctl, bool DoubleBuffered)
         {
@@ -1335,492 +1366,6 @@ namespace WinForms
         }
         #endregion
 
-        //MainForm only work went user login successfully
-
-        public MainForm(string username)
-        {
-            this.username = username;
-            this.FormBorderStyle = FormBorderStyle.None;
-            InitializeComponent();
-            this.DoubleBuffered = true;
-            this.SetStyle(ControlStyles.ResizeRedraw, true);
-        }
-        #region add resize angle
-        private const int cGrip = 16;      // Grip size
-        private const int cCaption = 32;   // Caption bar height;
-
-        protected override void OnPaint(PaintEventArgs e)
-        {
-            Rectangle rc = new Rectangle(this.ClientSize.Width - cGrip, this.ClientSize.Height - cGrip, cGrip, cGrip);
-            ControlPaint.DrawSizeGrip(e.Graphics, this.BackColor, rc);
-        }
-
-        protected override void WndProc(ref Message m)
-        {
-            if (m.Msg == 0x84)
-            {  // Trap WM_NCHITTEST
-                Point pos = new Point(m.LParam.ToInt32());
-                pos = this.PointToClient(pos);
-                if (pos.Y < cCaption)
-                {
-                    m.Result = (IntPtr)2;  // HTCAPTION
-                    return;
-                }
-                if (pos.X >= this.ClientSize.Width - cGrip && pos.Y >= this.ClientSize.Height - cGrip)
-                {
-                    m.Result = (IntPtr)17; // HTBOTTOMRIGHT
-                    return;
-                }
-            }
-            base.WndProc(ref m);
-        }
-        #endregion
-        //
-        // MainForm on load event handler
-        //
-        private void MainForm_Load(object sender, EventArgs e)
-        {
-            LoadingForm loading = new LoadingForm(100);
-            loading.Show();
-
-            #region Set controls double buffered 
-
-            SetDoubleBuffer(containerMainTableLayout, true);
-            SetDoubleBuffer(verticalMenuBar, true);
-            SetDoubleBuffer(userLabel, true);
-            SetDoubleBuffer(verticalTableMenu, true);
-            SetDoubleBuffer(bottomBlank, true);
-            SetDoubleBuffer(topBlank, true);
-            SetDoubleBuffer(user, true);
-            SetDoubleBuffer(homeGradientPanel, true);
-            SetDoubleBuffer(homeLabel, true);
-            SetDoubleBuffer(searchGradientPanel, true);
-            SetDoubleBuffer(searchLabel, true);
-            SetDoubleBuffer(heartGradientPanel, true);
-            SetDoubleBuffer(heartLabel, true);
-            SetDoubleBuffer(libraryGradientPanel, true);
-            SetDoubleBuffer(librariesLabel, true);
-            SetDoubleBuffer(recentGradientPanel, true);
-            SetDoubleBuffer(recentLabel, true);
-            SetDoubleBuffer(contentPanel, true);
-            SetDoubleBuffer(contentContainer, true);
-            SetDoubleBuffer(publisherLabel, true);
-            SetDoubleBuffer(contentYear, true);
-            SetDoubleBuffer(contentImg, true);
-            SetDoubleBuffer(contentTitle, true);
-            SetDoubleBuffer(authorLabel, true);
-            SetDoubleBuffer(aboutAuthor, true);
-            SetDoubleBuffer(authorDesLabel, true);
-            SetDoubleBuffer(categoryLabel, true);
-            SetDoubleBuffer(category0, true);
-            SetDoubleBuffer(categoryTable0, true);
-            SetDoubleBuffer(categoryImg0, true);
-            SetDoubleBuffer(categoryFlowPanel0, true);
-            SetDoubleBuffer(categoryTitle0, true);
-            SetDoubleBuffer(categoryAuthor0, true);
-            SetDoubleBuffer(mainFlowPanel, true);
-            SetDoubleBuffer(homeFlowPanel, true);
-            SetDoubleBuffer(helloPanel, true);
-            SetDoubleBuffer(helloLabel, true);
-            SetDoubleBuffer(helloElement0, true);
-            SetDoubleBuffer(helloElementTable0, true);
-            SetDoubleBuffer(helloElementImg0, true);
-            SetDoubleBuffer(helloFlow0, true);
-            SetDoubleBuffer(helloElementTitle0, true);
-            SetDoubleBuffer(helloAuthor0, true);
-            SetDoubleBuffer(helloElement1, true);
-            SetDoubleBuffer(helloElementTable1, true);
-            SetDoubleBuffer(helloElementImg1, true);
-            SetDoubleBuffer(helloFlow1, true);
-            SetDoubleBuffer(helloElementTitle1, true);
-            SetDoubleBuffer(helloAuthor1, true);
-            SetDoubleBuffer(helloElement2, true);
-            SetDoubleBuffer(helloElementTable2, true);
-            SetDoubleBuffer(helloElementImg2, true);
-            SetDoubleBuffer(helloFlow2, true);
-            SetDoubleBuffer(helloElementTitle2, true);
-            SetDoubleBuffer(helloAuthor2, true);
-            SetDoubleBuffer(helloElement3, true);
-            SetDoubleBuffer(helloElementTable3, true);
-            SetDoubleBuffer(helloElementImg3, true);
-            SetDoubleBuffer(helloFlow3, true);
-            SetDoubleBuffer(helloElementTitle3, true);
-            SetDoubleBuffer(helloAuthor3, true);
-            SetDoubleBuffer(recommentPanel, true);
-            SetDoubleBuffer(recommentLabel, true);
-            SetDoubleBuffer(recommentElement0, true);
-            SetDoubleBuffer(recommentTable0, true);
-            SetDoubleBuffer(recommentImg0, true);
-            SetDoubleBuffer(recommentFlowPanel0, true);
-            SetDoubleBuffer(recommentTitle0, true);
-            SetDoubleBuffer(recommentAuthor0, true);
-            SetDoubleBuffer(recommentElement1, true);
-            SetDoubleBuffer(tableLayoutPanel8, true);
-            SetDoubleBuffer(recommentImg1, true);
-            SetDoubleBuffer(recommentFlowPanel1, true);
-            SetDoubleBuffer(recommentTitle1, true);
-            SetDoubleBuffer(recommentAuthor1, true);
-            SetDoubleBuffer(recommentElement2, true);
-            SetDoubleBuffer(recommentTable2, true);
-            SetDoubleBuffer(recommentImg2, true);
-            SetDoubleBuffer(recommentFlowLabel2, true);
-            SetDoubleBuffer(recommentTitle2, true);
-            SetDoubleBuffer(recommentAuthor2, true);
-            SetDoubleBuffer(recommentElement3, true);
-            SetDoubleBuffer(recommentTable3, true);
-            SetDoubleBuffer(recommentImg3, true);
-            SetDoubleBuffer(recommentFlowLabel3, true);
-            SetDoubleBuffer(recommentTitle3, true);
-            SetDoubleBuffer(recommentAuthor3, true);
-            SetDoubleBuffer(recentPanel, true);
-            SetDoubleBuffer(searchFlowPanel, true);
-            SetDoubleBuffer(searchPanel, true);
-            SetDoubleBuffer(searchLayoutTable, true);
-            SetDoubleBuffer(searchBoxContainer, true);
-            SetDoubleBuffer(searchBox, true);
-            SetDoubleBuffer(searchImg, true);
-            SetDoubleBuffer(bestMatchPanel, true);
-            SetDoubleBuffer(bestMatchLabel, true);
-            SetDoubleBuffer(topSearchPanel, true);
-            SetDoubleBuffer(topSeachTable, true);
-            SetDoubleBuffer(topSearchImg, true);
-            SetDoubleBuffer(topSearchFlowPanel, true);
-            SetDoubleBuffer(topSearchTitle, true);
-            SetDoubleBuffer(topSearchAuthor, true);
-            SetDoubleBuffer(otherResult0, true);
-            SetDoubleBuffer(otherTable0, true);
-            SetDoubleBuffer(otherTitle0, true);
-            SetDoubleBuffer(otherImg0, true);
-            SetDoubleBuffer(otherResult1, true);
-            SetDoubleBuffer(otherTable1, true);
-            SetDoubleBuffer(otherTitle1, true);
-            SetDoubleBuffer(otherImg1, true);
-            SetDoubleBuffer(otherResult2, true);
-            SetDoubleBuffer(otherTable2, true);
-            SetDoubleBuffer(otherTitle2, true);
-            SetDoubleBuffer(otherImg2, true);
-            SetDoubleBuffer(otherResult3, true);
-            SetDoubleBuffer(otherTable3, true);
-            SetDoubleBuffer(otherTitle3, true);
-            SetDoubleBuffer(otherImg3, true);
-            SetDoubleBuffer(otherResult4, true);
-            SetDoubleBuffer(otherTable4, true);
-            SetDoubleBuffer(otherTitle4, true);
-            SetDoubleBuffer(otherImg4, true);
-            SetDoubleBuffer(otherResult5, true);
-            SetDoubleBuffer(otherTable5, true);
-            SetDoubleBuffer(otherTitle5, true);
-            SetDoubleBuffer(otherImg5, true);
-            SetDoubleBuffer(otherResult6, true);
-            SetDoubleBuffer(otherTable6, true);
-            SetDoubleBuffer(otherTitle6, true);
-            SetDoubleBuffer(otherImg6, true);
-            SetDoubleBuffer(otherResult7, true);
-            SetDoubleBuffer(otherTable7, true);
-            SetDoubleBuffer(otherTitle7, true);
-            SetDoubleBuffer(otherImg7, true);
-            SetDoubleBuffer(otherResult8, true);
-            SetDoubleBuffer(otherTable8, true);
-            SetDoubleBuffer(otherTitle8, true);
-            SetDoubleBuffer(otherImg8, true);
-            SetDoubleBuffer(otherResult9, true);
-            SetDoubleBuffer(otherTable9, true);
-            SetDoubleBuffer(otherTitle9, true);
-            SetDoubleBuffer(otherImg9, true);
-            SetDoubleBuffer(flowLayoutPanel61, true);
-            SetDoubleBuffer(favoritePanel, true);
-            SetDoubleBuffer(favFlowPanel, true);
-            SetDoubleBuffer(favoriteLabel, true);
-            SetDoubleBuffer(favTableHead, true);
-            SetDoubleBuffer(favBookLabel, true);
-            SetDoubleBuffer(favRankLabel, true);
-            SetDoubleBuffer(scoreLabel, true);
-            SetDoubleBuffer(favPublisherLabel, true);
-            SetDoubleBuffer(categoriesPanel, true);
-            SetDoubleBuffer(mainCategoryPanel, true);
-            SetDoubleBuffer(categoryMainLabel, true);
-            SetDoubleBuffer(authormainFlowPanel, true);
-            SetDoubleBuffer(authorMainLabel, true);
-            SetDoubleBuffer(otherCategoriesPanel, true);
-            SetDoubleBuffer(otherCategoryLabel, true);
-            SetDoubleBuffer(historyPanel, true);
-            SetDoubleBuffer(historyFlowPanel, true);
-            SetDoubleBuffer(historyLabel, true);
-            SetDoubleBuffer(bestBookPanel, true);
-            SetDoubleBuffer(bestBookFlowPanel, true);
-            SetDoubleBuffer(bestBookLabel, true);
-            SetDoubleBuffer(bestBookElement0, true);
-            SetDoubleBuffer(bestBookTable0, true);
-            SetDoubleBuffer(bestBookImg0, true);
-            SetDoubleBuffer(bestBookLabel0, true);
-            SetDoubleBuffer(bestBookTitle0, true);
-            SetDoubleBuffer(bestBookAuthor0, true);
-            SetDoubleBuffer(bestBookElement1, true);
-            SetDoubleBuffer(bestBookTable1, true);
-            SetDoubleBuffer(bestBookImg1, true);
-            SetDoubleBuffer(bestBookLabel1, true);
-            SetDoubleBuffer(bestBookTitle1, true);
-            SetDoubleBuffer(bestBookAuthor1, true);
-            SetDoubleBuffer(bestBookElement2, true);
-            SetDoubleBuffer(bestBookTable2, true);
-            SetDoubleBuffer(bestBookImg2, true);
-            SetDoubleBuffer(bestBookLabel2, true);
-            SetDoubleBuffer(bestBookTitle2, true);
-            SetDoubleBuffer(bestBookAuthor2, true);
-            SetDoubleBuffer(bestBookElement3, true);
-            SetDoubleBuffer(bestBookTable3, true);
-            SetDoubleBuffer(bestBookImg3, true);
-            SetDoubleBuffer(bestBookLabel3, true);
-            SetDoubleBuffer(bestBookTitle3, true);
-            SetDoubleBuffer(bestBookAuthor3, true);
-            SetDoubleBuffer(currentPanel, true);
-            SetDoubleBuffer(currentLabel, true);
-            SetDoubleBuffer(currentProperties, true);
-            SetDoubleBuffer(currentPropertiesTable, true);
-            SetDoubleBuffer(currentBookPanel, true);
-            SetDoubleBuffer(currentBookTitle, true);
-            SetDoubleBuffer(currentBookAuthor, true);
-            SetDoubleBuffer(currentBookRate, true);
-            SetDoubleBuffer(currentPagePanel, true);
-            SetDoubleBuffer(totalPage, true);
-            SetDoubleBuffer(currentPage, true);
-            SetDoubleBuffer(currentPublisherPanel, true);
-            SetDoubleBuffer(currentPublisher, true);
-            SetDoubleBuffer(yearOfPublication, true);
-            SetDoubleBuffer(optionPanel, true);
-            SetDoubleBuffer(optionsFlowPanel, true);
-            SetDoubleBuffer(heartOption, true);
-            SetDoubleBuffer(textToSpeech, true);
-            SetDoubleBuffer(brightness, true);
-            SetDoubleBuffer(forward, true);
-            SetDoubleBuffer(bookmark, true);
-            SetDoubleBuffer(flowLayoutPanel2, true);
-            SetDoubleBuffer(tableLayoutPanel3, true);
-            SetDoubleBuffer(label3, true);
-            SetDoubleBuffer(label4, true);
-            SetDoubleBuffer(flowLayoutPanel5, true);
-            SetDoubleBuffer(tableLayoutPanel6, true);
-            SetDoubleBuffer(label9, true);
-            SetDoubleBuffer(label10, true);
-            SetDoubleBuffer(flowLayoutPanel6, true);
-            SetDoubleBuffer(tableLayoutPanel7, true);
-            SetDoubleBuffer(label11, true);
-            SetDoubleBuffer(label12, true);
-            SetDoubleBuffer(flowLayoutPanel3, true);
-            SetDoubleBuffer(label5, true);
-            SetDoubleBuffer(flowLayoutPanel8, true);
-            SetDoubleBuffer(tableLayoutPanel4, true);
-            SetDoubleBuffer(label6, true);
-            SetDoubleBuffer(label15, true);
-            SetDoubleBuffer(flowLayoutPanel9, true);
-            SetDoubleBuffer(tableLayoutPanel9, true);
-            SetDoubleBuffer(label16, true);
-            SetDoubleBuffer(label17, true);
-            SetDoubleBuffer(flowLayoutPanel10, true);
-            SetDoubleBuffer(tableLayoutPanel10, true);
-            SetDoubleBuffer(label18, true);
-            SetDoubleBuffer(label19, true);
-            SetDoubleBuffer(flowLayoutPanel11, true);
-            SetDoubleBuffer(tableLayoutPanel11, true);
-            SetDoubleBuffer(label20, true);
-            SetDoubleBuffer(label21, true);
-            SetDoubleBuffer(flowLayoutPanel12, true);
-            SetDoubleBuffer(tableLayoutPanel12, true);
-            SetDoubleBuffer(label22, true);
-            SetDoubleBuffer(label23, true);
-            SetDoubleBuffer(flowLayoutPanel13, true);
-            SetDoubleBuffer(tableLayoutPanel13, true);
-            SetDoubleBuffer(label24, true);
-            SetDoubleBuffer(label25, true);
-            SetDoubleBuffer(flowLayoutPanel14, true);
-            SetDoubleBuffer(label26, true);
-            SetDoubleBuffer(flowLayoutPanel15, true);
-            SetDoubleBuffer(tableLayoutPanel14, true);
-            SetDoubleBuffer(label27, true);
-            SetDoubleBuffer(label28, true);
-            SetDoubleBuffer(flowLayoutPanel16, true);
-            SetDoubleBuffer(tableLayoutPanel15, true);
-            SetDoubleBuffer(label29, true);
-            SetDoubleBuffer(label30, true);
-            SetDoubleBuffer(flowLayoutPanel17, true);
-            SetDoubleBuffer(tableLayoutPanel16, true);
-            SetDoubleBuffer(label31, true);
-            SetDoubleBuffer(label32, true);
-            SetDoubleBuffer(flowLayoutPanel18, true);
-            SetDoubleBuffer(tableLayoutPanel17, true);
-            SetDoubleBuffer(label33, true);
-            SetDoubleBuffer(label34, true);
-            SetDoubleBuffer(flowLayoutPanel19, true);
-            SetDoubleBuffer(tableLayoutPanel18, true);
-            SetDoubleBuffer(label35, true);
-            SetDoubleBuffer(label36, true);
-            SetDoubleBuffer(flowLayoutPanel20, true);
-            SetDoubleBuffer(tableLayoutPanel19, true);
-            SetDoubleBuffer(label37, true);
-            SetDoubleBuffer(label38, true);
-            SetDoubleBuffer(contextMenuStrip1, true);
-            SetDoubleBuffer(gradientPanel2, true);
-            SetDoubleBuffer(tableLayoutPanel5, true);
-            SetDoubleBuffer(label7, true);
-            SetDoubleBuffer(label8, true);
-            SetDoubleBuffer(gradientPanel4, true);
-            SetDoubleBuffer(tableLayoutPanel40, true);
-            SetDoubleBuffer(label79, true);
-            SetDoubleBuffer(label80, true);
-            SetDoubleBuffer(toolStrip1, true);
-
-            #endregion
-
-            #region test application graphic by getting random index of books
-            Random rand = new Random();
-            int randC = rand.Next(1, 1000);
-            Image currentImg = GetBookImage(randC);
-            Book book = GetBookInformation(randC);
-
-            updateCurrentBook(book);
-
-            //helloPanel
-            int randH0 = rand.Next(1, 1000);
-            int randH1 = rand.Next(1, 1000);
-            int randH2 = rand.Next(1, 1000);
-            int randH3 = rand.Next(1, 1000);
-            helloElementImg0.Image = SetHeight(GetBookImage(randH0), helloElementImg0.Height);
-            helloElementImg1.Image = SetHeight(GetBookImage(randH1), helloElementImg1.Height);
-            helloElementImg2.Image = SetHeight(GetBookImage(randH2), helloElementImg2.Height);
-            helloElementImg3.Image = SetHeight(GetBookImage(randH3), helloElementImg3.Height);
-
-            Book helloBook0 = GetBookInformation(randH0);
-            Book helloBook1 = GetBookInformation(randH1);
-            Book helloBook2 = GetBookInformation(randH2);
-            Book helloBook3 = GetBookInformation(randH3);
-
-            helloElementTitle0.Text = helloBook0.title;
-            helloAuthor0.Text = helloBook0.author;
-            helloElementTitle1.Text = helloBook1.title;
-            helloAuthor1.Text = helloBook1.author;
-            helloElementTitle2.Text = helloBook2.title;
-            helloAuthor2.Text = helloBook2.author;
-            helloElementTitle3.Text = helloBook3.title;
-            helloAuthor3.Text = helloBook3.author;
-
-            //recommentPanel 
-            int randC0 = rand.Next(1, 1000);
-            int randC1 = rand.Next(1, 1000);
-            int randC2 = rand.Next(1, 1000);
-            int randC3 = rand.Next(1, 1000);
-            recommentImg0.Image = SetHeight(GetBookImage(randC0), recommentImg0.Height);
-            recommentImg1.Image = SetHeight(GetBookImage(randC1), recommentImg1.Height);
-            recommentImg2.Image = SetHeight(GetBookImage(randC2), recommentImg2.Height);
-            recommentImg3.Image = SetHeight(GetBookImage(randC3), recommentImg3.Height);
-
-            Book recommentBook0 = GetBookInformation(randC0);
-            Book recommentBook1 = GetBookInformation(randC1);
-            Book recommentBook2 = GetBookInformation(randC2);
-            Book recommentBook3 = GetBookInformation(randC3);
-
-            recommentTitle0.Text = recommentBook0.title;
-            recommentAuthor0.Text = recommentBook0.author;
-            recommentTitle1.Text = recommentBook1.title;
-            recommentAuthor1.Text = recommentBook1.author;
-            recommentTitle2.Text = recommentBook2.title;
-            recommentAuthor2.Text = recommentBook2.author;
-            recommentTitle3.Text = recommentBook3.title;
-            recommentAuthor3.Text = recommentBook3.author;
-
-            //bestBook Panel
-            int randB0 = rand.Next(1, 1000);
-            int randB1 = rand.Next(1, 1000);
-            int randB2 = rand.Next(1, 1000);
-            int randB3 = rand.Next(1, 1000);
-            bestBookImg0.Image = SetHeight(GetBookImage(randB0), bestBookImg0.Height);
-            bestBookImg1.Image = SetHeight(GetBookImage(randB1), bestBookImg1.Height);
-            bestBookImg2.Image = SetHeight(GetBookImage(randB2), bestBookImg2.Height);
-            bestBookImg3.Image = SetHeight(GetBookImage(randB3), bestBookImg3.Height);
-
-            Book bestBook0 = GetBookInformation(randB0);
-            Book bestBook1 = GetBookInformation(randB1);
-            Book bestBook2 = GetBookInformation(randB2);
-            Book bestBook3 = GetBookInformation(randB3);
-
-            bestBookTitle0.Text = bestBook0.title;
-            bestBookAuthor0.Text = bestBook0.author;
-            bestBookTitle1.Text = bestBook1.title;
-            bestBookAuthor1.Text = bestBook1.author;
-            bestBookTitle2.Text = bestBook2.title;
-            bestBookAuthor2.Text = bestBook2.author;
-            bestBookTitle3.Text = bestBook3.title;
-            bestBookAuthor3.Text = bestBook3.author;
-            #endregion
-
-            //update userlabel
-            currentUser = GetUserInformation(username);
-            toolTip1.SetToolTip(user, currentUser.username + " #" + currentUser.userId);
-            user.Image = SetWidth(Image.FromStream(LoaderFromURL(currentUser.profileImage) == null ? LoaderFromURL(bookList.ElementAt(0).lURL) : LoaderFromURL(currentUser.profileImage)), user.Width);
-            // get history list
-            List<UserRating> userHistory = GetUserHistory(currentUser.userId);
-
-            #region update category list
-            List<string> publisherList = new List<string>();
-            for (int i = 0; i < userHistory.Count; i++)
-            {
-                Book catBook = GetBookInformation(userHistory.ElementAt(i).isbn);
-                if (catBook.title != null)
-                {
-                    if (!publisherList.Contains(catBook.publisher))
-                    {
-                        publisherList.Add(catBook.publisher);
-                        AddOtherCategoryBook(catBook);
-                    }
-
-                }
-            }
-            #endregion
-
-            #region update favorite list
-            List<UserRating> favList = userHistory;
-            favList.Sort();
-            int bRank = 1;
-            for (int i = 0; i < favList.Count; i++)
-            {
-                if (favList.ElementAt(i).rate != 0)
-                {
-                    Book favBook = GetBookInformation(favList.ElementAt(i).isbn);
-                    if (favBook.title != null)
-                    {
-                        AddFavBook(favBook, bRank++, favList.ElementAt(i).rate);
-                    }
-                }
-
-            }
-
-            #endregion
-
-            #region update history list
-            for (int i = 0; i < userHistory.Count; i++)
-            {
-                Book histBook = GetBookInformation(userHistory.ElementAt(i).isbn);
-                if (histBook.title != null)
-                {
-                    AddHistoryNewBook(histBook);
-                }
-
-            }
-            #endregion
-
-            homeFlowPanel.Controls.Add(bestBookFlowPanel);
-            bestBookFlowPanel.Visible = true;
-
-            loading.Visible = false;
-        }
-
-        //unneccessary!
-        private void contentContainer_Paint(object sender, PaintEventArgs e)
-        {
-            LinearGradientBrush lgb = new LinearGradientBrush(contentContainer.ClientRectangle, ColorTranslator.FromHtml("#300004"), contentContainer.BackColor, 90F);
-            Graphics g = e.Graphics;
-            g.FillRectangle(lgb, contentContainer.ClientRectangle);
-        }
-
         #region Update welcome panel by real time detector and change color
         private void helloPanel_Paint(object sender, PaintEventArgs e)
         {
@@ -2511,6 +2056,464 @@ namespace WinForms
             }
         }
         #endregion
+
+        //MainForm only work went user login successfully
+
+        public MainForm(string username)
+        {
+            this.username = username;
+            this.FormBorderStyle = FormBorderStyle.None;
+            InitializeComponent();
+            this.DoubleBuffered = true;
+            this.SetStyle(ControlStyles.ResizeRedraw, true);
+        }
+
+        //
+        // MainForm on load event handler
+        //
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+            LoadingForm loading = new LoadingForm(100);
+            loading.Show();
+
+            // get history list
+            List<UserRating> userHistory = GetUserHistory(currentUser.userId);
+
+            #region Set controls double buffered 
+
+            SetDoubleBuffer(containerMainTableLayout, true);
+            SetDoubleBuffer(verticalMenuBar, true);
+            SetDoubleBuffer(userLabel, true);
+            SetDoubleBuffer(verticalTableMenu, true);
+            SetDoubleBuffer(bottomBlank, true);
+            SetDoubleBuffer(topBlank, true);
+            SetDoubleBuffer(user, true);
+            SetDoubleBuffer(homeGradientPanel, true);
+            SetDoubleBuffer(homeLabel, true);
+            SetDoubleBuffer(searchGradientPanel, true);
+            SetDoubleBuffer(searchLabel, true);
+            SetDoubleBuffer(heartGradientPanel, true);
+            SetDoubleBuffer(heartLabel, true);
+            SetDoubleBuffer(libraryGradientPanel, true);
+            SetDoubleBuffer(librariesLabel, true);
+            SetDoubleBuffer(recentGradientPanel, true);
+            SetDoubleBuffer(recentLabel, true);
+            SetDoubleBuffer(contentPanel, true);
+            SetDoubleBuffer(contentContainer, true);
+            SetDoubleBuffer(publisherLabel, true);
+            SetDoubleBuffer(contentYear, true);
+            SetDoubleBuffer(contentImg, true);
+            SetDoubleBuffer(contentTitle, true);
+            SetDoubleBuffer(authorLabel, true);
+            SetDoubleBuffer(aboutAuthor, true);
+            SetDoubleBuffer(authorDesLabel, true);
+            SetDoubleBuffer(categoryLabel, true);
+            SetDoubleBuffer(category0, true);
+            SetDoubleBuffer(categoryTable0, true);
+            SetDoubleBuffer(categoryImg0, true);
+            SetDoubleBuffer(categoryFlowPanel0, true);
+            SetDoubleBuffer(categoryTitle0, true);
+            SetDoubleBuffer(categoryAuthor0, true);
+            SetDoubleBuffer(mainFlowPanel, true);
+            SetDoubleBuffer(homeFlowPanel, true);
+            SetDoubleBuffer(helloPanel, true);
+            SetDoubleBuffer(helloLabel, true);
+            SetDoubleBuffer(helloElement0, true);
+            SetDoubleBuffer(helloElementTable0, true);
+            SetDoubleBuffer(helloElementImg0, true);
+            SetDoubleBuffer(helloFlow0, true);
+            SetDoubleBuffer(helloElementTitle0, true);
+            SetDoubleBuffer(helloAuthor0, true);
+            SetDoubleBuffer(helloElement1, true);
+            SetDoubleBuffer(helloElementTable1, true);
+            SetDoubleBuffer(helloElementImg1, true);
+            SetDoubleBuffer(helloFlow1, true);
+            SetDoubleBuffer(helloElementTitle1, true);
+            SetDoubleBuffer(helloAuthor1, true);
+            SetDoubleBuffer(helloElement2, true);
+            SetDoubleBuffer(helloElementTable2, true);
+            SetDoubleBuffer(helloElementImg2, true);
+            SetDoubleBuffer(helloFlow2, true);
+            SetDoubleBuffer(helloElementTitle2, true);
+            SetDoubleBuffer(helloAuthor2, true);
+            SetDoubleBuffer(helloElement3, true);
+            SetDoubleBuffer(helloElementTable3, true);
+            SetDoubleBuffer(helloElementImg3, true);
+            SetDoubleBuffer(helloFlow3, true);
+            SetDoubleBuffer(helloElementTitle3, true);
+            SetDoubleBuffer(helloAuthor3, true);
+            SetDoubleBuffer(recommentPanel, true);
+            SetDoubleBuffer(recommentLabel, true);
+            SetDoubleBuffer(recommentElement0, true);
+            SetDoubleBuffer(recommentTable0, true);
+            SetDoubleBuffer(recommentImg0, true);
+            SetDoubleBuffer(recommentFlowPanel0, true);
+            SetDoubleBuffer(recommentTitle0, true);
+            SetDoubleBuffer(recommentAuthor0, true);
+            SetDoubleBuffer(recommentElement1, true);
+            SetDoubleBuffer(tableLayoutPanel8, true);
+            SetDoubleBuffer(recommentImg1, true);
+            SetDoubleBuffer(recommentFlowPanel1, true);
+            SetDoubleBuffer(recommentTitle1, true);
+            SetDoubleBuffer(recommentAuthor1, true);
+            SetDoubleBuffer(recommentElement2, true);
+            SetDoubleBuffer(recommentTable2, true);
+            SetDoubleBuffer(recommentImg2, true);
+            SetDoubleBuffer(recommentFlowLabel2, true);
+            SetDoubleBuffer(recommentTitle2, true);
+            SetDoubleBuffer(recommentAuthor2, true);
+            SetDoubleBuffer(recommentElement3, true);
+            SetDoubleBuffer(recommentTable3, true);
+            SetDoubleBuffer(recommentImg3, true);
+            SetDoubleBuffer(recommentFlowLabel3, true);
+            SetDoubleBuffer(recommentTitle3, true);
+            SetDoubleBuffer(recommentAuthor3, true);
+            SetDoubleBuffer(recentPanel, true);
+            SetDoubleBuffer(searchFlowPanel, true);
+            SetDoubleBuffer(searchPanel, true);
+            SetDoubleBuffer(searchLayoutTable, true);
+            SetDoubleBuffer(searchBoxContainer, true);
+            SetDoubleBuffer(searchBox, true);
+            SetDoubleBuffer(searchImg, true);
+            SetDoubleBuffer(bestMatchPanel, true);
+            SetDoubleBuffer(bestMatchLabel, true);
+            SetDoubleBuffer(topSearchPanel, true);
+            SetDoubleBuffer(topSeachTable, true);
+            SetDoubleBuffer(topSearchImg, true);
+            SetDoubleBuffer(topSearchFlowPanel, true);
+            SetDoubleBuffer(topSearchTitle, true);
+            SetDoubleBuffer(topSearchAuthor, true);
+            SetDoubleBuffer(otherResult0, true);
+            SetDoubleBuffer(otherTable0, true);
+            SetDoubleBuffer(otherTitle0, true);
+            SetDoubleBuffer(otherImg0, true);
+            SetDoubleBuffer(otherResult1, true);
+            SetDoubleBuffer(otherTable1, true);
+            SetDoubleBuffer(otherTitle1, true);
+            SetDoubleBuffer(otherImg1, true);
+            SetDoubleBuffer(otherResult2, true);
+            SetDoubleBuffer(otherTable2, true);
+            SetDoubleBuffer(otherTitle2, true);
+            SetDoubleBuffer(otherImg2, true);
+            SetDoubleBuffer(otherResult3, true);
+            SetDoubleBuffer(otherTable3, true);
+            SetDoubleBuffer(otherTitle3, true);
+            SetDoubleBuffer(otherImg3, true);
+            SetDoubleBuffer(otherResult4, true);
+            SetDoubleBuffer(otherTable4, true);
+            SetDoubleBuffer(otherTitle4, true);
+            SetDoubleBuffer(otherImg4, true);
+            SetDoubleBuffer(otherResult5, true);
+            SetDoubleBuffer(otherTable5, true);
+            SetDoubleBuffer(otherTitle5, true);
+            SetDoubleBuffer(otherImg5, true);
+            SetDoubleBuffer(otherResult6, true);
+            SetDoubleBuffer(otherTable6, true);
+            SetDoubleBuffer(otherTitle6, true);
+            SetDoubleBuffer(otherImg6, true);
+            SetDoubleBuffer(otherResult7, true);
+            SetDoubleBuffer(otherTable7, true);
+            SetDoubleBuffer(otherTitle7, true);
+            SetDoubleBuffer(otherImg7, true);
+            SetDoubleBuffer(otherResult8, true);
+            SetDoubleBuffer(otherTable8, true);
+            SetDoubleBuffer(otherTitle8, true);
+            SetDoubleBuffer(otherImg8, true);
+            SetDoubleBuffer(otherResult9, true);
+            SetDoubleBuffer(otherTable9, true);
+            SetDoubleBuffer(otherTitle9, true);
+            SetDoubleBuffer(otherImg9, true);
+            SetDoubleBuffer(flowLayoutPanel61, true);
+            SetDoubleBuffer(favoritePanel, true);
+            SetDoubleBuffer(favFlowPanel, true);
+            SetDoubleBuffer(favoriteLabel, true);
+            SetDoubleBuffer(favTableHead, true);
+            SetDoubleBuffer(favBookLabel, true);
+            SetDoubleBuffer(favRankLabel, true);
+            SetDoubleBuffer(scoreLabel, true);
+            SetDoubleBuffer(favPublisherLabel, true);
+            SetDoubleBuffer(categoriesPanel, true);
+            SetDoubleBuffer(mainCategoryPanel, true);
+            SetDoubleBuffer(categoryMainLabel, true);
+            SetDoubleBuffer(authormainFlowPanel, true);
+            SetDoubleBuffer(authorMainLabel, true);
+            SetDoubleBuffer(otherCategoriesPanel, true);
+            SetDoubleBuffer(otherCategoryLabel, true);
+            SetDoubleBuffer(historyPanel, true);
+            SetDoubleBuffer(historyFlowPanel, true);
+            SetDoubleBuffer(historyLabel, true);
+            SetDoubleBuffer(bestBookPanel, true);
+            SetDoubleBuffer(bestBookFlowPanel, true);
+            SetDoubleBuffer(bestBookLabel, true);
+            SetDoubleBuffer(bestBookElement0, true);
+            SetDoubleBuffer(bestBookTable0, true);
+            SetDoubleBuffer(bestBookImg0, true);
+            SetDoubleBuffer(bestBookLabel0, true);
+            SetDoubleBuffer(bestBookTitle0, true);
+            SetDoubleBuffer(bestBookAuthor0, true);
+            SetDoubleBuffer(bestBookElement1, true);
+            SetDoubleBuffer(bestBookTable1, true);
+            SetDoubleBuffer(bestBookImg1, true);
+            SetDoubleBuffer(bestBookLabel1, true);
+            SetDoubleBuffer(bestBookTitle1, true);
+            SetDoubleBuffer(bestBookAuthor1, true);
+            SetDoubleBuffer(bestBookElement2, true);
+            SetDoubleBuffer(bestBookTable2, true);
+            SetDoubleBuffer(bestBookImg2, true);
+            SetDoubleBuffer(bestBookLabel2, true);
+            SetDoubleBuffer(bestBookTitle2, true);
+            SetDoubleBuffer(bestBookAuthor2, true);
+            SetDoubleBuffer(bestBookElement3, true);
+            SetDoubleBuffer(bestBookTable3, true);
+            SetDoubleBuffer(bestBookImg3, true);
+            SetDoubleBuffer(bestBookLabel3, true);
+            SetDoubleBuffer(bestBookTitle3, true);
+            SetDoubleBuffer(bestBookAuthor3, true);
+            SetDoubleBuffer(currentPanel, true);
+            SetDoubleBuffer(currentLabel, true);
+            SetDoubleBuffer(currentProperties, true);
+            SetDoubleBuffer(currentPropertiesTable, true);
+            SetDoubleBuffer(currentBookPanel, true);
+            SetDoubleBuffer(currentBookTitle, true);
+            SetDoubleBuffer(currentBookAuthor, true);
+            SetDoubleBuffer(currentBookRate, true);
+            SetDoubleBuffer(currentPagePanel, true);
+            SetDoubleBuffer(totalPage, true);
+            SetDoubleBuffer(currentPage, true);
+            SetDoubleBuffer(currentPublisherPanel, true);
+            SetDoubleBuffer(currentPublisher, true);
+            SetDoubleBuffer(yearOfPublication, true);
+            SetDoubleBuffer(optionPanel, true);
+            SetDoubleBuffer(optionsFlowPanel, true);
+            SetDoubleBuffer(heartOption, true);
+            SetDoubleBuffer(textToSpeech, true);
+            SetDoubleBuffer(brightness, true);
+            SetDoubleBuffer(forward, true);
+            SetDoubleBuffer(bookmark, true);
+            SetDoubleBuffer(flowLayoutPanel2, true);
+            SetDoubleBuffer(tableLayoutPanel3, true);
+            SetDoubleBuffer(label3, true);
+            SetDoubleBuffer(label4, true);
+            SetDoubleBuffer(flowLayoutPanel5, true);
+            SetDoubleBuffer(tableLayoutPanel6, true);
+            SetDoubleBuffer(label9, true);
+            SetDoubleBuffer(label10, true);
+            SetDoubleBuffer(flowLayoutPanel6, true);
+            SetDoubleBuffer(tableLayoutPanel7, true);
+            SetDoubleBuffer(label11, true);
+            SetDoubleBuffer(label12, true);
+            SetDoubleBuffer(flowLayoutPanel3, true);
+            SetDoubleBuffer(label5, true);
+            SetDoubleBuffer(flowLayoutPanel8, true);
+            SetDoubleBuffer(tableLayoutPanel4, true);
+            SetDoubleBuffer(label6, true);
+            SetDoubleBuffer(label15, true);
+            SetDoubleBuffer(flowLayoutPanel9, true);
+            SetDoubleBuffer(tableLayoutPanel9, true);
+            SetDoubleBuffer(label16, true);
+            SetDoubleBuffer(label17, true);
+            SetDoubleBuffer(flowLayoutPanel10, true);
+            SetDoubleBuffer(tableLayoutPanel10, true);
+            SetDoubleBuffer(label18, true);
+            SetDoubleBuffer(label19, true);
+            SetDoubleBuffer(flowLayoutPanel11, true);
+            SetDoubleBuffer(tableLayoutPanel11, true);
+            SetDoubleBuffer(label20, true);
+            SetDoubleBuffer(label21, true);
+            SetDoubleBuffer(flowLayoutPanel12, true);
+            SetDoubleBuffer(tableLayoutPanel12, true);
+            SetDoubleBuffer(label22, true);
+            SetDoubleBuffer(label23, true);
+            SetDoubleBuffer(flowLayoutPanel13, true);
+            SetDoubleBuffer(tableLayoutPanel13, true);
+            SetDoubleBuffer(label24, true);
+            SetDoubleBuffer(label25, true);
+            SetDoubleBuffer(flowLayoutPanel14, true);
+            SetDoubleBuffer(label26, true);
+            SetDoubleBuffer(flowLayoutPanel15, true);
+            SetDoubleBuffer(tableLayoutPanel14, true);
+            SetDoubleBuffer(label27, true);
+            SetDoubleBuffer(label28, true);
+            SetDoubleBuffer(flowLayoutPanel16, true);
+            SetDoubleBuffer(tableLayoutPanel15, true);
+            SetDoubleBuffer(label29, true);
+            SetDoubleBuffer(label30, true);
+            SetDoubleBuffer(flowLayoutPanel17, true);
+            SetDoubleBuffer(tableLayoutPanel16, true);
+            SetDoubleBuffer(label31, true);
+            SetDoubleBuffer(label32, true);
+            SetDoubleBuffer(flowLayoutPanel18, true);
+            SetDoubleBuffer(tableLayoutPanel17, true);
+            SetDoubleBuffer(label33, true);
+            SetDoubleBuffer(label34, true);
+            SetDoubleBuffer(flowLayoutPanel19, true);
+            SetDoubleBuffer(tableLayoutPanel18, true);
+            SetDoubleBuffer(label35, true);
+            SetDoubleBuffer(label36, true);
+            SetDoubleBuffer(flowLayoutPanel20, true);
+            SetDoubleBuffer(tableLayoutPanel19, true);
+            SetDoubleBuffer(label37, true);
+            SetDoubleBuffer(label38, true);
+            SetDoubleBuffer(contextMenuStrip1, true);
+            SetDoubleBuffer(gradientPanel2, true);
+            SetDoubleBuffer(tableLayoutPanel5, true);
+            SetDoubleBuffer(label7, true);
+            SetDoubleBuffer(label8, true);
+            SetDoubleBuffer(gradientPanel4, true);
+            SetDoubleBuffer(tableLayoutPanel40, true);
+            SetDoubleBuffer(label79, true);
+            SetDoubleBuffer(label80, true);
+            SetDoubleBuffer(toolStrip1, true);
+
+            #endregion
+
+            #region test application graphic by getting random index of books
+            Random rand = new Random();
+            int randC = rand.Next(1, 1000);
+            Image currentImg = GetBookImage(randC);
+            Book book = GetBookInformation(randC);
+
+            updateCurrentBook(book);
+
+            //helloPanel
+            int randH0 = rand.Next(1, 1000);
+            int randH1 = rand.Next(1, 1000);
+            int randH2 = rand.Next(1, 1000);
+            int randH3 = rand.Next(1, 1000);
+            helloElementImg0.Image = SetHeight(GetBookImage(randH0), helloElementImg0.Height);
+            helloElementImg1.Image = SetHeight(GetBookImage(randH1), helloElementImg1.Height);
+            helloElementImg2.Image = SetHeight(GetBookImage(randH2), helloElementImg2.Height);
+            helloElementImg3.Image = SetHeight(GetBookImage(randH3), helloElementImg3.Height);
+
+            Book helloBook0 = GetBookInformation(randH0);
+            Book helloBook1 = GetBookInformation(randH1);
+            Book helloBook2 = GetBookInformation(randH2);
+            Book helloBook3 = GetBookInformation(randH3);
+
+            helloElementTitle0.Text = helloBook0.title;
+            helloAuthor0.Text = helloBook0.author;
+            helloElementTitle1.Text = helloBook1.title;
+            helloAuthor1.Text = helloBook1.author;
+            helloElementTitle2.Text = helloBook2.title;
+            helloAuthor2.Text = helloBook2.author;
+            helloElementTitle3.Text = helloBook3.title;
+            helloAuthor3.Text = helloBook3.author;
+
+            //recommentPanel 
+            int randC0 = rand.Next(1, 1000);
+            int randC1 = rand.Next(1, 1000);
+            int randC2 = rand.Next(1, 1000);
+            int randC3 = rand.Next(1, 1000);
+            recommentImg0.Image = SetHeight(GetBookImage(randC0), recommentImg0.Height);
+            recommentImg1.Image = SetHeight(GetBookImage(randC1), recommentImg1.Height);
+            recommentImg2.Image = SetHeight(GetBookImage(randC2), recommentImg2.Height);
+            recommentImg3.Image = SetHeight(GetBookImage(randC3), recommentImg3.Height);
+
+            Book recommentBook0 = GetBookInformation(randC0);
+            Book recommentBook1 = GetBookInformation(randC1);
+            Book recommentBook2 = GetBookInformation(randC2);
+            Book recommentBook3 = GetBookInformation(randC3);
+
+            recommentTitle0.Text = recommentBook0.title;
+            recommentAuthor0.Text = recommentBook0.author;
+            recommentTitle1.Text = recommentBook1.title;
+            recommentAuthor1.Text = recommentBook1.author;
+            recommentTitle2.Text = recommentBook2.title;
+            recommentAuthor2.Text = recommentBook2.author;
+            recommentTitle3.Text = recommentBook3.title;
+            recommentAuthor3.Text = recommentBook3.author;
+
+            //bestBook Panel
+            int randB0 = rand.Next(1, 1000);
+            int randB1 = rand.Next(1, 1000);
+            int randB2 = rand.Next(1, 1000);
+            int randB3 = rand.Next(1, 1000);
+            bestBookImg0.Image = SetHeight(GetBookImage(randB0), bestBookImg0.Height);
+            bestBookImg1.Image = SetHeight(GetBookImage(randB1), bestBookImg1.Height);
+            bestBookImg2.Image = SetHeight(GetBookImage(randB2), bestBookImg2.Height);
+            bestBookImg3.Image = SetHeight(GetBookImage(randB3), bestBookImg3.Height);
+
+            Book bestBook0 = GetBookInformation(randB0);
+            Book bestBook1 = GetBookInformation(randB1);
+            Book bestBook2 = GetBookInformation(randB2);
+            Book bestBook3 = GetBookInformation(randB3);
+
+            bestBookTitle0.Text = bestBook0.title;
+            bestBookAuthor0.Text = bestBook0.author;
+            bestBookTitle1.Text = bestBook1.title;
+            bestBookAuthor1.Text = bestBook1.author;
+            bestBookTitle2.Text = bestBook2.title;
+            bestBookAuthor2.Text = bestBook2.author;
+            bestBookTitle3.Text = bestBook3.title;
+            bestBookAuthor3.Text = bestBook3.author;
+            #endregion
+
+            #region update category list
+            List<string> publisherList = new List<string>();
+            for (int i = 0; i < userHistory.Count; i++)
+            {
+                Book catBook = GetBookInformation(userHistory.ElementAt(i).isbn);
+                if (catBook.title != null)
+                {
+                    if (!publisherList.Contains(catBook.publisher))
+                    {
+                        publisherList.Add(catBook.publisher);
+                        AddOtherCategoryBook(catBook);
+                    }
+
+                }
+            }
+            #endregion
+
+            #region update favorite list
+            List<UserRating> favList = userHistory;
+            favList.Sort();
+            int bRank = 1;
+            for (int i = 0; i < favList.Count; i++)
+            {
+                if (favList.ElementAt(i).rate != 0)
+                {
+                    Book favBook = GetBookInformation(favList.ElementAt(i).isbn);
+                    if (favBook.title != null)
+                    {
+                        AddFavBook(favBook, bRank++, favList.ElementAt(i).rate);
+                    }
+                }
+
+            }
+
+            #endregion
+
+            #region update history list
+            for (int i = 0; i < userHistory.Count; i++)
+            {
+                Book histBook = GetBookInformation(userHistory.ElementAt(i).isbn);
+                if (histBook.title != null)
+                {
+                    AddHistoryNewBook(histBook);
+                }
+
+            }
+            #endregion
+
+            //update userlabel
+            currentUser = GetUserInformation(username);
+            toolTip1.SetToolTip(user, currentUser.username + " #" + currentUser.userId);
+            user.Image = SetWidth(Image.FromStream(LoaderFromURL(currentUser.profileImage) == null ? LoaderFromURL(bookList.ElementAt(0).lURL) : LoaderFromURL(currentUser.profileImage)), user.Width);
+
+            homeFlowPanel.Controls.Add(bestBookFlowPanel);
+            bestBookFlowPanel.Visible = true;
+
+            loading.Visible = false;
+        }
+
+        //unneccessary!
+        private void contentContainer_Paint(object sender, PaintEventArgs e)
+        {
+            LinearGradientBrush lgb = new LinearGradientBrush(contentContainer.ClientRectangle, ColorTranslator.FromHtml("#300004"), contentContainer.BackColor, 90F);
+            Graphics g = e.Graphics;
+            g.FillRectangle(lgb, contentContainer.ClientRectangle);
+        }
 
         private void user_Click(object sender, EventArgs e)
         {
