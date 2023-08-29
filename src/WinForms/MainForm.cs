@@ -1271,6 +1271,11 @@ namespace WinForms
             System.Windows.Forms.Label historyNewBookAuthor = new System.Windows.Forms.Label();
             System.Windows.Forms.Label historyNewBookTitle = new System.Windows.Forms.Label();
 
+            SetDoubleBuffer(historyNewBook, true);
+            SetDoubleBuffer(historyNewBookGrad, true);
+            SetDoubleBuffer(historyNewBookAuthor, true);
+            SetDoubleBuffer(historyNewBookTitle, true);
+
             historyFlowPanel.Controls.Add(historyNewBook);
             // 
             // historyNewBook
