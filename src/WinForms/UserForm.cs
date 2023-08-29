@@ -689,13 +689,23 @@ namespace WinForms
 
         private void saveButton_Click(object sender, EventArgs e)
         {
+            string fNameUpdate = "N'" + firstNameTextBox.Text + "'";
+            string lNameUpdate = "N'" + lastNameTextbox.Text + "'";
+            string emailUpdate = "N'" + emailTextBox.Text + "'";
+            string phoneUpdate = "N'" + phoneTextBox.Text + "'";
+            string genderUpdate = (genderComboBox.Text == "Male" ? 1 : (genderComboBox.Text == "Female" ? 2 : 3)).ToString();
+            string birthDateUpdate = "N'" + birthDatePicker.Value.ToString("yyyy-MM-dd") + "'";
+            string profileImageUpdate = "N'" + profilePictureLinkTextBox.Text + "'";
+            string locationUpdate = "N'" + locationTextBox.Text + "'";
+            string nationUpdate = "N'" + nationComboBox.Text + "'";
+
             if (firstnameSavable && lastnameSavable && emailSavable && phoneSavable && genderSavable && birthDateSavable && profileImageSavable && ageSavable && locationSavable && nationSavable)
             {
                 try
                 {
-                    cmd = new SqlCommand("update [users] set [firstName] = N'" + firstname + "', [lastName] = N'" + lastname + "', [email] = N'" + email + "', [phone] = N'" + phone +
-                        "', [gender] = " + gender +", [birthDate] = N'"+birthDate+"', [profileImage] = N'"+profileImage+"', [location] = N'"+ location+"', [nation] = N'"+nation+
-                        "' where [id] = "+id, con);
+                    cmd = new SqlCommand("update [users] set [firstName] = " + fNameUpdate + ", [lastName] = " + lNameUpdate + ", [email] = " + emailUpdate + ", [phone] = " + phoneUpdate +
+                        ", [gender] = " + genderUpdate +", [birthDate] = "+birthDateUpdate+", [profileImage] = "+profileImageUpdate+", [location] = "+ locationUpdate+", [nation] = "+nationUpdate+
+                        " where [username] = N'"+username+"'", con);
                     con.Open();
                     int rowsAffected = cmd.ExecuteNonQuery();
                     if (rowsAffected > 0) { MessageBox.Show("Saved!"); }
