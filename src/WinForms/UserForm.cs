@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Linq;
@@ -9,6 +10,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 using Microsoft.VisualBasic.ApplicationServices;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
@@ -16,6 +18,10 @@ namespace WinForms
 {
     public partial class UserForm : Form
     {
+        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\vuduc\OneDrive\Documents\BX.mdf;Integrated Security=True;Connect Timeout=30");
+        SqlCommand cmd = new SqlCommand();
+        SqlDataReader dr;
+
         public int id;
         public string firstname;
         public string lastname;
@@ -59,20 +65,16 @@ namespace WinForms
         {
             this.Close();
         }
-
-        public bool idSavable;
-        public bool firstnameSavable;
-        public bool lastnameSavable;
-        public bool usernameSavable;
-        public bool passwordSavable;
-        public bool emailSavable;
-        public bool phoneSavable;
-        public bool genderSavable;
-        public bool birthDateSavable;
-        public bool profileImageSavable;
-        public bool ageSavable;
-        public bool locationSavable;
-        public bool nationSavable;
+        public bool firstnameSavable = true;
+        public bool lastnameSavable = true;
+        public bool emailSavable = true;
+        public bool phoneSavable = true;
+        public bool genderSavable = true;
+        public bool birthDateSavable = true;
+        public bool profileImageSavable = true;
+        public bool ageSavable = true;
+        public bool locationSavable = true;
+        public bool nationSavable = true;
 
         private async void UserForm_LoadAsync(object sender, EventArgs e)
         {
@@ -87,6 +89,7 @@ namespace WinForms
                 roundedUsername.Width += 20;
                 await Task.Delay(1);
             }
+
             roundedUsername.BorderColor = Color.Cyan;
             roundedUsername.Text = "  ✔️";
             roundedUsername.ForeColor = Color.Lime;
@@ -103,6 +106,7 @@ namespace WinForms
                     roundedFirstName.Width += 20;
                     await Task.Delay(1);
                 }
+
                 roundedFirstName.BorderColor = Color.Cyan;
                 roundedFirstName.Text = "  ✔️";
                 roundedFirstName.ForeColor = Color.Lime;
@@ -120,6 +124,7 @@ namespace WinForms
                     roundedLastName.Width += 20;
                     await Task.Delay(1);
                 }
+
                 roundedLastName.BorderColor = Color.Cyan;
                 roundedLastName.Text = "  ✔️";
                 roundedLastName.ForeColor = Color.Lime;
@@ -137,6 +142,7 @@ namespace WinForms
                     roundedGender.Width += 20;
                     await Task.Delay(1);
                 }
+
                 roundedGender.BorderColor = Color.Cyan;
                 roundedGender.Text = "  ✔️";
                 roundedGender.ForeColor = Color.Lime;
@@ -159,6 +165,7 @@ namespace WinForms
                     roundedBirthDate.Width += 20;
                     await Task.Delay(1);
                 }
+
                 roundedBirthDate.BorderColor = Color.Cyan;
                 roundedBirthDate.Text = "  ✔️";
                 roundedBirthDate.ForeColor = Color.Lime;
@@ -176,6 +183,7 @@ namespace WinForms
                     roundedNation.Width += 20;
                     await Task.Delay(1);
                 }
+
                 roundedNation.BorderColor = Color.Cyan;
                 roundedNation.Text = "  ✔️";
                 roundedNation.ForeColor = Color.Lime;
@@ -193,6 +201,7 @@ namespace WinForms
                     roundedLocation.Width += 20;
                     await Task.Delay(1);
                 }
+
                 roundedLocation.BorderColor = Color.Cyan;
                 roundedLocation.Text = "  ✔️";
                 roundedLocation.ForeColor = Color.Lime;
@@ -210,6 +219,7 @@ namespace WinForms
                     roundedPhone.Width += 20;
                     await Task.Delay(1);
                 }
+
                 roundedPhone.BorderColor = Color.Cyan;
                 roundedPhone.Text = "  ✔️";
                 roundedPhone.ForeColor = Color.Lime;
@@ -227,6 +237,7 @@ namespace WinForms
                     roundedEmail.Width += 20;
                     await Task.Delay(1);
                 }
+
                 roundedEmail.BorderColor = Color.Cyan;
                 roundedEmail.Text = "  ✔️";
                 roundedEmail.ForeColor = Color.Lime;
@@ -244,6 +255,7 @@ namespace WinForms
                     roundedProfilePictureLink.Width += 20;
                     await Task.Delay(1);
                 }
+
                 roundedProfilePictureLink.BorderColor = Color.Cyan;
                 roundedProfilePictureLink.Text = "  ✔️";
                 roundedProfilePictureLink.ForeColor = Color.Lime;
@@ -393,10 +405,12 @@ namespace WinForms
                 roundedFirstName.BorderColor = Color.DeepPink;
                 roundedFirstName.Text = "  ✖️";
                 roundedFirstName.ForeColor = Color.IndianRed;
+                
                 firstnameSavable = false;
             }
             else
             {
+                firstnameSavable = true;
                 roundedFirstName.BorderColor = Color.Cyan;
                 roundedFirstName.Text = "  ✔️";
                 roundedFirstName.ForeColor = Color.Lime;
@@ -428,9 +442,11 @@ namespace WinForms
                 roundedLastName.BorderColor = Color.DeepPink;
                 roundedLastName.Text = "  ✖️";
                 roundedLastName.ForeColor = Color.IndianRed;
+                firstnameSavable = false;
             }
             else
             {
+                lastnameSavable = true;
                 roundedLastName.BorderColor = Color.Cyan;
                 roundedLastName.Text = "  ✔️";
                 roundedLastName.ForeColor = Color.Lime;
@@ -456,6 +472,7 @@ namespace WinForms
         private void genderComboBox_TextChanged(object sender, EventArgs e)
         {
             saveButton.Visible = true;
+            genderSavable = true;
             roundedGender.BorderColor = Color.Cyan;
             roundedGender.Text = "  ✔️";
             roundedGender.ForeColor = Color.Lime;
@@ -486,6 +503,7 @@ namespace WinForms
         private void birthDatePicker_ValueChanged(object sender, EventArgs e)
         {
             saveButton.Visible = true;
+            birthDateSavable = true;
             roundedBirthDate.BorderColor = Color.Cyan;
             roundedBirthDate.Text = "  ✔️";
             roundedBirthDate.ForeColor = Color.Lime;
@@ -511,6 +529,7 @@ namespace WinForms
         private void nationComboBox_TextChanged(object sender, EventArgs e)
         {
             saveButton.Visible = true;
+            nationSavable = true;
             roundedLastName.BorderColor = Color.Cyan;
             roundedLastName.Text = "  ✔️";
             roundedLastName.ForeColor = Color.Lime;
@@ -541,6 +560,7 @@ namespace WinForms
         private void locationTextBox_TextChanged(object sender, EventArgs e)
         {
             saveButton.Visible = true;
+            locationSavable = true;
             roundedLocation.BorderColor = Color.Cyan;
             roundedLocation.Text = "  ✔️";
             roundedLocation.ForeColor = Color.Lime;
@@ -570,9 +590,11 @@ namespace WinForms
                 roundedPhone.BorderColor = Color.DeepPink;
                 roundedPhone.Text = "  ✖️";
                 roundedPhone.ForeColor = Color.IndianRed;
+                firstnameSavable = false;
             }
             else
             {
+                phoneSavable = true;
                 roundedPhone.BorderColor = Color.Cyan;
                 roundedPhone.Text = "  ✔️";
                 roundedPhone.ForeColor = Color.Lime;
@@ -603,9 +625,11 @@ namespace WinForms
                 roundedEmail.BorderColor = Color.DeepPink;
                 roundedEmail.Text = "  ✖️";
                 roundedEmail.ForeColor = Color.IndianRed;
+                firstnameSavable = false;
             }
             else
             {
+                emailSavable = true;
                 roundedEmail.BorderColor = Color.Cyan;
                 roundedEmail.Text = "  ✔️";
                 roundedEmail.ForeColor = Color.Lime;
@@ -636,9 +660,11 @@ namespace WinForms
                 roundedProfilePictureLink.BorderColor = Color.DeepPink;
                 roundedProfilePictureLink.Text = "  ✖️";
                 roundedProfilePictureLink.ForeColor = Color.IndianRed;
+                firstnameSavable = false;
             }
             else
             {
+                profileImageSavable = true;
                 roundedProfilePictureLink.BorderColor = Color.Cyan;
                 roundedProfilePictureLink.Text = "  ✔️";
                 roundedProfilePictureLink.ForeColor = Color.Lime;
@@ -658,6 +684,37 @@ namespace WinForms
                 roundedProfilePictureLink.Text = "  ❕";
                 roundedProfilePictureLink.ForeColor = Color.IndianRed;
                 roundedProfilePictureLink.BorderColor = Color.DeepPink;
+            }
+        }
+
+        private void saveButton_Click(object sender, EventArgs e)
+        {
+            if (firstnameSavable && lastnameSavable && emailSavable && phoneSavable && genderSavable && birthDateSavable && profileImageSavable && ageSavable && locationSavable && nationSavable)
+            {
+                try
+                {
+                    cmd = new SqlCommand("update [users] set [firstName] = N'" + firstname + "', [lastName] = N'" + lastname + "', [email] = N'" + email + "', [phone] = N'" + phone +
+                        "', [gender] = " + gender +", [birthDate] = N'"+birthDate+"', [profileImage] = N'"+profileImage+"', [location] = N'"+ location+"', [nation] = N'"+nation+
+                        "' where [id] = "+id, con);
+                    con.Open();
+                    int rowsAffected = cmd.ExecuteNonQuery();
+                    if (rowsAffected > 0) { MessageBox.Show("Saved!"); }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+                finally
+                {
+                    if (dr != null) dr.Close();
+                    if (con != null) con.Close();   
+                    
+                }
+                firstnameSavable = false;    
+            }
+            else
+            {
+                MessageBox.Show("Incorrect data format!");
             }
         }
     }

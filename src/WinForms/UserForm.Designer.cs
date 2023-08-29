@@ -714,6 +714,8 @@ namespace WinForms
             saveButton.TextColor = Color.SpringGreen;
             saveButton.UseVisualStyleBackColor = false;
             saveButton.Visible = false;
+            saveButton.Enabled = true;
+            saveButton.Click += saveButton_Click;
             // 
             // UserForm
             // 
