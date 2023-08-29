@@ -228,6 +228,7 @@ namespace WinForms
             firstNameTextBox.TabIndex = 7;
             firstNameTextBox.Visible = false;
             firstNameTextBox.TextChanged += firstNameTextBox_TextChanged;
+            firstNameTextBox.LostFocus += firstNameTextBox_LostFocus;
             // 
             // firstNameLabel
             // 

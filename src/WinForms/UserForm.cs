@@ -101,7 +101,7 @@ namespace WinForms
             usernameTextBox.Visible = true;
 
             //firstName 
-            if (firstname != null)
+            if (firstname.Length > 1)
             {
                 for (int i = 0; i < 8; i++)
                 {
@@ -118,7 +118,7 @@ namespace WinForms
             }
 
             //lastName
-            if (lastname != null)
+            if (lastname.Length > 1)
             {
                 for (int i = 0; i < 8; i++)
                 {
@@ -157,7 +157,7 @@ namespace WinForms
             }
 
             //birthDate
-            if (birthDate != null)
+            if (!birthDate.Equals(new DateTime(0001, 01, 01)))
             {
                 for (int i = 0; i < 8; i++)
                 {
@@ -174,7 +174,7 @@ namespace WinForms
             }
 
             //nation
-            if (nation != null)
+            if (nation.Length > 1)
             {
                 for (int i = 0; i < 8; i++)
                 {
@@ -191,7 +191,7 @@ namespace WinForms
             }
 
             //location
-            if (location != null)
+            if (location.Length > 1)
             {
                 for (int i = 0; i < 8; i++)
                 {
@@ -208,7 +208,7 @@ namespace WinForms
             }
 
             //phone
-            if (phone != null)
+            if (phone.Length > 1)
             {
                 for (int i = 0; i < 10; i++)
                 {
@@ -225,7 +225,7 @@ namespace WinForms
             }
 
             //email
-            if (email != null)
+            if (email.Length > 1)
             {
                 for (int i = 0; i < 21; i++)
                 {
@@ -242,7 +242,7 @@ namespace WinForms
             }
 
             //profilePictureLink
-            if (profileImage != null)
+            if (profileImage.Length > 1)
             {
                 for (int i = 0; i < 21; i++)
                 {
@@ -350,7 +350,7 @@ namespace WinForms
         {
             if (phoneTextBox.Visible == false)
             {
-                for (int i = 0; i < 8; i++)
+                for (int i = 0; i < 10; i++)
                 {
                     roundedPhone.Width += 20;
                     await Task.Delay(1);
@@ -364,7 +364,7 @@ namespace WinForms
         {
             if (emailTextBox.Visible == false)
             {
-                for (int i = 0; i < 8; i++)
+                for (int i = 0; i < 21; i++)
                 {
                     roundedEmail.Width += 20;
                     await Task.Delay(1);
@@ -378,7 +378,7 @@ namespace WinForms
         {
             if (profilePictureLinkTextBox.Visible == false)
             {
-                for (int i = 0; i < 8; i++)
+                for (int i = 0; i < 21; i++)
                 {
                     roundedProfilePictureLink.Width += 20;
                     await Task.Delay(1);
@@ -404,6 +404,22 @@ namespace WinForms
                 roundedFirstName.Text = "  ✔️";
                 roundedFirstName.ForeColor = Color.Lime;
                 firstnameSavable = true;
+            }
+        }
+
+        private async void firstNameTextBox_LostFocus(object sender, EventArgs e)
+        {
+            if (firstNameTextBox.Text.Length < 1)
+            {
+                for (int i = 0; i < 8; i++)
+                {
+                    roundedFirstName.Width -= 20;
+                    await Task.Delay(1);
+                }
+                firstNameTextBox.Visible = false;
+                roundedFirstName.Text = "  ❕";
+                roundedFirstName.ForeColor = Color.IndianRed;
+                roundedFirstName.BorderColor = Color.DeepPink;
             }
         }
 
