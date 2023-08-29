@@ -29,11 +29,6 @@ namespace WinForms
         public int age;
         public string location;
         public string nation;
-        public UserForm()
-        {
-
-            InitializeComponent();
-        }
 
         public UserForm(int id, string firstname, string lastname, string username, string password, string email, string phone, byte gender, DateTime birthDate, string profileImage, int age, string location, string nation)
         {
@@ -261,7 +256,7 @@ namespace WinForms
 
         private async void roundedFirstName_Click(object sender, EventArgs e)
         {
-            if (firstNameTextBox.Visible == false)
+            if (firstNameTextBox.Visible == false && roundedFirstName.Width < 55)
             {
                 for (int i = 0; i < 8; i++)
                 {
@@ -275,7 +270,7 @@ namespace WinForms
 
         private async void roundedLastName_Click(object sender, EventArgs e)
         {
-            if (lastNameTextbox.Visible == false)
+            if (lastNameTextbox.Visible == false && roundedLastName.Width < 55)
             {
                 for (int i = 0; i < 8; i++)
                 {
@@ -289,7 +284,7 @@ namespace WinForms
 
         private async void roundedGender_Click(object sender, EventArgs e)
         {
-            if (genderValue.Visible == false && genderComboBox.Visible == false)
+            if (roundedGender.Width < 55)
             {
                 for (int i = 0; i < 8; i++)
                 {
@@ -299,12 +294,13 @@ namespace WinForms
                 genderComboBox.Visible = true;
             }
             genderValue.Visible = false;
+            genderComboBox.Visible = true;
             genderComboBox.Focus();
         }
 
         private async void roundedBirthDate_Click(object sender, EventArgs e)
         {
-            if (birthDay.Visible == false && birthDatePicker.Visible == false)
+            if (roundedBirthDate.Width < 55)
             {
                 for (int i = 0; i < 8; i++)
                 {
@@ -314,6 +310,7 @@ namespace WinForms
                 birthDatePicker.Visible = true;
             }
             birthDay.Visible = false;
+            birthDatePicker.Visible = true;
             birthDatePicker.Focus();
         }
 
@@ -409,7 +406,7 @@ namespace WinForms
 
         private async void firstNameTextBox_LostFocus(object sender, EventArgs e)
         {
-            if (firstNameTextBox.Text.Length < 1)
+            if (firstNameTextBox.Text.Length < 1 && roundedFirstName.Width > 55)
             {
                 for (int i = 0; i < 8; i++)
                 {
@@ -442,7 +439,7 @@ namespace WinForms
 
         private async void lastNameTextbox_LostFocus(object sender, EventArgs e)
         {
-            if (lastNameTextbox.Text.Length < 1)
+            if (lastNameTextbox.Text.Length < 1 && roundedLastName.Width > 55)
             {
                 for (int i = 0; i < 8; i++)
                 {
@@ -471,7 +468,7 @@ namespace WinForms
             genderValue.Visible = true;
             genderComboBox.Visible = false;
 
-            if (genderComboBox.Text.Length < 1)
+            if (genderComboBox.Text.Length < 1 && roundedGender.Width > 55)
             {
                 for (int i = 0; i < 8; i++)
                 {
@@ -494,7 +491,7 @@ namespace WinForms
             roundedBirthDate.ForeColor = Color.Lime;
         }
 
-        private async void birthDatePicker_LostFocus(Object sender, EventArgs e)
+        private void birthDatePicker_LostFocus(Object sender, EventArgs e)
         {
             saveButton.Visible = true;
             birthDay.Text = birthDatePicker.Value.ToString("dd") + "/" + birthDatePicker.Value.ToString("MM") + "/" + birthDatePicker.Value.ToString("yyyy");
@@ -503,11 +500,6 @@ namespace WinForms
 
             if (birthDatePicker.Equals(new DateTime(0001, 01, 01)))
             {
-                for (int i = 0; i < 8; i++)
-                {
-                    roundedBirthDate.Width -= 20;
-                    await Task.Delay(1);
-                }
                 birthDatePicker.Visible = false;
                 birthDay.Visible = false;
                 roundedBirthDate.Text = "  ❕";
@@ -531,7 +523,7 @@ namespace WinForms
             nationValue.Visible = true;
             nationComboBox.Visible = false;
 
-            if (nationComboBox.Text.Length < 1)
+            if (nationComboBox.Text.Length < 1 && roundedNation.Width > 55)
             {
                 for (int i = 0; i < 8; i++)
                 {
@@ -556,7 +548,7 @@ namespace WinForms
 
         private async void locationTextBox_LostFocus(object sender, EventArgs e)
         {
-            if (locationTextBox.Text.Length < 1)
+            if (locationTextBox.Text.Length < 1 && roundedLocation.Width > 55)
             {
                 for (int i = 0; i < 8; i++)
                 {
@@ -589,7 +581,7 @@ namespace WinForms
 
         private async void phoneTextBox_LostFocus(object sender, EventArgs e)
         {
-            if (phoneTextBox.Text.Length < 1)
+            if (phoneTextBox.Text.Length < 1 && roundedPhone.Width > 55)
             {
                 for (int i = 0; i < 10; i++)
                 {
@@ -622,7 +614,7 @@ namespace WinForms
 
         private async void emailTextBox_LostFocus(object sender, EventArgs e)
         {
-            if (emailTextBox.Text.Length < 1)
+            if (emailTextBox.Text.Length < 1 && roundedEmail.Width > 55)
             {
                 for (int i = 0; i < 21; i++)
                 {
@@ -655,7 +647,7 @@ namespace WinForms
 
         private async void profilePictureLinkTextBox_LostFocus(object sender, EventArgs e)
         {
-            if (profilePictureLinkTextBox.Text.Length < 1)
+            if (profilePictureLinkTextBox.Text.Length < 1 && roundedProfilePictureLink.Width > 55)
             {
                 for (int i = 0; i < 21; i++)
                 {

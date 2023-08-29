@@ -425,6 +425,7 @@ namespace WinForms
             birthDay.Name = "birthDay";
             birthDay.Size = new Size(0, 25);
             birthDay.TabIndex = 21;
+            birthDay.Click += roundedBirthDate_Click;
             // 
             // locationTextBox
             // 
