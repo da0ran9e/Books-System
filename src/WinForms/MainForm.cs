@@ -1833,8 +1833,8 @@ namespace WinForms
             //content resize
             contentContainer.Height = mainFlowPanel.Height + difH + 15;
             //homeFlowPanel resize
-            homeFlowPanel.Height = mainFlowPanel.Height + difH + 20;
-            homeFlowPanel.Width = mainFlowPanel.Width + difW + 20;
+            homeFlowPanel.Height = mainFlowPanel.Height + difH + 10;
+            homeFlowPanel.Width = mainFlowPanel.Width + difW + 10;
 
             helloPanel.Width = homeFlowPanel.Width;
             helloElement0.Width = (homeFlowPanel.Width) / 2 - 10;
@@ -1849,8 +1849,8 @@ namespace WinForms
             recommentElement3.Width = (homeFlowPanel.Width) / 2 - 10;
 
             //searchFlowPanel resize
-            searchFlowPanel.Height = mainFlowPanel.Height + difH + 20;
-            searchFlowPanel.Width = mainFlowPanel.Width + difW + 20;
+            searchFlowPanel.Height = mainFlowPanel.Height + difH + 10;
+            searchFlowPanel.Width = mainFlowPanel.Width + difW + 10;
 
             searchPanel.Width = mainFlowPanel.Width / 3 + 150;
             searchPanel.Margin = new Padding((searchFlowPanel.Width - searchPanel.Width) / 2, 30, 3, 30);
@@ -1869,8 +1869,8 @@ namespace WinForms
             otherResult8.Width = searchFlowPanel.Width;
             otherResult9.Width = searchFlowPanel.Width;
             //bestBook resize
-            bestBookFlowPanel.Height = mainFlowPanel.Height + difH + 20;
-            bestBookFlowPanel.Width = mainFlowPanel.Width + difW + 20;
+            bestBookFlowPanel.Height = mainFlowPanel.Height + difH + 10;
+            bestBookFlowPanel.Width = mainFlowPanel.Width + difW + 10;
 
             bestBookPanel.Width = mainFlowPanel.Width + difW;
             bestBookElement0.Width = (mainFlowPanel.Width + difW) / 2 - 10;
@@ -1878,16 +1878,16 @@ namespace WinForms
             bestBookElement2.Width = (mainFlowPanel.Width + difW) / 2 - 10;
             bestBookElement3.Width = (mainFlowPanel.Width + difW) / 2 - 10;
             //favorite resize
-            favoritePanel.Width = mainFlowPanel.Width + difW + 20;
-            favoritePanel.Height = mainFlowPanel.Height + difW + 20;
+            favoritePanel.Width = mainFlowPanel.Width + difW + 10;
+            favoritePanel.Height = mainFlowPanel.Height + difW + 10;
             //category resize
-            categoriesPanel.Width = mainFlowPanel.Width + difW + 20;
-            categoriesPanel.Height = mainFlowPanel.Height + difW + 20;
+            categoriesPanel.Width = mainFlowPanel.Width + difW + 10;
+            categoriesPanel.Height = mainFlowPanel.Height + difW + 10;
             ResizeList(mainCategoryPanel, "newCategoryBook");
             ResizeList(authormainFlowPanel, "authorBook");
             //history resize 
-            historyPanel.Width = mainFlowPanel.Width + difW + 20;
-            historyPanel.Height = mainFlowPanel.Height + difW + 20;
+            historyPanel.Width = mainFlowPanel.Width + difW + 10;
+            historyPanel.Height = mainFlowPanel.Height + difW + 10;
         }
 
         private void MainForm_ResizeBegin(object sender, EventArgs e)
@@ -2075,9 +2075,6 @@ namespace WinForms
         {
             LoadingForm loading = new LoadingForm(100);
             loading.Show();
-
-            // get history list
-            List<UserRating> userHistory = GetUserHistory(currentUser.userId);
 
             #region Set controls double buffered 
 
@@ -2448,6 +2445,16 @@ namespace WinForms
             bestBookAuthor3.Text = bestBook3.author;
             #endregion
 
+            //update userlabel
+            currentUser = GetUserInformation(username);
+            toolTip1.SetToolTip(user, currentUser.username + " #" + currentUser.userId);
+            user.Image = SetWidth(Image.FromStream(LoaderFromURL(currentUser.profileImage) == null ? LoaderFromURL(bookList.ElementAt(0).lURL) : LoaderFromURL(currentUser.profileImage)), user.Width);
+
+            // get history list
+            List<UserRating> userHistory = GetUserHistory(currentUser.userId);
+
+
+
             #region update category list
             List<string> publisherList = new List<string>();
             for (int i = 0; i < userHistory.Count; i++)
@@ -2496,11 +2503,7 @@ namespace WinForms
             }
             #endregion
 
-            //update userlabel
-            currentUser = GetUserInformation(username);
-            toolTip1.SetToolTip(user, currentUser.username + " #" + currentUser.userId);
-            user.Image = SetWidth(Image.FromStream(LoaderFromURL(currentUser.profileImage) == null ? LoaderFromURL(bookList.ElementAt(0).lURL) : LoaderFromURL(currentUser.profileImage)), user.Width);
-
+           
             homeFlowPanel.Controls.Add(bestBookFlowPanel);
             bestBookFlowPanel.Visible = true;
 
