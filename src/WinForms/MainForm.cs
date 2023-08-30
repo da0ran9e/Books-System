@@ -1324,6 +1324,8 @@ namespace WinForms
             // historyNewBook
             // 
             historyNewBook.Controls.Add(historyNewBookGrad);
+            historyNewBook.AccessibleName = newBook.title;
+            historyNewBook.Click += NewBook_Click;
             historyNewBook.Location = new Point(0, 82);
             historyNewBook.Margin = new Padding(8);
             historyNewBook.Name = "historyNewBook";
@@ -1335,6 +1337,8 @@ namespace WinForms
             // historyNewBookGrad
             // 
             historyNewBookGrad.BackColor = Color.Transparent;
+            historyNewBookGrad.AccessibleName = newBook.title;
+            historyNewBookGrad.Click += NewBook_Click;
             historyNewBookGrad.Controls.Add(historyNewBookAuthor);
             historyNewBookGrad.Controls.Add(historyNewBookTitle);
             historyNewBookGrad.Dock = DockStyle.Bottom;
@@ -1350,6 +1354,8 @@ namespace WinForms
             // historyNewBookAuthor
             // 
             historyNewBookAuthor.AutoSize = true;
+            historyNewBookAuthor.AccessibleName = newBook.title;
+            historyNewBookAuthor.Click += NewBook_Click;
             historyNewBookAuthor.BackColor = Color.Transparent;
             historyNewBookAuthor.Dock = DockStyle.Bottom;
             historyNewBookAuthor.Font = new Font("Exo ExtraBold", 7.799999F, FontStyle.Bold, GraphicsUnit.Point);
@@ -1366,7 +1372,8 @@ namespace WinForms
             historyNewBookTitle.AutoSize = true;
             historyNewBookTitle.AutoEllipsis = true;
             historyNewBookTitle.BackColor = Color.Transparent;
-            //historyNewBookTitle.Dock = DockStyle.Top;
+            historyNewBookTitle.AccessibleName = newBook.title;
+            historyNewBookTitle.Click += NewBook_Click;
             historyNewBookTitle.Font = new Font("Exo ExtraBold", 12F, FontStyle.Bold, GraphicsUnit.Point);
             historyNewBookTitle.ForeColor = SystemColors.ControlLight;
             historyNewBookTitle.Location = new Point(0, 152);
@@ -1691,29 +1698,37 @@ namespace WinForms
             currentPublisher.Text = book.publisher;
             yearOfPublication.Text = book.year.ToString();
 
-            Book book1 = categoryBooks.ElementAt(0);
-
-            if (book.Equals(book1) && categoryBooks.Count > 1) book1 = categoryBooks.ElementAt(1);
-            if (categoryBooks.Count > 1)
+            if(categoryBooks.Count<1)
             {
-                for (int i = 0; i < categoryBooks.Count; i++)
-                {
-                    AddCategryBook(categoryBooks.ElementAt(i), book.publisher);
-                }
+                categoryFlowPanel0.Visible = false;
             }
-            if (authorBooks.Count > 1)
+            else
             {
-                for (int i = 0; i < authorBooks.Count; i++)
-                {
-                    AddAuthorBook(authorBooks.ElementAt(i));
-                }
-            }
+                Book book1 = categoryBooks.ElementAt(0);
 
-            string imgPath1 = "../../../../../assets/LImgs/temp" + book1.index + ".jpg";
-            if (!File.Exists(imgPath1)) GetBookImage(book1.index);
-            categoryImg0.Image = SetHeight(Image.FromFile(imgPath1), categoryImg0.Height);
-            categoryTitle0.Text = book1.title;
-            categoryAuthor0.Text = book1.author;
+                if (book.Equals(book1) && categoryBooks.Count > 1) book1 = categoryBooks.ElementAt(1);
+                if (categoryBooks.Count > 1)
+                {
+                    for (int i = 0; i < categoryBooks.Count; i++)
+                    {
+                        AddCategryBook(categoryBooks.ElementAt(i), book.publisher);
+                    }
+                }
+                if (authorBooks.Count > 1)
+                {
+                    for (int i = 0; i < authorBooks.Count; i++)
+                    {
+                        AddAuthorBook(authorBooks.ElementAt(i));
+                    }
+                }
+
+                string imgPath1 = "../../../../../assets/LImgs/temp" + book1.index + ".jpg";
+                if (!File.Exists(imgPath1)) GetBookImage(book1.index);
+                categoryImg0.Image = SetHeight(Image.FromFile(imgPath1), categoryImg0.Height);
+                categoryTitle0.Text = book1.title;
+                categoryAuthor0.Text = book1.author;
+            }
+            
 
             Color borderColor = CalculateAverageColor(GetBorderColors(new Bitmap(currentImg), currentImg.Size));
 
@@ -2510,9 +2525,7 @@ namespace WinForms
                     AddHistoryNewBook(histBook);
                     updateCurrentBook(histBook);
                 }
-
             }
-            //updateCurrentBook(histBook);
             #endregion
 
             //update userlabel
