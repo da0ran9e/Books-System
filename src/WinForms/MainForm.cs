@@ -1669,6 +1669,7 @@ namespace WinForms
 
         private void updateCurrentBook(Book book)
         {
+            if (book.index < 1||!bookList.Contains(book)) { return; }
             ClearList(mainCategoryPanel, "newCategoryBook");
             ClearList(authormainFlowPanel, "authorBook");
 
@@ -2504,14 +2505,14 @@ namespace WinForms
             for (int i = 0; i < userHistory.Count; i++)
             {
                 histBook = GetBookInformation(userHistory.ElementAt(i).isbn);
-                if (histBook.title != null)
+                if (histBook.index >0 && histBook.title != null)
                 {
                     AddHistoryNewBook(histBook);
-                    //updateCurrentBook(histBook);
+                    updateCurrentBook(histBook);
                 }
 
             }
-            updateCurrentBook(histBook);
+            //updateCurrentBook(histBook);
             #endregion
 
             //update userlabel
