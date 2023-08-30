@@ -99,7 +99,7 @@ namespace WinForms
             usernameTextBox.Visible = true;
 
             //firstName 
-            if (firstname.Length > 1)
+            if (firstname != null && firstname.Length > 1)
             {
                 for (int i = 0; i < 8; i++)
                 {
@@ -117,7 +117,7 @@ namespace WinForms
             }
 
             //lastName
-            if (lastname.Length > 1)
+            if (lastname != null && lastname.Length > 1)
             {
                 for (int i = 0; i < 8; i++)
                 {
@@ -176,7 +176,7 @@ namespace WinForms
             }
 
             //nation
-            if (nation.Length > 1)
+            if (nation!=null&&nation.Length > 1)
             {
                 for (int i = 0; i < 8; i++)
                 {
@@ -194,7 +194,7 @@ namespace WinForms
             }
 
             //location
-            if (location.Length > 1)
+            if (location!=null&&location.Length > 1)
             {
                 for (int i = 0; i < 8; i++)
                 {
@@ -212,7 +212,7 @@ namespace WinForms
             }
 
             //phone
-            if (phone.Length > 1)
+            if (phone != null && phone.Length > 1)
             {
                 for (int i = 0; i < 10; i++)
                 {
@@ -248,7 +248,7 @@ namespace WinForms
             }
 
             //profilePictureLink
-            if (profileImage.Length > 1)
+            if (profileImage!=null && profileImage.Length > 1)
             {
                 for (int i = 0; i < 21; i++)
                 {

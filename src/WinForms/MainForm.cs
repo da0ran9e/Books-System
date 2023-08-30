@@ -27,6 +27,18 @@ namespace WinForms
         SqlCommand cmd = new SqlCommand();
         SqlDataReader dr;
 
+        public string EscapeSingleQuotes(string str)
+        {
+            string result = str;
+            int pos = result.IndexOf("'");
+            while (pos != -1)
+            {
+                result = result.Substring(0, pos) + "''" + result.Substring(pos + 1);
+                pos = result.IndexOf("'", pos + 2);
+            }
+            return result;
+        }
+
         #region add resize angle
         private const int cGrip = 16;      // Grip size
         private const int cCaption = 32;   // Caption bar height;
@@ -70,7 +82,7 @@ namespace WinForms
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Double buffer exception: "+ex.Message);
                 Console.WriteLine(ex.StackTrace);
             }
         }
@@ -289,7 +301,7 @@ namespace WinForms
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Get book information by index exception: " + ex.Message);
                 Console.WriteLine(ex.StackTrace);
             }
             finally
@@ -333,7 +345,7 @@ namespace WinForms
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Get book information by isbn exeption : "+ex.Message);
                 Console.WriteLine(ex.StackTrace);
             }
             finally
@@ -400,7 +412,7 @@ namespace WinForms
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Search book information exception: " + ex.Message);
                 Console.WriteLine(ex.StackTrace);
             }
             finally
@@ -442,7 +454,7 @@ namespace WinForms
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Publisher exception: "+ex.Message);
                 Console.WriteLine(ex.StackTrace);
             }
             finally
@@ -483,7 +495,7 @@ namespace WinForms
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Author exception: "+ex.Message);
                 Console.WriteLine(ex.StackTrace);
             }
             finally
@@ -556,7 +568,7 @@ namespace WinForms
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Get user history exception: "+ex.Message);
                 Console.WriteLine(ex.StackTrace);
             }
             finally
@@ -637,7 +649,7 @@ namespace WinForms
                 user.password = dr.GetFieldValue<string>(4);
                 user.email = dr.IsDBNull("email") ? null : dr.GetFieldValue<string>("email");
                 user.phone = dr.IsDBNull("phone") ? null : dr.GetFieldValue<string>("phone");
-                user.gender = dr.GetFieldValue<byte>(7);
+                user.gender = dr.IsDBNull("gender") ? (byte)0:dr.GetFieldValue<byte>(7);
                 user.date = dr.IsDBNull("birthDate") ? new DateTime(1800, 01, 01) : dr.GetFieldValue<DateTime>("birthDate");
                 user.profileImage = dr.IsDBNull("profileImage") ? null : dr.GetFieldValue<string>("profileImage");
                 user.age = dr.IsDBNull("age") ? 0 : dr.GetFieldValue<int>("age");
@@ -646,7 +658,7 @@ namespace WinForms
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("Get user information exception: "+ex.Message);
                 Console.WriteLine(ex.StackTrace);
             }
             finally
@@ -1650,7 +1662,7 @@ namespace WinForms
             Book book = new Book();
             foreach (Book b in bookList)
             {
-                if (b.title.Equals(name)) return b;
+                if (b.title.Equals(EscapeSingleQuotes(name))) return b;
             }
             return book;
         }
@@ -2071,10 +2083,16 @@ namespace WinForms
         //
         // MainForm on load event handler
         //
-        private void MainForm_Load(object sender, EventArgs e)
+        private async void MainForm_Load(object sender, EventArgs e)
         {
             LoadingForm loading = new LoadingForm(100);
             loading.Show();
+
+            //get user information
+            currentUser = GetUserInformation(username);
+
+            // get history list
+            List<UserRating> userHistory = GetUserHistory(currentUser.userId);
 
             #region Set controls double buffered 
 
@@ -2445,16 +2463,6 @@ namespace WinForms
             bestBookAuthor3.Text = bestBook3.author;
             #endregion
 
-            //update userlabel
-            currentUser = GetUserInformation(username);
-            toolTip1.SetToolTip(user, currentUser.username + " #" + currentUser.userId);
-            user.Image = SetWidth(Image.FromStream(LoaderFromURL(currentUser.profileImage) == null ? LoaderFromURL(bookList.ElementAt(0).lURL) : LoaderFromURL(currentUser.profileImage)), user.Width);
-
-            // get history list
-            List<UserRating> userHistory = GetUserHistory(currentUser.userId);
-
-
-
             #region update category list
             List<string> publisherList = new List<string>();
             for (int i = 0; i < userHistory.Count; i++)
@@ -2492,18 +2500,24 @@ namespace WinForms
             #endregion
 
             #region update history list
+            Book histBook = new Book();
             for (int i = 0; i < userHistory.Count; i++)
             {
-                Book histBook = GetBookInformation(userHistory.ElementAt(i).isbn);
+                histBook = GetBookInformation(userHistory.ElementAt(i).isbn);
                 if (histBook.title != null)
                 {
                     AddHistoryNewBook(histBook);
+                    //updateCurrentBook(histBook);
                 }
 
             }
+            updateCurrentBook(histBook);
             #endregion
 
-           
+            //update userlabel
+            toolTip1.SetToolTip(user, currentUser.username + " #" + currentUser.userId);
+            user.Image = SetWidth(Image.FromStream(LoaderFromURL(currentUser.profileImage) == null ? LoaderFromURL(bookList.ElementAt(0).lURL) : LoaderFromURL(currentUser.profileImage)), user.Width);
+
             homeFlowPanel.Controls.Add(bestBookFlowPanel);
             bestBookFlowPanel.Visible = true;
 
