@@ -467,48 +467,48 @@ namespace WinForms
         #endregion
 
         #region user reading information
-        private List<UserRating> userHistory = new List<UserRating>();
+        public List<UserRating> userHistory = new List<UserRating>();
         //
         //Book object
         //
-        public struct UserRating : IComparable<UserRating>
-        {
-            public int userId { get; set; }
-            public string isbn { get; set; }
-            public byte rate { get; set; }
+        //public struct UserRating : IComparable<UserRating>
+        //{
+        //    public int userId { get; set; }
+        //    public string isbn { get; set; }
+        //    public byte rate { get; set; }
 
 
-            public UserRating()
-            {
-                this.userId = -1;
-                this.isbn = null;
-                this.rate = 0;
-            }
+        //    public UserRating()
+        //    {
+        //        this.userId = -1;
+        //        this.isbn = null;
+        //        this.rate = 0;
+        //    }
 
-            public UserRating(int userId, string isbn, byte rate)
-            {
-                this.userId = userId;
-                this.isbn = isbn;
-                this.rate = rate;
-            }
+        //    public UserRating(int userId, string isbn, byte rate)
+        //    {
+        //        this.userId = userId;
+        //        this.isbn = isbn;
+        //        this.rate = rate;
+        //    }
 
-            public UserRating(int userId, string isbn)
-            {
-                this.userId = userId;
-                this.isbn = isbn;
-                this.rate = 0;
-            }
+        //    public UserRating(int userId, string isbn)
+        //    {
+        //        this.userId = userId;
+        //        this.isbn = isbn;
+        //        this.rate = 0;
+        //    }
 
-            public int CompareTo(UserRating ur)
-            {
-                return -this.rate.CompareTo(ur.rate);
-            }
-        }
+        //    public int CompareTo(UserRating ur)
+        //    {
+        //        return -this.rate.CompareTo(ur.rate);
+        //    }
+        //}
 
         private List<UserRating> GetUserHistory(int userId)
         {
             List<UserRating> ratings = new List<UserRating>();
-            UserRating rating = new UserRating();
+            
             try
             {
                 cmd = new SqlCommand("select * from ratings where [userId] = " + userId, con);
@@ -517,6 +517,7 @@ namespace WinForms
 
                 while (dr.Read())
                 {
+                    UserRating rating = new UserRating();
                     rating.userId = dr.GetFieldValue<int>(0);
                     rating.isbn = dr.GetFieldValue<string>(1);
                     rating.rate = dr.GetFieldValue<byte>(2);

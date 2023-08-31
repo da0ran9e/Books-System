@@ -34,9 +34,9 @@ namespace WinForms
             this.rate = 0;
         }
 
-        public int CompareTo(UserRating other)
+        public int CompareTo(UserRating ur)
         {
-            return -this.rate.CompareTo(other.rate);
+            return -this.rate.CompareTo(ur.rate);
         }
     }
 }
