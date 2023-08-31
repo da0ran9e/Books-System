@@ -25,7 +25,7 @@ namespace WinForms
         public LoadingForm(int totalValue)
         {
             this.totalValue = totalValue;
-            this.value = 100;
+            this.value = 0;
             InitializeComponent();
             this.DoubleBuffered = true;
         }
@@ -120,7 +120,13 @@ namespace WinForms
         }
         private async void LoadingForm_LoadAsync2(object sender, EventArgs e)
         {
-
+            Library library = new Library();
+            library.GetReaderInformation("dricciardelloav");
+            value = 10;
+            library.GetBooks();
+            value = 50;
+            library.GetRatings();
+            value = 100;
         }
 
 
