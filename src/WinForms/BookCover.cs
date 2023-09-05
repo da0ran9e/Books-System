@@ -11,6 +11,19 @@ namespace WinForms
         public Image image = Image.FromFile("../../../../../assets/icons/image_L.png");
         public Color borderColor = Color.Black;
 
+        public BookCover(Book book)
+        {
+            this.GetBookImage(book);
+        }
+
+        public BookCover(Book book, bool getBorder)
+        {
+            this.GetBookImage(book);
+            if (getBorder)
+            {
+                this.GetBorder();
+            }
+        }
 
         public Stream LoaderFromURL(string url)
         {

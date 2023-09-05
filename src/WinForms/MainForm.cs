@@ -338,9 +338,7 @@ namespace WinForms
             // newBookLabel5
             // 
             newBookLabel5.BackColor = Color.Transparent;
-            BookCover bookCover = new BookCover();
-            bookCover.GetBookImage(newBook);
-            newBookLabel5.Image = SetHeight(bookCover.image, 82);
+            newBookLabel5.Image = SetHeight(new BookCover(newBook).image, 82);
             newBookLabel5.Location = new Point(3, 0);
             newBookLabel5.Name = "newBookImg" + newBook.isbn;
             newBookLabel5.Size = new Size(82, 88);
@@ -565,9 +563,7 @@ namespace WinForms
             newCategoryBookImg.AccessibleName = newBook.title;
             newCategoryBookImg.Click += NewCategoryBook_Click;
             newCategoryBookImg.BackColor = Color.Transparent;
-            BookCover bookCover = new BookCover();
-            bookCover.GetBookImage(newBook);
-            newCategoryBookImg.Image = SetHeight(bookCover.image, 82);
+            newCategoryBookImg.Image = SetHeight(new BookCover(newBook).image, 82);
             newCategoryBookImg.Location = new Point(3, 0);
             newCategoryBookImg.Name = "newCategoryBookImg";
             newCategoryBookImg.Size = new Size(82, 88);
@@ -694,9 +690,7 @@ namespace WinForms
             authorBookImg.Click += AuthorBook_Click;
             authorBookImg.BackColor = Color.Transparent;
             authorBookImg.Location = new Point(3, 0);
-            BookCover bookCover = new BookCover();
-            bookCover.GetBookImage(newBook);
-            authorBookImg.Image = SetHeight(bookCover.image, 82);
+            authorBookImg.Image = SetHeight(new BookCover(newBook).image, 82);
             authorBookImg.Name = "authorBookImg";
             authorBookImg.Size = new Size(82, 88);
             authorBookImg.TabIndex = 0;
@@ -786,9 +780,7 @@ namespace WinForms
             otherCategory.Click += CategoryBook_Click;
             otherCategory.BackColor = Color.Transparent;
             //otherCategory.BackgroundImage = SetWidth(GetBookImage(newBook.index), 349);
-            BookCover bookCover = new BookCover();
-            bookCover.GetBookImage(newBook);
-            otherCategory.BackgroundImage = SetHeight(bookCover.image, 349);
+            otherCategory.BackgroundImage = SetHeight(new BookCover(newBook).image, 349);
             otherCategory.BackgroundImageLayout = ImageLayout.Stretch;
             otherCategory.Controls.Add(otherCategoryNamePanel);
             otherCategory.GradientAngle = 60F;
@@ -881,10 +873,7 @@ namespace WinForms
             historyNewBook.Margin = new Padding(8);
             historyNewBook.Name = "historyNewBook";
             historyNewBook.Size = new Size(199, 240);
-            //historyNewBook.BackgroundImage = SetHeight(GetBookImage(newBook.index), 240);
-            BookCover bookCover = new BookCover();
-            bookCover.GetBookImage(newBook);
-            historyNewBook.BackgroundImage = SetHeight(bookCover.image, 240);
+            historyNewBook.BackgroundImage = SetHeight(new BookCover(newBook).image, 240);
             historyNewBook.BackgroundImageLayout = ImageLayout.Stretch;
             historyNewBook.TabIndex = 6;
             // 
@@ -1234,8 +1223,7 @@ namespace WinForms
             ClearList(mainCategoryPanel, "newCategoryBook");
             ClearList(authormainFlowPanel, "authorBook");
 
-            BookCover bookCover = new BookCover();
-            bookCover.GetBookImage(book);
+            BookCover bookCover = new BookCover(book, true);
             Image currentImg = bookCover.image;
 
             List<Book> categoryBooks = books.Where(item => item.publisher == book.publisher).ToList();
@@ -1285,7 +1273,7 @@ namespace WinForms
                 }
 
                 string imgPath1 = "../../../../../assets/LImgs/temp" + book1.index + ".jpg";
-                if (!File.Exists(imgPath1)) new BookCover().GetBookImage(book1);
+                if (!File.Exists(imgPath1)) new BookCover(book1);
                 categoryImg0.Image = SetHeight(Image.FromFile(imgPath1), categoryImg0.Height);
                 categoryTitle0.Text = book1.title;
                 categoryAuthor0.Text = book1.author;
@@ -1587,104 +1575,82 @@ namespace WinForms
                 if (searchKey.Length == 0) return;
 
                 List<Book> matchedBooks = SearchBookInformation(searchKey);
-                if (books.Count == 0) bestMatchLabel.Text = "Not found!";
-                if (books.Count >= 1)
+                if (matchedBooks.Count == 0) bestMatchLabel.Text = "Not found!";
+                if (matchedBooks.Count >= 1)
                 {
-                    BookCover bookCover = new BookCover();
-                    bookCover.GetBookImage(books.ElementAt(0));
-                    topSearchImg.Image = SetHeight(bookCover.image, topSearchImg.Height);
-                    topSearchTitle.Text = books.ElementAt(0).title;
-                    topSearchAuthor.Text = books.ElementAt(0).author;
+                    topSearchImg.Image = SetHeight(new BookCover(matchedBooks.ElementAt(0)).image, topSearchImg.Height);
+                    topSearchTitle.Text = matchedBooks.ElementAt(0).title;
+                    topSearchAuthor.Text = matchedBooks.ElementAt(0).author;
                     topSearchPanel.Visible = true;
                 }
-                if (books.Count >= 2)
+                if (matchedBooks.Count >= 2)
                 {
-                    BookCover bookCover = new BookCover();
-                    bookCover.GetBookImage(books.ElementAt(1));
-                    otherImg0.Image = SetHeight(bookCover.image, otherImg0.Height);
-                    otherTitle0.Text = books.ElementAt(1).title;
-                    toolTip1.SetToolTip(otherTitle0, "by " + books.ElementAt(1).author);
+                    otherImg0.Image = SetHeight(new BookCover(matchedBooks.ElementAt(1)).image, otherImg0.Height);
+                    otherTitle0.Text = matchedBooks.ElementAt(1).title;
+                    toolTip1.SetToolTip(otherTitle0, "by " + matchedBooks.ElementAt(1).author);
                     otherResult0.Visible = true;
                 }
-                if (books.Count >= 3)
+                if (matchedBooks.Count >= 3)
                 {
-                    BookCover bookCover = new BookCover();
-                    bookCover.GetBookImage(books.ElementAt(2));
-                    otherImg1.Image = SetHeight(bookCover.image, otherImg1.Height);
-                    otherTitle1.Text = books.ElementAt(2).title;
-                    toolTip1.SetToolTip(otherTitle1, "by " + books.ElementAt(2).author);
+                    otherImg1.Image = SetHeight(new BookCover(matchedBooks.ElementAt(2)).image, otherImg1.Height);
+                    otherTitle1.Text = matchedBooks.ElementAt(2).title;
+                    toolTip1.SetToolTip(otherTitle1, "by " + matchedBooks.ElementAt(2).author);
                     otherResult1.Visible = true;
                 }
-                if (books.Count >= 4)
+                if (matchedBooks.Count >= 4)
                 {
-                    BookCover bookCover = new BookCover();
-                    bookCover.GetBookImage(books.ElementAt(3));
-                    otherImg2.Image = SetHeight(bookCover.image, otherImg2.Height);
-                    otherTitle2.Text = books.ElementAt(3).title;
-                    toolTip1.SetToolTip(otherTitle2, "by " + books.ElementAt(3).author);
+                    otherImg2.Image = SetHeight(new BookCover(matchedBooks.ElementAt(3)).image, otherImg2.Height);
+                    otherTitle2.Text = matchedBooks.ElementAt(3).title;
+                    toolTip1.SetToolTip(otherTitle2, "by " + matchedBooks.ElementAt(3).author);
                     otherResult2.Visible = true;
                 }
-                if (books.Count >= 5)
+                if (matchedBooks.Count >= 5)
                 {
-                    BookCover bookCover = new BookCover();
-                    bookCover.GetBookImage(books.ElementAt(4));
-                    otherImg3.Image = SetHeight(bookCover.image, otherImg3.Height);
-                    otherTitle3.Text = books.ElementAt(4).title;
-                    toolTip1.SetToolTip(otherTitle3, "by " + books.ElementAt(4).author);
+                    otherImg3.Image = SetHeight(new BookCover(matchedBooks.ElementAt(4)).image, otherImg3.Height);
+                    otherTitle3.Text = matchedBooks.ElementAt(4).title;
+                    toolTip1.SetToolTip(otherTitle3, "by " + matchedBooks.ElementAt(4).author);
                     otherResult3.Visible = true;
                 }
-                if (books.Count >= 6)
+                if (matchedBooks.Count >= 6)
                 {
-                    BookCover bookCover = new BookCover();
-                    bookCover.GetBookImage(books.ElementAt(5));
-                    otherImg4.Image = SetHeight(bookCover.image, otherImg4.Height);
-                    otherTitle4.Text = books.ElementAt(5).title;
-                    toolTip1.SetToolTip(otherTitle4, "by " + books.ElementAt(5).author);
+                    otherImg4.Image = SetHeight(new BookCover(matchedBooks.ElementAt(5)).image, otherImg4.Height);
+                    otherTitle4.Text = matchedBooks.ElementAt(5).title;
+                    toolTip1.SetToolTip(otherTitle4, "by " + matchedBooks.ElementAt(5).author);
                     otherResult4.Visible = true;
                 }
-                if (books.Count >= 7)
+                if (matchedBooks.Count >= 7)
                 {
-                    BookCover bookCover = new BookCover();
-                    bookCover.GetBookImage(books.ElementAt(6));
-                    otherImg5.Image = SetHeight(bookCover.image, otherImg5.Height);
-                    otherTitle5.Text = books.ElementAt(6).title;
-                    toolTip1.SetToolTip(otherTitle5, "by " + books.ElementAt(6).author);
+                    otherImg5.Image = SetHeight(new BookCover(matchedBooks.ElementAt(6)).image, otherImg5.Height);
+                    otherTitle5.Text = matchedBooks.ElementAt(6).title;
+                    toolTip1.SetToolTip(otherTitle5, "by " + matchedBooks.ElementAt(6).author);
                     otherResult5.Visible = true;
                 }
-                if (books.Count >= 8)
+                if (matchedBooks.Count >= 8)
                 {
-                    BookCover bookCover = new BookCover();
-                    bookCover.GetBookImage(books.ElementAt(7));
-                    otherImg6.Image = SetHeight(bookCover.image, otherImg6.Height);
-                    otherTitle6.Text = books.ElementAt(7).title;
-                    toolTip1.SetToolTip(otherTitle6, "by " + books.ElementAt(7).author);
+                    otherImg6.Image = SetHeight(new BookCover(matchedBooks.ElementAt(7)).image, otherImg6.Height);
+                    otherTitle6.Text = matchedBooks.ElementAt(7).title;
+                    toolTip1.SetToolTip(otherTitle6, "by " + matchedBooks.ElementAt(7).author);
                     otherResult6.Visible = true;
                 }
-                if (books.Count >= 9)
+                if (matchedBooks.Count >= 9)
                 {
-                    BookCover bookCover = new BookCover();
-                    bookCover.GetBookImage(books.ElementAt(8));
-                    otherImg7.Image = SetHeight(bookCover.image, otherImg7.Height);
-                    otherTitle7.Text = books.ElementAt(8).title;
-                    toolTip1.SetToolTip(otherTitle7, "by " + books.ElementAt(8).author);
+                    otherImg7.Image = SetHeight(new BookCover(matchedBooks.ElementAt(8)).image, otherImg7.Height);
+                    otherTitle7.Text = matchedBooks.ElementAt(8).title;
+                    toolTip1.SetToolTip(otherTitle7, "by " + matchedBooks.ElementAt(8).author);
                     otherResult7.Visible = true;
                 }
-                if (books.Count >= 10)
+                if (matchedBooks.Count >= 10)
                 {
-                    BookCover bookCover = new BookCover();
-                    bookCover.GetBookImage(books.ElementAt(9));
-                    otherImg8.Image = SetHeight(bookCover.image, otherImg8.Height);
-                    otherTitle8.Text = books.ElementAt(9).title;
-                    toolTip1.SetToolTip(otherTitle8, "by " + books.ElementAt(9).author);
+                    otherImg8.Image = SetHeight(new BookCover(matchedBooks.ElementAt(9)).image, otherImg8.Height);
+                    otherTitle8.Text = matchedBooks.ElementAt(9).title;
+                    toolTip1.SetToolTip(otherTitle8, "by " + matchedBooks.ElementAt(9).author);
                     otherResult8.Visible = true;
                 }
-                if (books.Count >= 11)
+                if (matchedBooks.Count >= 11)
                 {
-                    BookCover bookCover = new BookCover();
-                    bookCover.GetBookImage(books.ElementAt(10));
-                    otherImg9.Image = SetHeight(bookCover.image, otherImg9.Height);
-                    otherTitle9.Text = books.ElementAt(10).title;
-                    toolTip1.SetToolTip(otherTitle9, "by " + books.ElementAt(10).author);
+                    otherImg9.Image = SetHeight(new BookCover(matchedBooks.ElementAt(10)).image, otherImg9.Height);
+                    otherTitle9.Text = matchedBooks.ElementAt(10).title;
+                    toolTip1.SetToolTip(otherTitle9, "by " + matchedBooks.ElementAt(10).author);
                     otherResult9.Visible = true;
                 }
                 bestMatchPanel.Visible = true;
@@ -2018,9 +1984,7 @@ namespace WinForms
             int randC = rand.Next(1, 100000);
             
             Book book = books.Find(item => item.index==randC);
-            BookCover bookCover = new BookCover();
-            bookCover.GetBookImage(book);
-            Image currentImg = bookCover.image;
+            Image currentImg = new BookCover(book).image;
 
             updateCurrentBook(book);
 
@@ -2033,14 +1997,10 @@ namespace WinForms
             Book helloBook1 = books.ElementAt(randH1);
             Book helloBook2 = books.ElementAt(randH2);
             Book helloBook3 = books.ElementAt(randH3);
-            bookCover.GetBookImage(helloBook0);
-            helloElementImg0.Image = SetHeight(bookCover.image, helloElementImg0.Height);
-            bookCover.GetBookImage(helloBook1);
-            helloElementImg1.Image = SetHeight(bookCover.image, helloElementImg1.Height);
-            bookCover.GetBookImage(helloBook2);
-            helloElementImg2.Image = SetHeight(bookCover.image, helloElementImg2.Height);
-            bookCover.GetBookImage(helloBook3);
-            helloElementImg3.Image = SetHeight(bookCover.image, helloElementImg3.Height);
+            helloElementImg0.Image = SetHeight(new BookCover(helloBook0).image, helloElementImg0.Height);
+            helloElementImg1.Image = SetHeight(new BookCover(helloBook1).image, helloElementImg1.Height);
+            helloElementImg2.Image = SetHeight(new BookCover(helloBook2).image, helloElementImg2.Height);
+            helloElementImg3.Image = SetHeight(new BookCover(helloBook3).image, helloElementImg3.Height);
 
             helloElementTitle0.Text = helloBook0.title;
             helloAuthor0.Text = helloBook0.author;
@@ -2062,14 +2022,10 @@ namespace WinForms
             Book recommentBook2 = books.ElementAt(randC2);
             Book recommentBook3 = books.ElementAt(randC3);
 
-            bookCover.GetBookImage(recommentBook0);
-            recommentImg0.Image = SetHeight(bookCover.image, recommentImg0.Height);
-            bookCover.GetBookImage(recommentBook1);
-            recommentImg1.Image = SetHeight(bookCover.image, recommentImg1.Height);
-            bookCover.GetBookImage(recommentBook2);
-            recommentImg2.Image = SetHeight(bookCover.image, recommentImg2.Height);
-            bookCover.GetBookImage(recommentBook3);
-            recommentImg3.Image = SetHeight(bookCover.image, recommentImg3.Height);
+            recommentImg0.Image = SetHeight(new BookCover(recommentBook0).image, recommentImg0.Height);
+            recommentImg1.Image = SetHeight(new BookCover(recommentBook1).image, recommentImg1.Height);
+            recommentImg2.Image = SetHeight(new BookCover(recommentBook2).image, recommentImg2.Height);
+            recommentImg3.Image = SetHeight(new BookCover(recommentBook3).image, recommentImg3.Height);
 
             
 
@@ -2093,14 +2049,10 @@ namespace WinForms
             Book bestBook2 = books.ElementAt(randB2);
             Book bestBook3 = books.ElementAt(randB3);
 
-            bookCover.GetBookImage(recommentBook3);
-            bestBookImg0.Image = SetHeight(bookCover.image, bestBookImg0.Height);
-            bookCover.GetBookImage(recommentBook3);
-            bestBookImg1.Image = SetHeight(bookCover.image, bestBookImg1.Height);
-            bookCover.GetBookImage(recommentBook3);
-            bestBookImg2.Image = SetHeight(bookCover.image, bestBookImg2.Height);
-            bookCover.GetBookImage(recommentBook3);
-            bestBookImg3.Image = SetHeight(bookCover.image, bestBookImg3.Height);
+            bestBookImg0.Image = SetHeight(new BookCover(bestBook0).image, bestBookImg0.Height);
+            bestBookImg1.Image = SetHeight(new BookCover(bestBook1).image, bestBookImg1.Height);
+            bestBookImg2.Image = SetHeight(new BookCover(bestBook2).image, bestBookImg2.Height);
+            bestBookImg3.Image = SetHeight(new BookCover(bestBook3).image, bestBookImg3.Height);
 
 
             bestBookTitle0.Text = bestBook0.title;
@@ -2175,7 +2127,7 @@ namespace WinForms
             //update userlabel
             toolTip1.SetToolTip(user, reader.username + " #" + reader.userId);
             
-            user.Image = SetWidth(Image.FromFile("../../../../../assets/LImgs/temp" + books.ElementAt(0).index + ".jpg"/*Image.FromStream(LoaderFromURL(reader.profileImage) == null ? LoaderFromURL(bookList.ElementAt(0).lURL) : LoaderFromURL(reader.profileImage)*/), user.Width);
+            user.Image = SetWidth(Image.FromFile("../../../../../assets/LImgs/" + books.ElementAt(0).isbn + ".jpg"/*Image.FromStream(LoaderFromURL(reader.profileImage) == null ? LoaderFromURL(bookList.ElementAt(0).lURL) : LoaderFromURL(reader.profileImage)*/), user.Width);
 
             homeFlowPanel.Controls.Add(bestBookFlowPanel);
             bestBookFlowPanel.Visible = true;
