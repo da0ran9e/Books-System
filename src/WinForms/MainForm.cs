@@ -22,11 +22,6 @@ namespace WinForms
 {
     public partial class MainForm : Form
     {
-
-        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\vuduc\OneDrive\Documents\BX.mdf;Integrated Security=True;Connect Timeout=30");
-        SqlCommand cmd = new SqlCommand();
-        SqlDataReader dr;
-
         public string EscapeSingleQuotes(string str)
         {
             string result = str;
@@ -1975,7 +1970,7 @@ namespace WinForms
         //
         private async void MainForm_Load(object sender, EventArgs e)
         {
-            LoadingForm loading = new LoadingForm(100);
+            LoadingForm loading = new LoadingForm("dricciardelloav");
             loading.Show();
 
             //get user information

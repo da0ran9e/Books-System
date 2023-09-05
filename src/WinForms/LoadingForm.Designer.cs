@@ -130,7 +130,7 @@ namespace WinForms
             StartPosition = FormStartPosition.CenterScreen;
             Text = "AdFeedForm";
             WindowState = FormWindowState.Maximized;
-            Load += LoadingForm_LoadAsync;
+            //Load += LoadingForm_LoadAsync;
             Load += LoadingForm_LoadAsync2;
             tableLayoutPanel1.ResumeLayout(false);
             grad0.ResumeLayout(false);

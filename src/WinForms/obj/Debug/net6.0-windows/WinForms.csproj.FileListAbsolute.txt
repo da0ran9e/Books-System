@@ -29,3 +29,4 @@ C:\Users\vuduc\OneDrive\Documents\GitHub\Books-System\src\WinForms\bin\Debug\net
 C:\Users\vuduc\OneDrive\Documents\GitHub\Books-System\src\WinForms\bin\Debug\net6.0-windows\STTextBox.pdb
 C:\Users\vuduc\OneDrive\Documents\GitHub\Books-System\src\WinForms\obj\Debug\net6.0-windows\WinForms.LoadingForm.resources
 C:\Users\vuduc\OneDrive\Documents\GitHub\Books-System\src\WinForms\obj\Debug\net6.0-windows\WinForms.UserForm.resources
+C:\Users\vuduc\OneDrive\Documents\GitHub\Books-System\src\WinForms\obj\Debug\net6.0-windows\WinForms.AddingData.resources

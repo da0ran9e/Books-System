@@ -8,6 +8,8 @@ namespace WinForms
 {
     internal class ImageProcessor
     {
+        public Image bookCover = Image.FromFile("../../../../../assets/icons/image_L.png");
+
         //
         // Resize image
         //
@@ -54,7 +56,7 @@ namespace WinForms
             }
         }
 
-        //public static Image GetBookImage(int index)
+        //public Image GetBookImage(int index)
         //{
         //    Image img = Image.FromFile("../../../../../assets/icons/image_L.png");
         //    string imgPath = "../../../../../assets/LImgs/temp" + index + ".jpg";
@@ -82,7 +84,7 @@ namespace WinForms
         //    }
         //    catch (Exception ex)
         //    {
-        //        Console.WriteLine($"Error: {ex.Message}");
+        //        Console.WriteLine($"Get book image error: {ex.Message}");
         //    }
         //    return img;
         //}

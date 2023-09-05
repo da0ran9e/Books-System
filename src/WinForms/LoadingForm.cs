@@ -10,21 +10,22 @@ using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace WinForms
 {
     public partial class LoadingForm : Form
     {
-        SqlConnection con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\vuduc\OneDrive\Documents\BX.mdf;Integrated Security=True;Connect Timeout=30");
-        SqlCommand cmd = new SqlCommand();
-        SqlDataReader dr;
+        
 
         public int value;
         public int totalValue;
+        public string readerName;
 
-        public LoadingForm(int totalValue)
+        public LoadingForm(string readerName)
         {
-            this.totalValue = totalValue;
+            this.readerName = readerName;
+            this.totalValue = 100;
             this.value = 0;
             InitializeComponent();
             this.DoubleBuffered = true;
@@ -51,6 +52,7 @@ namespace WinForms
             this.BackColor = System.Drawing.ColorTranslator.FromHtml("#010000");
             progressBar.BackColor = System.Drawing.ColorTranslator.FromHtml("#010000");
             EnableBlur();
+
             int colorR = 245;
             int colorB = 162;
             int colorG = 162;
@@ -120,21 +122,21 @@ namespace WinForms
         }
         private async void LoadingForm_LoadAsync2(object sender, EventArgs e)
         {
-            Library library = new Library();
-            library.GetReaderInformation("dricciardelloav");
-            value = 10;
-            library.GetBooks();
-            value = 50;
-            library.GetRatings();
-            value = 100;
-        }
-
-
-        private void LoadingForm_Load(object sender, EventArgs e)
-        {
             this.BackColor = System.Drawing.ColorTranslator.FromHtml("#010000");
+            progressBar.BackColor = System.Drawing.ColorTranslator.FromHtml("#010000");
             EnableBlur();
+
+            Library library = new Library();
+            library.GetReaderInformation(readerName);
+            progressBar.Value = 10;
+            library.GetBooks();
+            progressBar.Value = 50;
+            library.GetRatings();
+            progressBar.Value = 100;
         }
+
+
+        
 
     }
 }
