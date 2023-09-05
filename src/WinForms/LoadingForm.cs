@@ -132,7 +132,12 @@ namespace WinForms
             library.GetBooks();
             progressBar.Value = 50;
             library.GetRatings();
+            progressBar.Value = 80;
+
+            MainForm mainForm = new MainForm(library);
             progressBar.Value = 100;
+            mainForm.ShowDialog();
+            this.Visible = false;
         }
 
 

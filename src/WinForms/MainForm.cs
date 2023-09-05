@@ -114,430 +114,277 @@ namespace WinForms
             return (Image)(new Bitmap(imgToResize, size));
         }
 
-        private Stream LoaderFromURL(string url)
-        {
-            try
-            {
-                HttpClient client = new HttpClient();
-                client.DefaultRequestHeaders.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.63 Safari/537.36");
-                HttpResponseMessage response = client.GetAsync(url).Result;
-                response.EnsureSuccessStatusCode();
+        //private Stream LoaderFromURL(string url)
+        //{
+        //    try
+        //    {
+        //        HttpClient client = new HttpClient();
+        //        client.DefaultRequestHeaders.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.63 Safari/537.36");
+        //        HttpResponseMessage response = client.GetAsync(url).Result;
+        //        response.EnsureSuccessStatusCode();
 
-                return response.Content.ReadAsStreamAsync().Result;
-            }
-            catch
-            {
-                return null;
-            }
-        }
+        //        return response.Content.ReadAsStreamAsync().Result;
+        //    }
+        //    catch
+        //    {
+        //        return null;
+        //    }
+        //}
 
-        private Image GetBookImage(int index)
-        {
-            Image img = Image.FromFile("../../../../../assets/icons/image_L.png");
-            string imgPath = "../../../../../assets/LImgs/temp" + index + ".jpg";
-            try
-            {
-                Book book = GetBookInformation(index);
-                // if the image does not exist, then get it
-                if (!File.Exists(imgPath))
-                {
-                    using (Stream stream = LoaderFromURL(book.lURL))
-                    {
-                        Image image = Image.FromStream(stream);
-                        if (image.Height <= 20)
-                        {
-                            image = Image.FromStream(LoaderFromURL(book.mURL));
-                        }
-                        image.Save(imgPath);
-                    }
-                }
+        //private Image GetBookImage(int index)
+        //{
+        //    Image img = Image.FromFile("../../../../../assets/icons/image_L.png");
+        //    string imgPath = "../../../../../assets/LImgs/temp" + index + ".jpg";
+        //    try
+        //    {
+        //        Book book = GetBookInformation(index);
+        //        // if the image does not exist, then get it
+        //        if (!File.Exists(imgPath))
+        //        {
+        //            using (Stream stream = LoaderFromURL(book.lURL))
+        //            {
+        //                Image image = Image.FromStream(stream);
+        //                if (image.Height <= 20)
+        //                {
+        //                    image = Image.FromStream(LoaderFromURL(book.mURL));
+        //                }
+        //                image.Save(imgPath);
+        //            }
+        //        }
 
-                //load image to tha label
+        //        //load image to tha label
 
-                if (Image.FromFile(imgPath).Height >= 70)
-                    return img = Image.FromFile(imgPath);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error: {ex.Message}");
-            }
-            return img;
-        }
+        //        if (Image.FromFile(imgPath).Height >= 70)
+        //            return img = Image.FromFile(imgPath);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Console.WriteLine($"Error: {ex.Message}");
+        //    }
+        //    return img;
+        //}
 
 
         //
         //Gather color of image border by pixels
         //
-        private Color[] GetBorderColors(Bitmap image, Size size)
-        {
-            int width = image.Width;
-            int height = image.Height;
+        //private Color[] GetBorderColors(Bitmap image, Size size)
+        //{
+        //    int width = image.Width;
+        //    int height = image.Height;
 
-            Color[] borderColors = new Color[(size.Width * 2) + (size.Height * 2)]; // 4 edges
+        //    Color[] borderColors = new Color[(size.Width * 2) + (size.Height * 2)]; // 4 edges
 
-            for (int i = 0; i < size.Height; i++)
-            {
-                borderColors[i] = image.GetPixel(0, i); // left edge
-                borderColors[i + size.Height] = image.GetPixel(width - 1, i); // right edge
-            }
-            for (int i = 0; i < size.Width; i++)
-            {
-                borderColors[i + size.Height * 2] = image.GetPixel(i, 0); // top edge
-                borderColors[i + size.Height * 2 + size.Width] = image.GetPixel(i, height - 1); // bottom edge
-            }
+        //    for (int i = 0; i < size.Height; i++)
+        //    {
+        //        borderColors[i] = image.GetPixel(0, i); // left edge
+        //        borderColors[i + size.Height] = image.GetPixel(width - 1, i); // right edge
+        //    }
+        //    for (int i = 0; i < size.Width; i++)
+        //    {
+        //        borderColors[i + size.Height * 2] = image.GetPixel(i, 0); // top edge
+        //        borderColors[i + size.Height * 2 + size.Width] = image.GetPixel(i, height - 1); // bottom edge
+        //    }
 
-            return borderColors;
-        }
+        //    return borderColors;
+        //}
 
-        //
-        //Analyze color
-        //
-        private Color CalculateAverageColor(Color[] colors)
-        {
-            int totalR = 0, totalG = 0, totalB = 0;
+        ////
+        ////Analyze color
+        ////
+        //private Color CalculateAverageColor(Color[] colors)
+        //{
+        //    int totalR = 0, totalG = 0, totalB = 0;
 
-            foreach (Color color in colors)
-            {
-                totalR += color.R;
-                totalG += color.G;
-                totalB += color.B;
-            }
+        //    foreach (Color color in colors)
+        //    {
+        //        totalR += color.R;
+        //        totalG += color.G;
+        //        totalB += color.B;
+        //    }
 
-            int averageR = totalR / colors.Length;
-            int averageG = totalG / colors.Length;
-            int averageB = totalB / colors.Length;
+        //    int averageR = totalR / colors.Length;
+        //    int averageG = totalG / colors.Length;
+        //    int averageB = totalB / colors.Length;
 
-            return Color.FromArgb(averageR, averageG, averageB);
-        }
-
-        #endregion
-
-        #region Book properties
-        //
-        //This list to store book whenever it's information collected
-        //
-        public List<Book> bookList = new List<Book>();
-
-        //
-        //Use Sql query to get book information from Database
-        //
-        public Book GetBookInformation(int index)
-        {
-            Book book = new Book();
-
-            try
-            {
-                cmd = new SqlCommand("select * from books where [index] = " + index, con);
-                con.Open();
-                dr = cmd.ExecuteReader();
-                dr.Read();
-
-                if (dr.HasRows)
-                {
-                    book.index = index;
-                    book.isbn = dr.GetFieldValue<string>(1);
-                    book.title = dr.GetFieldValue<string>(2);
-                    book.author = dr.GetFieldValue<string>(3);
-                    book.year = dr.GetFieldValue<int>(4);
-                    book.publisher = dr.GetFieldValue<string>(5);
-                    book.sURL = dr.GetFieldValue<string>(6);
-                    book.mURL = dr.GetFieldValue<string>(7);
-                    book.lURL = dr.GetFieldValue<string>(8);
-
-                    bookList.Add(book);
-                    return book;
-                }
-                else
-                {
-                    dr.Close();
-                    con.Close();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Get book information by index exception: " + ex.Message);
-                Console.WriteLine(ex.StackTrace);
-            }
-            finally
-            {
-                if (dr != null) dr.Close();
-                if (con != null) con.Close();
-            }
-            return book;
-        }
-        public Book GetBookInformation(string isbn)
-        {
-            Book book = new Book();
-
-            try
-            {
-                cmd = new SqlCommand("select * from books where [isbn] = '" + isbn + "'", con);
-                con.Open();
-                dr = cmd.ExecuteReader();
-                dr.Read();
-
-                if (dr.HasRows)
-                {
-                    book.index = dr.GetFieldValue<int>(0);
-                    book.isbn = dr.GetFieldValue<string>(1);
-                    book.title = dr.GetFieldValue<string>(2);
-                    book.author = dr.GetFieldValue<string>(3);
-                    book.year = dr.GetFieldValue<int>(4);
-                    book.publisher = dr.GetFieldValue<string>(5);
-                    book.sURL = dr.GetFieldValue<string>(6);
-                    book.mURL = dr.GetFieldValue<string>(7);
-                    book.lURL = dr.GetFieldValue<string>(8);
-
-                    bookList.Add(book);
-                    return book;
-                }
-                else
-                {
-                    dr.Close();
-                    con.Close();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Get book information by isbn exeption : "+ex.Message);
-                Console.WriteLine(ex.StackTrace);
-            }
-            finally
-            {
-                if (dr != null) dr.Close();
-                if (con != null) con.Close();
-            }
-            return book;
-        }
-
-        public List<Book> SearchBookInformation(string searchKey)
-        {
-            List<Book> books = new List<Book>();
-            Book book = new Book();
-            try
-            {
-                cmd = new SqlCommand("select * from books where [isbn] = '" + searchKey.ToString() + "'", con);
-                con.Open();
-                dr = cmd.ExecuteReader();
-                dr.Read();
-
-                if (dr.HasRows)
-                {
-                    book.index = dr.GetFieldValue<int>(0);
-                    book.isbn = dr.GetFieldValue<string>(1);
-                    book.title = dr.GetFieldValue<string>(2);
-                    book.author = dr.GetFieldValue<string>(3);
-                    book.year = dr.GetFieldValue<int>(4);
-                    book.publisher = dr.GetFieldValue<string>(5);
-                    book.sURL = dr.GetFieldValue<string>(6);
-                    book.mURL = dr.GetFieldValue<string>(7);
-                    book.lURL = dr.GetFieldValue<string>(8);
-
-                    bookList.Add(book);
-                    books.Add(book);
-                    return books;
-                }
-                else if (!dr.HasRows)
-                {
-                    dr.Close();
-                    cmd = new SqlCommand("select * from books where [bookTitle] like N'%" + searchKey + "%'", con);
-                    dr = cmd.ExecuteReader();
-
-                    while (dr.Read())
-                    {
-                        book.index = dr.GetFieldValue<int>(0);
-                        book.isbn = dr.GetFieldValue<string>(1);
-                        book.title = dr.GetFieldValue<string>(2);
-                        book.author = dr.GetFieldValue<string>(3);
-                        book.year = dr.GetFieldValue<int>(4);
-                        book.publisher = dr.GetFieldValue<string>(5);
-                        book.sURL = dr.GetFieldValue<string>(6);
-                        book.mURL = dr.GetFieldValue<string>(7);
-                        book.lURL = dr.GetFieldValue<string>(8);
-
-                        bookList.Add(book);
-                        books.Add(book);
-                    }
-                }
-                else
-                {
-                    dr.Close();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Search book information exception: " + ex.Message);
-                Console.WriteLine(ex.StackTrace);
-            }
-            finally
-            {
-                if (dr != null) dr.Close();
-                if (con != null) con.Close();
-            }
-            return books;
-        }
+        //    return Color.FromArgb(averageR, averageG, averageB);
+        //}
 
         #endregion
 
-        #region Publisher information
-        private List<Book> GetBookInCategory(string name)
-        {
-            List<Book> books = new List<Book>();
-            Book book = new Book();
-            try
-            {
-                cmd = new SqlCommand("select * from books where [publisher] = '" + name + "'", con);
-                con.Open();
-                dr = cmd.ExecuteReader();
+        //#region Book properties
+        ////
+        ////This list to store book whenever it's information collected
+        ////
+        //public List<Book> bookList = new List<Book>();
 
-                while (dr.Read())
-                {
-                    book.index = dr.GetFieldValue<int>(0);
-                    book.isbn = dr.GetFieldValue<string>(1);
-                    book.title = dr.GetFieldValue<string>(2);
-                    book.author = dr.GetFieldValue<string>(3);
-                    book.year = dr.GetFieldValue<int>(4);
-                    book.publisher = dr.GetFieldValue<string>(5);
-                    book.sURL = dr.GetFieldValue<string>(6);
-                    book.mURL = dr.GetFieldValue<string>(7);
-                    book.lURL = dr.GetFieldValue<string>(8);
+        ////
+        ////Use Sql query to get book information from Database
+        ////
+        //public Book GetBookInformation(int index)
+        //{
+        //    Book book = new Book();
 
-                    bookList.Add(book);
-                    books.Add(book);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Publisher exception: "+ex.Message);
-                Console.WriteLine(ex.StackTrace);
-            }
-            finally
-            {
-                if (dr != null) dr.Close();
-                if (con != null) con.Close();
-            }
-            return books;
-        }
-        #endregion
+        //    try
+        //    {
+        //        cmd = new SqlCommand("select * from books where [index] = " + index, con);
+        //        con.Open();
+        //        dr = cmd.ExecuteReader();
+        //        dr.Read();
 
-        #region Author information
-        private List<Book> GetBookInAuthorCategory(string name)
-        {
-            List<Book> books = new List<Book>();
-            Book book = new Book();
-            try
-            {
-                cmd = new SqlCommand("select * from books where [bookAuthor] = '" + name + "'", con);
-                con.Open();
-                dr = cmd.ExecuteReader();
+        //        if (dr.HasRows)
+        //        {
+        //            book.index = index;
+        //            book.isbn = dr.GetFieldValue<string>(1);
+        //            book.title = dr.GetFieldValue<string>(2);
+        //            book.author = dr.GetFieldValue<string>(3);
+        //            book.year = dr.GetFieldValue<int>(4);
+        //            book.publisher = dr.GetFieldValue<string>(5);
+        //            book.sURL = dr.GetFieldValue<string>(6);
+        //            book.mURL = dr.GetFieldValue<string>(7);
+        //            book.lURL = dr.GetFieldValue<string>(8);
 
-                while (dr.Read())
-                {
-                    book.index = dr.GetFieldValue<int>(0);
-                    book.isbn = dr.GetFieldValue<string>(1);
-                    book.title = dr.GetFieldValue<string>(2);
-                    book.author = dr.GetFieldValue<string>(3);
-                    book.year = dr.GetFieldValue<int>(4);
-                    book.publisher = dr.GetFieldValue<string>(5);
-                    book.sURL = dr.GetFieldValue<string>(6);
-                    book.mURL = dr.GetFieldValue<string>(7);
-                    book.lURL = dr.GetFieldValue<string>(8);
+        //            bookList.Add(book);
+        //            return book;
+        //        }
+        //        else
+        //        {
+        //            dr.Close();
+        //            con.Close();
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show("Get book information by index exception: " + ex.Message);
+        //        Console.WriteLine(ex.StackTrace);
+        //    }
+        //    finally
+        //    {
+        //        if (dr != null) dr.Close();
+        //        if (con != null) con.Close();
+        //    }
+        //    return book;
+        //}
+        //public Book GetBookInformation(string isbn)
+        //{
+        //    Book book = new Book();
 
-                    bookList.Add(book);
-                    books.Add(book);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Author exception: "+ex.Message);
-                Console.WriteLine(ex.StackTrace);
-            }
-            finally
-            {
-                if (dr != null) dr.Close();
-                if (con != null) con.Close();
-            }
-            return books;
-        }
-        #endregion
+        //    try
+        //    {
+        //        cmd = new SqlCommand("select * from books where [isbn] = '" + isbn + "'", con);
+        //        con.Open();
+        //        dr = cmd.ExecuteReader();
+        //        dr.Read();
 
-        #region user reading information
-        public List<UserRating> userHistory = new List<UserRating>();
+        //        if (dr.HasRows)
+        //        {
+        //            book.index = dr.GetFieldValue<int>(0);
+        //            book.isbn = dr.GetFieldValue<string>(1);
+        //            book.title = dr.GetFieldValue<string>(2);
+        //            book.author = dr.GetFieldValue<string>(3);
+        //            book.year = dr.GetFieldValue<int>(4);
+        //            book.publisher = dr.GetFieldValue<string>(5);
+        //            book.sURL = dr.GetFieldValue<string>(6);
+        //            book.mURL = dr.GetFieldValue<string>(7);
+        //            book.lURL = dr.GetFieldValue<string>(8);
 
-        private List<UserRating> GetUserHistory(int userId)
-        {
-            List<UserRating> ratings = new List<UserRating>();
-            
-            try
-            {
-                cmd = new SqlCommand("select * from ratings where [userId] = " + userId, con);
-                con.Open();
-                dr = cmd.ExecuteReader();
+        //            bookList.Add(book);
+        //            return book;
+        //        }
+        //        else
+        //        {
+        //            dr.Close();
+        //            con.Close();
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show("Get book information by isbn exeption : "+ex.Message);
+        //        Console.WriteLine(ex.StackTrace);
+        //    }
+        //    finally
+        //    {
+        //        if (dr != null) dr.Close();
+        //        if (con != null) con.Close();
+        //    }
+        //    return book;
+        //}
 
-                while (dr.Read())
-                {
-                    UserRating rating = new UserRating();
-                    rating.userId = dr.GetFieldValue<int>(0);
-                    rating.isbn = dr.GetFieldValue<string>(1);
-                    rating.rate = dr.GetFieldValue<byte>(2);
+        //public List<Book> SearchBookInformation(string searchKey)
+        //{
+        //    List<Book> books = new List<Book>();
+        //    Book book = new Book();
+        //    try
+        //    {
+        //        cmd = new SqlCommand("select * from books where [isbn] = '" + searchKey.ToString() + "'", con);
+        //        con.Open();
+        //        dr = cmd.ExecuteReader();
+        //        dr.Read();
 
-                    userHistory.Add(rating);
-                    ratings.Add(rating);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Get user history exception: "+ex.Message);
-                Console.WriteLine(ex.StackTrace);
-            }
-            finally
-            {
-                if (dr != null) dr.Close();
-                if (con != null) con.Close();
-            }
-            return ratings;
-        }
-        #endregion
+        //        if (dr.HasRows)
+        //        {
+        //            book.index = dr.GetFieldValue<int>(0);
+        //            book.isbn = dr.GetFieldValue<string>(1);
+        //            book.title = dr.GetFieldValue<string>(2);
+        //            book.author = dr.GetFieldValue<string>(3);
+        //            book.year = dr.GetFieldValue<int>(4);
+        //            book.publisher = dr.GetFieldValue<string>(5);
+        //            book.sURL = dr.GetFieldValue<string>(6);
+        //            book.mURL = dr.GetFieldValue<string>(7);
+        //            book.lURL = dr.GetFieldValue<string>(8);
 
-        #region user information
+        //            bookList.Add(book);
+        //            books.Add(book);
+        //            return books;
+        //        }
+        //        else if (!dr.HasRows)
+        //        {
+        //            dr.Close();
+        //            cmd = new SqlCommand("select * from books where [bookTitle] like N'%" + searchKey + "%'", con);
+        //            dr = cmd.ExecuteReader();
 
-        User currentUser = new User();
-        private User GetUserInformation(string username)
-        {
-            User user = new User();
-            try
-            {
-                cmd = new SqlCommand("select * from users where [username] = '" + username + "'", con);
-                con.Open();
-                dr = cmd.ExecuteReader();
-                dr.Read();
-                user.userId = dr.GetFieldValue<int>(0);
-                user.fname = dr.IsDBNull("firstName") ? null : dr.GetFieldValue<string>("firstName");
-                user.lname = dr.IsDBNull("lastName") ? null : dr.GetFieldValue<string>("lastName");
-                user.username = dr.GetFieldValue<string>("username");
-                user.password = dr.GetFieldValue<string>(4);
-                user.email = dr.IsDBNull("email") ? null : dr.GetFieldValue<string>("email");
-                user.phone = dr.IsDBNull("phone") ? null : dr.GetFieldValue<string>("phone");
-                user.gender = dr.IsDBNull("gender") ? (byte)0:dr.GetFieldValue<byte>(7);
-                user.date = dr.IsDBNull("birthDate") ? new DateTime(1800, 01, 01) : dr.GetFieldValue<DateTime>("birthDate");
-                user.profileImage = dr.IsDBNull("profileImage") ? null : dr.GetFieldValue<string>("profileImage");
-                user.age = dr.IsDBNull("age") ? 0 : dr.GetFieldValue<int>("age");
-                user.location = dr.IsDBNull("location") ? null : dr.GetFieldValue<string>("location");
-                user.nation = dr.IsDBNull("nation") ? null : dr.GetFieldValue<string>("nation");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Get user information exception: "+ex.Message);
-                Console.WriteLine(ex.StackTrace);
-            }
-            finally
-            {
-                if (dr != null) dr.Close();
-                if (con != null) con.Close();
-            }
-            return user;
-        }
-        #endregion
+        //            while (dr.Read())
+        //            {
+        //                book.index = dr.GetFieldValue<int>(0);
+        //                book.isbn = dr.GetFieldValue<string>(1);
+        //                book.title = dr.GetFieldValue<string>(2);
+        //                book.author = dr.GetFieldValue<string>(3);
+        //                book.year = dr.GetFieldValue<int>(4);
+        //                book.publisher = dr.GetFieldValue<string>(5);
+        //                book.sURL = dr.GetFieldValue<string>(6);
+        //                book.mURL = dr.GetFieldValue<string>(7);
+        //                book.lURL = dr.GetFieldValue<string>(8);
+
+        //                bookList.Add(book);
+        //                books.Add(book);
+        //            }
+        //        }
+        //        else
+        //        {
+        //            dr.Close();
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show("Search book information exception: " + ex.Message);
+        //        Console.WriteLine(ex.StackTrace);
+        //    }
+        //    finally
+        //    {
+        //        if (dr != null) dr.Close();
+        //        if (con != null) con.Close();
+        //    }
+        //    return books;
+        //}
+
+        //#endregion
+
+        
+
+        
+
+        
+        
 
         #region update favorite list 
         public void AddFavBook(Book newBook, int bookIndex, int bookScore)
@@ -665,7 +512,9 @@ namespace WinForms
             // newBookLabel5
             // 
             newBookLabel5.BackColor = Color.Transparent;
-            newBookLabel5.Image = SetHeight(GetBookImage(newBook.index), 82);
+            BookCover bookCover = new BookCover();
+            bookCover.GetBookImage(newBook);
+            newBookLabel5.Image = SetHeight(bookCover.image, 82);
             newBookLabel5.Location = new Point(3, 0);
             newBookLabel5.Name = "newBookImg" + newBook.isbn;
             newBookLabel5.Size = new Size(82, 88);
@@ -890,7 +739,9 @@ namespace WinForms
             newCategoryBookImg.AccessibleName = newBook.title;
             newCategoryBookImg.Click += NewCategoryBook_Click;
             newCategoryBookImg.BackColor = Color.Transparent;
-            newCategoryBookImg.Image = SetHeight(GetBookImage(newBook.index), 82);
+            BookCover bookCover = new BookCover();
+            bookCover.GetBookImage(newBook);
+            newCategoryBookImg.Image = SetHeight(bookCover.image, 82);
             newCategoryBookImg.Location = new Point(3, 0);
             newCategoryBookImg.Name = "newCategoryBookImg";
             newCategoryBookImg.Size = new Size(82, 88);
@@ -1017,7 +868,9 @@ namespace WinForms
             authorBookImg.Click += AuthorBook_Click;
             authorBookImg.BackColor = Color.Transparent;
             authorBookImg.Location = new Point(3, 0);
-            authorBookImg.Image = SetHeight(GetBookImage(newBook.index), 82);
+            BookCover bookCover = new BookCover();
+            bookCover.GetBookImage(newBook);
+            authorBookImg.Image = SetHeight(bookCover.image, 82);
             authorBookImg.Name = "authorBookImg";
             authorBookImg.Size = new Size(82, 88);
             authorBookImg.TabIndex = 0;
@@ -1106,7 +959,10 @@ namespace WinForms
             otherCategory.Click += OtherCategory_Click;
             otherCategory.Click += CategoryBook_Click;
             otherCategory.BackColor = Color.Transparent;
-            otherCategory.BackgroundImage = SetWidth(GetBookImage(newBook.index), 349);
+            //otherCategory.BackgroundImage = SetWidth(GetBookImage(newBook.index), 349);
+            BookCover bookCover = new BookCover();
+            bookCover.GetBookImage(newBook);
+            otherCategory.BackgroundImage = SetHeight(bookCover.image, 349);
             otherCategory.BackgroundImageLayout = ImageLayout.Stretch;
             otherCategory.Controls.Add(otherCategoryNamePanel);
             otherCategory.GradientAngle = 60F;
@@ -1199,7 +1055,10 @@ namespace WinForms
             historyNewBook.Margin = new Padding(8);
             historyNewBook.Name = "historyNewBook";
             historyNewBook.Size = new Size(199, 240);
-            historyNewBook.BackgroundImage = SetHeight(GetBookImage(newBook.index), 240);
+            //historyNewBook.BackgroundImage = SetHeight(GetBookImage(newBook.index), 240);
+            BookCover bookCover = new BookCover();
+            bookCover.GetBookImage(newBook);
+            historyNewBook.BackgroundImage = SetHeight(bookCover.image, 240);
             historyNewBook.BackgroundImageLayout = ImageLayout.Stretch;
             historyNewBook.TabIndex = 6;
             // 
@@ -1536,7 +1395,7 @@ namespace WinForms
         private Book bookPicking(string name)
         {
             Book book = new Book();
-            foreach (Book b in bookList)
+            foreach (Book b in books)
             {
                 if (b.title.Equals(EscapeSingleQuotes(name))) return b;
             }
@@ -1545,14 +1404,16 @@ namespace WinForms
 
         private void updateCurrentBook(Book book)
         {
-            if (book.index < 1||!bookList.Contains(book)) { return; }
+            if (book.index < 1||!books.Contains(book)) { return; }
             ClearList(mainCategoryPanel, "newCategoryBook");
             ClearList(authormainFlowPanel, "authorBook");
 
-            string imgPath = "../../../../../assets/LImgs/temp" + book.index + ".jpg";
-            Image currentImg = Image.FromFile(imgPath);
-            List<Book> categoryBooks = GetBookInCategory(book.publisher);
-            List<Book> authorBooks = GetBookInAuthorCategory(book.author);
+            BookCover bookCover = new BookCover();
+            bookCover.GetBookImage(book);
+            Image currentImg = bookCover.image;
+
+            List<Book> categoryBooks = books.Where(item => item.publisher == book.publisher).ToList();
+            List<Book> authorBooks = books.Where(item => item.author == book.author).ToList();
 
             contentImg.Image = SetHeight(currentImg, contentImg.Height);
             currentLabel.Image = SetHeight(currentImg, currentLabel.Height);
@@ -1578,28 +1439,34 @@ namespace WinForms
                 if (book.Equals(book1) && categoryBooks.Count > 1) book1 = categoryBooks.ElementAt(1);
                 if (categoryBooks.Count > 1)
                 {
+                    int offset = 10;
                     for (int i = 0; i < categoryBooks.Count; i++)
                     {
+                        if (offset == 0) break;
                         AddCategryBook(categoryBooks.ElementAt(i), book.publisher);
+                        offset--;
                     }
                 }
                 if (authorBooks.Count > 1)
                 {
+                    int offset = 10;
                     for (int i = 0; i < authorBooks.Count; i++)
                     {
+                        if (offset == 0) break;
                         AddAuthorBook(authorBooks.ElementAt(i));
+                        offset--;
                     }
                 }
 
                 string imgPath1 = "../../../../../assets/LImgs/temp" + book1.index + ".jpg";
-                if (!File.Exists(imgPath1)) GetBookImage(book1.index);
+                if (!File.Exists(imgPath1)) new BookCover().GetBookImage(book1);
                 categoryImg0.Image = SetHeight(Image.FromFile(imgPath1), categoryImg0.Height);
                 categoryTitle0.Text = book1.title;
                 categoryAuthor0.Text = book1.author;
             }
-            
 
-            Color borderColor = CalculateAverageColor(GetBorderColors(new Bitmap(currentImg), currentImg.Size));
+
+            Color borderColor = bookCover.borderColor;
 
             currentPanel.BackColor = borderColor;
             currentProperties.GradientPrimaryColor = borderColor;
@@ -1850,6 +1717,29 @@ namespace WinForms
         #endregion
 
         #region searching handler
+        private List<Book> SearchBookInformation(string searchKey)
+        {
+            List<Book> matchedBooks = new List<Book>();
+
+            Book isbnMatched = books.Find(item => item.isbn == searchKey);
+            if (isbnMatched != null)
+            {
+                matchedBooks.Add(isbnMatched);
+            }
+            else
+            {
+                int offset = 10;
+                foreach(Book item in books)
+                {
+                    if (offset == 0) break;
+                    if(item.title.Contains(searchKey)) matchedBooks.Add(item);
+                    offset--;
+                }
+            }
+
+            return matchedBooks;
+        }
+
         private void searchBox_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -1870,81 +1760,103 @@ namespace WinForms
                 string searchKey = searchBox.Text.ToString();
                 if (searchKey.Length == 0) return;
 
-                List<Book> books = SearchBookInformation(searchKey);
+                List<Book> matchedBooks = SearchBookInformation(searchKey);
                 if (books.Count == 0) bestMatchLabel.Text = "Not found!";
                 if (books.Count >= 1)
                 {
-                    topSearchImg.Image = SetHeight(GetBookImage(books.ElementAt(0).index), topSearchImg.Height);
+                    BookCover bookCover = new BookCover();
+                    bookCover.GetBookImage(books.ElementAt(0));
+                    topSearchImg.Image = SetHeight(bookCover.image, topSearchImg.Height);
                     topSearchTitle.Text = books.ElementAt(0).title;
                     topSearchAuthor.Text = books.ElementAt(0).author;
                     topSearchPanel.Visible = true;
                 }
                 if (books.Count >= 2)
                 {
-                    otherImg0.Image = SetHeight(GetBookImage(books.ElementAt(1).index), otherImg0.Height);
+                    BookCover bookCover = new BookCover();
+                    bookCover.GetBookImage(books.ElementAt(1));
+                    otherImg0.Image = SetHeight(bookCover.image, otherImg0.Height);
                     otherTitle0.Text = books.ElementAt(1).title;
                     toolTip1.SetToolTip(otherTitle0, "by " + books.ElementAt(1).author);
                     otherResult0.Visible = true;
                 }
                 if (books.Count >= 3)
                 {
-                    otherImg1.Image = SetHeight(GetBookImage(books.ElementAt(2).index), otherImg1.Height);
+                    BookCover bookCover = new BookCover();
+                    bookCover.GetBookImage(books.ElementAt(2));
+                    otherImg1.Image = SetHeight(bookCover.image, otherImg1.Height);
                     otherTitle1.Text = books.ElementAt(2).title;
                     toolTip1.SetToolTip(otherTitle1, "by " + books.ElementAt(2).author);
                     otherResult1.Visible = true;
                 }
                 if (books.Count >= 4)
                 {
-                    otherImg2.Image = SetHeight(GetBookImage(books.ElementAt(3).index), otherImg2.Height);
+                    BookCover bookCover = new BookCover();
+                    bookCover.GetBookImage(books.ElementAt(3));
+                    otherImg2.Image = SetHeight(bookCover.image, otherImg2.Height);
                     otherTitle2.Text = books.ElementAt(3).title;
                     toolTip1.SetToolTip(otherTitle2, "by " + books.ElementAt(3).author);
                     otherResult2.Visible = true;
                 }
                 if (books.Count >= 5)
                 {
-                    otherImg3.Image = SetHeight(GetBookImage(books.ElementAt(4).index), otherImg3.Height);
+                    BookCover bookCover = new BookCover();
+                    bookCover.GetBookImage(books.ElementAt(4));
+                    otherImg3.Image = SetHeight(bookCover.image, otherImg3.Height);
                     otherTitle3.Text = books.ElementAt(4).title;
                     toolTip1.SetToolTip(otherTitle3, "by " + books.ElementAt(4).author);
                     otherResult3.Visible = true;
                 }
                 if (books.Count >= 6)
                 {
-                    otherImg4.Image = SetHeight(GetBookImage(books.ElementAt(5).index), otherImg4.Height);
+                    BookCover bookCover = new BookCover();
+                    bookCover.GetBookImage(books.ElementAt(5));
+                    otherImg4.Image = SetHeight(bookCover.image, otherImg4.Height);
                     otherTitle4.Text = books.ElementAt(5).title;
                     toolTip1.SetToolTip(otherTitle4, "by " + books.ElementAt(5).author);
                     otherResult4.Visible = true;
                 }
                 if (books.Count >= 7)
                 {
-                    otherImg5.Image = SetHeight(GetBookImage(books.ElementAt(6).index), otherImg5.Height);
+                    BookCover bookCover = new BookCover();
+                    bookCover.GetBookImage(books.ElementAt(6));
+                    otherImg5.Image = SetHeight(bookCover.image, otherImg5.Height);
                     otherTitle5.Text = books.ElementAt(6).title;
                     toolTip1.SetToolTip(otherTitle5, "by " + books.ElementAt(6).author);
                     otherResult5.Visible = true;
                 }
                 if (books.Count >= 8)
                 {
-                    otherImg6.Image = SetHeight(GetBookImage(books.ElementAt(7).index), otherImg6.Height);
+                    BookCover bookCover = new BookCover();
+                    bookCover.GetBookImage(books.ElementAt(7));
+                    otherImg6.Image = SetHeight(bookCover.image, otherImg6.Height);
                     otherTitle6.Text = books.ElementAt(7).title;
                     toolTip1.SetToolTip(otherTitle6, "by " + books.ElementAt(7).author);
                     otherResult6.Visible = true;
                 }
                 if (books.Count >= 9)
                 {
-                    otherImg7.Image = SetHeight(GetBookImage(books.ElementAt(8).index), otherImg7.Height);
+                    BookCover bookCover = new BookCover();
+                    bookCover.GetBookImage(books.ElementAt(8));
+                    otherImg7.Image = SetHeight(bookCover.image, otherImg7.Height);
                     otherTitle7.Text = books.ElementAt(8).title;
                     toolTip1.SetToolTip(otherTitle7, "by " + books.ElementAt(8).author);
                     otherResult7.Visible = true;
                 }
                 if (books.Count >= 10)
                 {
-                    otherImg8.Image = SetHeight(GetBookImage(books.ElementAt(9).index), otherImg8.Height);
+                    BookCover bookCover = new BookCover();
+                    bookCover.GetBookImage(books.ElementAt(9));
+                    otherImg8.Image = SetHeight(bookCover.image, otherImg8.Height);
                     otherTitle8.Text = books.ElementAt(9).title;
                     toolTip1.SetToolTip(otherTitle8, "by " + books.ElementAt(9).author);
                     otherResult8.Visible = true;
                 }
                 if (books.Count >= 11)
                 {
-                    otherImg9.Image = SetHeight(GetBookImage(books.ElementAt(10).index), otherImg9.Height);
+                    BookCover bookCover = new BookCover();
+                    bookCover.GetBookImage(books.ElementAt(10));
+                    otherImg9.Image = SetHeight(bookCover.image, otherImg9.Height);
                     otherTitle9.Text = books.ElementAt(10).title;
                     toolTip1.SetToolTip(otherTitle9, "by " + books.ElementAt(10).author);
                     otherResult9.Visible = true;
@@ -1956,9 +1868,12 @@ namespace WinForms
 
         //MainForm only work went user login successfully
 
-        public MainForm(string username)
+        public MainForm(Library library)
         {
-            this.username = username;
+            this.reader = library.reader;
+            this.books = library.bookSelves;
+            this.ratings = library.bookRatings;
+
             this.FormBorderStyle = FormBorderStyle.None;
             InitializeComponent();
             this.DoubleBuffered = true;
@@ -1970,14 +1885,19 @@ namespace WinForms
         //
         private async void MainForm_Load(object sender, EventArgs e)
         {
-            LoadingForm loading = new LoadingForm("dricciardelloav");
-            loading.Show();
-
-            //get user information
-            currentUser = GetUserInformation(username);
 
             // get history list
-            List<UserRating> userHistory = GetUserHistory(currentUser.userId);
+            List<UserRating> userHistory = new List<UserRating>();
+            foreach (UserRating rating in this.ratings)
+            {
+                if(rating.userId == reader.userId) userHistory.Add(rating);
+            }
+
+            List<UserRating> userFavorite = new List<UserRating>();
+            foreach (UserRating rating in userHistory)
+            {
+                if (rating.rate > 0) userFavorite.Add(rating);
+            }
 
             #region Set controls double buffered 
 
@@ -2270,8 +2190,11 @@ namespace WinForms
             #region test application graphic by getting random index of books
             Random rand = new Random();
             int randC = rand.Next(1, 1000);
-            Image currentImg = GetBookImage(randC);
-            Book book = GetBookInformation(randC);
+            
+            Book book = books.Find(item => item.index==randC);
+            BookCover bookCover = new BookCover();
+            bookCover.GetBookImage(book);
+            Image currentImg = bookCover.image;
 
             updateCurrentBook(book);
 
@@ -2280,15 +2203,18 @@ namespace WinForms
             int randH1 = rand.Next(1, 1000);
             int randH2 = rand.Next(1, 1000);
             int randH3 = rand.Next(1, 1000);
-            helloElementImg0.Image = SetHeight(GetBookImage(randH0), helloElementImg0.Height);
-            helloElementImg1.Image = SetHeight(GetBookImage(randH1), helloElementImg1.Height);
-            helloElementImg2.Image = SetHeight(GetBookImage(randH2), helloElementImg2.Height);
-            helloElementImg3.Image = SetHeight(GetBookImage(randH3), helloElementImg3.Height);
-
-            Book helloBook0 = GetBookInformation(randH0);
-            Book helloBook1 = GetBookInformation(randH1);
-            Book helloBook2 = GetBookInformation(randH2);
-            Book helloBook3 = GetBookInformation(randH3);
+            Book helloBook0 = books.Find(item => item.index == randH0);
+            Book helloBook1 = books.Find(item => item.index==randH1);
+            Book helloBook2 = books.Find(item => item.index==randH2);
+            Book helloBook3 = books.Find(item => item.index==randH3);
+            bookCover.GetBookImage(helloBook0);
+            helloElementImg0.Image = SetHeight(bookCover.image, helloElementImg0.Height);
+            bookCover.GetBookImage(helloBook1);
+            helloElementImg1.Image = SetHeight(bookCover.image, helloElementImg1.Height);
+            bookCover.GetBookImage(helloBook2);
+            helloElementImg2.Image = SetHeight(bookCover.image, helloElementImg2.Height);
+            bookCover.GetBookImage(helloBook3);
+            helloElementImg3.Image = SetHeight(bookCover.image, helloElementImg3.Height);
 
             helloElementTitle0.Text = helloBook0.title;
             helloAuthor0.Text = helloBook0.author;
@@ -2304,15 +2230,22 @@ namespace WinForms
             int randC1 = rand.Next(1, 1000);
             int randC2 = rand.Next(1, 1000);
             int randC3 = rand.Next(1, 1000);
-            recommentImg0.Image = SetHeight(GetBookImage(randC0), recommentImg0.Height);
-            recommentImg1.Image = SetHeight(GetBookImage(randC1), recommentImg1.Height);
-            recommentImg2.Image = SetHeight(GetBookImage(randC2), recommentImg2.Height);
-            recommentImg3.Image = SetHeight(GetBookImage(randC3), recommentImg3.Height);
 
-            Book recommentBook0 = GetBookInformation(randC0);
-            Book recommentBook1 = GetBookInformation(randC1);
-            Book recommentBook2 = GetBookInformation(randC2);
-            Book recommentBook3 = GetBookInformation(randC3);
+            Book recommentBook0 = books.Find(item => item.index == randC0);
+            Book recommentBook1 = books.Find(item => item.index == randC1);
+            Book recommentBook2 = books.Find(item => item.index == randC2);
+            Book recommentBook3 = books.Find(item => item.index == randC3);
+
+            bookCover.GetBookImage(recommentBook0);
+            recommentImg0.Image = SetHeight(bookCover.image, recommentImg0.Height);
+            bookCover.GetBookImage(recommentBook1);
+            recommentImg1.Image = SetHeight(bookCover.image, recommentImg1.Height);
+            bookCover.GetBookImage(recommentBook2);
+            recommentImg2.Image = SetHeight(bookCover.image, recommentImg2.Height);
+            bookCover.GetBookImage(recommentBook3);
+            recommentImg3.Image = SetHeight(bookCover.image, recommentImg3.Height);
+
+            
 
             recommentTitle0.Text = recommentBook0.title;
             recommentAuthor0.Text = recommentBook0.author;
@@ -2328,15 +2261,21 @@ namespace WinForms
             int randB1 = rand.Next(1, 1000);
             int randB2 = rand.Next(1, 1000);
             int randB3 = rand.Next(1, 1000);
-            bestBookImg0.Image = SetHeight(GetBookImage(randB0), bestBookImg0.Height);
-            bestBookImg1.Image = SetHeight(GetBookImage(randB1), bestBookImg1.Height);
-            bestBookImg2.Image = SetHeight(GetBookImage(randB2), bestBookImg2.Height);
-            bestBookImg3.Image = SetHeight(GetBookImage(randB3), bestBookImg3.Height);
 
-            Book bestBook0 = GetBookInformation(randB0);
-            Book bestBook1 = GetBookInformation(randB1);
-            Book bestBook2 = GetBookInformation(randB2);
-            Book bestBook3 = GetBookInformation(randB3);
+            Book bestBook0 = books.Find(item => item.index == randB0);
+            Book bestBook1 = books.Find(item => item.index == randB1);
+            Book bestBook2 = books.Find(item => item.index == randB2);
+            Book bestBook3 = books.Find(item => item.index == randB3);
+
+            bookCover.GetBookImage(recommentBook3);
+            bestBookImg0.Image = SetHeight(bookCover.image, bestBookImg0.Height);
+            bookCover.GetBookImage(recommentBook3);
+            bestBookImg1.Image = SetHeight(bookCover.image, bestBookImg1.Height);
+            bookCover.GetBookImage(recommentBook3);
+            bestBookImg2.Image = SetHeight(bookCover.image, bestBookImg2.Height);
+            bookCover.GetBookImage(recommentBook3);
+            bestBookImg3.Image = SetHeight(bookCover.image, bestBookImg3.Height);
+
 
             bestBookTitle0.Text = bestBook0.title;
             bestBookAuthor0.Text = bestBook0.author;
@@ -2352,7 +2291,7 @@ namespace WinForms
             List<string> publisherList = new List<string>();
             for (int i = 0; i < userHistory.Count; i++)
             {
-                Book catBook = GetBookInformation(userHistory.ElementAt(i).isbn);
+                Book catBook = books.Find(item => item.isbn == userHistory.ElementAt(i).isbn);
                 if (catBook.title != null)
                 {
                     if (!publisherList.Contains(catBook.publisher))
@@ -2366,17 +2305,16 @@ namespace WinForms
             #endregion
 
             #region update favorite list
-            List<UserRating> favList = userHistory;
-            favList.Sort();
+            userFavorite.Sort();
             int bRank = 1;
-            for (int i = 0; i < favList.Count; i++)
+            for (int i = 0; i < userFavorite.Count; i++)
             {
-                if (favList.ElementAt(i).rate != 0)
+                if (userFavorite.ElementAt(i).rate != 0)
                 {
-                    Book favBook = GetBookInformation(favList.ElementAt(i).isbn);
+                    Book favBook = books.Find(item => item.isbn == userFavorite.ElementAt(i).isbn);
                     if (favBook.title != null)
                     {
-                        AddFavBook(favBook, bRank++, favList.ElementAt(i).rate);
+                        AddFavBook(favBook, bRank++, userFavorite.ElementAt(i).rate);
                     }
                 }
 
@@ -2388,8 +2326,8 @@ namespace WinForms
             Book histBook = new Book();
             for (int i = 0; i < userHistory.Count; i++)
             {
-                histBook = GetBookInformation(userHistory.ElementAt(i).isbn);
-                if (histBook.index >0 && histBook.title != null)
+                histBook = books.Find(item => item.isbn == userHistory.ElementAt(i).isbn);
+                if (histBook!= null && histBook.index >0 && histBook.title != null)
                 {
                     AddHistoryNewBook(histBook);
                     updateCurrentBook(histBook);
@@ -2398,13 +2336,12 @@ namespace WinForms
             #endregion
 
             //update userlabel
-            toolTip1.SetToolTip(user, currentUser.username + " #" + currentUser.userId);
-            user.Image = SetWidth(Image.FromStream(LoaderFromURL(currentUser.profileImage) == null ? LoaderFromURL(bookList.ElementAt(0).lURL) : LoaderFromURL(currentUser.profileImage)), user.Width);
+            toolTip1.SetToolTip(user, reader.username + " #" + reader.userId);
+            
+            user.Image = SetWidth(Image.FromFile("../../../../../assets/LImgs/temp" + books.ElementAt(0).index + ".jpg"/*Image.FromStream(LoaderFromURL(reader.profileImage) == null ? LoaderFromURL(bookList.ElementAt(0).lURL) : LoaderFromURL(reader.profileImage)*/), user.Width);
 
             homeFlowPanel.Controls.Add(bestBookFlowPanel);
             bestBookFlowPanel.Visible = true;
-
-            loading.Visible = false;
         }
 
         //unneccessary!
@@ -2417,9 +2354,9 @@ namespace WinForms
 
         private void user_Click(object sender, EventArgs e)
         {
-            using (UserForm userForm = new UserForm(currentUser.userId, currentUser.fname, currentUser.lname, currentUser.username,
-                currentUser.password, currentUser.email, currentUser.phone, currentUser.gender, currentUser.date, currentUser.profileImage, currentUser.age,
-                currentUser.location, currentUser.nation))
+            using (UserForm userForm = new UserForm(reader.userId, reader.fname, reader.lname, reader.username,
+                reader.password, reader.email, reader.phone, reader.gender, reader.date, reader.profileImage, reader.age,
+                reader.location, reader.nation))
             {
                 userForm.ShowDialog();
             }

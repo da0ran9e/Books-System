@@ -70,7 +70,7 @@ namespace WinForms
                     lb.Padding = new Padding(12, 0, 0, 0);
                     loginNotification.Controls.Add(lb);                    
                     
-                    Form mainForm = new MainForm(usernameTextbox.Text);
+                    Form mainForm = new LoadingForm(usernameTextbox.Text);
                     this.Visible = false;
                     //new LoadingForm(() => /*Show loading form while mainform in progress*/ mainForm.ShowDialog()).ShowDialog();
                     _ = mainForm.ShowDialog();
