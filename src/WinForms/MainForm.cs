@@ -2189,7 +2189,7 @@ namespace WinForms
 
             #region test application graphic by getting random index of books
             Random rand = new Random();
-            int randC = rand.Next(1, 1000);
+            int randC = rand.Next(1, 100000);
             
             Book book = books.Find(item => item.index==randC);
             BookCover bookCover = new BookCover();
@@ -2199,14 +2199,14 @@ namespace WinForms
             updateCurrentBook(book);
 
             //helloPanel
-            int randH0 = rand.Next(1, 1000);
-            int randH1 = rand.Next(1, 1000);
-            int randH2 = rand.Next(1, 1000);
-            int randH3 = rand.Next(1, 1000);
-            Book helloBook0 = books.Where(item => item.index == randH0).ElementAt(0);
-            Book helloBook1 = books.Where(item => item.index == randH1).ElementAt(0);
-            Book helloBook2 = books.Where(item => item.index == randH2).ElementAt(0);
-            Book helloBook3 = books.Where(item => item.index == randH3).ElementAt(0);
+            int randH0 = rand.Next(1, 100000);
+            int randH1 = rand.Next(1, 100000);
+            int randH2 = rand.Next(1, 100000);
+            int randH3 = rand.Next(1, 100000);
+            Book helloBook0 = books.ElementAt(randH0);
+            Book helloBook1 = books.ElementAt(randH1);
+            Book helloBook2 = books.ElementAt(randH2);
+            Book helloBook3 = books.ElementAt(randH3);
             bookCover.GetBookImage(helloBook0);
             helloElementImg0.Image = SetHeight(bookCover.image, helloElementImg0.Height);
             bookCover.GetBookImage(helloBook1);
@@ -2226,15 +2226,15 @@ namespace WinForms
             helloAuthor3.Text = helloBook3.author;
 
             //recommentPanel 
-            int randC0 = rand.Next(1, 1000);
-            int randC1 = rand.Next(1, 1000);
-            int randC2 = rand.Next(1, 1000);
-            int randC3 = rand.Next(1, 1000);
+            int randC0 = rand.Next(1, 100000);
+            int randC1 = rand.Next(1, 100000);
+            int randC2 = rand.Next(1, 100000);
+            int randC3 = rand.Next(1, 100000);
 
-            Book recommentBook0 = books.Where(item => item.index == randC0).ElementAt(0);
-            Book recommentBook1 = books.Where(item => item.index == randC1).ElementAt(0);
-            Book recommentBook2 = books.Where(item => item.index == randC2).ElementAt(0);
-            Book recommentBook3 = books.Where(item => item.index == randC3).ElementAt(0);
+            Book recommentBook0 = books.ElementAt(randC0);
+            Book recommentBook1 = books.ElementAt(randC1);
+            Book recommentBook2 = books.ElementAt(randC2);
+            Book recommentBook3 = books.ElementAt(randC3);
 
             bookCover.GetBookImage(recommentBook0);
             recommentImg0.Image = SetHeight(bookCover.image, recommentImg0.Height);
@@ -2257,15 +2257,15 @@ namespace WinForms
             recommentAuthor3.Text = recommentBook3.author;
 
             //bestBook Panel
-            int randB0 = rand.Next(1, 1000);
-            int randB1 = rand.Next(1, 1000);
-            int randB2 = rand.Next(1, 1000);
-            int randB3 = rand.Next(1, 1000);
+            int randB0 = rand.Next(1, 100000);
+            int randB1 = rand.Next(1, 100000);
+            int randB2 = rand.Next(1, 100000);
+            int randB3 = rand.Next(1, 100000);
 
-            Book bestBook0 = books.Where(item => item.index == randB0).ElementAt(0);
-            Book bestBook1 = books.Where(item => item.index == randB1).ElementAt(0);
-            Book bestBook2 = books.Where(item => item.index == randB2).ElementAt(0);
-            Book bestBook3 = books.Where(item => item.index == randB3).ElementAt(0);
+            Book bestBook0 = books.ElementAt(randB0);
+            Book bestBook1 = books.ElementAt(randB1);
+            Book bestBook2 = books.ElementAt(randB2);
+            Book bestBook3 = books.ElementAt(randB3);
 
             bookCover.GetBookImage(recommentBook3);
             bestBookImg0.Image = SetHeight(bookCover.image, bestBookImg0.Height);
@@ -2337,7 +2337,7 @@ namespace WinForms
             for (int i = userHistory.Count; i > 0 ; i--)
             {
                 Book histBook = new Book();
-                histBook = books.Find(item => item.isbn == userHistory.ElementAt(i).isbn);
+                histBook = books.Find(item => item.isbn == userHistory.ElementAt(i-1).isbn);
                 if (histBook != null && histBook.index > 0 && histBook.title != null)
                 {                    
                     updateCurrentBook(histBook);
