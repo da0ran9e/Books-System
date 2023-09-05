@@ -32,7 +32,7 @@ namespace WinForms
         public void GetBookImage(Book book)
         {
             if (book == null) return;
-            string imgPath = "../../../../../assets/LImgs/temp" + book.index + ".jpg";
+            string imgPath = "../../../../../assets/LImgs/" + book.isbn + ".jpg";
             try
             {
                 // if the image does not exist, then get it

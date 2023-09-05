@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.VisualBasic.ApplicationServices;
@@ -19,6 +20,23 @@ namespace WinForms
         public List<UserRating> bookRatings = new List<UserRating>();
         public User reader = new User();
 
+        //the average score of books
+        public struct Score
+        {
+            public int avgScore { get; set; }
+            public int totalRate { get; set; }
+
+            public Score(int score, int count)
+            {
+                this.avgScore = score;
+                this.totalRate = count;
+            }
+        }
+        public Dictionary<Book, Score> bookScores = new Dictionary<Book, Score>();
+
+        //
+        // Method
+        //
         public void GetBooks() // Get list of informations of all books in database containing: id, isbn, title, author,...
         {   
             try
@@ -122,5 +140,26 @@ namespace WinForms
                 if (con != null) con.Close();
             }
         } 
+
+        public void CalculateScore(Book b) //calculate the average score of books
+        {
+            int score = 0; int total = 0; int count = 0;
+            List<UserRating> filter = bookRatings.Where(item => item.isbn == b.isbn).ToList();
+            foreach (UserRating r in filter)
+            {
+                if (r.rate > 0)
+                {
+                    total += r.rate;
+                    count++;
+                }
+            }
+            if (count > 0)
+            {
+                score = total / count;
+                this.bookScores.Add(b, new Score(score, count));
+            }
+            else
+                this.bookScores.Add(b, new Score(0, 0));
+        }
     }
 }

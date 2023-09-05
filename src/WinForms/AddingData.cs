@@ -17,8 +17,9 @@ namespace WinForms
         SqlCommand cmd = new SqlCommand();
         SqlDataReader dr;
 
-        public AddingData()
+        public AddingData(Library lib)
         {
+            this.library = lib;
             InitializeComponent();
         }
 
@@ -65,9 +66,18 @@ namespace WinForms
         {
 
             // Run operation in another thread
-            Push();
+            //Push();
 
             // TODO: Do something after all calculations
+            int cnt = 0;
+            List<Book> books = library.bookSelves;
+            foreach (Book book in books) {
+                BookCover bookCover = new BookCover();
+                bookCover.GetBookImage(book);
+                button1.Text = cnt++.ToString();
+            }
+
+
         }
     }
 }

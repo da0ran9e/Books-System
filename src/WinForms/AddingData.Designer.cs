@@ -53,6 +53,7 @@
         }
 
         #endregion
+        private Library library = new Library();
         private Button button1;
     }
 }

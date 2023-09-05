@@ -130,16 +130,21 @@ namespace WinForms
             library.GetReaderInformation(readerName);
             progressBar.Value = 10;
             library.GetBooks();
-            progressBar.Value = 50;
+            progressBar.Value = 40;
             library.GetRatings();
-            progressBar.Value = 80;
+            progressBar.Value = 70;
+            //library.CalculateScore();
+            progressBar.Value = 95;
 
-            MainForm mainForm = new MainForm(library);
+            //MainForm mainForm = new MainForm(library);
+            AddingData addingData = new AddingData(library);
+            addingData.ShowDialog();
+
             progressBar.Value = 100;
             await Task.Delay(5000);
 
             this.Visible = false;
-            mainForm.ShowDialog();
+            //mainForm.ShowDialog();
             
         }
 
