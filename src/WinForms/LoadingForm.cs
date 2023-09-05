@@ -138,12 +138,13 @@ namespace WinForms
 
             //MainForm mainForm = new MainForm(library);
             AddingData addingData = new AddingData(library);
+            this.Visible = false;
             addingData.ShowDialog();
 
             progressBar.Value = 100;
             await Task.Delay(5000);
 
-            this.Visible = false;
+
             //mainForm.ShowDialog();
             
         }

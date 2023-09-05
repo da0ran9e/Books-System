@@ -62,6 +62,53 @@ namespace WinForms
             }
         }
 
+        public Stream LoaderFromURL(string url)
+        {
+            try
+            {
+                HttpClient client = new HttpClient();
+                client.DefaultRequestHeaders.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.63 Safari/537.36");
+                HttpResponseMessage response = client.GetAsync(url).Result;
+                response.EnsureSuccessStatusCode();
+
+                return response.Content.ReadAsStreamAsync().Result;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public void GetBookImage(Book book)
+        {
+            if (book == null) return;
+            string imgPath = "../../../../../assets/LImgs/" + book.isbn + ".jpg";
+            try
+            {
+                // if the image does not exist, then get it
+                if (!File.Exists(imgPath))
+                {
+                    using (Stream stream = LoaderFromURL(book.lURL))
+                    {
+                        Image image = Image.FromStream(stream);
+                        if (image.Height <= 300)
+                        {
+                            image = Image.FromStream(LoaderFromURL(book.mURL));
+                            if (image.Height <= 100)
+                            {
+                                image = Image.FromStream(LoaderFromURL(book.sURL));
+                            }
+                        }
+                        image.Save(imgPath);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Get book image error: {ex.Message}");
+            }
+        }
+
         private async void button1_Click(object sender, EventArgs e)
         {
 
@@ -72,8 +119,7 @@ namespace WinForms
             int cnt = 0;
             List<Book> books = library.bookSelves;
             foreach (Book book in books) {
-                BookCover bookCover = new BookCover();
-                bookCover.GetBookImage(book);
+                GetBookImage(book);
                 button1.Text = cnt++.ToString();
             }
 
