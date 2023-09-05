@@ -136,8 +136,9 @@ namespace WinForms
 
             MainForm mainForm = new MainForm(library);
             progressBar.Value = 100;
-            mainForm.ShowDialog();
             this.Visible = false;
+            mainForm.ShowDialog();
+            
         }
 
 

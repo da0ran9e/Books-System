@@ -2203,10 +2203,10 @@ namespace WinForms
             int randH1 = rand.Next(1, 1000);
             int randH2 = rand.Next(1, 1000);
             int randH3 = rand.Next(1, 1000);
-            Book helloBook0 = books.Find(item => item.index == randH0);
-            Book helloBook1 = books.Find(item => item.index==randH1);
-            Book helloBook2 = books.Find(item => item.index==randH2);
-            Book helloBook3 = books.Find(item => item.index==randH3);
+            Book helloBook0 = books.Where(item => item.index == randH0).ElementAt(0);
+            Book helloBook1 = books.Where(item => item.index == randH1).ElementAt(0);
+            Book helloBook2 = books.Where(item => item.index == randH2).ElementAt(0);
+            Book helloBook3 = books.Where(item => item.index == randH3).ElementAt(0);
             bookCover.GetBookImage(helloBook0);
             helloElementImg0.Image = SetHeight(bookCover.image, helloElementImg0.Height);
             bookCover.GetBookImage(helloBook1);
@@ -2231,10 +2231,10 @@ namespace WinForms
             int randC2 = rand.Next(1, 1000);
             int randC3 = rand.Next(1, 1000);
 
-            Book recommentBook0 = books.Find(item => item.index == randC0);
-            Book recommentBook1 = books.Find(item => item.index == randC1);
-            Book recommentBook2 = books.Find(item => item.index == randC2);
-            Book recommentBook3 = books.Find(item => item.index == randC3);
+            Book recommentBook0 = books.Where(item => item.index == randC0).ElementAt(0);
+            Book recommentBook1 = books.Where(item => item.index == randC1).ElementAt(0);
+            Book recommentBook2 = books.Where(item => item.index == randC2).ElementAt(0);
+            Book recommentBook3 = books.Where(item => item.index == randC3).ElementAt(0);
 
             bookCover.GetBookImage(recommentBook0);
             recommentImg0.Image = SetHeight(bookCover.image, recommentImg0.Height);
@@ -2262,10 +2262,10 @@ namespace WinForms
             int randB2 = rand.Next(1, 1000);
             int randB3 = rand.Next(1, 1000);
 
-            Book bestBook0 = books.Find(item => item.index == randB0);
-            Book bestBook1 = books.Find(item => item.index == randB1);
-            Book bestBook2 = books.Find(item => item.index == randB2);
-            Book bestBook3 = books.Find(item => item.index == randB3);
+            Book bestBook0 = books.Where(item => item.index == randB0).ElementAt(0);
+            Book bestBook1 = books.Where(item => item.index == randB1).ElementAt(0);
+            Book bestBook2 = books.Where(item => item.index == randB2).ElementAt(0);
+            Book bestBook3 = books.Where(item => item.index == randB3).ElementAt(0);
 
             bookCover.GetBookImage(recommentBook3);
             bestBookImg0.Image = SetHeight(bookCover.image, bestBookImg0.Height);
@@ -2292,7 +2292,7 @@ namespace WinForms
             for (int i = 0; i < userHistory.Count; i++)
             {
                 Book catBook = books.Find(item => item.isbn == userHistory.ElementAt(i).isbn);
-                if (catBook.title != null)
+                if (catBook!=null && catBook.title != null)
                 {
                     if (!publisherList.Contains(catBook.publisher))
                     {
@@ -2312,7 +2312,7 @@ namespace WinForms
                 if (userFavorite.ElementAt(i).rate != 0)
                 {
                     Book favBook = books.Find(item => item.isbn == userFavorite.ElementAt(i).isbn);
-                    if (favBook.title != null)
+                    if (favBook!=null && favBook.title != null)
                     {
                         AddFavBook(favBook, bRank++, userFavorite.ElementAt(i).rate);
                     }
@@ -2323,14 +2323,25 @@ namespace WinForms
             #endregion
 
             #region update history list
-            Book histBook = new Book();
+            
             for (int i = 0; i < userHistory.Count; i++)
             {
+                Book histBook = new Book();
                 histBook = books.Find(item => item.isbn == userHistory.ElementAt(i).isbn);
                 if (histBook!= null && histBook.index >0 && histBook.title != null)
                 {
                     AddHistoryNewBook(histBook);
+                    //updateCurrentBook(histBook);
+                }
+            }
+            for (int i = userHistory.Count; i > 0 ; i--)
+            {
+                Book histBook = new Book();
+                histBook = books.Find(item => item.isbn == userHistory.ElementAt(i).isbn);
+                if (histBook != null && histBook.index > 0 && histBook.title != null)
+                {                    
                     updateCurrentBook(histBook);
+                    break;
                 }
             }
             #endregion
