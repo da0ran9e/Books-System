@@ -95,14 +95,17 @@ public class CsvToSqlConverter {
                     }
                 } catch (IllegalArgumentException e) {
                     System.out.println(e);
+                } catch (IOException e){
+                    System.out.println(e);
                 }
+
 
             }
 
             System.out.println("Chuyển đổi thành công.");
 
         } catch (IOException e) {
-            System.err.println("Xảy ra lỗi khi đọc/ghi file.");
+            System.out.println("Xảy ra lỗi khi đọc/ghi file.");
         }
     }
 }
