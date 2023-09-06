@@ -49,7 +49,7 @@ public class CsvToSqlConverter {
 
     public static int downloadImage(String imageUrl, String destinationFile) throws IOException {
 
-        if (Files.exists(Paths.get(destinationFile))) {
+        if (Files.exists(Paths.get(destinationFile)) && Files.size(Paths.get(destinationFile)) > 100) {
             System.out.println("File already exists: " + destinationFile);
             return 0; // Return 0 to indicate that the file was not downloaded
         }
