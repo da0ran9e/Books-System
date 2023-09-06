@@ -49,7 +49,7 @@ public class CsvToSqlConverter {
 
     public static int downloadImage(String imageUrl, String destinationFile) throws IOException {
 
-        if (Files.exists(Paths.get(destinationFile)) && Files.size(Paths.get(destinationFile)) > 100) {
+        if (Files.exists(Paths.get(destinationFile))) {
             System.out.println("File already exists: " + destinationFile);
             return 0; // Return 0 to indicate that the file was not downloaded
         }
@@ -88,7 +88,7 @@ public class CsvToSqlConverter {
                 System.out.println(removeQuotes(escapeSingleQuotes(columns.get(7))));
                 try {
                     if(downloadImage(removeQuotes(escapeSingleQuotes(columns.get(7))),"img/" + removeQuotes(escapeSingleQuotes(columns.get(0)))+".jpg")<100){
-                        if(downloadImage(removeQuotes(escapeSingleQuotes(columns.get(6))),"img/" + removeQuotes(escapeSingleQuotes(columns.get(0)))+".jpg")<500){
+                        if(downloadImage(removeQuotes(escapeSingleQuotes(columns.get(6))),"img/" + removeQuotes(escapeSingleQuotes(columns.get(0)))+".jpg")<50){
                         downloadImage(removeQuotes(escapeSingleQuotes(columns.get(5))),"img/" + removeQuotes(escapeSingleQuotes(columns.get(0)))+".jpg");
 
                     }
