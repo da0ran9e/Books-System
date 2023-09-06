@@ -78,21 +78,26 @@ public class CsvToSqlConverter {
         System.out.print("Nhập tên file CSV: ");
 
         inputFileName = scanner.next();
+System.out.print("Nhập tên file SQL đầu ra: ");
+        outputFileName = scanner.next();
 
         try (BufferedReader inputFile = new BufferedReader(new FileReader(inputFileName));
-             ) {
+             BufferedWriter outputFile = new BufferedWriter(new FileWriter(outputFileName))) {
+
 
             String line;
             while ((line = inputFile.readLine()) != null) {
                 List<String> columns = splitString(line, ';');
                 System.out.println(removeQuotes(escapeSingleQuotes(columns.get(7))));
                 try {
-                    if(downloadImage(removeQuotes(escapeSingleQuotes(columns.get(7))),"img/" + removeQuotes(escapeSingleQuotes(columns.get(0)))+".jpg")<100){
-                        if(downloadImage(removeQuotes(escapeSingleQuotes(columns.get(6))),"img/" + removeQuotes(escapeSingleQuotes(columns.get(0)))+".jpg")<50){
-                        downloadImage(removeQuotes(escapeSingleQuotes(columns.get(5))),"img/" + removeQuotes(escapeSingleQuotes(columns.get(0)))+".jpg");
+//                    if(downloadImage(removeQuotes(escapeSingleQuotes(columns.get(7))),"img/" + removeQuotes(escapeSingleQuotes(columns.get(0)))+".jpg")<100){
+//                        if(downloadImage(removeQuotes(escapeSingleQuotes(columns.get(6))),"img/" + removeQuotes(escapeSingleQuotes(columns.get(0)))+".jpg")<50){
+//                        downloadImage(removeQuotes(escapeSingleQuotes(columns.get(5))),"img/" + removeQuotes(escapeSingleQuotes(columns.get(0)))+".jpg");
+//}}
+                        outputFile.write("Invoke-WebRequest -Uri "+removeQuotes(escapeSingleQuotes(columns.get(7)))+" -OutFile img/" + removeQuotes(escapeSingleQuotes(columns.get(0)))+".jpg\n");
 
-                    }
-                    }
+
+
                 } catch (IllegalArgumentException e) {
                     System.out.println(e);
                 } catch (IOException e){
