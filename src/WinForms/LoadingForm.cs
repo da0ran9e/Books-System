@@ -136,16 +136,16 @@ namespace WinForms
             //library.CalculateScore();
             progressBar.Value = 95;
 
-            //MainForm mainForm = new MainForm(library);
-            AddingData addingData = new AddingData(library);
+            MainForm mainForm = new MainForm(library);
+            //AddingData addingData = new AddingData(library);
             this.Visible = false;
-            addingData.ShowDialog();
+            //addingData.ShowDialog();
 
             progressBar.Value = 100;
             await Task.Delay(5000);
 
 
-            //mainForm.ShowDialog();
+            mainForm.ShowDialog();
             
         }
 
