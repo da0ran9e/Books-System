@@ -5,6 +5,18 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.io.*;
+import java.net.*;
+import java.util.Scanner;
+import org.jsoup.Connection;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 
 public class CsvToSqlConverter {
     public static List<String> splitString(String str, char delimiter) {
@@ -35,35 +47,62 @@ public class CsvToSqlConverter {
         return result.toString();
     }
 
+    public static int downloadImage(String imageUrl, String destinationFile) throws IOException {
+
+        if (Files.exists(Paths.get(destinationFile))) {
+            System.out.println("File already exists: " + destinationFile);
+            return 0; // Return 0 to indicate that the file was not downloaded
+        }
+
+        Connection.Response response = Jsoup.connect(imageUrl).ignoreContentType(true).execute();
+        InputStream inputStream = response.bodyStream();
+        int size =0;
+        try (FileOutputStream outputStream = new FileOutputStream(destinationFile)) {
+            byte[] buffer = new byte[1024];
+            int bytesRead;
+            while ((bytesRead = inputStream.read(buffer)) != -1) {
+                outputStream.write(buffer, 0, bytesRead);
+                size += bytesRead;
+            }
+            System.out.println("Image downloaded "+ size +" successfully to: " + destinationFile);
+        } catch (IOException e) {
+            System.err.println("Error downloading the image: " + e.getMessage());
+        }
+        return size;
+    }
+
     public static void main(String[] args) {
         String inputFileName, outputFileName;
 
+        Scanner scanner = new Scanner(System.in);
         System.out.print("Nhập tên file CSV: ");
-        inputFileName = System.console().readLine();
 
-        System.out.print("Nhập tên file SQL đầu ra: ");
-        outputFileName = System.console().readLine();
+        inputFileName = scanner.next();
 
         try (BufferedReader inputFile = new BufferedReader(new FileReader(inputFileName));
-             BufferedWriter outputFile = new BufferedWriter(new FileWriter(outputFileName))) {
+             ) {
 
             String line;
             while ((line = inputFile.readLine()) != null) {
                 List<String> columns = splitString(line, ';');
+                System.out.println(removeQuotes(escapeSingleQuotes(columns.get(7))));
+                try {
+                    if(downloadImage(removeQuotes(escapeSingleQuotes(columns.get(7))),"img/" + removeQuotes(escapeSingleQuotes(columns.get(0)))+".jpg")<100){
+                        if(downloadImage(removeQuotes(escapeSingleQuotes(columns.get(6))),"img/" + removeQuotes(escapeSingleQuotes(columns.get(0)))+".jpg")<500){
+                        downloadImage(removeQuotes(escapeSingleQuotes(columns.get(5))),"img/" + removeQuotes(escapeSingleQuotes(columns.get(0)))+".jpg");
 
-                if (columns.size() > 0) {
-                    outputFile.write("insert into [books] ([isbn],[bookTitle],[bookAuthor],[yearOfPublication],[publisher],[imageURLS],[imageURLM],[imageURLL]) VALUES (N'"
-                            + removeQuotes(escapeSingleQuotes(columns.get(0))) + "', N'" + removeQuotes(escapeSingleQuotes(columns.get(1))) + "', N'" + removeQuotes(escapeSingleQuotes(columns.get(2))) + "', '"
-                            + removeQuotes(escapeSingleQuotes(columns.get(3))) + "', N'" + removeQuotes(escapeSingleQuotes(columns.get(4))) + "', N'" + removeQuotes(escapeSingleQuotes(columns.get(5))) + "', N'"
-                            + removeQuotes(escapeSingleQuotes(columns.get(6))) + "', N'" + removeQuotes(escapeSingleQuotes(columns.get(7))) + "');\n");
+                    }
+                    }
+                } catch (IllegalArgumentException e) {
+                    System.out.println(e);
                 }
+
             }
 
             System.out.println("Chuyển đổi thành công.");
 
         } catch (IOException e) {
             System.err.println("Xảy ra lỗi khi đọc/ghi file.");
-            e.printStackTrace();
         }
     }
 }
