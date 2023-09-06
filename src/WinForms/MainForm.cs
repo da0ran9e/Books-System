@@ -1219,7 +1219,7 @@ namespace WinForms
 
         private void updateCurrentBook(Book book)
         {
-            if (book.index < 1||!books.Contains(book)) { return; }
+            if (book == null || book.index < 1||!books.Contains(book)) { return; }
             ClearList(mainCategoryPanel, "newCategoryBook");
             ClearList(authormainFlowPanel, "authorBook");
 
