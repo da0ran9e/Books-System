@@ -90,10 +90,10 @@ System.out.print("Nhập tên file SQL đầu ra: ");
                 List<String> columns = splitString(line, ';');
                 System.out.println(removeQuotes(escapeSingleQuotes(columns.get(7))));
                 try {
-//                    if(downloadImage(removeQuotes(escapeSingleQuotes(columns.get(7))),"img/" + removeQuotes(escapeSingleQuotes(columns.get(0)))+".jpg")<100){
-//                        if(downloadImage(removeQuotes(escapeSingleQuotes(columns.get(6))),"img/" + removeQuotes(escapeSingleQuotes(columns.get(0)))+".jpg")<50){
-//                        downloadImage(removeQuotes(escapeSingleQuotes(columns.get(5))),"img/" + removeQuotes(escapeSingleQuotes(columns.get(0)))+".jpg");
-//}}
+                    if(downloadImage(removeQuotes(escapeSingleQuotes(columns.get(7))),"img/" + removeQuotes(escapeSingleQuotes(columns.get(0)))+".jpg")<100){
+                        if(downloadImage(removeQuotes(escapeSingleQuotes(columns.get(6))),"img/" + removeQuotes(escapeSingleQuotes(columns.get(0)))+".jpg")<50){
+                        downloadImage(removeQuotes(escapeSingleQuotes(columns.get(5))),"img/" + removeQuotes(escapeSingleQuotes(columns.get(0)))+".jpg");
+}}
                         outputFile.write("Invoke-WebRequest -Uri "+removeQuotes(escapeSingleQuotes(columns.get(7)))+" -OutFile img/" + removeQuotes(escapeSingleQuotes(columns.get(0)))+".jpg\n");
 
 
