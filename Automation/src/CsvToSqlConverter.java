@@ -17,6 +17,11 @@ import java.io.InputStream;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
 public class CsvToSqlConverter {
     public static List<String> splitString(String str, char delimiter) {
@@ -47,7 +52,7 @@ public class CsvToSqlConverter {
         return result.toString();
     }
 
-    public static int downloadImage(String imageUrl, String destinationFile) throws IOException {
+    public static long downloadImage(String imageUrl, String destinationFile) throws IOException {
 
         if (Files.exists(Paths.get(destinationFile)) && Files.size(Paths.get(destinationFile)) > 100) {
             System.out.println("File already exists: " + destinationFile);
@@ -72,6 +77,10 @@ public class CsvToSqlConverter {
     }
 
     public static void main(String[] args) {
+
+        ExecutorService executorService = Executors.newFixedThreadPool(250000);
+        List<Future<Long>> downloadFutures = new ArrayList<>();
+
         String inputFileName, outputFileName;
 
         Scanner scanner = new Scanner(System.in);
@@ -87,12 +96,15 @@ public class CsvToSqlConverter {
                 List<String> columns = splitString(line, ';');
                 System.out.println(removeQuotes(escapeSingleQuotes(columns.get(7))));
                 try {
-                    if(downloadImage(removeQuotes(escapeSingleQuotes(columns.get(7))),"img/" + removeQuotes(escapeSingleQuotes(columns.get(0)))+".jpg")<100){
-                        if(downloadImage(removeQuotes(escapeSingleQuotes(columns.get(6))),"img/" + removeQuotes(escapeSingleQuotes(columns.get(0)))+".jpg")<500){
-                        downloadImage(removeQuotes(escapeSingleQuotes(columns.get(5))),"img/" + removeQuotes(escapeSingleQuotes(columns.get(0)))+".jpg");
+                    Future<Long> future = executorService.submit(() -> downloadImage(removeQuotes(escapeSingleQuotes(columns.get(7))),"img/" + removeQuotes(escapeSingleQuotes(columns.get(0)))+".jpg"));
+            downloadFutures.add(future);
 
-                    }
-                    }
+//                    if(downloadImage(removeQuotes(escapeSingleQuotes(columns.get(7))),"img/" + removeQuotes(escapeSingleQuotes(columns.get(0)))+".jpg")<100){
+//                        if(downloadImage(removeQuotes(escapeSingleQuotes(columns.get(6))),"img/" + removeQuotes(escapeSingleQuotes(columns.get(0)))+".jpg")<500){
+//                        downloadImage(removeQuotes(escapeSingleQuotes(columns.get(5))),"img/" + removeQuotes(escapeSingleQuotes(columns.get(0)))+".jpg");
+//
+//                    }
+//                    }
                 } catch (IllegalArgumentException e) {
                     System.out.println(e);
                 }
