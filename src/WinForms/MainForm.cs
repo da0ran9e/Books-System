@@ -246,6 +246,7 @@ namespace WinForms
 
 
             favFlowPanel.Controls.Add(newBookTable1);
+            favoritePanel.SetFlowBreak(newBookTable1, true);
 
 
             // 
@@ -1492,11 +1493,6 @@ namespace WinForms
             historyPanel.Height = mainFlowPanel.Height + difW + 12;
         }
 
-        private void MainForm_ResizeBegin(object sender, EventArgs e)
-        {
-            difH = homeFlowPanel.Height - mainFlowPanel.Height;
-            difW = homeFlowPanel.Width - mainFlowPanel.Width;
-        }
         #endregion
 
         #region toolStrip handler

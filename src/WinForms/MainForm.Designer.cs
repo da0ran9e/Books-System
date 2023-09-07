@@ -2418,6 +2418,7 @@ namespace WinForms
             favFlowPanel.Controls.Add(favoriteLabel);
             favFlowPanel.Controls.Add(favTableHead);
             favoritePanel.SetFlowBreak(favFlowPanel, true);
+            favoritePanel.SetFlowBreak(favTableHead, true);
             favFlowPanel.Location = new Point(0, 27);
             favFlowPanel.Margin = new Padding(0, 27, 0, 150);
             favFlowPanel.Name = "favFlowPanel";
@@ -4119,7 +4120,6 @@ namespace WinForms
             toolTip1.SetToolTip(this, "user");
             Load += MainForm_Load;
             Paint += MainForm_Resize;
-            ResizeBegin += MainForm_ResizeBegin;
             Resize += MainForm_Resize;
             containerMainTableLayout.ResumeLayout(false);
             verticalMenuBar.ResumeLayout(false);
