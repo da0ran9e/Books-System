@@ -141,7 +141,7 @@ namespace WinForms
             }
         } 
 
-        public void CalculateScore(Book b) //calculate the average score of books
+        public Score CalculateScore(Book b) //calculate the average score of books
         {
             int score = 0; int total = 0; int count = 0;
             List<UserRating> filter = bookRatings.Where(item => item.isbn == b.isbn).ToList();
@@ -156,10 +156,11 @@ namespace WinForms
             if (count > 0)
             {
                 score = total / count;
-                this.bookScores.Add(b, new Score(score, count));
+                this.bookScores.TryAdd(b, new Score(score, count));
             }
             else
-                this.bookScores.Add(b, new Score(0, 0));
+                this.bookScores.TryAdd(b, new Score(0, 0));
+            return new Score(score, count);
         }
     }
 }

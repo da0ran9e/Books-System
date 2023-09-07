@@ -54,6 +54,7 @@ namespace WinForms
 
         #region Windows Form Designer generated code
 
+        private Library library;
         private User reader;
         private List<Book> books = new List<Book>();
         private List<UserRating> ratings = new List<UserRating>();

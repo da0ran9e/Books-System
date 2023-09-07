@@ -44,7 +44,6 @@ namespace WinForms
 
         public void GetBookImage(Book book)
         {
-            return;
             if (book == null) return;
             string imgPath = "../../../../../assets/LImgs/" + book.isbn + ".jpg";
             try

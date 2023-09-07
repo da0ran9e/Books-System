@@ -1220,29 +1220,55 @@ namespace WinForms
         private void updateCurrentBook(Book book)
         {
             if (book == null || book.index < 1||!books.Contains(book)) { return; }
+
+            //remove the recent book leftover
             ClearList(mainCategoryPanel, "newCategoryBook");
             ClearList(authormainFlowPanel, "authorBook");
-
+            //get book cover image
             BookCover bookCover = new BookCover(book, true);
             Image currentImg = bookCover.image;
-
+            //get related books
             List<Book> categoryBooks = books.Where(item => item.publisher == book.publisher).ToList();
             List<Book> authorBooks = books.Where(item => item.author == book.author).ToList();
 
+            //update the vertical content region
             contentImg.Image = SetHeight(currentImg, contentImg.Height);
-            currentLabel.Image = SetHeight(currentImg, currentLabel.Height);
-
             contentTitle.Text = book.title;
             authorLabel.Text = book.author;
             publisherLabel.Text = book.publisher;
             contentYear.Text = book.year.ToString();
-
+            //update the horizontal bottom bar
+            currentLabel.Image = SetHeight(currentImg, currentLabel.Height);
             currentBookTitle.Text = book.title;
             currentBookAuthor.Text = book.author;
             currentPublisher.Text = book.publisher;
             yearOfPublication.Text = book.year.ToString();
-
-            if(categoryBooks.Count<1)
+            int score = 0;
+            int count = 0;
+            score = library.CalculateScore(book).avgScore;
+            count = library.CalculateScore(book).totalRate;
+            currentBookRate.Text = score.ToString()+"("+count+")";
+            if(score > 9)
+            {
+                currentBookRate.Image = Image.FromFile("../../../../../assets/icons/E_heart100.png");
+            }
+            else if (score > 8)
+            {
+                currentBookRate.Image = Image.FromFile("../../../../../assets/icons/E_heart80.png");
+            }
+            else if (score > 5)
+            {
+                currentBookRate.Image = Image.FromFile("../../../../../assets/icons/E_heart50.png");
+            }
+            else if (score > 3)
+            {
+                currentBookRate.Image = Image.FromFile("../../../../../assets/icons/E_heart30.png");
+            }
+            else if (score > 0)
+            {
+                currentBookRate.Image = Image.FromFile("../../../../../assets/icons/E_heart.png");
+            }
+            if (categoryBooks.Count<1)
             {
                 categoryFlowPanel0.Visible = false;
             }
@@ -1272,9 +1298,7 @@ namespace WinForms
                     }
                 }
 
-                string imgPath1 = "../../../../../assets/LImgs/temp" + book1.index + ".jpg";
-                if (!File.Exists(imgPath1)) new BookCover(book1);
-                categoryImg0.Image = SetHeight(Image.FromFile(imgPath1), categoryImg0.Height);
+                categoryImg0.Image = SetHeight(new BookCover(book1).image, categoryImg0.Height);
                 categoryTitle0.Text = book1.title;
                 categoryAuthor0.Text = book1.author;
             }
@@ -1662,6 +1686,7 @@ namespace WinForms
 
         public MainForm(Library library)
         {
+            this.library = library;
             this.reader = library.reader;
             this.books = library.bookSelves;
             this.ratings = library.bookRatings;
