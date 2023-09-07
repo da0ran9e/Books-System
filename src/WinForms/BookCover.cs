@@ -51,6 +51,7 @@ namespace WinForms
                 // if the image does not exist, then get it
                 if (!File.Exists(imgPath))
                 {
+                    return;
                     using (Stream stream = LoaderFromURL(book.lURL))
                     {
                         Image image = Image.FromStream(stream);

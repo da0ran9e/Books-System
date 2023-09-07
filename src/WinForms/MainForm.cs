@@ -488,7 +488,7 @@ namespace WinForms
             {
                 if (elem.Name == elemKey)
                 {
-                    elem.Size = new Size((mainCategoryPanel.Width) / 2 - 10, 88);
+                    elem.Size = new Size((mainCategoryPanel.Width) / 2 - 12, 88);
                 }
             }
         }
@@ -537,7 +537,7 @@ namespace WinForms
             newCategoryBook.Location = new Point(3, 85);
             newCategoryBook.Margin = new Padding(0);
             newCategoryBook.Name = "newCategoryBook";
-            newCategoryBook.Size = new Size((mainCategoryPanel.Width) / 2 - 10, 88);
+            newCategoryBook.Size = new Size((mainCategoryPanel.Width) / 2 - 12, 88);
             newCategoryBook.TabIndex = 4;
             // 
             // newCategoryBookTable
@@ -663,7 +663,7 @@ namespace WinForms
             authorBook.Location = new Point(3, 85);
             authorBook.Margin = new Padding(0);
             authorBook.Name = "authorBook";
-            authorBook.Size = new Size((mainCategoryPanel.Width) / 2 - 10, 88);
+            authorBook.Size = new Size((mainCategoryPanel.Width) / 2 - 12, 88);
             authorBook.TabIndex = 4;
             // 
             // authorBookTable
@@ -1436,23 +1436,23 @@ namespace WinForms
             contentContainer.Height = mainFlowPanel.Height + difH + 15;
             //homeFlowPanel resize
             homeFlowPanel.Height = mainFlowPanel.Height + difH + 10;
-            homeFlowPanel.Width = mainFlowPanel.Width + difW + 10;
+            homeFlowPanel.Width = mainFlowPanel.Width + difW + 12;
 
             helloPanel.Width = homeFlowPanel.Width;
-            helloElement0.Width = (homeFlowPanel.Width) / 2 - 10;
-            helloElement1.Width = (homeFlowPanel.Width) / 2 - 10;
-            helloElement2.Width = (homeFlowPanel.Width) / 2 - 10;
-            helloElement3.Width = (homeFlowPanel.Width) / 2 - 10;
+            helloElement0.Width = (homeFlowPanel.Width) / 2 - 12;
+            helloElement1.Width = (homeFlowPanel.Width) / 2 - 12;
+            helloElement2.Width = (homeFlowPanel.Width) / 2 - 12;
+            helloElement3.Width = (homeFlowPanel.Width) / 2 - 12;
 
             recommentPanel.Width = homeFlowPanel.Width;
-            recommentElement0.Width = (homeFlowPanel.Width) / 2 - 10;
-            recommentElement1.Width = (homeFlowPanel.Width) / 2 - 10;
-            recommentElement2.Width = (homeFlowPanel.Width) / 2 - 10;
-            recommentElement3.Width = (homeFlowPanel.Width) / 2 - 10;
+            recommentElement0.Width = (homeFlowPanel.Width) / 2 - 12;
+            recommentElement1.Width = (homeFlowPanel.Width) / 2 - 12;
+            recommentElement2.Width = (homeFlowPanel.Width) / 2 - 12;
+            recommentElement3.Width = (homeFlowPanel.Width) / 2 - 12;
 
             //searchFlowPanel resize
             searchFlowPanel.Height = mainFlowPanel.Height + difH + 10;
-            searchFlowPanel.Width = mainFlowPanel.Width + difW + 10;
+            searchFlowPanel.Width = mainFlowPanel.Width + difW + 12;
 
             searchPanel.Width = mainFlowPanel.Width / 3 + 150;
             searchPanel.Margin = new Padding((searchFlowPanel.Width - searchPanel.Width) / 2, 30, 3, 30);
@@ -1472,24 +1472,24 @@ namespace WinForms
             otherResult9.Width = searchFlowPanel.Width;
             //bestBook resize
             bestBookFlowPanel.Height = mainFlowPanel.Height + difH + 10;
-            bestBookFlowPanel.Width = mainFlowPanel.Width + difW + 10;
+            bestBookFlowPanel.Width = mainFlowPanel.Width + difW + 12;
 
             bestBookPanel.Width = mainFlowPanel.Width + difW;
-            bestBookElement0.Width = (mainFlowPanel.Width + difW) / 2 - 10;
-            bestBookElement1.Width = (mainFlowPanel.Width + difW) / 2 - 10;
-            bestBookElement2.Width = (mainFlowPanel.Width + difW) / 2 - 10;
-            bestBookElement3.Width = (mainFlowPanel.Width + difW) / 2 - 10;
+            bestBookElement0.Width = (mainFlowPanel.Width + difW) / 2 - 12;
+            bestBookElement1.Width = (mainFlowPanel.Width + difW) / 2 - 12;
+            bestBookElement2.Width = (mainFlowPanel.Width + difW) / 2 - 12;
+            bestBookElement3.Width = (mainFlowPanel.Width + difW) / 2 - 12;
             //favorite resize
-            favoritePanel.Width = mainFlowPanel.Width + difW + 10;
-            favoritePanel.Height = mainFlowPanel.Height + difW + 10;
+            favoritePanel.Width = mainFlowPanel.Width + difW + 12;
+            favoritePanel.Height = mainFlowPanel.Height + difW + 12;
             //category resize
-            categoriesPanel.Width = mainFlowPanel.Width + difW + 10;
-            categoriesPanel.Height = mainFlowPanel.Height + difW + 10;
+            categoriesPanel.Width = mainFlowPanel.Width + difW + 12;
+            categoriesPanel.Height = mainFlowPanel.Height + difW + 12;
             ResizeList(mainCategoryPanel, "newCategoryBook");
             ResizeList(authormainFlowPanel, "authorBook");
             //history resize 
-            historyPanel.Width = mainFlowPanel.Width + difW + 10;
-            historyPanel.Height = mainFlowPanel.Height + difW + 10;
+            historyPanel.Width = mainFlowPanel.Width + difW + 12;
+            historyPanel.Height = mainFlowPanel.Height + difW + 12;
         }
 
         private void MainForm_ResizeBegin(object sender, EventArgs e)
@@ -1702,7 +1702,68 @@ namespace WinForms
         //
         private async void MainForm_Load(object sender, EventArgs e)
         {
+            #region resize 
+            difH = homeFlowPanel.Height - mainFlowPanel.Height;
+            difW = homeFlowPanel.Width - mainFlowPanel.Width;
+            //content resize
+            contentContainer.Height = mainFlowPanel.Height + difH + 15;
+            //homeFlowPanel resize
+            homeFlowPanel.Height = mainFlowPanel.Height + difH + 10;
+            homeFlowPanel.Width = mainFlowPanel.Width + difW + 12;
 
+            helloPanel.Width = homeFlowPanel.Width;
+            helloElement0.Width = (homeFlowPanel.Width) / 2 - 12;
+            helloElement1.Width = (homeFlowPanel.Width) / 2 - 12;
+            helloElement2.Width = (homeFlowPanel.Width) / 2 - 12;
+            helloElement3.Width = (homeFlowPanel.Width) / 2 - 12;
+
+            recommentPanel.Width = homeFlowPanel.Width;
+            recommentElement0.Width = (homeFlowPanel.Width) / 2 - 12;
+            recommentElement1.Width = (homeFlowPanel.Width) / 2 - 12;
+            recommentElement2.Width = (homeFlowPanel.Width) / 2 - 12;
+            recommentElement3.Width = (homeFlowPanel.Width) / 2 - 12;
+
+            //searchFlowPanel resize
+            searchFlowPanel.Height = mainFlowPanel.Height + difH + 10;
+            searchFlowPanel.Width = mainFlowPanel.Width + difW + 12;
+
+            searchPanel.Width = mainFlowPanel.Width / 3 + 150;
+            searchPanel.Margin = new Padding((searchFlowPanel.Width - searchPanel.Width) / 2, 30, 3, 30);
+
+            bestMatchPanel.Width = searchFlowPanel.Width;
+            topSearchPanel.Width = searchFlowPanel.Width / 2 - 6;
+
+            otherResult0.Width = searchFlowPanel.Width;
+            otherResult1.Width = searchFlowPanel.Width;
+            otherResult2.Width = searchFlowPanel.Width;
+            otherResult3.Width = searchFlowPanel.Width;
+            otherResult4.Width = searchFlowPanel.Width;
+            otherResult5.Width = searchFlowPanel.Width;
+            otherResult6.Width = searchFlowPanel.Width;
+            otherResult7.Width = searchFlowPanel.Width;
+            otherResult8.Width = searchFlowPanel.Width;
+            otherResult9.Width = searchFlowPanel.Width;
+            //bestBook resize
+            bestBookFlowPanel.Height = mainFlowPanel.Height + difH + 10;
+            bestBookFlowPanel.Width = mainFlowPanel.Width + difW + 12;
+
+            bestBookPanel.Width = mainFlowPanel.Width + difW;
+            bestBookElement0.Width = (mainFlowPanel.Width + difW) / 2 - 12;
+            bestBookElement1.Width = (mainFlowPanel.Width + difW) / 2 - 12;
+            bestBookElement2.Width = (mainFlowPanel.Width + difW) / 2 - 12;
+            bestBookElement3.Width = (mainFlowPanel.Width + difW) / 2 - 12;
+            //favorite resize
+            favoritePanel.Width = mainFlowPanel.Width + difW + 12;
+            favoritePanel.Height = mainFlowPanel.Height + difW + 12;
+            //category resize
+            categoriesPanel.Width = mainFlowPanel.Width + difW + 12;
+            categoriesPanel.Height = mainFlowPanel.Height + difW + 12;
+            ResizeList(mainCategoryPanel, "newCategoryBook");
+            ResizeList(authormainFlowPanel, "authorBook");
+            //history resize 
+            historyPanel.Width = mainFlowPanel.Width + difW + 12;
+            historyPanel.Height = mainFlowPanel.Height + difW + 12;
+            #endregion
             // get history list
             List<UserRating> userHistory = new List<UserRating>();
             foreach (UserRating rating in this.ratings)

@@ -142,7 +142,7 @@ namespace WinForms
             //addingData.ShowDialog();
 
             progressBar.Value = 100;
-            await Task.Delay(5000);
+            await Task.Delay(500);
 
 
             mainForm.ShowDialog();

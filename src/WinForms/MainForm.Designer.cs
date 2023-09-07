@@ -4118,6 +4118,7 @@ namespace WinForms
             Text = "MainForm";
             toolTip1.SetToolTip(this, "user");
             Load += MainForm_Load;
+            Paint += MainForm_Resize;
             ResizeBegin += MainForm_ResizeBegin;
             Resize += MainForm_Resize;
             containerMainTableLayout.ResumeLayout(false);
