@@ -47,25 +47,25 @@ install [packages]()
 pip install -r requirements.txt
 ```
 
-## C# Windows Forms .NET
+### C# Windows Forms .NET
 A Windows Form C# application utilizing the .NET framework. It leverages the data source and algorithms previously developed from a prior [project](https://github.com/da0ran9e/Book-Recommendation-System).<br />
 
 ![MainForm 2023-09-08 15-21-12](https://github.com/da0ran9e/Books-System/assets/98570451/63761e59-f59a-4a01-a0c1-cea236c197d2)
 
 
-## Python backend algorithm
+### Python backend algorithm
 [Python code](/backend/drf_book/base/recommendation_module.py) for a book recommendation system using collaborative filtering. It leverages the BX dataset for data loading, preprocessing, and user similarity calculations. The system suggests books to users based on their preferences and the preferences of similar users. <br />
 [# Create user-item matrix](https://github.com/da0ran9e/Books-System/blob/88fcad1d5682debac559cfef3459acb3780f7382/backend/drf_book/base/recommendation_module.py#L62-L72)
 
-## Python Django Rest Framework API 
+### Python Django Rest Framework API 
 ```
 /recommendations/<UID>
 ```
 [@api_view(['GET'])](https://github.com/da0ran9e/Books-System/blob/88fcad1d5682debac559cfef3459acb3780f7382/backend/drf_book/api/views.py#L67-L79)
 
-## Java Image downloader
+### Java Image downloader
 Using [JSoup](https://github.com/da0ran9e/Books-System/blob/main/Automation/jsoup-1.15.4.jar) java library to make HTTP protocol
 
-## C/C++ CSV/SQL converter
+### C/C++ CSV/SQL converter
 
 [CSV to SQL converter](https://github.com/da0ran9e/Books-System/blob/main/CSV2SQL.cpp)
