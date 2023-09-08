@@ -41,6 +41,12 @@ A library management software
     <img src="https://www.vectorlogo.zone/logos/gnu_bash/gnu_bash-icon.svg" alt="bash" width="40" height="40"/> 
   </a> 
 
+## Setup
+install [packages]()
+```bash
+pip install -r requirements.txt
+```
+
 ## C# Windows Forms .NET
 A Windows Form C# application utilizing the .NET framework. It leverages the data source and algorithms previously developed from a prior [project](https://github.com/da0ran9e/Book-Recommendation-System).<br />
 
