@@ -1,6 +1,8 @@
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
-from .recommendation_module import get_user_ratings_and_books
+from django.http import JsonResponse
+from base.recommendation_module import get_user_ratings_and_books, load_and_preprocess_data, recommend_books_for_user
+from base.recommendation_module import *
 from rest_framework import status
 from base.models import Item
 from base.models import Book
@@ -61,3 +63,17 @@ def get_user_recommendations(request):
 
         return Response(response_data)
     return Response(serializer.errors, status=400)
+
+@api_view(['GET'])
+def recommendations(request, user_id):
+    # Load and preprocess the data
+    book, user, rating, matrix_norm, user_similarity_matrix = load_and_preprocess_data()
+
+    # Call the recommend_books_for_user function
+    recommended_isbns = recommend_books_for_user(user_id, book, user, rating, matrix_norm, user_similarity_matrix)
+
+    if isinstance(recommended_isbns, list):
+        # Return the recommended ISBNs as JSON
+        return JsonResponse({'recommended_isbns': recommended_isbns})
+    else:
+        return JsonResponse({'error': recommended_isbns})
