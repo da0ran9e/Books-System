@@ -1,0 +1,10 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\backend",
+    "\\backend\\drf_book",
+    "\\backend\\drf_book\\base"
+  ],
+  "SelectedNode": "\\backend\\drf_book\\base\\models.py",
+  "PreviewInSolutionExplorer": false
+}
