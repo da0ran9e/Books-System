@@ -42,19 +42,20 @@ A library management software
   </a> 
 
 ## Setup
-Install [packages]()
+### Install [packages]()
 ```bash
 pip install -r requirements.txt
 ```
 > [!IMPORTANT]  
 > Project cannot run on Pandas version of 2.0.0 and higher! <br />
-Run Django server
+
+### Run Django server
 ```bash
 python backend/drf_book/manage.py migrate
 python backend/drf_book/manage.py runserver
 ```
 
-### C# Windows Forms .NET
+## C# Windows Forms .NET
 A Windows Form C# application utilizing the .NET framework. It leverages the data source and algorithms previously developed from a prior [project](https://github.com/da0ran9e/Book-Recommendation-System).<br />
 
 ![MainForm 2023-09-08 15-21-12](https://github.com/da0ran9e/Books-System/assets/98570451/63761e59-f59a-4a01-a0c1-cea236c197d2)
