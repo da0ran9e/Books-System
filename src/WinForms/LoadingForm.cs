@@ -5,22 +5,31 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Net.Http;
 using System.Reflection;
 using System.Reflection.Emit;
 using System.Text;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Net.WebRequestMethods;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace WinForms
 {
     public partial class LoadingForm : Form
     {
-        
+
 
         public int value;
         public int totalValue;
         public string readerName;
+        public class responseString
+        {
+            [JsonPropertyName("recommended_isbns")]
+            public List<string> isbn { get; set; }
+        }
 
         public LoadingForm(string readerName)
         {
@@ -120,6 +129,54 @@ namespace WinForms
                 }
             }
         }
+
+        private async Task<string> MakeRequest(string url)
+        {
+            HttpClient client = new HttpClient();
+            try
+            {
+                HttpResponseMessage response = await client.GetAsync(url);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    string content = await response.Content.ReadAsStringAsync();
+                    return content;
+                }
+                else
+                {
+                    Console.WriteLine($"Error: {response.StatusCode} - {response.ReasonPhrase}");
+                    return null;
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Exception: {ex.Message}");
+                return null;
+            }
+        }
+
+        private List<string> ReadRequest(string jsonString)
+        {
+            List<string> result = new List<string>();
+            try
+            {
+                var response = JsonSerializer.Deserialize<responseString>(jsonString);
+
+                // Access the recommended ISBNs
+                var recommendedIsbns = response.isbn;
+
+                foreach (var isbn in recommendedIsbns)
+                {
+                    result.Add(isbn.ToString());
+                }
+            }
+            catch (Exception ex)
+            {
+                
+            }
+            return result;
+        }
+
         private async void LoadingForm_LoadAsync2(object sender, EventArgs e)
         {
             this.BackColor = System.Drawing.ColorTranslator.FromHtml("#010000");
@@ -127,30 +184,44 @@ namespace WinForms
             EnableBlur();
 
             Library library = new Library();
+
+            progressLabel.Text = "Getting data!";
+
             library.GetReaderInformation(readerName);
             progressBar.Value = 10;
+            progressLabel.Text = "Getting books data!";
             library.GetBooks();
             progressBar.Value = 40;
+            progressLabel.Text = "Getting rating data!";
             library.GetRatings();
             progressBar.Value = 70;
-            //library.CalculateScore();
+
+            progressLabel.Text = "Making request!";
+            int uid = library.reader.userId;
+            string apiUrl = "http://127.0.0.1:8000/recommendations/" + uid.ToString();
+            string response = await MakeRequest(apiUrl);
+            progressLabel.Text = "Processing request!";
+            List<string> result = ReadRequest(response);
+            foreach (string item in result)
+            {
+                progressLabel.Text = item;
+            }
+            
+
             progressBar.Value = 95;
-
+            //progressLabel.Text = response;
             MainForm mainForm = new MainForm(library);
-            //AddingData addingData = new AddingData(library);
-            this.Visible = false;
-            //addingData.ShowDialog();
-
+            //this.Visible = false;
             progressBar.Value = 100;
             await Task.Delay(500);
 
 
-            mainForm.ShowDialog();
-            
+            //mainForm.ShowDialog();
+
         }
 
 
-        
+
 
     }
 }

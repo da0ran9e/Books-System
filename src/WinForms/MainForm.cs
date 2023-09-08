@@ -120,10 +120,10 @@ namespace WinForms
         //    {
         //        HttpClient client = new HttpClient();
         //        client.DefaultRequestHeaders.Add("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.63 Safari/537.36");
-        //        HttpResponseMessage response = client.GetAsync(url).Result;
-        //        response.EnsureSuccessStatusCode();
+        //        HttpResponseMessage responseString = client.GetAsync(url).Result;
+        //        responseString.EnsureSuccessStatusCode();
 
-        //        return response.Content.ReadAsStreamAsync().Result;
+        //        return responseString.Content.ReadAsStreamAsync().Result;
         //    }
         //    catch
         //    {

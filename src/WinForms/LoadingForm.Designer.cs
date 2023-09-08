@@ -58,9 +58,11 @@ namespace WinForms
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoadingForm));
             tableLayoutPanel1 = new TableLayoutPanel();
-            loadingLabel = new Label();
             grad0 = new GradientPanel();
+            progressLabel = new Label();
+            loadingLabel = new Label();
             progressBar = new ProgressBar();
             tableLayoutPanel1.SuspendLayout();
             grad0.SuspendLayout();
@@ -84,29 +86,42 @@ namespace WinForms
             tableLayoutPanel1.Size = new Size(1026, 569);
             tableLayoutPanel1.TabIndex = 0;
             // 
-            // loadingLabel
-            // 
-            loadingLabel.AutoSize = true;
-            loadingLabel.Font = new Font("Exo ExtraBold", 22.1999989F, FontStyle.Bold, GraphicsUnit.Point);
-            loadingLabel.Location = new Point(270, 205);
-            loadingLabel.Name = "loadingLabel";
-            loadingLabel.Size = new Size(186, 52);
-            loadingLabel.TabIndex = 1;
-            loadingLabel.Text = "Loading...";
-            // 
             // grad0
             // 
+            grad0.BackgroundImage = (Image)resources.GetObject("grad0.BackgroundImage");
+            grad0.BackgroundImageLayout = ImageLayout.Stretch;
+            grad0.Controls.Add(progressLabel);
             grad0.Controls.Add(loadingLabel);
             grad0.Controls.Add(progressBar);
             grad0.Dock = DockStyle.Fill;
             grad0.GradientAngle = 30F;
-            grad0.GradientPrimaryColor = Color.Red;
+            grad0.GradientPrimaryColor = Color.FromArgb(192, 255, 255);
             grad0.GradientSecondaryColor = Color.Transparent;
             grad0.Location = new Point(163, 59);
             grad0.Margin = new Padding(0);
             grad0.Name = "grad0";
             grad0.Size = new Size(700, 450);
             grad0.TabIndex = 0;
+            // 
+            // progressLabel
+            // 
+            progressLabel.AutoSize = true;
+            progressLabel.Location = new Point(270, 276);
+            progressLabel.Name = "progressLabel";
+            progressLabel.Size = new Size(36, 20);
+            progressLabel.TabIndex = 2;
+            progressLabel.Text = "N/A";
+            // 
+            // loadingLabel
+            // 
+            loadingLabel.AutoSize = true;
+            loadingLabel.Font = new Font("Exo ExtraBold", 22.1999989F, FontStyle.Bold, GraphicsUnit.Point);
+            loadingLabel.ForeColor = Color.DodgerBlue;
+            loadingLabel.Location = new Point(270, 205);
+            loadingLabel.Name = "loadingLabel";
+            loadingLabel.Size = new Size(186, 52);
+            loadingLabel.TabIndex = 1;
+            loadingLabel.Text = "Loading...";
             // 
             // progressBar
             // 
@@ -130,7 +145,6 @@ namespace WinForms
             StartPosition = FormStartPosition.CenterScreen;
             Text = "AdFeedForm";
             WindowState = FormWindowState.Maximized;
-            //Load += LoadingForm_LoadAsync;
             Load += LoadingForm_LoadAsync2;
             tableLayoutPanel1.ResumeLayout(false);
             grad0.ResumeLayout(false);
@@ -144,5 +158,6 @@ namespace WinForms
         private GradientPanel grad0;
         private ProgressBar progressBar;
         private Label loadingLabel;
+        private Label progressLabel;
     }
 }
