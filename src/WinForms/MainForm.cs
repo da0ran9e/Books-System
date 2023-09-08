@@ -1680,12 +1680,13 @@ namespace WinForms
 
         //MainForm only work went user login successfully
 
-        public MainForm(Library library)
+        public MainForm(Library library, List<string> recommendations)
         {
             this.library = library;
             this.reader = library.reader;
             this.books = library.bookSelves;
             this.ratings = library.bookRatings;
+            this.recommendations = recommendations;
 
             this.FormBorderStyle = FormBorderStyle.None;
             InitializeComponent();
@@ -2063,88 +2064,159 @@ namespace WinForms
 
             #region test application graphic by getting random index of books
             Random rand = new Random();
-            int randC = rand.Next(1, 100000);
+            int randC = rand.Next(1, 10);
             
             Book book = books.Find(item => item.index==randC);
             Image currentImg = new BookCover(book).image;
 
             updateCurrentBook(book);
 
-            //helloPanel
-            int randH0 = rand.Next(1, 100000);
-            int randH1 = rand.Next(1, 100000);
-            int randH2 = rand.Next(1, 100000);
-            int randH3 = rand.Next(1, 100000);
-            Book helloBook0 = books.ElementAt(randH0);
-            Book helloBook1 = books.ElementAt(randH1);
-            Book helloBook2 = books.ElementAt(randH2);
-            Book helloBook3 = books.ElementAt(randH3);
-            helloElementImg0.Image = SetHeight(new BookCover(helloBook0).image, helloElementImg0.Height);
-            helloElementImg1.Image = SetHeight(new BookCover(helloBook1).image, helloElementImg1.Height);
-            helloElementImg2.Image = SetHeight(new BookCover(helloBook2).image, helloElementImg2.Height);
-            helloElementImg3.Image = SetHeight(new BookCover(helloBook3).image, helloElementImg3.Height);
+            if (recommendations.Count < 10 )
+            {
+                //helloPanel
+                int randH0 = rand.Next(1, 100000);
+                int randH1 = rand.Next(1, 100000);
+                int randH2 = rand.Next(1, 100000);
+                int randH3 = rand.Next(1, 100000);
+                Book helloBook0 = books.ElementAt(randH0);
+                Book helloBook1 = books.ElementAt(randH1);
+                Book helloBook2 = books.ElementAt(randH2);
+                Book helloBook3 = books.ElementAt(randH3);
+                helloElementImg0.Image = SetHeight(new BookCover(helloBook0).image, helloElementImg0.Height);
+                helloElementImg1.Image = SetHeight(new BookCover(helloBook1).image, helloElementImg1.Height);
+                helloElementImg2.Image = SetHeight(new BookCover(helloBook2).image, helloElementImg2.Height);
+                helloElementImg3.Image = SetHeight(new BookCover(helloBook3).image, helloElementImg3.Height);
 
-            helloElementTitle0.Text = helloBook0.title;
-            helloAuthor0.Text = helloBook0.author;
-            helloElementTitle1.Text = helloBook1.title;
-            helloAuthor1.Text = helloBook1.author;
-            helloElementTitle2.Text = helloBook2.title;
-            helloAuthor2.Text = helloBook2.author;
-            helloElementTitle3.Text = helloBook3.title;
-            helloAuthor3.Text = helloBook3.author;
+                helloElementTitle0.Text = helloBook0.title;
+                helloAuthor0.Text = helloBook0.author;
+                helloElementTitle1.Text = helloBook1.title;
+                helloAuthor1.Text = helloBook1.author;
+                helloElementTitle2.Text = helloBook2.title;
+                helloAuthor2.Text = helloBook2.author;
+                helloElementTitle3.Text = helloBook3.title;
+                helloAuthor3.Text = helloBook3.author;
 
-            //recommentPanel 
-            int randC0 = rand.Next(1, 100000);
-            int randC1 = rand.Next(1, 100000);
-            int randC2 = rand.Next(1, 100000);
-            int randC3 = rand.Next(1, 100000);
+                //recommentPanel 
+                int randC0 = rand.Next(1, 100000);
+                int randC1 = rand.Next(1, 100000);
+                int randC2 = rand.Next(1, 100000);
+                int randC3 = rand.Next(1, 100000);
 
-            Book recommentBook0 = books.ElementAt(randC0);
-            Book recommentBook1 = books.ElementAt(randC1);
-            Book recommentBook2 = books.ElementAt(randC2);
-            Book recommentBook3 = books.ElementAt(randC3);
+                Book recommentBook0 = books.ElementAt(randC0);
+                Book recommentBook1 = books.ElementAt(randC1);
+                Book recommentBook2 = books.ElementAt(randC2);
+                Book recommentBook3 = books.ElementAt(randC3);
 
-            recommentImg0.Image = SetHeight(new BookCover(recommentBook0).image, recommentImg0.Height);
-            recommentImg1.Image = SetHeight(new BookCover(recommentBook1).image, recommentImg1.Height);
-            recommentImg2.Image = SetHeight(new BookCover(recommentBook2).image, recommentImg2.Height);
-            recommentImg3.Image = SetHeight(new BookCover(recommentBook3).image, recommentImg3.Height);
+                recommentImg0.Image = SetHeight(new BookCover(recommentBook0).image, recommentImg0.Height);
+                recommentImg1.Image = SetHeight(new BookCover(recommentBook1).image, recommentImg1.Height);
+                recommentImg2.Image = SetHeight(new BookCover(recommentBook2).image, recommentImg2.Height);
+                recommentImg3.Image = SetHeight(new BookCover(recommentBook3).image, recommentImg3.Height);
+
+
+
+                recommentTitle0.Text = recommentBook0.title;
+                recommentAuthor0.Text = recommentBook0.author;
+                recommentTitle1.Text = recommentBook1.title;
+                recommentAuthor1.Text = recommentBook1.author;
+                recommentTitle2.Text = recommentBook2.title;
+                recommentAuthor2.Text = recommentBook2.author;
+                recommentTitle3.Text = recommentBook3.title;
+                recommentAuthor3.Text = recommentBook3.author;
+
+                //bestBook Panel
+                int randB0 = rand.Next(1, 100000);
+                int randB1 = rand.Next(1, 100000);
+                int randB2 = rand.Next(1, 100000);
+                int randB3 = rand.Next(1, 100000);
+
+                Book bestBook0 = books.ElementAt(randB0);
+                Book bestBook1 = books.ElementAt(randB1);
+                Book bestBook2 = books.ElementAt(randB2);
+                Book bestBook3 = books.ElementAt(randB3);
+
+                bestBookImg0.Image = SetHeight(new BookCover(bestBook0).image, bestBookImg0.Height);
+                bestBookImg1.Image = SetHeight(new BookCover(bestBook1).image, bestBookImg1.Height);
+                bestBookImg2.Image = SetHeight(new BookCover(bestBook2).image, bestBookImg2.Height);
+                bestBookImg3.Image = SetHeight(new BookCover(bestBook3).image, bestBookImg3.Height);
+
+
+                bestBookTitle0.Text = bestBook0.title;
+                bestBookAuthor0.Text = bestBook0.author;
+                bestBookTitle1.Text = bestBook1.title;
+                bestBookAuthor1.Text = bestBook1.author;
+                bestBookTitle2.Text = bestBook2.title;
+                bestBookAuthor2.Text = bestBook2.author;
+                bestBookTitle3.Text = bestBook3.title;
+                bestBookAuthor3.Text = bestBook3.author;
+            }
+            else
+            {
+                //helloPanel
+                Book helloBook0 = books.Find(item => item.isbn == recommendations[0]);
+                Book helloBook1 = books.Find(item => item.isbn == recommendations[1]);
+                Book helloBook2 = books.Find(item => item.isbn == recommendations[2]);
+                Book helloBook3 = books.Find(item => item.isbn == recommendations[3]);
+                helloElementImg0.Image = SetHeight(new BookCover(helloBook0).image, helloElementImg0.Height);
+                helloElementImg1.Image = SetHeight(new BookCover(helloBook1).image, helloElementImg1.Height);
+                helloElementImg2.Image = SetHeight(new BookCover(helloBook2).image, helloElementImg2.Height);
+                helloElementImg3.Image = SetHeight(new BookCover(helloBook3).image, helloElementImg3.Height);
+
+                helloElementTitle0.Text = helloBook0.title;
+                helloAuthor0.Text = helloBook0.author;
+                helloElementTitle1.Text = helloBook1.title;
+                helloAuthor1.Text = helloBook1.author;
+                helloElementTitle2.Text = helloBook2.title;
+                helloAuthor2.Text = helloBook2.author;
+                helloElementTitle3.Text = helloBook3.title;
+                helloAuthor3.Text = helloBook3.author;
+
+                //recommentPanel 
+
+                Book recommentBook0 = books.Find(item => item.isbn == recommendations[4]);
+                Book recommentBook1 = books.Find(item => item.isbn == recommendations[5]);
+                Book recommentBook2 = books.Find(item => item.isbn == recommendations[6]);
+                Book recommentBook3 = books.Find(item => item.isbn == recommendations[7]);
+
+                recommentImg0.Image = SetHeight(new BookCover(recommentBook0).image, recommentImg0.Height);
+                recommentImg1.Image = SetHeight(new BookCover(recommentBook1).image, recommentImg1.Height);
+                recommentImg2.Image = SetHeight(new BookCover(recommentBook2).image, recommentImg2.Height);
+                recommentImg3.Image = SetHeight(new BookCover(recommentBook3).image, recommentImg3.Height);
+
+
+
+                recommentTitle0.Text = recommentBook0.title;
+                recommentAuthor0.Text = recommentBook0.author;
+                recommentTitle1.Text = recommentBook1.title;
+                recommentAuthor1.Text = recommentBook1.author;
+                recommentTitle2.Text = recommentBook2.title;
+                recommentAuthor2.Text = recommentBook2.author;
+                recommentTitle3.Text = recommentBook3.title;
+                recommentAuthor3.Text = recommentBook3.author;
+
+                //bestBook Panel
+
+                Book bestBook0 = books.Find(item => item.isbn == recommendations[0]);
+                Book bestBook1 = books.Find(item => item.isbn == recommendations[1]);
+                Book bestBook2 = books.Find(item => item.isbn == recommendations[8]);
+                Book bestBook3 = books.Find(item => item.isbn == recommendations[9]);
+
+                bestBookImg0.Image = SetHeight(new BookCover(bestBook0).image, bestBookImg0.Height);
+                bestBookImg1.Image = SetHeight(new BookCover(bestBook1).image, bestBookImg1.Height);
+                bestBookImg2.Image = SetHeight(new BookCover(bestBook2).image, bestBookImg2.Height);
+                bestBookImg3.Image = SetHeight(new BookCover(bestBook3).image, bestBookImg3.Height);
+
+
+                bestBookTitle0.Text = bestBook0.title;
+                bestBookAuthor0.Text = bestBook0.author;
+                bestBookTitle1.Text = bestBook1.title;
+                bestBookAuthor1.Text = bestBook1.author;
+                bestBookTitle2.Text = bestBook2.title;
+                bestBookAuthor2.Text = bestBook2.author;
+                bestBookTitle3.Text = bestBook3.title;
+                bestBookAuthor3.Text = bestBook3.author;
+            }
 
             
-
-            recommentTitle0.Text = recommentBook0.title;
-            recommentAuthor0.Text = recommentBook0.author;
-            recommentTitle1.Text = recommentBook1.title;
-            recommentAuthor1.Text = recommentBook1.author;
-            recommentTitle2.Text = recommentBook2.title;
-            recommentAuthor2.Text = recommentBook2.author;
-            recommentTitle3.Text = recommentBook3.title;
-            recommentAuthor3.Text = recommentBook3.author;
-
-            //bestBook Panel
-            int randB0 = rand.Next(1, 100000);
-            int randB1 = rand.Next(1, 100000);
-            int randB2 = rand.Next(1, 100000);
-            int randB3 = rand.Next(1, 100000);
-
-            Book bestBook0 = books.ElementAt(randB0);
-            Book bestBook1 = books.ElementAt(randB1);
-            Book bestBook2 = books.ElementAt(randB2);
-            Book bestBook3 = books.ElementAt(randB3);
-
-            bestBookImg0.Image = SetHeight(new BookCover(bestBook0).image, bestBookImg0.Height);
-            bestBookImg1.Image = SetHeight(new BookCover(bestBook1).image, bestBookImg1.Height);
-            bestBookImg2.Image = SetHeight(new BookCover(bestBook2).image, bestBookImg2.Height);
-            bestBookImg3.Image = SetHeight(new BookCover(bestBook3).image, bestBookImg3.Height);
-
-
-            bestBookTitle0.Text = bestBook0.title;
-            bestBookAuthor0.Text = bestBook0.author;
-            bestBookTitle1.Text = bestBook1.title;
-            bestBookAuthor1.Text = bestBook1.author;
-            bestBookTitle2.Text = bestBook2.title;
-            bestBookAuthor2.Text = bestBook2.author;
-            bestBookTitle3.Text = bestBook3.title;
-            bestBookAuthor3.Text = bestBook3.author;
             #endregion
 
             #region update category list

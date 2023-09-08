@@ -58,6 +58,7 @@ namespace WinForms
         private User reader;
         private List<Book> books = new List<Book>();
         private List<UserRating> ratings = new List<UserRating>();
+        private List<string> recommendations = new List<string>();
 
         /// <summary>
         /// Required method for Designer support - do not modify

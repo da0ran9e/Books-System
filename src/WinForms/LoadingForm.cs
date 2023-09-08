@@ -210,13 +210,13 @@ namespace WinForms
 
             progressBar.Value = 95;
             //progressLabel.Text = response;
-            MainForm mainForm = new MainForm(library);
-            //this.Visible = false;
+            MainForm mainForm = new MainForm(library, result);
+            this.Visible = false;
             progressBar.Value = 100;
             await Task.Delay(500);
 
 
-            //mainForm.ShowDialog();
+            mainForm.ShowDialog();
 
         }
 
