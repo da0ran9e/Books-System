@@ -42,9 +42,16 @@ A library management software
   </a> 
 
 ## Setup
-install [packages]()
+Install [packages]()
 ```bash
 pip install -r requirements.txt
+```
+> [!IMPORTANT]  
+> Project cannot run on Pandas version of 2.0.0 and higher!
+Run Django server
+```bash
+python backend/drf_book/manage.py migrate
+python backend/drf_book/manage.py runserver
 ```
 
 ### C# Windows Forms .NET
