@@ -47,7 +47,7 @@ Install [packages]()
 pip install -r requirements.txt
 ```
 > [!IMPORTANT]  
-> Project cannot run on Pandas version of 2.0.0 and higher!
+> Project cannot run on Pandas version of 2.0.0 and higher! <br />
 Run Django server
 ```bash
 python backend/drf_book/manage.py migrate
