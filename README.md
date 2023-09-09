@@ -23,6 +23,7 @@ A Windows Form C# application utilizing the .NET framework. It leverages the dat
 
 
 ##  Python backend algorithm <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="python" width="40" height="40"/> <img src="https://raw.githubusercontent.com/devicons/devicon/2ae2a900d2f041da66e950e4d48052658d850630/icons/pandas/pandas-original.svg" alt="pandas" width="40" height="40"/>  <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg" alt="scikit_learn" width="40" height="40"/>
+See the explaination from earlier [project](https://github.com/da0ran9e/Book-Recommendation-System) documents [here](https://github.com/da0ran9e/Book-Recommendation-System/blob/main/Final_Report_Book_Rec.pdf)!
 - Functions for Recommendation:
 
 `get_user_ratings_and_books(user_id)`: Retrieves user ratings and associated books based on a provided user ID. It returns a dictionary containing ratings and books or an error message if an exception occurs.
