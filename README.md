@@ -42,7 +42,7 @@ A library management software
   </a> 
 
 ## Setup
-### Install [packages]()
+### Install [packages](https://github.com/da0ran9e/Books-System/blob/main/requirements.txt)
 ```bash
 pip install -r requirements.txt
 ```
