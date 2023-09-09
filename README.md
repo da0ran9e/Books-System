@@ -35,7 +35,30 @@ A Windows Form C# application utilizing the .NET framework. It leverages the dat
 
 ## Java Image downloader <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" alt="java" width="40" height="40"/> <a href="https://github.com/jhy/jsoup/"><img src="https://github.com/da0ran9e/Books-System/assets/98570451/74eeea65-2985-432c-a814-f7405ad5e7b1" alt="jsoup" width="30" height="30" /> </a>
 
-Using [JSoup](https://github.com/da0ran9e/Books-System/blob/main/Automation/jsoup-1.15.4.jar) java library to make HTTP protocol
+Using [JSoup](https://github.com/da0ran9e/Books-System/blob/main/Automation/jsoup-1.15.4.jar) java library to make HTTP protocol <br />
+Downloading images from URLs specified in a CSV file.
+- CSV Processing:
+
+The program reads the name of a CSV file from the user, which contains data with semicolon-separated values.
+- String Manipulation:
+
+It includes utility methods to split strings, remove leading and trailing quotes, and escape single quotes. These methods help in processing CSV data.
+- Image Download:
+
+The program uses the Jsoup library to connect to URLs specified in the CSV file and download images.
+It checks if the destination file already exists and skips downloading if it does.
+The image download progress is monitored, and the size of the downloaded image is displayed.
+- Main Logic:
+
+The main logic reads each line from the CSV file, extracts URLs from specific columns, and downloads images to a specified destination.
+It includes conditions to skip downloading images based on their size.
+- Error Handling:
+
+The program handles exceptions related to URL parsing, image downloading, and file I/O.
+Informative error messages are displayed in case of errors.
+- User Interaction:
+
+The program interacts with the user by requesting the input CSV file name and providing status messages.
 
 ## C/C++ CSV/SQL converter <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/c/c-original.svg" alt="c" width="40" height="40"/> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/cplusplus/cplusplus-original.svg" alt="cplusplus" width="40" height="40"/>   
 
