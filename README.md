@@ -1,5 +1,43 @@
 # Books-System
 A library management software
+![MainForm 2023-09-08 15-21-12](https://github.com/da0ran9e/Books-System/assets/98570451/63761e59-f59a-4a01-a0c1-cea236c197d2)
+
+
+## Setup
+### Install [packages](https://github.com/da0ran9e/Books-System/blob/main/requirements.txt)
+```bash
+pip install -r requirements.txt
+```
+> [!IMPORTANT]  
+> Project cannot run on Pandas version of 2.0.0 and higher! <br />
+
+### Run Django server
+```bash
+python backend/drf_book/manage.py migrate
+python backend/drf_book/manage.py runserver
+```
+
+## <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/csharp/csharp-original.svg" alt="csharp" width="40" height="40"/> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/dot-net/dot-net-original-wordmark.svg" alt="dotnet" width="40" height="40"/>  C# Windows Forms .NET 
+A Windows Form C# application utilizing the .NET framework. It leverages the data source and algorithms previously developed from a prior [project](https://github.com/da0ran9e/Book-Recommendation-System).<br />
+
+
+### <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="python" width="40" height="40"/> <img src="https://raw.githubusercontent.com/devicons/devicon/2ae2a900d2f041da66e950e4d48052658d850630/icons/pandas/pandas-original.svg" alt="pandas" width="40" height="40"/>  <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg" alt="scikit_learn" width="40" height="40"/> Python backend algorithm
+[Python code](/backend/drf_book/base/recommendation_module.py) for a book recommendation system using collaborative filtering. It leverages the BX dataset for data loading, preprocessing, and user similarity calculations. The system suggests books to users based on their preferences and the preferences of similar users. <br />
+[# Create user-item matrix](https://github.com/da0ran9e/Books-System/blob/88fcad1d5682debac559cfef3459acb3780f7382/backend/drf_book/base/recommendation_module.py#L62-L72)
+
+### <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="python" width="40" height="40"/> <img src="https://cdn.worldvectorlogo.com/logos/django.svg" alt="django" width="40" height="40"/>  Python Django Rest Framework API 
+```
+/recommendations/<UID>
+```
+[@api_view(['GET'])](https://github.com/da0ran9e/Books-System/blob/88fcad1d5682debac559cfef3459acb3780f7382/backend/drf_book/api/views.py#L67-L79)
+
+### <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" alt="java" width="40" height="40"/>  Java Image downloader
+Using [JSoup](https://github.com/da0ran9e/Books-System/blob/main/Automation/jsoup-1.15.4.jar) java library to make HTTP protocol
+
+### <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/c/c-original.svg" alt="c" width="40" height="40"/> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/cplusplus/cplusplus-original.svg" alt="cplusplus" width="40" height="40"/>   C/C++ CSV/SQL converter
+
+[CSV to SQL converter](https://github.com/da0ran9e/Books-System/blob/main/CSV2SQL.cpp)
+
 ## Languages and Tools:
   <a href="https://github.com/da0ran9e/Books-System#readme/## C/C++ CSV/SQL converter" target="_blank" rel="noreferrer"> 
     <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/c/c-original.svg" alt="c" width="40" height="40"/> 
@@ -40,40 +78,3 @@ A library management software
   <a href="https://github.com/da0ran9e/Books-System#readme/" target="_blank" rel="noreferrer"> 
     <img src="https://www.vectorlogo.zone/logos/gnu_bash/gnu_bash-icon.svg" alt="bash" width="40" height="40"/> 
   </a> 
-
-## Setup
-### Install [packages](https://github.com/da0ran9e/Books-System/blob/main/requirements.txt)
-```bash
-pip install -r requirements.txt
-```
-> [!IMPORTANT]  
-> Project cannot run on Pandas version of 2.0.0 and higher! <br />
-
-### Run Django server
-```bash
-python backend/drf_book/manage.py migrate
-python backend/drf_book/manage.py runserver
-```
-
-## C# Windows Forms .NET
-A Windows Form C# application utilizing the .NET framework. It leverages the data source and algorithms previously developed from a prior [project](https://github.com/da0ran9e/Book-Recommendation-System).<br />
-
-![MainForm 2023-09-08 15-21-12](https://github.com/da0ran9e/Books-System/assets/98570451/63761e59-f59a-4a01-a0c1-cea236c197d2)
-
-
-### Python backend algorithm
-[Python code](/backend/drf_book/base/recommendation_module.py) for a book recommendation system using collaborative filtering. It leverages the BX dataset for data loading, preprocessing, and user similarity calculations. The system suggests books to users based on their preferences and the preferences of similar users. <br />
-[# Create user-item matrix](https://github.com/da0ran9e/Books-System/blob/88fcad1d5682debac559cfef3459acb3780f7382/backend/drf_book/base/recommendation_module.py#L62-L72)
-
-### Python Django Rest Framework API 
-```
-/recommendations/<UID>
-```
-[@api_view(['GET'])](https://github.com/da0ran9e/Books-System/blob/88fcad1d5682debac559cfef3459acb3780f7382/backend/drf_book/api/views.py#L67-L79)
-
-### Java Image downloader
-Using [JSoup](https://github.com/da0ran9e/Books-System/blob/main/Automation/jsoup-1.15.4.jar) java library to make HTTP protocol
-
-### C/C++ CSV/SQL converter
-
-[CSV to SQL converter](https://github.com/da0ran9e/Books-System/blob/main/CSV2SQL.cpp)
