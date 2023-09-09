@@ -1,6 +1,22 @@
 from .models import Rating, Book
 
+import pandas as pd
+import numpy as np
+from scipy import sparse
+from sklearn.metrics.pairwise import cosine_similarity
+
+# Function to retrieve user ratings and associated books
 def get_user_ratings_and_books(user_id):
+    """
+    Retrieve user ratings and books associated with a given user ID.
+
+    Args:
+        user_id (str): The user ID for which ratings and books are to be retrieved.
+
+    Returns:
+        dict: A dictionary containing 'ratings' (user ratings) and 'books' (associated books).
+              If an error occurs, an 'error' key will be present in the dictionary.
+    """
     try:
         # Retrieve ratings for the user
         user_ratings = Rating.objects.filter(userId=user_id)
@@ -21,15 +37,15 @@ def get_user_ratings_and_books(user_id):
             'error': str(e)
         }
 
-###
-###
-import pandas as pd
-import numpy as np
-from scipy import sparse
-from sklearn.metrics.pairwise import cosine_similarity
-
 # Define data loading and preprocessing as a function
 def load_and_preprocess_data():
+    """
+    Load and preprocess data for the recommendation system.
+
+    Returns:
+        tuple: A tuple containing dataframes for 'book', 'user', 'rating', normalized 'user_item_matrix', and 'user_similarity_matrix'.
+    """
+        
     # Load the necessary data (you can reuse the data loading code)
     def load_data(filename):
         df = pd.read_csv(f'{filename}.csv',sep=';',encoding='latin-1',on_bad_lines='skip')
@@ -76,6 +92,22 @@ def load_and_preprocess_data():
 
 # Define the recommend_books_for_user function
 def recommend_books_for_user(user_id, book, user, rating, user_item_matrix, user_similarity_matrix):
+    """
+    Recommend books for a specific user.
+
+    Args:
+        user_id (str): The user ID for which book recommendations are to be made.
+        book (DataFrame): DataFrame containing book data.
+        user (DataFrame): DataFrame containing user data.
+        rating (DataFrame): DataFrame containing rating data.
+        user_item_matrix (DataFrame): Normalized user-item matrix.
+        user_similarity_matrix (DataFrame): User similarity matrix.
+
+    Returns:
+        Union[str, list]: If successful, a list of recommended ISBNs.
+                          If an error occurs, an error message.
+    """
+
     # Set the number of similar users and pick a target user
     k = 40
 
