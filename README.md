@@ -93,6 +93,8 @@ It constructs SQL insert statements by formatting the column values and appends 
 
 [CSV to SQL converter](https://github.com/da0ran9e/Books-System/blob/main/CSV2SQL.cpp)
 
+## SQL Server Database, SQLite backend <img src="https://www.svgrepo.com/show/303229/microsoft-sql-server-logo.svg" alt="mssql" width="40" height="40"/> <img src="https://www.vectorlogo.zone/logos/sqlite/sqlite-icon.svg" alt="sqlite" width="40" height="40"/> 
+
 ## Languages and Tools:
   <a href="https://github.com/da0ran9e/Books-System#readme/## C/C++ CSV/SQL converter" target="_blank" rel="noreferrer"> 
     <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/c/c-original.svg" alt="c" width="40" height="40"/> 
