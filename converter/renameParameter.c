@@ -2,9 +2,9 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define MAX_LINE_LENGTH 1000 // Độ dài tối đa của một dòng trong file
+#define MAX_LINE_LENGTH 1000 // Maximum line length in the file
 
-// Hàm thay thế một từ cũ thành một từ mới trong một chuỗi
+// Function to replace an old word with a new word in a string
 void replaceWord(char *str, const char *oldWord, const char *newWord) {
     char *pos, temp[MAX_LINE_LENGTH];
     int index = 0;
@@ -25,32 +25,32 @@ int main() {
     char oldWord[100], newWord[100];
     char line[MAX_LINE_LENGTH];
 
-    printf("Nhập tên file SQL: ");
+    printf("Enter the SQL file name: ");
     scanf("%s", filename);
 
-    // Mở file để đọc
+    // Open the file for reading
     file = fopen(filename, "r");
     if (file == NULL) {
-        printf("Không thể mở file. Hãy kiểm tra lại tên file.\n");
+        printf("Unable to open the file. Please check the file name.\n");
         return 1;
     }
 
-    printf("Nhập từ cần thay thế: ");
+    printf("Enter the word to replace: ");
     scanf("%s", oldWord);
 
-    printf("Nhập từ mới: ");
+    printf("Enter the new word: ");
     scanf("%s", newWord);
 
-    // Đọc từng dòng trong file
+    // Read each line in the file
     while (fgets(line, MAX_LINE_LENGTH, file) != NULL) {
-        // Thay thế từ cũ thành từ mới trong dòng
+        // Replace the old word with the new word in the line
         replaceWord(line, oldWord, newWord);
-        printf("%s", line); // In dòng đã được thay thế
+        printf("%s", line); // Print the line with replacements
 
-        // Lưu dòng đã thay thế vào file mới
+        // Save the replaced line to a new file
         FILE *newFile = fopen("new_file.sql", "a");
         if (newFile == NULL) {
-            printf("Không thể tạo file mới.\n");
+            printf("Unable to create a new file.\n");
             return 1;
         }
         fputs(line, newFile);
@@ -58,7 +58,7 @@ int main() {
     }
 
     fclose(file);
-    printf("Quá trình thay thế đã hoàn thành.\n");
+    printf("Replacement process completed.\n");
 
     return 0;
 }
