@@ -94,7 +94,7 @@ It constructs SQL insert statements by formatting the column values and appends 
 [CSV to SQL converter](https://github.com/da0ran9e/Books-System/blob/main/CSV2SQL.cpp)
 
 ## SQL Server Database, SQLite backend <img src="https://www.svgrepo.com/show/303229/microsoft-sql-server-logo.svg" alt="mssql" width="40" height="40"/> <img src="https://www.vectorlogo.zone/logos/sqlite/sqlite-icon.svg" alt="sqlite" width="40" height="40"/> 
-See origin dataset in my old project [here](https://github.com/da0ran9e/Book-Recommendation-System)!<br />
+See original dataset in my old project [here](https://github.com/da0ran9e/Book-Recommendation-System)!<br />
 An addition `users` table data is designed to store user information, including personal details, login credentials, and profile-related data:
 - `id`: An auto-incremented integer primary key.
 - `firstName`: A nullable NVARCHAR (Unicode) column for the user's first name (up to 50 characters).
