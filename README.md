@@ -94,6 +94,22 @@ It constructs SQL insert statements by formatting the column values and appends 
 [CSV to SQL converter](https://github.com/da0ran9e/Books-System/blob/main/CSV2SQL.cpp)
 
 ## SQL Server Database, SQLite backend <img src="https://www.svgrepo.com/show/303229/microsoft-sql-server-logo.svg" alt="mssql" width="40" height="40"/> <img src="https://www.vectorlogo.zone/logos/sqlite/sqlite-icon.svg" alt="sqlite" width="40" height="40"/> 
+See origin dataset in my old project [here](https://github.com/da0ran9e/Book-Recommendation-System)!<br />
+An addition `users` table data is designed to store user information, including personal details, login credentials, and profile-related data:
+- `id`: An auto-incremented integer primary key.
+- `firstName`: A nullable NVARCHAR (Unicode) column for the user's first name (up to 50 characters).
+- `lastName`: A nullable NVARCHAR (Unicode) column for the user's last name (up to 50 characters).
+- `username`: A VARCHAR column for the username (up to 50 characters), which is not nullable and has a unique constraint.
+- `password`: A VARCHAR column for the user's password (up to 50 characters), which is not nullable.
+- `email`: A nullable VARCHAR column for the user's email address (up to 150 characters).
+- `phone`: A nullable VARCHAR column for the user's phone number (up to 20 characters).
+- `gender`: A nullable TINYINT (tiny integer) column, which can represent gender information.
+- `birthDate`: A nullable DATE column for the user's date of birth.
+- `profileImage`: A nullable VARCHAR column for the path or URL to the user's profile image (up to 350 characters).
+- `age`: A nullable integer column for the user's age.
+- `location`: A nullable VARCHAR column for the user's location (up to 50 characters).
+- `nation`: A nullable VARCHAR column for the user's nationality (up to 50 characters).
+The table has a `primary key` constraint on the `id` column and a `unique` constraint on the `username` column to ensure that each `username` is `unique` within the table.
 
 ## Languages and Tools:
   <a href="https://github.com/da0ran9e/Books-System#readme/## C/C++ CSV/SQL converter" target="_blank" rel="noreferrer"> 
