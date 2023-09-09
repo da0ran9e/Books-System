@@ -23,11 +23,22 @@ A Windows Form C# application utilizing the .NET framework. It leverages the dat
 
 
 ##  Python backend algorithm <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="python" width="40" height="40"/> <img src="https://raw.githubusercontent.com/devicons/devicon/2ae2a900d2f041da66e950e4d48052658d850630/icons/pandas/pandas-original.svg" alt="pandas" width="40" height="40"/>  <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg" alt="scikit_learn" width="40" height="40"/>
+- Functions for Recommendation:
+
+`get_user_ratings_and_books(user_id)`: Retrieves user ratings and associated books based on a provided user ID. It returns a dictionary containing ratings and books or an error message if an exception occurs.
+
+`load_and_preprocess_data()`: Loads and preprocesses data for a recommendation system. It includes loading data from CSV files, renaming columns, filtering users and books, merging data, and creating a user-item matrix and user similarity matrix.
+
+`recommend_books_for_user(user_id, book, user, rating, user_item_matrix, user_similarity_matrix)`: Generates book recommendations for a specific user based on user similarity. It considers user ratings and book data to provide a list of recommended ISBNs.
 
 [Python code](/backend/drf_book/base/recommendation_module.py) for a book recommendation system using collaborative filtering. It leverages the BX dataset for data loading, preprocessing, and user similarity calculations. The system suggests books to users based on their preferences and the preferences of similar users. <br />
 [# Create user-item matrix](https://github.com/da0ran9e/Books-System/blob/88fcad1d5682debac559cfef3459acb3780f7382/backend/drf_book/base/recommendation_module.py#L62-L72)
 
 ## Python Django Rest Framework API <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="python" width="40" height="40"/> <img src="https://cdn.worldvectorlogo.com/logos/django.svg" alt="django" width="40" height="40"/>  
+- Recommendations Function:
+
+`recommendations(request, user_id)`: Handles a GET request to provide book recommendations for a specific user. It loads and preprocesses data, including user ratings and similarity matrices, then calls the recommend_books_for_user function to get book recommendations for the user. It returns recommended ISBNs as JSON.
+- API Url:
 ```
 /recommendations/<UID>
 ```
@@ -61,6 +72,24 @@ Informative error messages are displayed in case of errors.
 The program interacts with the user by requesting the input CSV file name and providing status messages.
 
 ## C/C++ CSV/SQL converter <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/c/c-original.svg" alt="c" width="40" height="40"/> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/cplusplus/cplusplus-original.svg" alt="cplusplus" width="40" height="40"/>   
+Reading data from a CSV file and generates SQL insert statements for a database table. 
+- Input:
+  The program prompts the user to input the names of the CSV file and the SQL output file.
+
+- CSV Processing:
+
+The code defines three functions for string manipulation: `splitString`, `removeQuotes`, and `escapeSingleQuotes`.
+splitString separates a string into columns using a specified delimiter (in this case, `;`).
+`removeQuotes` removes double quotes from the beginning and end of a string if they exist.
+`escapeSingleQuotes` replaces single quotes within a string with two single quotes to escape them for SQL.
+- File Handling:
+
+The program opens the input and output files using ifstream and ofstream.
+It checks if the files can be opened successfully and reports errors if they cannot.
+- CSV to SQL Conversion:
+
+The code reads each line from the CSV file and splits it into columns.
+It constructs SQL insert statements by formatting the column values and appends them to the output file.
 
 [CSV to SQL converter](https://github.com/da0ran9e/Books-System/blob/main/CSV2SQL.cpp)
 
