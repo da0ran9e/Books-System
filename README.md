@@ -2,7 +2,7 @@
 A library management software
 ![MainForm 2023-09-08 15-21-12](https://github.com/da0ran9e/Books-System/assets/98570451/63761e59-f59a-4a01-a0c1-cea236c197d2)
 ## Quick run 
-To quick access the system run the [`quickrun.bat`]() file
+To quick access the system run the [`quickrun.bat`](https://github.com/da0ran9e/Books-System/blob/main/quickrun.bat) file
 
 ## Setup
 ### Install [packages](https://github.com/da0ran9e/Books-System/blob/main/requirements.txt)
