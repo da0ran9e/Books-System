@@ -17,7 +17,7 @@ from rest_framework import status
 
 # GET request to retrieve data for all items
 @api_view(['GET'])
-def get_items(request):
+def getData(request):
     """
     Get a list of all items in the database.
 
@@ -27,13 +27,13 @@ def get_items(request):
     Returns:
         Response: JSON response containing serialized items.
     """
-    items = Item.objects.all()
-    serializer = ItemSerializer(items, many=True)
-    return Response(serializer.data)
+    item = Item.objects.all()
+    serialzer = ItemSerializer(item, many = True)
+    return Response(serialzer.data)
 
 # POST request to add a new item
 @api_view(['POST'])
-def add_item(request):
+def addItem(request):
     """
     Add a new item to the database.
 
@@ -46,12 +46,11 @@ def add_item(request):
     serializer = ItemSerializer(data=request.data)
     if serializer.is_valid():
         serializer.save()
-        return Response(serializer.data)
-    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    return Response(serializer.data)
 
 # POST request to add a new book
 @api_view(['POST'])
-def add_book(request):
+def addBook(request):
     """
     Add a new book to the database.
 
@@ -69,7 +68,7 @@ def add_book(request):
 
 # POST request to add a new rating
 @api_view(['POST'])
-def add_rating(request):
+def addRating(request):
     """
     Add a new rating to the database.
 
@@ -103,7 +102,7 @@ def get_user_recommendations(request):
         user_data = get_user_ratings_and_books(user_id)
 
         if 'error' in user_data:
-            return Response({'error': user_data['error']}, status=status.HTTP_400_BAD_REQUEST)
+            return Response({'error': user_data['error']}, status=400)
 
         ratings = [rating.bookRating for rating in user_data['ratings']]
         books = [book.bookTitle for book in user_data['books']]
@@ -115,7 +114,7 @@ def get_user_recommendations(request):
         }
 
         return Response(response_data)
-    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    return Response(serializer.errors, status=400)
 
 # GET request to provide book recommendations for a specific user
 @api_view(['GET'])

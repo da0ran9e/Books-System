@@ -213,7 +213,6 @@ namespace WinForms
             MainForm mainForm = new MainForm(library, result);
             this.Visible = false;
             progressBar.Value = 100;
-            await Task.Delay(500);
 
 
             mainForm.ShowDialog();

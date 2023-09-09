@@ -17,10 +17,10 @@ namespace WinForms
             ApplicationConfiguration.Initialize();
 
 
-            //Application.Run(new LoginForm());
+            Application.Run(new LoginForm());
             //Application.Run(new RegistForm());
             //Application.Run(new AdFeedForm());
-            Application.Run(new LoadingForm("smarnes71"));
+            //Application.Run(new LoadingForm("smarnes71"));
             //Application.Run(new UserForm(75, "Hughie", null, "hmacwilliam22", "f4Q,4O", "hmaccaddie22@macromedia.com", "418-655-2654", 1, new DateTime(1977,04,06), "http://dummyprofileImage.com/113x141.png/ff4444/ffffff", 46, "365 Annamark Alley", "Kiowa"));
             //Application.Run(new LoadingForm("dricciardelloav"));
             //Application.Run(new AddingData());

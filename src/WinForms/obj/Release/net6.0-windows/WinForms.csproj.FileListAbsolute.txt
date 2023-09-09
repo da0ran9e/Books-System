@@ -25,3 +25,8 @@ C:\Users\vuduc\OneDrive\Documents\GitHub\Books-System\src\WinForms\obj\Release\n
 C:\Users\vuduc\OneDrive\Documents\GitHub\Books-System\src\WinForms\obj\Release\net6.0-windows\WinForms.pdb
 C:\Users\vuduc\OneDrive\Documents\GitHub\Books-System\src\WinForms\obj\Release\net6.0-windows\WinForms.genruntimeconfig.cache
 C:\Users\vuduc\OneDrive\Documents\GitHub\Books-System\src\WinForms\obj\Release\net6.0-windows\ref\WinForms.dll
+C:\Users\vuduc\OneDrive\Documents\GitHub\Books-System\src\WinForms\bin\Release\net6.0-windows\STTextBox.dll
+C:\Users\vuduc\OneDrive\Documents\GitHub\Books-System\src\WinForms\bin\Release\net6.0-windows\STTextBox.pdb
+C:\Users\vuduc\OneDrive\Documents\GitHub\Books-System\src\WinForms\obj\Release\net6.0-windows\WinForms.AddingData.resources
+C:\Users\vuduc\OneDrive\Documents\GitHub\Books-System\src\WinForms\obj\Release\net6.0-windows\WinForms.LoadingForm.resources
+C:\Users\vuduc\OneDrive\Documents\GitHub\Books-System\src\WinForms\obj\Release\net6.0-windows\WinForms.UserForm.resources
