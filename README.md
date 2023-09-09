@@ -8,6 +8,17 @@ A library management software
 ```bash
 pip install -r requirements.txt
 ```
+Packages were used in my project:
+- [Django](https://github.com/django/django) `version 4.2.5`
+- [djangorestframework](https://github.com/encode/django-rest-framework) `version 3.14.0 `
+- [matplotlib](https://github.com/matplotlib/matplotlib) `version 3.7.2`
+- [mpmath](https://github.com/mpmath/mpmath) `version 1.3.0`
+- [numpy](https://github.com/numpy/numpy) `version 1.25.0`
+- [pandas](https://github.com/pandas-dev/pandas)`version 1.4.4`
+- [Pillow](https://github.com/python-pillow/Pillow) `version 10.0.0`
+- [scikit-learn](https://github.com/scikit-learn/scikit-learn)`version 1.3.0`
+- [torch](https://github.com/torch/torch7) `version 2.0.1`
+- [sqlparse](https://github.com/andialbrecht/sqlparse) `version 0.4.4`
 > [!IMPORTANT]  
 > Project cannot run on Pandas version of 2.0.0 and higher! <br />
 
