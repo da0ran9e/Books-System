@@ -2,9 +2,9 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define MAX_LINE_LENGTH 1000 // Maximum line length in the file
+#define MAX_LINE_LENGTH 1000 // Độ dài tối đa của một dòng trong file
 
-// Function to replace an old word with a new word in a string
+// Hàm thay thế một từ cũ thành một từ mới trong một chuỗi
 void replaceWord(char *str, const char *oldWord, const char *newWord) {
     char *pos, temp[MAX_LINE_LENGTH];
     int index = 0;
@@ -25,32 +25,32 @@ int main() {
     char oldWord[100], newWord[100];
     char line[MAX_LINE_LENGTH];
 
-    printf("Enter the SQL file name: ");
+    printf("Nhập tên file SQL: ");
     scanf("%s", filename);
 
-    // Open the file for reading
+    // Mở file để đọc
     file = fopen(filename, "r");
     if (file == NULL) {
-        printf("Unable to open the file. Please check the file name.\n");
+        printf("Không thể mở file. Hãy kiểm tra lại tên file.\n");
         return 1;
     }
 
-    printf("Enter the word to replace: ");
+    printf("Nhập từ cần thay thế: ");
     scanf("%s", oldWord);
 
-    printf("Enter the new word: ");
+    printf("Nhập từ mới: ");
     scanf("%s", newWord);
 
-    // Read each line in the file
+    // Đọc từng dòng trong file
     while (fgets(line, MAX_LINE_LENGTH, file) != NULL) {
-        // Replace the old word with the new word in the line
+        // Thay thế từ cũ thành từ mới trong dòng
         replaceWord(line, oldWord, newWord);
-        printf("%s", line); // Print the line with replacements
+        printf("%s", line); // In dòng đã được thay thế
 
-        // Save the replaced line to a new file
+        // Lưu dòng đã thay thế vào file mới
         FILE *newFile = fopen("new_file.sql", "a");
         if (newFile == NULL) {
-            printf("Unable to create a new file.\n");
+            printf("Không thể tạo file mới.\n");
             return 1;
         }
         fputs(line, newFile);
@@ -58,7 +58,7 @@ int main() {
     }
 
     fclose(file);
-    printf("Replacement process completed.\n");
+    printf("Quá trình thay thế đã hoàn thành.\n");
 
     return 0;
 }

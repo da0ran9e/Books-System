@@ -6,7 +6,7 @@
 
 using namespace std;
 
-// Function to split a string into columns based on a delimiter
+// Hàm tách chuỗi thành các cột dựa trên dấu phân tách
 vector<string> splitString(const string &str, char delimiter) {
     vector<string> result;
     stringstream ss(str);
@@ -19,7 +19,6 @@ vector<string> splitString(const string &str, char delimiter) {
     return result;
 }
 
-// Function to remove double quotes from the beginning and end of a string
 string removeQuotes(const string &str) {
     if (str.size() >= 2 && str.front() == '"' && str.back() == '"') {
         return str.substr(1, str.size() - 2);
@@ -27,7 +26,6 @@ string removeQuotes(const string &str) {
     return str;
 }
 
-// Function to escape special characters in a JSON string
 string escapeJsonString(const string &str) {
     ostringstream escaped;
     for (char c : str) {
@@ -43,22 +41,22 @@ string escapeJsonString(const string &str) {
 int main() {
     string inputFileName, outputFileName;
 
-    cout << "Enter the CSV file name: ";
+    cout << "Nhập tên file CSV: ";
     cin >> inputFileName;
 
-    cout << "Enter the JSON output file name: ";
+    cout << "Nhập tên file JSON đầu ra: ";
     cin >> outputFileName;
 
     ifstream inputFile(inputFileName);
     ofstream outputFile(outputFileName);
 
     if (!inputFile.is_open()) {
-        cout << "Unable to open the CSV file." << endl;
+        cout << "Không thể mở file CSV." << endl;
         return 1;
     }
 
     if (!outputFile.is_open()) {
-        cout << "Unable to create the JSON file." << endl;
+        cout << "Không thể tạo file JSON." << endl;
         return 1;
     }
 
@@ -89,7 +87,7 @@ int main() {
     outputFile << "\n]"; // End of JSON array
     outputFile.close();
 
-    cout << "Conversion completed successfully." << endl;
+    cout << "Chuyển đổi thành công." << endl;
 
     return 0;
 }
