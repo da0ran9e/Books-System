@@ -116,7 +116,7 @@ An addition `users` table data is designed to store user information, including 
 - `password`: A VARCHAR column for the user's password (up to 50 characters), which is not nullable.
 - `email`: A nullable VARCHAR column for the user's email address (up to 150 characters).
 - `phone`: A nullable VARCHAR column for the user's phone number (up to 20 characters).
-- `gender`: A nullable TINYINT (tiny integer) column, which can represent gender information.
+- `gender`: A nullable TINYINT (tiny integer) column, which can represent gender information ( 1 for Male, 2 for Female, 3 for Other option).
 - `birthDate`: A nullable DATE column for the user's date of birth.
 - `profileImage`: A nullable VARCHAR column for the path or URL to the user's profile image (up to 350 characters).
 - `age`: A nullable integer column for the user's age.
