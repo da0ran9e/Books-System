@@ -230,7 +230,7 @@ namespace WinForms
             }
 
             //email
-            if (email.Length > 1)
+            if (email!= null && email.Length > 1)
             {
                 for (int i = 0; i < 21; i++)
                 {
