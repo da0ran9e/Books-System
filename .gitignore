@@ -3,6 +3,7 @@
 
 #image files
 *.png
+*.jpg
 
 # Object files
 *.o
