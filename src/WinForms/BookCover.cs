@@ -45,6 +45,7 @@ namespace WinForms
         public void GetBookImage(Book book)
         {
             if (book == null) return;
+            //replace or recreate this directory
             string imgPath = "../../../../../Automation/img/" + book.isbn + ".jpg";
             try
             {
